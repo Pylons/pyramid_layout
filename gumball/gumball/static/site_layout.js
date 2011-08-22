@@ -1,0 +1,7 @@
+
+/* Gumball javascript */
+
+(function($) {
+
+
+})(jQuery);

@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:define-macro="site">
+<head>
+    <title>${project} Application</title>
+    <script type="text/javascript"
+        src="${layout.jslibs_static}/jquery-1.6.2-jquery-ui-1.9m5.min.js"></script>
+   <script type="text/javascript"
+        src="${app.app_static}bottlecap.js"></script>
+    <link type="text/css" rel="stylesheet"
+        href="${layout.jslibs_static}/jquery-ui-1.9m5-smoothness.min.css"></link>
+    <link rel="stylesheet" href="${app.app_static}main.css"/>
+</head>
+<body id="container">
+    <div id="wrapper">
+        <div id="header">
+            <div id="global-nav">
+                <div id="global-sections"
+                     class="inline-list float-inline float-left">
+                    <ul>
+                        <li>
+
+                            <div class="local-nav-link"><img
+                                    style="padding-right: 4px;
+                                    vertical-align: top;"
+                                    src="${app.app_static}logo.png"
+                                    height="18" width="22"/><a
+                                    href="#">KARL</a></div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a href="#">Intranet</a>
+                            </div>
+                            <div class="tail"></div>
+                        </li>
+                        <li class="selected">
+                            <div class="local-nav-link"><a href="#">Communities</a>
+                            </div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a
+                                    href="#">People</a></div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a href="#">Calendar</a>
+                            </div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a href="#">Explore</a>
+                            </div>
+                            <div class="tail"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="members-info" class="inline-list float-right">
+                    <ul>
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="clear"></div>
+            <div id="local">
+                <div id="local-nav"
+                     class="inline-list float-inline float-left">
+                    <div id="section-title">
+                        ${project}
+                    </div>
+                    <div class="clear"></div>
+                    <ul>
+                        <li>
+                            <div class="local-nav-link"><a href="#">Overview</a>
+                            </div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a
+                                    href="#">Blog</a></div>
+                            <div class="tail"></div>
+                        </li>
+                        <li class="selected">
+                            <div class="local-nav-link"><a
+                                    href="#">Wiki</a></div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a href="#">Calendar</a>
+                            </div>
+                            <div class="tail"></div>
+                        </li>
+                        <li>
+                            <div class="local-nav-link"><a
+                                    href="#">Files</a></div>
+                            <div class="tail"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="members-local-nav"
+                     class="inline-list float-left">
+                    <ul>
+                        <li>
+                            <div class="members-local-nav-link">
+                                <a href="#">Members</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="members-local-nav-link">
+                                <a href="#">Explore</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div id="search" class="float-right">
+                    <form>
+                        <div id="site-search-options">
+                            <input type="radio" name="search_options"
+                                   value="All"/> All Karl
+                            <input type="radio" name="search_options"
+                                   value="this_section"/> Only in this
+                            Community
+                        </div>
+
+                        <div id="search-widget">
+                            <select class="float-left">
+                                <option value="volvo">All Content</option>
+                                <option value="saab">This Section</option>
+                            </select>
+
+                            <div id="site-search" class="float-left">
+                                <input id="search-site-box"
+                                       class="float-left" type="text"
+                                       name="SearchTextBox"
+                                       title="Search this site"
+                                       accesskey="4" size="15"/>
+                                <input class="search-site-button float-left"
+                                       type="submit" value="Search"
+                                       name="SearchTextBoxButton"/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+        <div id="main-section">
+            <div id="right-column">
+
+            </div>
+
+            <div id="content">
+                <div id="product-functions">
+                    <div class="float-left inline-list">
+                        <ul>
+                            <li><a href="#">Front Page</a></li>
+                            |
+                            <li><a href="#">Index</a></li>
+                            |
+                            <li><a href="#">Contents</a></li>
+                            |
+                            <li><a href="#">Feed</a></li>
+                            |
+                        </ul>
+                    </div>
+                    <div class="float-right inline-list">
+                        <ul>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Edit</a></li>
+                            <li><a href="#">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear-left"></div>
+                <div class="grid_2" metal:define-slot="content">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- wire up page
+  -- Only wiring! Every functional code
+  -- shall be moved to its own widget. -->
+<script language="javascript" type="text/javascript">
+    //<![CDATA[
+    $(function() {
+
+        // quickpanel activation
+        $('#local-nav > ul > li, #members-local-nav > ul > li').quickpanel({
+        });
+
+    });
+    //]]>
+</script>
+
+<!-- Quickpanels -->
+<div id="quickpanel-overview" class="quickpanel">
+    Lorem ipsum
+</div>
+<div id="quickpanel-blog" class="quickpanel">
+    Lorem ipsum
+</div>
+<div id="quickpanel-wiki" class="quickpanel">
+    Lorem ipsum
+</div>
+<div id="quickpanel-calendar" class="quickpanel">
+    Lorem ipsum
+</div>
+<div id="quickpanel-files" class="quickpanel">
+    Lorem ipsum
+</div>
+<div id="quickpanel-members" class="quickpanel">
+    Lorem ipsum
+</div>
+<div id="quickpanel-explore" class="quickpanel">
+    Lorem ipsum
+</div>
+
+</body>
+</html>

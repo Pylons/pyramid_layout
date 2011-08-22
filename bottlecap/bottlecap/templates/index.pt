@@ -1,0 +1,21 @@
+<div metal:use-macro="layout.site_layout">
+    <div metal:fill-slot="content">
+        <h2>A Very Important Page</h2>
+        <span class="creator">by Paul Everitt, 3 days ago</span>
+
+        <div id='wiki-widget'>
+            Tags: <b class="tag">sometag</b> <input id="search-site-box"
+                                                    type="text"
+                                                    name="SearchTextBox"
+                                                    title="Search this site"
+                                                    accesskey="4"
+                                                    size="15"/>
+            <input type="submit" value="Search"
+                   name="SearchTextBoxButton"/>
+        </div>
+        <p><em>This tracer is here for the WebTest assertion inside
+            test.py
+        </em></p>
+
+    </div>
+</div>

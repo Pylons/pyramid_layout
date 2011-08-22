@@ -1,0 +1,32 @@
+Metadata-Version: 1.0
+Name: gumball
+Version: 0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: ===============
+        Gumball
+        ===============
+        
+        Gumball is a set of decisions, conventions, and a starting point for
+        making a project-specific UX atop Pyramid.  Read the docs/ for
+        more explanation.
+        
+        Next release
+        ============
+        
+        
+        0.1 (2011-07-??)
+        ----------------
+        
+        - Initial release
+        
+Keywords: wsgi pylons pyramid transaction
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+Classifier: Framework :: Pylons
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
