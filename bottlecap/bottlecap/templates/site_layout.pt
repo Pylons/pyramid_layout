@@ -6,9 +6,9 @@
       metal:define-macro="site">
 <head>
     <title>${project} Application</title>
-    <script type="text/javascript"
-        src="${app.app_static}bottlecap.js"></script>
     <link rel="stylesheet" href="${app.app_static}main.css"/>
+
+    <metal:headslot metal:define-slot="head_slot" />
 </head>
 <body id="container">
     <div id="wrapper">
@@ -223,6 +223,11 @@
     <div id="quickpanel-explore" class="quickpanel">
         Lorem ipsum
     </div>
+
+    <script type="text/javascript"
+        src="${app.app_static}bottlecap.js"></script>
+
+    <metal:tailslot metal:define-slot="tail_slot" />
 
 </body>
 </html>
