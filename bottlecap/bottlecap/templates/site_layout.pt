@@ -5,6 +5,8 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:define-macro="site">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <title>${project} Application</title>
     <link rel="stylesheet" href="${app.app_static}main.css"/>
 
