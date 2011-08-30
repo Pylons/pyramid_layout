@@ -22,3 +22,7 @@ these steps::
 Now you can run the tests for a project from the root::
 
   bin/python bottlecap/setup.py test
+
+To start the application run::
+
+  bin/python bottlecap/bottlecap/application.py
