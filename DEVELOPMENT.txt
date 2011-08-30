@@ -10,6 +10,7 @@ these steps::
   git clone git@github.com:pauleveritt/lemonade.git
   cd lemonade
   virtualenv-2.7 --distribute -p python2.7 .
+  bin/pip install -r requirements.txt
 
   cd gumball
   ../bin/python setup.py develop
