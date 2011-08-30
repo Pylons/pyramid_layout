@@ -226,7 +226,7 @@
         Lorem ipsum
     </div>
 
-    <script type="text/javascript"
+    <script type="text/javascript" defer
         src="${app.app_static}bottlecap.js"></script>
 
     <metal:tailslot metal:define-slot="tail_slot" />
