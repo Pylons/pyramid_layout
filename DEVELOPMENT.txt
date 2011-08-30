@@ -10,5 +10,15 @@ these steps::
   git clone git@github.com:pauleveritt/lemonade.git
   cd lemonade
   virtualenv-2.7 --distribute -p python2.7 .
-  cd lemonade
+
+  cd gumball
   ../bin/python setup.py develop
+  cd ../lemonade
+  ../bin/python setup.py develop
+  cd ../bottlecap
+  ../bin/python setup.py develop
+  cd ..
+
+Now you can run the tests for a project from the root::
+
+  bin/python bottlecap/setup.py test
