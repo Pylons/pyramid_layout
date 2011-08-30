@@ -48,7 +48,7 @@ def inject_static(config):
     # TODO sure would be nice if I could make a Configurator instance
     # and do this myself
 
-    config.add_static_view('static-jslibs', 'jslibs:resources/',
-                           cache_max_age=86400)
+    # config.add_static_view('static-jslibs', 'jslibs:resources/',
+    #                        cache_max_age=86400)
     config.add_static_view('static', 'gumball:static/',
                            cache_max_age=86400)
