@@ -13,6 +13,7 @@ except IOError:
 install_requires = [
     'pyramid',
     'sphinx',
+    'gumball',
     ]
 
 test_requires = [
@@ -45,7 +46,7 @@ setup(name='bottlecap',
       zip_safe=False,
       install_requires=install_requires,
       tests_require=install_requires+test_requires,
-      test_suite="bottlecap",
+      test_suite="bottlecap.tests",
       entry_points="""\
         """,
       )

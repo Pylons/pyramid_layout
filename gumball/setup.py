@@ -12,7 +12,7 @@ except IOError:
 
 install_requires = [
     'pyramid',
-    'jslibs',
+    # 'jslibs',
     ]
 
 test_requires = [
