@@ -18,7 +18,6 @@
                      class="inline-list float-inline float-left">
                     <ul>
                         <li>
-
                             <div class="local-nav-link"><img
                                     style="padding-right: 4px;
                                     vertical-align: top;"
@@ -61,10 +60,10 @@
                         <li><a href="#">Help</a></li>
                     </ul>
                 </div>
-
             </div>
 
             <div class="clear"></div>
+
             <div id="local">
                 <div id="local-nav"
                      class="inline-list float-inline float-left">
@@ -116,7 +115,6 @@
                         </li>
                     </ul>
                 </div>
-
 
                 <div id="search" class="float-right">
                     <form>
@@ -184,16 +182,13 @@
                 <div class="grid_2" metal:define-slot="content">
                 </div>
 
-
             </div>
         </div>
     </div>
 
-
-
 <!-- wire up page
-  -- Only wiring! Every functional code
-  -- shall be moved to its own widget. -->
+  - Only wiring! Every functional code
+  - shall be moved to its own widget. -->
 <script language="javascript" type="text/javascript">
     //<![CDATA[
     $(function() {
@@ -206,28 +201,28 @@
     //]]>
 </script>
 
-<!-- Quickpanels -->
-<div id="quickpanel-overview" class="quickpanel">
-    Lorem ipsum
-</div>
-<div id="quickpanel-blog" class="quickpanel">
-    Lorem ipsum
-</div>
-<div id="quickpanel-wiki" class="quickpanel">
-    Lorem ipsum
-</div>
-<div id="quickpanel-calendar" class="quickpanel">
-    Lorem ipsum
-</div>
-<div id="quickpanel-files" class="quickpanel">
-    Lorem ipsum
-</div>
-<div id="quickpanel-members" class="quickpanel">
-    Lorem ipsum
-</div>
-<div id="quickpanel-explore" class="quickpanel">
-    Lorem ipsum
-</div>
+    <!-- Quickpanels -->
+    <div id="quickpanel-overview" class="quickpanel">
+        Lorem ipsum
+    </div>
+    <div id="quickpanel-blog" class="quickpanel">
+        Lorem ipsum
+    </div>
+    <div id="quickpanel-wiki" class="quickpanel">
+        Lorem ipsum
+    </div>
+    <div id="quickpanel-calendar" class="quickpanel">
+        Lorem ipsum
+    </div>
+    <div id="quickpanel-files" class="quickpanel">
+        Lorem ipsum
+    </div>
+    <div id="quickpanel-members" class="quickpanel">
+        Lorem ipsum
+    </div>
+    <div id="quickpanel-explore" class="quickpanel">
+        Lorem ipsum
+    </div>
 
 </body>
 </html>
