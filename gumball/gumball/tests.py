@@ -1,6 +1,8 @@
 import unittest
 
+
 class FunctionalTests(unittest.TestCase):
+
     def setUp(self):
         from gumball.sample.application import main
         app = main()
@@ -9,13 +11,13 @@ class FunctionalTests(unittest.TestCase):
 
     def test_site_layout(self):
         res = self.testapp.get('/', status=200)
-        self.failUnless('site_layout' in res.body)
+        self.assertTrue('site_layout' in res.body)
 
     def test_index(self):
         res = self.testapp.get('/', status=200)
-        self.failUnless('testable' in res.body)
+        self.assertTrue('testable' in res.body)
 
     def test_static_jslibs(self):
         url = '/static-jslibs/jquery-1.6.2-jquery-ui-1.9m5.min.js'
         res = self.testapp.get(url, status=200)
-        self.failUnless('sizzle' in res.body)
+        self.assertTrue('sizzle' in res.body)

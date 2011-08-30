@@ -11,4 +11,4 @@ class FunctionalTests(unittest.TestCase):
 
     def test_root(self):
         res = self.testapp.get('/', status=200)
-        self.failUnless('tracer' in res.body)
+        self.assertTrue('tracer' in res.body)
