@@ -25,6 +25,7 @@ This set of documents is that process.  The word KARL occasionally pops
  .. toctree::
     :maxdepth: 1
 
+    terminology
     problems
     designgoals
     wireframe
