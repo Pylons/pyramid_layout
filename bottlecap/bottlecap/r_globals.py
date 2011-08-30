@@ -9,8 +9,7 @@ from gumball.layout import LayoutManager
 
 @subscriber(BeforeRender)
 def add_renderer_globals(event):
-    system = event._system
-    request, context = system['request'], system['context']
+    request, context = event['request'], event['context']
     layout = LayoutManager(context, request)
     layout.layout_template = "bottlecap:/templates/site_layout.pt"
     event['layout'] = layout
