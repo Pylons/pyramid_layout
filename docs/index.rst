@@ -29,7 +29,7 @@ More Information
 .. toctree::
    :maxdepth: 2
 
-   motivation
+   motivation/index
 
 Reporting Bugs / Development Versions
 -------------------------------------
