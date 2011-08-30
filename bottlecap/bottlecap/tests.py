@@ -1,6 +1,8 @@
 import unittest
 
+
 class FunctionalTests(unittest.TestCase):
+
     def setUp(self):
         from bottlecap.application import main
         app = main()
