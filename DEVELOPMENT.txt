@@ -1,0 +1,14 @@
+Development
+===========
+
+You can find the source code and issue tracker at
+https://github.com/pauleveritt/lemonade
+
+To get a development environment, you need `virtualenv` and follow
+these steps::
+
+  git clone git@github.com:pauleveritt/lemonade.git
+  cd lemonade
+  virtualenv-2.7 --distribute -p python2.7 .
+  cd lemonade
+  ../bin/python setup.py develop
