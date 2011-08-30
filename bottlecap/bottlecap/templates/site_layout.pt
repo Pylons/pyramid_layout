@@ -15,8 +15,8 @@
 
     <metal:headslot metal:define-slot="head_slot" />
 </head>
-<body id="container">
-    <div id="wrapper">
+<body>
+    <div id="container">
         <div id="header">
             <div id="global-nav">
                 <div id="global-sections"
