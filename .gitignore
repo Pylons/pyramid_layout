@@ -4,3 +4,4 @@ include
 lib
 /*/*.egg-info
 /*.egg
+docs/_*
