@@ -8,11 +8,8 @@ PasteScript==1.7.4.2
 Pygments==1.4
 Sphinx==1.0.7
 WebOb==1.1rc1
-bottlecap==0.1
 distribute==0.6.19
 docutils==0.8.1
-gumball==0.1
-lemonade==0.1
 pyramid==1.2a3
 repoze.lru==0.3
 translationstring==0.3
