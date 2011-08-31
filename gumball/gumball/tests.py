@@ -17,6 +17,7 @@ class FunctionalTests(unittest.TestCase):
         res = self.testapp.get('/', status=200)
         self.assertTrue('testable' in res.body)
 
+    @unittest.expectedFailure
     def test_static_jslibs(self):
         url = '/static-jslibs/jquery-1.6.2-jquery-ui-1.9m5.min.js'
         res = self.testapp.get(url, status=200)
