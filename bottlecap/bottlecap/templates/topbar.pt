@@ -41,7 +41,7 @@
     </div>
     <div id="members-info" class="inline-list float-right">
         <ul>
-            <li><a href="#">My Profile</a></li>
+            <li><a href="#">${profile_name}</a></li>
             <li><a href="#">Logout</a></li>
             <li><a href="#">Help</a></li>
         </ul>
