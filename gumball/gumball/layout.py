@@ -7,7 +7,7 @@ from pyramid.url import static_url
 class LayoutManager(object):
 
     layout_template = "gumball:/templates/site_layout.pt"
-    snippets_template = "gumball:/templates/snippets.pt"
+    uicomponents_template = "gumball:/templates/uicomponents.pt"
 
     def __init__(self, context, request):
         self.context = context
@@ -20,8 +20,8 @@ class LayoutManager(object):
         return macros
 
     @reify
-    def snippets(self):
-        renderer = get_renderer(self.snippets_template)
+    def uicomponents(self):
+        renderer = get_renderer(self.uicomponents_template)
         macros = renderer.implementation().macros
         return macros
 
