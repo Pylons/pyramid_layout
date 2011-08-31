@@ -11,7 +11,7 @@ from pyramid.events import subscriber
 def add_renderer_globals(event):
     request, context = event['request'], event['context']
     layout = LayoutManager(context, request)
-    layout.layout_template = "bottlecap:/templates/site_layout.pt"
+    layout.layout_templates['site'] = "bottlecap:/templates/site_layout.pt"
     layout.uicomponents_template = "bottlecap:/templates/uicomponents.pt"
     event['layout'] = layout
     event['app'] = dict(app_static="/bc-static/")

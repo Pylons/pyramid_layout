@@ -6,17 +6,18 @@ from pyramid.url import static_url
 
 class LayoutManager(object):
 
-    layout_template = "gumball:/templates/site_layout.pt"
+    layout_templates = None
     uicomponents_template = "gumball:/templates/uicomponents.pt"
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        self.layout_templates = {}
+        self.layout_templates['site'] = "gumball:/templates/site_layout.pt"
 
-    @reify
-    def site_layout(self):
-        renderer = get_renderer(self.layout_template)
-        macros = renderer.implementation().macros['site']
+    def __getitem__(self, key):
+        renderer = get_renderer(self.layout_templates[key])
+        macros = renderer.implementation().macros[key]
         return macros
 
     @reify
