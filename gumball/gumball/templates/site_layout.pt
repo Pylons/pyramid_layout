@@ -1,23 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      metal:define-macro="site">
+<metal:page define-macro="site">
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title>${project} Application</title>
-    <script type="text/javascript"
-            src="${layout.jslibs_static}jquery-1.6.2-jquery-ui-1.9m5.min.js"></script>
-    <script type="text/javascript"
-            src="${layout.gumball_static}site_layout.js"></script>
-    <link type="text/css" rel="stylesheet"
-          href="${layout.jslibs_static}jquery-ui-1.9m5-smoothness.min.css"></link>
+    <meta charset="utf-8" />
+
+    <metal:titleslot metal:define-slot="title_slot">
+        <title>${project} Application</title>
+    </metal:titleslot>
+
     <link rel="stylesheet" href="${layout.gumball_static}site_layout.css"/>
+
+    <metal:headslot metal:define-slot="head_slot" />
 </head>
 <body>
-<div metal:define-slot="content">
-</div>
-<p><em>Added from site_layout</em>.</p>
+    <div metal:define-slot="content">
+    </div>
+
+    <p><em>Added from site_layout</em>.</p>
+
+    <script type="text/javascript"
+            src="${layout.gumball_static}site_layout.js"></script>
+
+    <metal:tailslot metal:define-slot="tail_slot" />
 
 </body>
 </html>
+</metal:page>
