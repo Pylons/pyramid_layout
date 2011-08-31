@@ -3,6 +3,7 @@ from pyramid.renderers import get_renderer
 from pyramid.url import resource_url
 from pyramid.url import static_url
 
+
 class LayoutManager(object):
 
     layout_template = "gumball:/templates/site_layout.pt"
@@ -43,6 +44,7 @@ class LayoutManager(object):
     @reify
     def deform_static(self):
         return static_url('deform:static/', self.request)
+
 
 def inject_static(config):
     # TODO sure would be nice if I could make a Configurator instance

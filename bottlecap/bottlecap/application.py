@@ -1,7 +1,7 @@
-from pyramid.config import Configurator
-from paste.httpserver import serve
-
 from gumball.layout import inject_static
+from paste.httpserver import serve
+from pyramid.config import Configurator
+
 
 def main():
     config = Configurator()
@@ -11,6 +11,7 @@ def main():
                            cache_max_age=86400)
     app = config.make_wsgi_app()
     return app
+
 
 if __name__ == '__main__':
     app = main()
