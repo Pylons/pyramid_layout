@@ -4,27 +4,31 @@ from pyramid.url import resource_url
 from pyramid.url import static_url
 
 
+class MacroLookupDict(dict):
+
+    def __getitem__(self, key):
+        value = dict.__getitem__(self, key)
+        renderer = get_renderer(value)
+        macro = renderer.implementation().macros[key]
+        return macro
+
+
 class LayoutManager(object):
 
     layout_templates = None
-    uicomponents_template = "gumball:/templates/uicomponents.pt"
+    components = None
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
         self.layout_templates = {}
         self.layout_templates['site'] = "gumball:/templates/site_layout.pt"
+        self.components = MacroLookupDict()
 
     def __getitem__(self, key):
         renderer = get_renderer(self.layout_templates[key])
-        macros = renderer.implementation().macros[key]
-        return macros
-
-    @reify
-    def uicomponents(self):
-        renderer = get_renderer(self.uicomponents_template)
-        macros = renderer.implementation().macros
-        return macros
+        macro = renderer.implementation().macros[key]
+        return macro
 
     @reify
     def context_url(self):

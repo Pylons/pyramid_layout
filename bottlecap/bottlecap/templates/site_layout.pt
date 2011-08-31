@@ -18,54 +18,8 @@
 <body>
     <div id="container">
         <div id="header">
-            <div id="global-nav">
-                <div id="global-sections"
-                     class="inline-list float-inline float-left">
-                    <ul>
-                        <li>
-                            <div class="local-nav-link"><img
-                                    style="padding-right: 4px;
-                                    vertical-align: top;"
-                                    src="${app.app_static}logo.png"
-                                    height="18" width="22"/><a
-                                    href="#">KARL</a></div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a href="#">Intranet</a>
-                            </div>
-                            <div class="tail"></div>
-                        </li>
-                        <li class="selected">
-                            <div class="local-nav-link"><a href="#">Communities</a>
-                            </div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a
-                                    href="#">People</a></div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a href="#">Calendar</a>
-                            </div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a href="#">Explore</a>
-                            </div>
-                            <div class="tail"></div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="members-info" class="inline-list float-right">
-                    <ul>
-                        <li><a href="#">My Profile</a></li>
-                        <li><a href="#">Logout</a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </div>
-            </div>
+
+            <metal:topbar metal:use-macro="layout.components['topbar']" />
 
             <div class="clear"></div>
 
