@@ -15,20 +15,18 @@ class MacroLookupDict(dict):
 
 class LayoutManager(object):
 
-    layout_templates = None
+    layouts = None
     components = None
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.layout_templates = {}
-        self.layout_templates['site'] = "gumball:/templates/site_layout.pt"
+        self.layouts = MacroLookupDict()
+        self.layouts['site'] = "gumball:/templates/site_layout.pt"
         self.components = MacroLookupDict()
 
     def __getitem__(self, key):
-        renderer = get_renderer(self.layout_templates[key])
-        macro = renderer.implementation().macros[key]
-        return macro
+        return self.layouts[key]
 
     @reify
     def context_url(self):
