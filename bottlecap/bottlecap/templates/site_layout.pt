@@ -19,7 +19,7 @@
     <div id="container">
         <div id="header">
 
-            <metal:topbar metal:use-macro="layout.components['topbar']" />
+            <tal:topbar tal:content="structure layout.component('bottlecap.topbar')" />
 
             <div class="clear"></div>
 
