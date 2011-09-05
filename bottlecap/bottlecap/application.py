@@ -1,4 +1,3 @@
-from gumball.layout import inject_static
 from paste.httpserver import serve
 from pyramid.config import Configurator
 
@@ -16,9 +15,8 @@ def main():
     config.registry.settings['pyramid.reload_templates'] = True
     # normal setup
     config.scan("bottlecap")
-    config.include(inject_static)
-    config.add_static_view('bc-static', 'bottlecap:static/',
-                           cache_max_age=86400)
+    from bottlecap import layout
+    config.include(layout.configure)
     app = config.make_wsgi_app()
     return app
 

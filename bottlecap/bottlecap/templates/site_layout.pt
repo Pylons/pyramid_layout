@@ -11,7 +11,7 @@
         <title>${project} Application</title>
     </metal:titleslot>
 
-    <link rel="stylesheet" href="${app.app_static}main.css"/>
+    <link rel="stylesheet" href="${layout.bottlecap_static}main.css"/>
 
     <metal:headslot metal:define-slot="head_slot" />
 </head>
@@ -186,7 +186,7 @@
     </div>
 
     <script type="text/javascript" defer
-        src="${app.app_static}bottlecap.js"></script>
+        src="${layout.bottlecap_static}bottlecap.js"></script>
 
     <metal:tailslot metal:define-slot="tail_slot" />
 

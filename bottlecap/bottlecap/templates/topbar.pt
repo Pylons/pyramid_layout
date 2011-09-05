@@ -6,7 +6,7 @@
                 <div class="local-nav-link"><img
                         style="padding-right: 4px;
                         vertical-align: top;"
-                        src="${app.app_static}logo.png"
+                        src="${layout.bottlecap_static}logo.png"
                         height="18" width="22"/><a
                         href="#">KARL</a></div>
                 <div class="tail"></div>
