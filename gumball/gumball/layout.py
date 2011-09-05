@@ -6,7 +6,7 @@ from pyramid.view import render_view
 
 
 class Structure(unicode):
-    # Wrapping a string in this class, avoids having to prefix the value
+    # Wrapping a string in this class avoids having to prefix the value
     # with `structure` in TAL
 
     def __html__(self):
