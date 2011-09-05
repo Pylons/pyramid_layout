@@ -4,10 +4,6 @@ Todo
 Hanno
 -----
 
-- Denys dislikes the [] in::
-
-    <div metal:use-macro="layout['site']">
-
 - More readable static resource includes::
 
     ${app.app_static}/main.css

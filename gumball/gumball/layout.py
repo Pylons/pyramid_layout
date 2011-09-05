@@ -23,7 +23,7 @@ class LayoutManager(object):
         self.layouts = {}
         self.layouts['site'] = "gumball:/templates/site_layout.pt"
 
-    def __getitem__(self, key):
+    def use(self, key):
         value = self.layouts[key]
         renderer = get_renderer(value)
         macro = renderer.implementation().macros[key]

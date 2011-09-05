@@ -1,4 +1,4 @@
-<div metal:use-macro="layout['site']">
+<div metal:use-macro="layout.use('site')">
     <div metal:fill-slot="content">
         <h2>An Example Page</h2>
 
