@@ -19,7 +19,9 @@
     <div id="container">
         <div id="header">
 
-            <tal:topbar tal:content="structure layout.component('bottlecap.topbar')" />
+            <tal:topbar tal:content="structure layout.component('bottlecap.topbar')">
+                Top bar
+            </tal:topbar>
 
             <div class="clear"></div>
 
