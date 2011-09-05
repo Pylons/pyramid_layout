@@ -13,4 +13,4 @@ def add_renderer_globals(event):
     layout = LayoutManager(context, request)
     layout.layouts['site'] = "bottlecap:/templates/site_layout.pt"
     event['layout'] = layout
-    event['app'] = dict(app_static="/bc-static/")
+    event['app'] = dict(app_static="/bc-static")
