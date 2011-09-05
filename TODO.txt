@@ -8,14 +8,6 @@ Hanno
 
     <div metal:use-macro="layout['site']">
 
-- We should get rid of the `structure` in::
-
-    <tal:topbar tal:content="structure layout.component('bottlecap.topbar')">
-        Top bar
-    </tal:topbar>
-
-  We should be able to do that via a `__html__` hook for the template.
-
 - More readable static resource includes::
 
     ${app.app_static}/main.css

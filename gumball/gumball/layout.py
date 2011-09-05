@@ -5,6 +5,14 @@ from pyramid.url import static_url
 from pyramid.view import render_view
 
 
+class Structure(unicode):
+    # Wrapping a string in this class, avoids having to prefix the value
+    # with `structure` in TAL
+
+    def __html__(self):
+        return self
+
+
 class LayoutManager(object):
 
     layouts = None
@@ -22,7 +30,7 @@ class LayoutManager(object):
         return macro
 
     def component(self, name):
-        return render_view(self.context, self.request, name)
+        return Structure(render_view(self.context, self.request, name))
 
     @reify
     def context_url(self):
