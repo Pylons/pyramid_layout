@@ -4,16 +4,6 @@ Todo
 Hanno
 -----
 
-- More readable static resource includes::
-
-    ${app.app_static}/main.css
-
-  instead of::
-
-    ${app.app_static}main.css
-
-  (for all ${} constructs)
-
 - Split LayoutManager into a global `setup-once` component and a request
   specific part.
 
