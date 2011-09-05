@@ -1,4 +1,3 @@
-<metal:topbar metal:define-macro="topbar">
 <div id="global-nav">
     <div id="global-sections"
          class="inline-list float-inline float-left">
@@ -47,4 +46,3 @@
         </ul>
     </div>
 </div>
-</metal:topbar>
