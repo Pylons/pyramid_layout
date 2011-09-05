@@ -194,6 +194,10 @@
     <div id="quickpanel-explore" class="quickpanel">
         Lorem ipsum
     </div>
+    
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="${app.app_static}/jquery-1.6.3.min.js"><\/script>')</script>
 
     <script type="text/javascript" defer
         src="${app.app_static}bottlecap.js"></script>
