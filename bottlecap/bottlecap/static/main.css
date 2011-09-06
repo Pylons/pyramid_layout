@@ -580,10 +580,10 @@ table th {
   float: left;
 }
 #top-bar nav li {
-  display: inline;
+  float: left;
 }
 #top-bar nav a {
-  float: left;
+  display: block;
 }
 #top-bar nav li:first-of-type {
   position: relative;
@@ -632,6 +632,14 @@ table th {
   border-right: 10px solid transparent;
   border-top: 11px solid #007fcd;
   border-bottom: 0;
+}
+.no-generatedcontent #top-bar nav .selected {
+  background-position: 50% 100%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAMAAACDi47UAAAAD1BMVEX///8vgsgvgskwgskwg8l4zOggAAAAAXRSTlMAQObYZgAAAEVJREFUeNpFjMENADEMwrjA/jOXC1Wx8kAGBRyjCXIgCUT6tJIjGEf+4lMKLMOM0+JiQ6s9PDTx13Xbf7W7TS4cdtdt3QGd1wEpPs2mhgAAAABJRU5ErkJggg==');
+  padding-bottom: 10px;
+  margin-bottom: -10px;
 }
 .no-cssgradients #top-bar nav a:hover, .no-cssgradients #top-bar nav .selected a {
   background: #007fcd;
