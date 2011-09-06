@@ -1,0 +1,16 @@
+Todo
+====
+
+Hanno
+-----
+
+- Split LayoutManager into a global `setup-once` component and a request
+  specific part.
+
+- Document UI components:
+  - They are views, so no new `registry`
+  - As views they can be invoked directly, to get simple ESI / AJAX
+  - Possible namespace pollution by UI components into `real` view namespace -
+    use some namespace prefix - standardize on something?
+
+- Can we reduce the boilerplate in r_globals?

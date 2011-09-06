@@ -4,16 +4,17 @@ from pyramid.url import resource_url
 from pyramid.url import static_url
 from pyramid.view import render_view
 
+LAYOUTS = {
+    'site': 'gumball:/templates/site_layout.pt',
+}
+
 
 class LayoutManager(object):
 
-    layouts = None
-
-    def __init__(self, context, request):
+    def __init__(self, context, request, layouts):
         self.context = context
         self.request = request
-        self.layouts = {}
-        self.layouts['site'] = "gumball:/templates/site_layout.pt"
+        self.layouts = layouts
 
     def __getitem__(self, key):
         value = self.layouts[key]
@@ -22,7 +23,7 @@ class LayoutManager(object):
         return macro
 
     def component(self, name):
-        return render_view(self.context, self.request, name)
+        return Structure(render_view(self.context, self.request, name))
 
     @reify
     def context_url(self):
@@ -45,10 +46,15 @@ class LayoutManager(object):
         return static_url('deform:static/', self.request)
 
 
-def inject_static(config):
-    # TODO sure would be nice if I could make a Configurator instance
-    # and do this myself
+class Structure(unicode):
+    # Wrapping a string in this class avoids having to prefix the value
+    # with `structure` in TAL
 
+    def __html__(self):
+        return self
+
+
+def configure(config):
     # config.add_static_view('static-jslibs', 'jslibs:resources/',
     #                        cache_max_age=86400)
     config.add_static_view('static', 'gumball:static/',

@@ -1,9 +1,8 @@
-<metal:topbar metal:define-macro="topbar">
 <div id="top-bar">
     <nav>
         <ul id="global-nav">
             <li><a href="#" title="KARL home page">
-                    <img src="${app.app_static}/logo.png" 
+                    <img src="${layout.bottlecap_static}logo.png" 
                          width="33" height="34" alt="KARL logo" />
                     KARL
                 </a>
@@ -21,4 +20,3 @@
         <li><a href="#">Help</a></li>
     </ul>
 </div>
-</metal:topbar>
