@@ -69,12 +69,12 @@ textarea {
  * Also: hot pink! (or customize the background color to match your design)
  */
 ::-moz-selection {
-  background: #fe57a1;
+  background: #8B769D;
   color: #fff;
   text-shadow: none;
 }
 ::selection {
-  background: #fe57a1;
+  background: #8B769D;
   color: #fff;
   text-shadow: none;
 }
@@ -506,14 +506,192 @@ fieldset label {
   display: inline-block;
   color: #ff0000;
 }
+/* Color schema is based on the #DBEBD4 color using Pentogram Harmony Rule */
 /* @group Base styles */
+a:link {
+  color: #34b2ff;
+}
+a:visited {
+  color: #ff3c27;
+}
+a:hover {
+  color: #6f4493;
+}
 table th {
-  /*color: darken(@logoBlue, 20%);
-	text-shadow: 0 1px 0 lighten(@logoBlue, 30%);
-	.css3_linear_gradient(lighten(@logoBlue, 30%), lighten(@logoBlue, 20%));*/
-
+  background-color: #cdecff;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /* @end */
+/* @group Top Bar with the global naviagtion */
+#top-bar {
+  background: #cdecff;
+  background-image: -moz-linear-gradient(top, #cdecff, #9ad9ff);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, #cdecff, #9ad9ff);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, #cdecff, #9ad9ff);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cdecff), to(#9ad9ff));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, #cdecff, #9ad9ff);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, #cdecff, #9ad9ff);
+  border-bottom: 1px solid #019eff;
+  color: #004067;
+  content: "";
+  display: table;
+  *zoom: 1;
+  width: 100%;
+  padding: 0;
+}
+#top-bar a {
+  text-decoration: none;
+  color: #004067;
+}
+.no-cssgradients #top-bar {
+  background: #cdecff;
+}
+#top-bar nav, #members-info {
+  float: none;
+  clear: both;
+  list-style: none;
+  clear: none;
+  margin: 0;
+  padding: 0 9.331px;
+}
+#top-bar nav > *, #members-info > * {
+  display: inline;
+}
+#top-bar nav > * > *, #members-info > * > * {
+  float: none;
+  display: inline-block;
+}
+#top-bar nav li a, #members-info li a {
+  padding: 9.331px;
+  margin: 0 1px 0 0;
+  position: relative;
+}
+#top-bar nav {
+  float: left;
+}
+#top-bar nav li {
+  display: inline;
+}
+#top-bar nav a {
+  float: left;
+}
+#top-bar nav li:first-of-type {
+  position: relative;
+}
+#top-bar nav li:first-of-type a {
+  font-weight: bold;
+  font-size: 1.269em;
+  padding-left: 35px;
+}
+#top-bar nav li:first-of-type img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -17px;
+}
+#top-bar nav a:hover, #top-bar nav .selected a {
+  background: #019eff;
+  background-image: -moz-linear-gradient(top, #019eff, #007fcd);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, #019eff, #007fcd);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, #019eff, #007fcd);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#019eff), to(#007fcd));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, #019eff, #007fcd);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, #019eff, #007fcd);
+  color: #fff;
+}
+#top-bar nav .selected a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 11px solid #007fcd;
+  border-bottom: 0;
+}
+.no-cssgradients #top-bar nav a:hover, .no-cssgradients #top-bar nav .selected a {
+  background: #007fcd;
+}
+#members-info {
+  float: right;
+  text-align: right;
+  font-size: 0.75em;
+  font-family: Verdana, sans-serif;
+}
+#members-info a:hover {
+  color: #007fcd;
+}
+#members-info li:first-of-type a {
+  background-color: transparent;
+  background-position: 0% 47%;
+  background-repeat: no-repeat;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAa0lEQVR42o2QwQnAMAhFvfaUUTJC6QSO0WNHcoSO0BEyQkboCImFf8jho/3wQNAnqKzZjrM4jzM+UBdhgWAYXLFIeIkwIqERoUeCEuFCO5RuoIJEQnV2ULPNnd3gKH1ngpFDU5S8MqQJit9M5tuNQQq33mAAAAAASUVORK5CYII=');
+  padding-left: 14px;
+}
+/* @end */
+#local {
+  clear: both;
+  background-color: #dbebd4;
+}
+#right-column {
+  float: right;
+  width: 200px;
+  padding: 10px;
+  background: #ededed;
+  min-height: 400px;
+}
+#content {
+  margin-right: 220px;
+  min-height: 380px;
+}
+#footer {
+  background-color: #d2c6a8;
+  border: 1px solid #000;
+  margin-top: 20px;
+  text-align: center;
+}
+/* quickpanels */
+.quickpanel {
+  display: none;
+}
+.quickpanel-dialog .ui-dialog-titlebar {
+  background: white;
+  border: 0;
+}
+.north-tail {
+  background: url("fluid_background_tail_north_black.png") no-repeat scroll center;
+  height: 10px;
+  width: 14px;
+}
+.south-tail {
+  background: url("fluid_background_tail_black.png") no-repeat scroll center;
+  height: 10px;
+  width: 14px;
+}
 /* @end */
 /* @group HTML5 boilerplate helpers */
 /* ==|== media queries ======================================================
