@@ -33,8 +33,6 @@
 
             <tal:topbar tal:content="structure layout.component('bottlecap.topbar')" />
 
-            <div class="clear"></div>
-
             <div id="local">
                 <div id="local-nav"
                      class="inline-list float-inline float-left">
