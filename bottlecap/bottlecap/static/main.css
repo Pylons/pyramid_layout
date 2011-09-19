@@ -323,64 +323,64 @@ td {
    Author:
    ========================================================================== */
 /* @group Author styles */
-/* Modular Scale 
+/* Modular Scale
 // All the relative values are taken from the table below.
----------------------- 
-// 14px @ 1:1.333
-// 10px @ 1:1.333	 
+----------------------
+// 15px @ 1:1.333
+// 10px @ 1:1.333
 ----------------------
 
-Pixels		Ems		% of 13
-1,043.688	74.549	8,028.369
-993.755		70.983	7,644.269
-782.962		55.926	6,022.785
-745.503		53.25	5,734.638
-587.368		41.955	4,518.215
-559.267		39.948	4,302.054
-440.636		31.474	3,389.508
-419.555		29.968	3,227.346
-330.560		23.611	2,542.769
-314.745		22.482	2,421.115
-247.982		17.713	1,907.554
-236.118		16.866	1,816.292
-186.033		13.288	1,431.023
-177.133		12.652	1,362.562
-139.560		 9.969	1,073.538
-132.883		 9.492	1,022.177
-104.696		 7.478	  805.354
-99.687		 7.121	  766.823
-78.542		 5.61	  604.169
-74.784		 5.342	  575.262
-58.921		 4.209	  453.238
-56.102		 4.007	  431.554
-44.202		 3.157	  340.015
-42.087		 3.006	  323.746
-33.160		 2.369	  255.077
-31.573		 2.255	  242.869
-24.876		 1.777	  191.354
-23.686		 1.692	  182.200
-18.662		 1.333	  143.554
-17.769		 1.269	  136.685
-14.000		 1		  107.692  *
-13.330		 0.952	  102.538
-10.503		 0.75	   80.792
-10.000		 0.714	   76.923  *
-7.879		 0.563	   60.608
-7.502		 0.536	   57.708
-5.911		 0.422	   45.469
-5.628		 0.402	   43.292
-4.434		 0.317	   34.108
-4.222		 0.302	   32.477
-3.326		 0.238	   25.585
-3.167		 0.226	   24.362
-2.495		 0.178	   19.192
-2.376		 0.17	   18.277
-1.872		 0.134	   14.400
-1.782		 0.127	   13.708
-1.404		 0.1	   10.800
-1.337		 0.096	   10.285
-1.053		 0.075	    8.100
-1.003		 0.072	    7.715
+  Pixels      Ems       % of 13
+1,118.244    74.55     8,601.877
+  993.755    66.25     7,644.269
+  838.893    55.926    6,453.023
+  745.503    49.7      5,734.638
+  629.327    41.955    4,840.977
+  559.267    37.284    4,302.054
+  472.113    31.474    3,631.638
+  419.555    27.97     3,227.346
+  354.173    23.612    2,724.408
+  314.745    20.983    2,421.115
+  265.696    17.713    2,043.815
+  236.118    15.741    1,816.292
+  199.322    13.288    1,533.246
+  177.133    11.809    1,362.562
+  149.529     9.969    1,150.223
+  132.883     8.859    1,022.177
+  112.175     7.478      862.885
+   99.687     6.646      766.823
+   84.152     5.61       647.323
+   74.784     4.986      575.262
+   63.130     4.209      485.615
+   56.102     3.74       431.554
+   47.359     3.157      364.300
+   42.087     2.806      323.746
+   35.528     2.369      273.292
+   31.573     2.105      242.869
+   26.653     1.777      205.023
+   23.686     1.579      182.200
+   19.995     1.333      153.808
+   17.769     1.185      136.685
+   15.000     1          115.385 *
+   13.330     0.889      102.538
+   11.253     0.75        86.562
+   10.000     0.667       76.923 *
+    8.442     0.563       64.938
+    7.502     0.5         57.708
+    6.333     0.422       48.715
+    5.628     0.375       43.292
+    4.751     0.317       36.546
+    4.222     0.281       32.477
+    3.564     0.238       27.415
+    3.167     0.211       24.362
+    2.674     0.178       20.569
+    2.376     0.158       18.277
+    2.006     0.134       15.431
+    1.782     0.119       13.708
+    1.505     0.1         11.577
+    1.337     0.089       10.285
+    1.129     0.075        8.685
+    1.003     0.067        7.715
 */
 /* Generic platform-independent typography and rhythm definition.
 ** DON'T put platform specific styles here. Use separate .less file
@@ -400,32 +400,34 @@ Pixels		Ems		% of 13
   bottom: -0.25em;
 }
 body {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Calluna Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 h1, h2, h3 {
   padding-top: 0;
   padding-bottom: 0;
   line-height: 1.25;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 0.714em;
+  font-family: Calluna, Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  margin-bottom: 0.667em;
   margin-left: 0;
   margin-right: 0;
   margin-top: 1em;
 }
 h1 {
-  font-size: 2.255em;
+  font-size: 2.105em;
   font-weight: normal;
 }
 h2 {
-  font-size: 1.692em;
+  font-size: 1.777em;
 }
 h3 {
   font-size: 1.333em;
 }
 h4 {
-  font-size: 1.269em;
+  font-size: 1.185em;
 }
 .normal {
   font-size: 1em;
@@ -439,7 +441,7 @@ h4 {
   font-family: Verdana, sans-serif;
 }
 .larger {
-  font-size: 1.269em;
+  font-size: 1.185em;
 }
 .largest {
   font-size: 1.333em;
@@ -449,7 +451,7 @@ ul,
 ol,
 dl {
   margin-top: 0;
-  margin-bottom: 18.662px;
+  margin-bottom: 1.333em;
 }
 ul ul,
 ul ol,
@@ -462,22 +464,22 @@ ol dl {
 dt {
   font-style: italic;
   font-weight: bold;
-  margin-bottom: 7.177692307692307px;
+  margin-bottom: 0.5126923076923077em;
 }
 .fontface dt {
   font-style: normal;
 }
 dd {
-  margin-left: 18.662px;
+  margin-left: 1.333em;
 }
 pre {
-  padding: 18.662px 18.662px;
+  padding: 1.333em 1.333em;
 }
 table {
-  margin: 18.662px 18.662px;
+  margin: 1.333em 1.333em;
 }
 table th, table td {
-  padding: 0.714em 1.269em;
+  padding: 0.75em 1.333em;
 }
 table table {
   margin: 0;
@@ -486,12 +488,12 @@ table table th, table table td {
   padding: 3px;
 }
 fieldset {
-  margin: 18.662px 18.662px 0;
+  margin: 1.333em 1.333em 0;
   padding: 0;
 }
 fieldset legend {
   margin-left: 0;
-  margin-bottom: 9.331px;
+  margin-bottom: 0.6665em;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -506,43 +508,49 @@ fieldset label {
   display: inline-block;
   color: #ff0000;
 }
-/* Color schema is based on the #DBEBD4 color using Pentogram Harmony Rule */
+/* Amazing Calluna fonts family by Jos Buivenga (exljbris) -> http://www.exljbris.com */
+/* Color schema is based on the #4398DD color using Right Complement Harmony Rule */
 /* @group Base styles */
 a:link {
-  color: #34b2ff;
+  color: #1d5d91;
 }
 a:visited {
-  color: #ff3c27;
+  color: #4398dd;
 }
 a:hover {
-  color: #6f4493;
+  color: #916f1d;
 }
 table th {
-  background-color: #cdecff;
-  text-shadow: 0 1px 0 #ffffff;
+  background-color: #ffffff;
+  text-shadow: 0 1px 0 #ffe19a;
+}
+h1 {
+  color: #154266;
+}
+h2, h3, h4 {
+  color: #1d5d91;
 }
 /* @end */
 /* @group Top Bar with the global naviagtion */
 #top-bar {
-  background: #cdecff;
-  background-image: -moz-linear-gradient(top, #cdecff, #9ad9ff);
+  background: #333333;
+  background-image: -moz-linear-gradient(top, #333333, #111111);
   /* FF3.6 */
 
-  background-image: -ms-linear-gradient(top, #cdecff, #9ad9ff);
+  background-image: -ms-linear-gradient(top, #333333, #111111);
   /* IE10 */
 
-  background-image: -o-linear-gradient(top, #cdecff, #9ad9ff);
+  background-image: -o-linear-gradient(top, #333333, #111111);
   /* Opera 11.10+ */
 
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#cdecff), to(#9ad9ff));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#111111));
   /* Saf4+, Chrome */
 
-  background-image: -webkit-linear-gradient(top, #cdecff, #9ad9ff);
+  background-image: -webkit-linear-gradient(top, #333333, #111111);
   /* Chrome 10+, Saf5.1+ */
 
-  background-image: linear-gradient(top, #cdecff, #9ad9ff);
-  border-bottom: 1px solid #019eff;
-  color: #004067;
+  background-image: linear-gradient(top, #333333, #111111);
+  color: #efefef;
   content: "";
   display: table;
   *zoom: 1;
@@ -551,10 +559,10 @@ table th {
 }
 #top-bar a {
   text-decoration: none;
-  color: #004067;
+  color: #efefef;
 }
 .no-cssgradients #top-bar {
-  background: #cdecff;
+  background: #333;
 }
 #top-bar nav, #members-info {
   float: none;
@@ -562,7 +570,7 @@ table th {
   list-style: none;
   clear: none;
   margin: 0;
-  padding: 0 9.331px;
+  padding: 0 0.6665em;
 }
 #top-bar nav > *, #members-info > * {
   display: inline;
@@ -572,65 +580,100 @@ table th {
   display: inline-block;
 }
 #top-bar nav li a, #members-info li a {
-  padding: 9.331px;
+  padding: 0 0.667em;
   margin: 0 1px 0 0;
   position: relative;
 }
+#top-bar nav a:hover, #members-info a:hover {
+  color: #9ad2ff;
+  text-decoration: underline;
+}
 #top-bar nav {
   float: left;
+  padding-left: 0;
+  /*li:first-of-type {
+		position: relative;
+	    a {
+		    font-weight: bold;
+		    font-size: 1.269em;	
+		    padding-left: 35px;
+		}
+	    img {
+		    position:absolute;
+		    left: 0;
+		    top: 50%;
+		    margin-top: -17px;
+		}		
+	}
+	a:hover,
+	.selected a {
+	    color: @baseColor2;
+		border-bottom: 2px solid @baseColor2;
+	}
+	.selected a {
+		.css3_linear_gradient(@baseColor2, @baseColor1);
+	    color: #fff;
+	}
+	.selected a:after {
+		content: "";
+	    display: block;
+	    position: absolute;
+	    bottom: -10px;
+	    left: 50%;
+	    margin-left: -10px;
+	    width:0; 
+	    height:0; 
+	    border-left: 10px solid transparent; 
+	    border-right: 10px solid transparent;
+	    border-top: 11px solid @baseColor2;
+	    border-bottom: 0;
+	}*/
+
 }
 #top-bar nav li {
   float: left;
 }
 #top-bar nav a {
   display: block;
+  margin-bottom: 0.211em;
+  margin-top: 0.211em;
+  line-height: 1.777em;
 }
 #top-bar nav li:first-of-type {
-  position: relative;
+  padding-left: 0.6665em;
 }
 #top-bar nav li:first-of-type a {
-  font-weight: bold;
-  font-size: 1.269em;
-  padding-left: 35px;
+  position: relative;
+  font-size: 1.333em;
+  line-height: 1.333em;
+  padding-left: 30px;
 }
 #top-bar nav li:first-of-type img {
   position: absolute;
   left: 0;
   top: 50%;
-  margin-top: -17px;
+  margin-top: -12px;
 }
-#top-bar nav a:hover, #top-bar nav .selected a {
-  background: #019eff;
-  background-image: -moz-linear-gradient(top, #019eff, #007fcd);
-  /* FF3.6 */
-
-  background-image: -ms-linear-gradient(top, #019eff, #007fcd);
-  /* IE10 */
-
-  background-image: -o-linear-gradient(top, #019eff, #007fcd);
-  /* Opera 11.10+ */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#019eff), to(#007fcd));
-  /* Saf4+, Chrome */
-
-  background-image: -webkit-linear-gradient(top, #019eff, #007fcd);
-  /* Chrome 10+, Saf5.1+ */
-
-  background-image: linear-gradient(top, #019eff, #007fcd);
-  color: #fff;
+#top-bar nav .selected a {
+  color: #9ad2ff;
+  border-bottom: 0.211em solid #9ad2ff;
+  margin-bottom: 0;
+}
+#top-bar nav .selected a:hover {
+  text-decoration: none;
 }
 #top-bar nav .selected a:after {
   content: "";
   display: block;
   position: absolute;
-  bottom: -10px;
+  bottom: -13px;
   left: 50%;
   margin-left: -10px;
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 11px solid #007fcd;
+  border-top: 11px solid #9ad2ff;
   border-bottom: 0;
 }
 .no-generatedcontent #top-bar nav .selected {
@@ -642,7 +685,7 @@ table th {
   margin-bottom: -10px;
 }
 .no-cssgradients #top-bar nav a:hover, .no-cssgradients #top-bar nav .selected a {
-  background: #007fcd;
+  background: #9a6c00;
 }
 #members-info {
   float: right;
@@ -650,39 +693,18 @@ table th {
   font-size: 0.75em;
   font-family: Verdana, sans-serif;
 }
-#members-info a:hover {
-  color: #007fcd;
+#members-info a {
+  line-height: 2.36em;
 }
 #members-info li:first-of-type a {
   background-color: transparent;
   background-position: 0% 47%;
   background-repeat: no-repeat;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAa0lEQVR42o2QwQnAMAhFvfaUUTJC6QSO0WNHcoSO0BEyQkboCImFf8jho/3wQNAnqKzZjrM4jzM+UBdhgWAYXLFIeIkwIqERoUeCEuFCO5RuoIJEQnV2ULPNnd3gKH1ngpFDU5S8MqQJit9M5tuNQQq33mAAAAAASUVORK5CYII=');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIlJREFUeNpinDlzJgMS4AfiDUDsAOUfAOIAIP4IU8DEgAomIClmgLInICtA1xDAgAkS8Gl4gEXDA3waGrBoQHESC5rkRqizYM5YABXDqQHmBJipH9AlkTX4QxUqYDGgAGYTzA/zoeGvgMVGBajcfJgGf/SgwwFAavyZcIQMLtAA0mBAggYDgAADANJ8F7e9ZEZJAAAAAElFTkSuQmCC');
   padding-left: 14px;
 }
 /* @end */
-#local {
-  clear: both;
-  background-color: #dbebd4;
-}
-#right-column {
-  float: right;
-  width: 200px;
-  padding: 10px;
-  background: #ededed;
-  min-height: 400px;
-}
-#content {
-  margin-right: 220px;
-  min-height: 380px;
-}
-#footer {
-  background-color: #d2c6a8;
-  border: 1px solid #000;
-  margin-top: 20px;
-  text-align: center;
-}
-/* quickpanels */
+/* @group Quick panel */
 .quickpanel {
   display: none;
 }
@@ -700,6 +722,7 @@ table th {
   height: 10px;
   width: 14px;
 }
+/* @end */
 /* @end */
 /* @group HTML5 boilerplate helpers */
 /* ==|== media queries ======================================================
