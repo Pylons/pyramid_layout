@@ -3,7 +3,7 @@
         <ul id="global-nav">
             <li><a href="#" title="KARL home page">
                     <img src="${layout.bottlecap_static}logo.png" 
-                         width="33" height="34" alt="KARL logo" />
+                         width="25" height="26" alt="KARL logo" />
                     KARL
                 </a>
             </li><li
