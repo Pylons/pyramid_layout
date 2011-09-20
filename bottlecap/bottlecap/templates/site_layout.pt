@@ -28,134 +28,80 @@
     <metal:headslot metal:define-slot="head_slot" />
 </head>
 <body>
-    <div id="container">
-        <div id="header">
-
-            <tal:topbar tal:content="layout.component('bottlecap.topbar')">
-                Top bar
-            </tal:topbar>
-
-            <div id="local">
-                <div id="local-nav"
-                     class="inline-list float-inline float-left">
-                    <div id="section-title">
-                        ${project}
-                    </div>
-                    <div class="clear"></div>
-                    <ul>
-                        <li>
-                            <div class="local-nav-link"><a href="#">Overview</a>
-                            </div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a
-                                    href="#">Blog</a></div>
-                            <div class="tail"></div>
-                        </li>
-                        <li class="selected">
-                            <div class="local-nav-link"><a
-                                    href="#">Wiki</a></div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a href="#">Calendar</a>
-                            </div>
-                            <div class="tail"></div>
-                        </li>
-                        <li>
-                            <div class="local-nav-link"><a
-                                    href="#">Files</a></div>
-                            <div class="tail"></div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div id="members-local-nav"
-                     class="inline-list float-left">
-                    <ul>
-                        <li>
-                            <div class="members-local-nav-link">
-                                <a href="#">Members</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="members-local-nav-link">
-                                <a href="#">Explore</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div id="search" class="float-right">
-                    <form>
-                        <div id="site-search-options">
-                            <input type="radio" name="search_options"
-                                   value="All"/> All Karl
-                            <input type="radio" name="search_options"
-                                   value="this_section"/> Only in this
-                            Community
-                        </div>
-
-                        <div id="search-widget">
-                            <select class="float-left">
-                                <option value="volvo">All Content</option>
-                                <option value="saab">This Section</option>
-                            </select>
-
-                            <div id="site-search" class="float-left">
-                                <input id="search-site-box"
-                                       class="float-left" type="text"
-                                       name="SearchTextBox"
-                                       title="Search this site"
-                                       accesskey="4" size="15"/>
-                                <input class="search-site-button float-left"
-                                       type="submit" value="Search"
-                                       name="SearchTextBoxButton"/>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="clear"></div>
-        <div id="main-section">
-            <div id="right-column">
-
-            </div>
-
-            <div id="content">
-                <div id="product-functions">
-                    <div class="float-left inline-list">
-                        <ul>
-                            <li><a href="#">Front Page</a></li>
-                            |
-                            <li><a href="#">Index</a></li>
-                            |
-                            <li><a href="#">Contents</a></li>
-                            |
-                            <li><a href="#">Feed</a></li>
-                            |
-                        </ul>
-                    </div>
-                    <div class="float-right inline-list">
-                        <ul>
-                            <li><a href="#">Page</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear-left"></div>
-                <div class="grid_2" metal:define-slot="content">
-                </div>
-
-            </div>
-        </div>
+    <div id="top-bar">
+        <tal:topbar tal:content="layout.component('bottlecap.topbar')">
+            Top bar
+        </tal:topbar>
     </div>
+
+    <div class="sectionContainer">
+        <section>
+            <header>
+                <h2>${project}</h2>
+            </header>
+            <ul class="sectionTools">
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="selected">
+                    <a href="#">Wiki</a>
+                    <ul class="toolSubmenu">
+                        <li><a href="#">Front Page</a></li>
+                        <li><a href="#">Index</a></li>
+                        <li><a href="#">Contents</a></li>
+                        <li><a href="#">Feed</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Files</a></li>
+            </ul>
+            <ul class="memberActions">
+                <li><a href="#">Members</a></li>
+                <li><a href="#">Explore</a></li>
+            </ul>
+        </section>
+        <nav class="search">
+            <form action="#">
+                <label>
+                    <input type="radio" name="searchwhere"
+                           id="search_options_all"
+                           value="searchwhere_search_all"/>
+                    All Karl
+                </label>
+                <label>
+                    <input type="radio" name="searchwhere"
+                           id="search_options_all"
+                           value="searchwhere_this_section"/>
+                    Only in this Community
+                </label>
+
+                <select name="searchfor">
+                    <option value="searchfor_all_content">All Content</option>
+                    <option value="searchfor_this_section">This Section</option>
+                </select>
+
+                <input id="search-site-box"
+                       class="float-left" type="text"
+                       name="SearchTextBox"
+                       title="Search this site"
+                       accesskey="4" size="15"/>
+                <button class="searchButton" type="submit">Search</button>
+            </form>
+        </nav>
+    </div>
+    
+    <section class="main">
+        <ul class="contextTools">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#">Delete</a></li>
+        </ul>
+        <metal:content define-slot="content" />
+    </section>
+    
+    <aside class="column">
+        This is a column.
+    </aside>
+
 
 <!-- wire up page
   - Only wiring! Every functional code
