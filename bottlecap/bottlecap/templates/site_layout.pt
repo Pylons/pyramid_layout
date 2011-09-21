@@ -56,10 +56,7 @@
                     </li>
                     <li><a href="#">Calendar</a></li>
                     <li><a href="#">Files</a></li>
-                </ul>
-                <ul class="memberActions">
                     <li><a href="#">Members</a></li>
-                    <li><a href="#">Explore</a></li>
                 </ul>
             </section>
             <nav class="search">
