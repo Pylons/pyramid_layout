@@ -44,8 +44,8 @@
                 </header>
                 <ul class="sectionTools">
                     <li><a href="#">Overview</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li class="selected">
+                    <li class="selected"><a href="#">Blog</a></li>
+                    <li class="opened">
                         <a href="#">Wiki</a>
                         <ul class="toolSubmenu">
                             <li><a href="#">Front Page</a></li>
