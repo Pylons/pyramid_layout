@@ -422,6 +422,7 @@ figure {
 	}
 	section {
 	    .column(8);
+	    .alpha();
 	    position: relative;
 	}
 	nav.search {
@@ -432,19 +433,20 @@ figure {
 	    text-shadow: 0 1px 0 lighten(@baseColor3, 10%);
 	    padding-top: 1em;
 	    font-size: 1.333em;
+	    padding-left: (@gutter-width * 1px);
 	}
 	header {
 	    margin: 0;
 	}
 	ul {
-	    padding:0;
+	    padding:0 0 0 (@gutter-width * 1px)/2;
 	    margin: 0;	
 	    .horList();
 	    li {
 		    position: relative;
 		}
 		a {
-		    padding: @space/2;
+		    padding: @space/2 (@gutter-width * 1px)/2;
 		}
 	}
 	ul.sectionTools {
@@ -470,11 +472,6 @@ figure {
 		    border-bottom: 10px solid #fff;
 		    border-top: 0;
 		}
-	}
-	ul.memberActions {
-		position: absolute;
-		top: 0;
-		right: 0;
 	}
 	.toolSubmenu {
 		display: none;

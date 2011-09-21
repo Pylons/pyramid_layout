@@ -737,6 +737,7 @@ figure figcaption {
   width: 64.58372398274892%;
   margin-left: 1.0414713419588724%;
   margin-right: 1.0414713419588724%;
+  margin-left: 0;
   position: relative;
 }
 .sectionContainer nav.search {
@@ -751,12 +752,13 @@ figure figcaption {
   text-shadow: 0 1px 0 #7d9aa6;
   padding-top: 1em;
   font-size: 1.333em;
+  padding-left: 19.995px;
 }
 .sectionContainer header {
   margin: 0;
 }
 .sectionContainer ul {
-  padding: 0;
+  padding: 0 0 0 9.9975px;
   margin: 0;
   float: none;
   clear: both;
@@ -773,7 +775,7 @@ figure figcaption {
   position: relative;
 }
 .sectionContainer ul a {
-  padding: 0.6665em;
+  padding: 0.6665em 9.9975px;
 }
 .sectionContainer ul.sectionTools {
   float: left;
@@ -798,11 +800,6 @@ figure figcaption {
   border-right: 10px solid transparent;
   border-bottom: 10px solid #fff;
   border-top: 0;
-}
-.sectionContainer ul.memberActions {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 .sectionContainer .toolSubmenu {
   display: none;
