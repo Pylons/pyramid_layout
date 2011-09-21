@@ -3,6 +3,9 @@
 
         <header>
             <h1>A Very Important Page</h1>
+            <tal:contextTools tal:content="layout.component('bottlecap.contextTools')">
+                Context tools
+            </tal:contextTools>
             <p class="description">
                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                 Nullam quis risus eget urna mollis ornare vel eu leo. Praesent
@@ -11,7 +14,7 @@
             <div class="keywords">
                 Tags: <b>sometag</b>
                       <input id="search-site-box"
-                             type="text"
+                             type="search"
                              name="SearchTags"
                              title="Search tags"
                              size="15"/>
@@ -19,6 +22,10 @@
             </div>            
         </header>
         <div class="contentText">
+            <figure>
+                <img src="http://lorempixum.com/700/268/" alt="" />
+                <figcaption>Just a test caption for an image</figcaption>
+            </figure>
             <p>
                 Nullam quis risus eget urna mollis ornare vel eu leo. Aenean
                 lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla
@@ -52,6 +59,32 @@
                 sem nec elit. Cum sociis natoque penatibus et magnis dis
                 parturient montes, nascetur ridiculus mus. Aenean eu leo quam.
                 Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </p>
+            <p>
+            Donec id elit non mi porta gravida at eget metus. Donec sed odio
+            dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            Donec sed odio dui. Fusce dapibus, tellus ac cursus commodo,
+            tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+            risus. Vestibulum id ligula porta felis euismod semper.
+            </p>
+            
+            <p>
+            Nullam id dolor id nibh ultricies vehicula ut id elit. Integer
+            posuere erat a ante venenatis dapibus posuere velit aliquet.
+            Maecenas sed diam eget risus varius blandit sit amet non magna.
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+            eget lacinia odio sem nec elit.
+            </p>
+
+            <p>
+            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Vestibulum id
+            ligula porta felis euismod semper. Cras justo odio, dapibus ac
+            facilisis in, egestas eget quam. Integer posuere erat a ante
+            venenatis dapibus posuere velit aliquet. Nullam quis risus eget
+            urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque
+            ornare sem lacinia quam venenatis vestibulum. Nullam quis risus
+            eget urna mollis ornare vel eu leo.
             </p>
         </div>
         <footer>
