@@ -10,16 +10,7 @@
                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                 Nullam quis risus eget urna mollis ornare vel eu leo. Praesent
                 commodo cursus magna, vel scelerisque nisl consectetur et.
-            </p>
-            <div class="keywords">
-                Tags: <b>sometag</b>
-                      <input id="search-site-box"
-                             type="search"
-                             name="SearchTags"
-                             title="Search tags"
-                             size="15"/>
-                <button class="searchButton" type="submit">Search</button>
-            </div>            
+            </p>            
         </header>
         <div class="contentText">
             <figure>
@@ -88,7 +79,16 @@
             </p>
         </div>
         <footer>
-            by <b><a href="#">Paul Everitt</a></b>, 3 days ago
+            <div class="keywords">
+                Tags: <a href="#"><b>sometag</b></a>
+                      <input id="search-site-box"
+                             type="search"
+                             name="SearchTags"
+                             title="Search tags"
+                             size="15"/>
+                <button class="searchButton" type="submit">Search</button>
+            </div>
+            <div>by <b><a href="#">Paul Everitt</a></b>, 3 days ago</div>
         </footer>
 </metal:content>
 </metal:block>
