@@ -29,78 +29,91 @@
 </head>
 <body>
     <div id="top-bar">
-        <tal:topbar tal:content="layout.component('bottlecap.topbar')">
-            Top bar
-        </tal:topbar>
+        <div class="container">
+            <tal:topbar tal:content="layout.component('bottlecap.topbar')">
+                Top bar
+            </tal:topbar>
+        </div>
     </div>
 
     <div class="sectionContainer">
-        <section>
-            <header>
-                <h2>${project}</h2>
-            </header>
-            <ul class="sectionTools">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Blog</a></li>
-                <li class="selected">
-                    <a href="#">Wiki</a>
-                    <ul class="toolSubmenu">
-                        <li><a href="#">Front Page</a></li>
-                        <li><a href="#">Index</a></li>
-                        <li><a href="#">Contents</a></li>
-                        <li><a href="#">Feed</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Calendar</a></li>
-                <li><a href="#">Files</a></li>
-            </ul>
-            <ul class="memberActions">
-                <li><a href="#">Members</a></li>
-                <li><a href="#">Explore</a></li>
-            </ul>
-        </section>
-        <nav class="search">
-            <form action="#">
-                <label>
-                    <input type="radio" name="searchwhere"
-                           id="search_options_all"
-                           value="searchwhere_search_all"/>
-                    All Karl
-                </label>
-                <label>
-                    <input type="radio" name="searchwhere"
-                           id="search_options_all"
-                           value="searchwhere_this_section"/>
-                    Only in this Community
-                </label>
+        <div class="container">
+            <section>
+                <header>
+                    <h2>${project}</h2>
+                </header>
+                <ul class="sectionTools">
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li class="selected">
+                        <a href="#">Wiki</a>
+                        <ul class="toolSubmenu">
+                            <li><a href="#">Front Page</a></li>
+                            <li><a href="#">Index</a></li>
+                            <li><a href="#">Contents</a></li>
+                            <li><a href="#">Feed</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Files</a></li>
+                </ul>
+                <ul class="memberActions">
+                    <li><a href="#">Members</a></li>
+                    <li><a href="#">Explore</a></li>
+                </ul>
+            </section>
+            <nav class="search">
+                <form action="#">
+                    <label>
+                        <input type="radio" name="searchwhere"
+                               id="search_options_all"
+                               value="searchwhere_search_all"/>
+                        All Karl
+                    </label>
+                    <label>
+                        <input type="radio" name="searchwhere"
+                               id="search_options_all"
+                               value="searchwhere_this_section"/>
+                        Only in this Community
+                    </label>
 
-                <select name="searchfor">
-                    <option value="searchfor_all_content">All Content</option>
-                    <option value="searchfor_this_section">This Section</option>
-                </select>
+                    <select name="searchfor">
+                        <option value="searchfor_all_content">All Content</option>
+                        <option value="searchfor_this_section">This Section</option>
+                    </select>
 
-                <input id="search-site-box"
-                       class="float-left" type="text"
-                       name="SearchTextBox"
-                       title="Search this site"
-                       accesskey="4" size="15"/>
-                <button class="searchButton" type="submit">Search</button>
-            </form>
-        </nav>
+                    <input id="search-site-box"
+                           class="float-left" type="search"
+                           name="SearchTextBox"
+                           title="Search this site"
+                           accesskey="4" size="15"/>
+                    <button class="searchButton" type="submit">Search</button>
+                </form>
+            </nav>
+        </div>
     </div>
     
-    <section class="main">
-        <ul class="contextTools">
-            <li><a href="#">Page</a></li>
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Delete</a></li>
-        </ul>
-        <metal:content define-slot="content" />
-    </section>
+    <div class="contentWrapper">
+        <section class="main">
+            <metal:content define-slot="content" />
+        </section>
     
-    <aside class="column">
-        This is a column.
-    </aside>
+        <aside class="column">
+            <h3>This is a column.</h3>
+            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+            nibh, ut fermentum massa justo sit amet risus. Morbi leo risus,
+            porta ac consectetur ac, vestibulum at eros. Praesent commodo
+            cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Nullam quis risus eget urna
+            mollis ornare vel eu leo. Donec id elit non mi porta gravida at
+            eget metus.</p>
+        </aside>
+    </div>
+    
+    <footer>
+        <div class="container">Footer with some relevant information.</div>
+    </footer>
 
 
 <!-- wire up page
