@@ -515,27 +515,30 @@ fieldset label {
 /* Layout definition */
 /* Amazing Calluna fonts family by Jos Buivenga (exljbris) -> http://www.exljbris.com */
 /* Colors definition */
-/* Color schema is based on the #82C462 color using Tetrad Harmony Rule with 45° shift */
+/* Color schema http://kuler.adobe.com/#themeID/186890 */
 /* @group Base styles */
+body {
+  background: #fffdfa;
+}
 a:link {
-  color: #3f7f20;
+  color: #8f806f;
 }
 a:visited {
-  color: #82c462;
+  color: #dbcfc1;
 }
 a:hover {
-  color: #91bac6;
+  color: #61818f;
 }
 table th {
-  background-color: #7fafbd;
-  text-shadow: 0 1px 0 #497e8d;
+  background-color: #ffffff;
+  text-shadow: 0 1px 0 #8f806f;
 }
-h2, h3, h4 {
-  color: #497e8d;
+/*h2, h3, h4 {
+    color: @complimentaryColor1;
 }
 h1 {
-  color: #184d5c;
-}
+    color: @complimentaryColor2;
+}*/
 .container {
   content: "";
   display: table;
@@ -560,7 +563,7 @@ figure {
 figure img {
   display: block;
   background: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #dbcfc1;
   padding: 0.6665em;
   -webkit-box-shadow: 0 0 10px #bbbbbb;
   -moz-box-shadow: 0 0 10px #bbbbbb;
@@ -572,7 +575,10 @@ figure figcaption {
   font-family: Verdana, sans-serif;
   color: #555555;
   padding: 0.6665em 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dbcfc1;
+}
+.tools {
+  background: ;
 }
 /* @end */
 /* @group Top Bar with the global naviagtion */
@@ -594,7 +600,7 @@ figure figcaption {
   /* Chrome 10+, Saf5.1+ */
 
   background-image: linear-gradient(top, #333333, #111111);
-  color: #efefef;
+  color: #fffdfa;
   content: "";
   display: table;
   *zoom: 1;
@@ -606,7 +612,7 @@ figure figcaption {
 }
 #top-bar a {
   text-decoration: none;
-  color: #efefef;
+  color: #fffdfa;
 }
 .no-cssgradients #top-bar {
   background: #333;
@@ -632,7 +638,7 @@ figure figcaption {
   position: relative;
 }
 #top-bar nav a:hover, #members-info a:hover {
-  color: #b8e2a3;
+  color: #61818f;
   text-decoration: underline;
 }
 #top-bar nav {
@@ -645,6 +651,9 @@ figure figcaption {
 #top-bar nav a {
   display: block;
   line-height: 2.105em;
+}
+#top-bar nav a:hover {
+  color: #c1d3db;
 }
 #top-bar nav li:first-of-type {
   padding-left: 0.6665em;
@@ -662,7 +671,7 @@ figure figcaption {
   margin-top: -12px;
 }
 #top-bar nav .selected a {
-  color: #b8e2a3;
+  color: #c1d3db;
   margin-bottom: 0;
 }
 #top-bar nav .selected a:hover {
@@ -679,7 +688,7 @@ figure figcaption {
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid #b8e2a3;
+  border-bottom: 7px solid #61818f;
   border-top: 0;
 }
 .no-generatedcontent #top-bar nav .selected {
@@ -690,9 +699,10 @@ figure figcaption {
   padding-bottom: 10px;
   margin-bottom: -10px;
 }
-.no-cssgradients #top-bar nav a:hover, .no-cssgradients #top-bar nav .selected a {
-  background: #000000;
-}
+/*.no-cssgradients #top-bar nav a:hover,
+.no-cssgradients #top-bar nav .selected a {
+    background: darken(@complimentaryColor1, 50%);
+}*/
 #members-info {
   float: right;
   text-align: right;
@@ -701,6 +711,9 @@ figure figcaption {
 }
 #members-info a {
   line-height: 2.8em;
+}
+#members-info a:hover {
+  color: #c1d3db;
 }
 #members-info li:first-of-type a {
   background-color: transparent;
@@ -712,10 +725,10 @@ figure figcaption {
 /* @end */
 /* @group Section Container */
 .sectionContainer {
-  background: #b8e2a3;
+  background: #61818f;
 }
 .sectionContainer a {
-  color: #3f7f20;
+  color: #dbcfc1;
   text-decoration: none;
 }
 .sectionContainer section {
@@ -735,7 +748,7 @@ figure figcaption {
 }
 .sectionContainer h2 {
   color: #222222;
-  text-shadow: 0 1px 0 #d6eeca;
+  text-shadow: 0 1px 0 #7d9aa6;
   padding-top: 1em;
   font-size: 1.333em;
 }
@@ -761,21 +774,6 @@ figure figcaption {
 }
 .sectionContainer ul a {
   padding: 0.6665em;
-}
-.sectionContainer ul ul {
-  position: absolute;
-  left: 0;
-  top: 1em;
-  background: #184d5c;
-  color: #222;
-}
-.sectionContainer ul ul a {
-  color: #222;
-  padding: 0 0.6665em;
-  line-height: 1.333em;
-}
-.sectionContainer ul ul  > li {
-  display: list-item;
 }
 .sectionContainer ul.sectionTools {
   float: left;
@@ -808,9 +806,22 @@ figure figcaption {
 }
 .sectionContainer .toolSubmenu {
   display: none;
+  position: absolute;
+  left: 0;
+  top: 1em;
+  background: #c1d3db;
+  color: #222;
+}
+.sectionContainer .toolSubmenu a {
+  color: #222;
+  padding: 0 0.6665em;
+  line-height: 1.333em;
+}
+.sectionContainer .toolSubmenu  > li {
+  display: list-item;
 }
 .no-cssgradients .sectionContainer {
-  background: #b8e2a3;
+  background: #61818f;
 }
 /* @end */
 /* @group Quick panel */
@@ -842,9 +853,9 @@ figure figcaption {
   content: "";
   display: table;
   *zoom: 1;
-  -webkit-box-shadow: 0 0 10px #7cca55;
-  -moz-box-shadow: 0 0 10px #7cca55;
-  box-shadow: 0 0 10px #7cca55;
+  -webkit-box-shadow: 0 0 10px #384a52;
+  -moz-box-shadow: 0 0 10px #384a52;
+  box-shadow: 0 0 10px #384a52;
 }
 .contentWrapper > section.main {
   display: inline;
@@ -862,7 +873,8 @@ section.main aside {
   float: right;
   width: 20%;
   font-style: italic;
-  background: #efefef;
+  background: #8f806f;
+  color: #fffdfa;
   padding: 20px;
   margin: 0 0 20px 20px;
   font-size: 0.889em;
@@ -909,8 +921,8 @@ ul.contextTools a {
 /* @end */
 /* @group Footer */
 body > footer {
-  border-top: 1px solid #eee;
-  background: #efefef;
+  border-top: 1px solid #c8b6a1;
+  background: #dbcfc1;
   padding: 1.333em 0;
   font-size: 0.75em;
   font-family: Verdana, sans-serif;

@@ -233,39 +233,39 @@ td { vertical-align: top; }
 
 
 /* Colors definition */
-/* Color schema is based on the #82C462 color using Tetrad Harmony Rule with 45° shift */
+/* Color schema http://kuler.adobe.com/#themeID/186890 */
 
 @baseFontColor: #222;
-@baseColor1: #82C462;
-@baseColor2: #3F7F20;
-@baseColor3: #B8E2A3;
-@complimentaryColor1: #497E8D;
-@complimentaryColor2: #184D5C;
-@complimentaryColor3: #91BAC6;
-@accentColor1: #E3AB71;
-@accentColor2: #D36A7E;
+@bodyBg: #FFFDFA;
+@baseColor1: #8F806F;
+@baseColor2: #DBCFC1;
+@baseColor3: #61818F;
+@baseColor4: #C1D3DB;
 
 /* @group Base styles */
 
-a:link {
-    color: @baseColor2;
+body {
+    background: @bodyBg;
 }
-a:visited {
+a:link {
     color: @baseColor1;
 }
+a:visited {
+    color: @baseColor2;
+}
 a:hover {
-    color: @complimentaryColor3;
+    color: @baseColor3;
 }
 table th {
-	background-color: lighten(@complimentaryColor1, 20%);
-	text-shadow: 0 1px 0 @complimentaryColor1;
+	background-color: lighten(@baseColor2, 20%);
+	text-shadow: 0 1px 0 @baseColor1;
 }
-h2, h3, h4 {
+/*h2, h3, h4 {
     color: @complimentaryColor1;
 }
 h1 {
-    color: @complimentaryColor2;    
-}
+    color: @complimentaryColor2;
+}*/
 .container {
 	.clearfix();
 	.row(12);	    
@@ -282,7 +282,7 @@ figure {
     img {
 		display: block;
 	    background: #fff;
-	    border: 1px solid #ddd;	
+	    border: 1px solid @baseColor2;	
 	    padding: @space/2;
 	    .css3_box_shadow(0 0 10px #bbb);
 	}
@@ -290,8 +290,11 @@ figure {
 	    padding: 0;
 	    .discreet();
 	    padding: @space/2 0;
-	    border-bottom: 1px solid #ddd;
+	    border-bottom: 1px solid @baseColor2;
 	}
+}
+.tools {
+    background: ;
 }
 
 /* @end */
@@ -299,12 +302,12 @@ figure {
 
 #top-bar {
 	.css3_linear_gradient(#333, #111);
-	color: #efefef;
+	color: @bodyBg;
 	.clearfix();
 	.row(12);	
 	a {
     	text-decoration: none;
-		color: #efefef;
+		color: @bodyBg;
 	}
 }
 .no-cssgradients #top-bar {
@@ -335,6 +338,9 @@ figure {
 	a {
 		display: block;
 	    line-height: 2.105em;
+	    &:hover {
+		    color: @baseColor4;
+		}
 	}
 	li:first-of-type {
 		padding-left: @space/2;
@@ -352,7 +358,7 @@ figure {
 		}		
 	}
 	.selected a {
-		color: @baseColor3;	
+		color: @baseColor4;	
 		margin-bottom: 0;
 		&:hover {
 		    text-decoration: none;
@@ -381,10 +387,10 @@ figure {
 	padding-bottom: 10px;
 	margin-bottom: -10px;
 }
-.no-cssgradients #top-bar nav a:hover,
+/*.no-cssgradients #top-bar nav a:hover,
 .no-cssgradients #top-bar nav .selected a {
     background: darken(@complimentaryColor1, 50%);
-}
+}*/
 #members-info {
     float: right;
     text-align: right;
@@ -393,7 +399,7 @@ figure {
 	    line-height: 2.8em;
 	}
     a:hover{
-
+	    color: @baseColor4;
 	}
 	li:first-of-type a {
 		background-color: transparent;
@@ -440,21 +446,6 @@ figure {
 		a {
 		    padding: @space/2;
 		}
-		ul {
-		    position: absolute;
-		    left: 0;
-		    top: 1em;
-		    background: @complimentaryColor2;
-		    color: #222;
-		    a {
-			    color: #222;
-			    padding: 0 @space/2;
-			    line-height: 1.333em;
-			}
-			& > li {
-			    display: list-item;			    
-			}
-		}
 	}
 	ul.sectionTools {
 	    float: left;
@@ -487,6 +478,19 @@ figure {
 	}
 	.toolSubmenu {
 		display: none;
+		position: absolute;
+	    left: 0;
+	    top: 1em;
+	    background: @baseColor4;
+	    color: #222;
+	    a {
+		    color: #222;
+		    padding: 0 @space/2;
+		    line-height: 1.333em;
+		}
+		& > li {
+		    display: list-item;			    
+		}		
     }
 }
 .no-cssgradients .sectionContainer {
@@ -543,7 +547,8 @@ section.main aside {
     float: right;
     width: 20%;
 	font-style: italic;
-	background: #efefef;
+	background: @baseColor1;
+	color: @bodyBg;
 	padding: 20px;
 	margin: 0 0 20px 20px;
 	font-size: 0.889em;
@@ -582,8 +587,8 @@ ul.contextTools {
 /* @group Footer */
 
 body > footer {
-    border-top: 1px solid #eee;
-    background: #efefef;
+    border-top: 1px solid darken(@baseColor2, 10%);
+    background: @baseColor2;
     padding: @space 0;
     .smaller();
 }
