@@ -1,0 +1,16 @@
+<!-- <ul id="members-info" data-dropdown="dropdown">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle">${profile_name}</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </li>
+</ul> -->
+<ul id="members-info">
+    <li><a href="#">${profile_name}</a>
+    <li><a href="#">Logout</a></li>
+    <li><a href="#">Help</a></li>
+    </li>
+</ul>

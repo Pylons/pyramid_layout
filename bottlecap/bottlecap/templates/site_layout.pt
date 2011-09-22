@@ -30,9 +30,12 @@
 <body>
     <div id="top-bar">
         <div class="container">
-            <tal:topbar tal:content="layout.component('bottlecap.topbar')">
-                Top bar
-            </tal:topbar>
+            <tal:globalnav tal:content="layout.component('bottlecap.globalnav')">
+                global navigation
+            </tal:globalnav>
+            <tal:personaltools tal:content="layout.component('bottlecap.personaltools')">
+                Personal tools
+            </tal:personaltools>
         </div>
     </div>
 
@@ -42,12 +45,12 @@
                 <header>
                     <h2>${project}</h2>
                 </header>
-                <ul class="sectionTools">
+                <ul class="sectionTools" data-dropdown="dropdown">
                     <li><a href="#">Overview</a></li>
                     <li class="selected"><a href="#">Blog</a></li>
-                    <li class="opened">
-                        <a href="#">Wiki</a>
-                        <ul class="toolSubmenu">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Wiki</a>
+                        <ul class="dropdown-menu">
                             <li><a href="#">Front Page</a></li>
                             <li><a href="#">Index</a></li>
                             <li><a href="#">Contents</a></li>
@@ -55,8 +58,33 @@
                         </ul>
                     </li>
                     <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="#">Members</a></li>
+                    <li class="dropdown">
+                        <a href="http://dev.null" class="dropdown-toggle">Files</a>
+                        <div class="dropdown-menu">
+                            <figure>
+                                <img src="http://lorempixum.com/64/64/" alt="" />
+                            </figure>
+                            <p>The dropdowns can contain any information you
+                            want, including images, lists and plain text.</p>
+                            <ul>
+                                <li><a href="#">Cursus Ridiculus Nibh</a></li>
+                                <li><a href="#">Pellentesque Ligula</a></li>
+                                <li><a href="#">Dapibus Etiam Sollicitudin Tristique</a></li>
+                                <li><a href="#">Cursus</a></li>
+                            </ul>
+                            <p>Morbi leo risus, porta ac consectetur ac,
+                            vestibulum at eros. Curabitur blandit tempus
+                            porttitor. Cras mattis consectetur purus sit amet
+                            fermentum. Aenean lacinia bibendum nulla sed
+                            consectetur.</p>
+                            <div class="dropdown-footer">
+                                The footer area of the dropdown.
+                            </div>
+                        </div>                        
+                    </li>
+                    <li>
+                        <a href="#">Members</a>
+                    </li>
                 </ul>
             </section>
             <nav class="search">
@@ -112,51 +140,14 @@
         <div class="container">Footer with some relevant information.</div>
     </footer>
 
-
-<!-- wire up page
-  - Only wiring! Every functional code
-  - shall be moved to its own widget. -->
-<script language="javascript" type="text/javascript">
-    //<![CDATA[
-    $(function() {
-
-        // quickpanel activation
-        $('#local-nav > ul > li, #members-local-nav > ul > li').quickpanel({
-        });
-
-    });
-    //]]>
-</script>
-
-    <!-- Quickpanels -->
-    <div id="quickpanel-overview" class="quickpanel">
-        Lorem ipsum
-    </div>
-    <div id="quickpanel-blog" class="quickpanel">
-        Lorem ipsum
-    </div>
-    <div id="quickpanel-wiki" class="quickpanel">
-        Lorem ipsum
-    </div>
-    <div id="quickpanel-calendar" class="quickpanel">
-        Lorem ipsum
-    </div>
-    <div id="quickpanel-files" class="quickpanel">
-        Lorem ipsum
-    </div>
-    <div id="quickpanel-members" class="quickpanel">
-        Lorem ipsum
-    </div>
-    <div id="quickpanel-explore" class="quickpanel">
-        Lorem ipsum
-    </div>
-
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="${layout.bottlecap_static}/jquery-1.6.3.min.js"><\/script>')</script>
 
     <script type="text/javascript" defer
         src="${layout.bottlecap_static}bottlecap.js"></script>
+    <script type="text/javascript"
+        src="${layout.bottlecap_static}dropdown.js"></script>        
 
     <metal:tailslot metal:define-slot="tail_slot" />
 

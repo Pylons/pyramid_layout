@@ -1,0 +1,26 @@
+<nav>
+    <h1 class="sitetitle">
+        <a href="#" title="KARL home page">
+            <img src="${layout.bottlecap_static}logo.png" 
+                 width="25" height="26" alt="KARL logo" />
+            KARL
+        </a>
+    </h1>
+    <!-- <h1 class="collapsible"><a href="#" class="collapsible-toggle">Sections</a></h1> -->
+    <ul id="global-nav" data-dropdown="dropdown">
+        <li
+        ><a href="#">Intranet</a></li><li class="selected"
+        ><a href="#">Communities</a></li><li
+        ><a href="#">People</a></li><li class="dropdown"
+        >
+        <a href="#" class="dropdown-toggle">Calendar</a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Front Page</a></li>
+            <li><a href="#">Index</a></li>
+            <li><a href="#">Contents</a></li>
+            <li><a href="#">Feed</a></li>
+        </ul>
+        </li><li
+        ><a href="#">Explore</a></li>
+    </ul>
+</nav>
