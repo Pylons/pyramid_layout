@@ -223,14 +223,34 @@ td { vertical-align: top; }
 
 /* Layout definition */
 @column-width: 60;
-@gutter-width: 19.995;
+@gutter-width: 26.653;
 @columns: 12;
 @total-width: 100%;
 
-/* Amazing Calluna fonts family by Jos Buivenga (exljbris) -> http://www.exljbris.com */
-@baseFont: "Chparral Pro", Cambria, Georgia, serif;
+/*@font-face {
+    font-family: 'SeroWeb';
+    src: url('ff/SeroWeb-Medium.eot');
+    src: url('ff/SeroWeb-Medium.eot?#iefix') format('embedded-opentype'),
+         url('ff/SeroWeb-Medium.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LatoLight';
+    src: url('ff/Lato-Light-webfont.eot');
+    src: url('ff/Lato-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ff/Lato-Light-webfont.woff') format('woff'),
+         url('ff/Lato-Light-webfont.ttf') format('truetype'),
+         url('ff/Lato-Light-webfont.svg#LatoLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@baseFont: Georgia, serif;
+@fancyFont: SeroWeb, "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Arial,sans-serif;
+@lightFont: LatoLight, Arial, sans-serif;
+*/
+@baseFont: Georgia, serif;
 @fancyFont: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Arial,sans-serif;
-
 
 /* Colors definition */
 /* Color schema http://kuler.adobe.com/#themeID/186890 */
@@ -298,10 +318,106 @@ figure {
 }
 
 /* @end */
+
+/* @group Dropdown menu */
+
+.dropdown {
+    position: relative;
+}
+.dropdown-toggle::after {
+	width: 0;
+	height: 0;
+	display: inline-block;
+	content: "&darr;";
+	text-indent: -99999px;
+	vertical-align: top;
+	position: relative;
+	top: -2px;
+	margin-top: 0.75em;
+	margin-left: 4px;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid @baseColor4;
+}
+.dropdown-menu {
+	display: none;
+	position: absolute;
+    left: 0;
+    top: 1.5em + @space;
+    z-index: 10;
+    min-width: 140px;
+    margin: 0;
+    padding: @space;
+    background: #333;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: #999;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: @bodyBg;
+    .smaller();
+    ul {
+	    clear: none;
+	    margin-bottom: @space;
+	}
+	li {
+	    display: list-item !important;
+	    float: none !important;
+	}		
+    a {
+	    color: @baseColor2;
+	    padding: @space/4 0;
+	    line-height: 1.185em;
+	}
+	figure {
+	    float: right;
+	    margin: 0 0 @space/2 @space/2;
+	    img {
+		    .css3_box_shadow(none);
+		}
+	}	
+}
+.dropdown-footer {
+    border-top: 1px solid #222;
+    padding: 0;
+    margin-top: @space/2;
+    &:before {
+	    content: "";
+	    display: block;
+	    height: 1px;
+	    width: 100%;
+	    background: #444;
+	    margin-bottom: @space/2;
+	}
+}
+div.dropdown-menu {
+    width: 400px;
+    a:hover {
+	    text-decoration: underline;
+	}
+}
+ul.dropdown-menu {
+    padding: @space/2 0;
+    a {
+	    display: block !important;
+	}
+    a:hover {
+		color: #fff;
+	    background: #000;
+	}
+}
+.open {
+    background: #333;
+}
+.open .dropdown-menu {
+    display: block;
+}
+
+/* @end */
+
 /* @group Top Bar with the global naviagtion */
 
 #top-bar {
-	.css3_linear_gradient(#333, #111);
+	.css3_linear_gradient(#444, #222);
 	color: @bodyBg;
 	.clearfix();
 	.row(12);	
@@ -342,20 +458,8 @@ figure {
 		    color: @baseColor4;
 		}
 	}
-	li:first-of-type {
-		padding-left: @space/2;
-	    a {
-			position: relative;	
-			font-size: 1.333em;
-			line-height: 1.57914em;
-		    padding-left: 30px;
-		}
-	    img {
-		    position:absolute;
-		    left: 0;
-		    top: 50%;
-		    margin-top: -12px;
-		}		
+	a.dropdown-toggle:after {
+		margin-top: 1.1em;
 	}
 	.selected a {
 		color: @baseColor4;	
@@ -368,6 +472,7 @@ figure {
 		content: "";
 	    display: block;
 	    position: absolute;
+	    top: auto;
 	    bottom: 0px;
 	    left: 50%;
 	    margin-left: -7px;
@@ -378,6 +483,30 @@ figure {
 	    border-bottom: 7px solid @baseColor3;
 	    border-top: 0;
 	}
+}
+#top-bar nav h1.sitetitle {
+	font-family: @baseFont;
+	font-size: 1em;	
+	float: left;
+	padding: 0 0 0 @space;
+	margin: 0 @space 0 0;
+    a {
+		font-size: 1.333em;
+		position: relative;	
+		line-height: 1.57914em;
+	    padding-left: 30px;
+	    text-decoration: none;
+	    color: #fff !important;
+	}
+    img {
+	    position:absolute;
+	    left: 0;
+	    top: 50%;
+	    margin-top: -12px;
+	}		
+}
+ul#global-nav {
+    float: left;
 }
 .no-generatedcontent #top-bar nav .selected {
 	background-position: 50% 100%;
@@ -393,7 +522,6 @@ figure {
 }*/
 #members-info {
     float: right;
-    text-align: right;
     .smaller();
     a {
 	    line-height: 2.8em;
@@ -439,7 +567,7 @@ figure {
 	    margin: 0;
 	}
 	ul {
-	    padding:0 0 0 (@gutter-width * 1px)/2;
+	    padding:0;
 	    margin: 0;	
 	    .horList();
 	    li {
@@ -452,6 +580,7 @@ figure {
 	ul.sectionTools {
 	    float: left;
 	    width: 80%;
+		padding:0 0 0 (@gutter-width * 1px)/2;	    
 	    li {
 		    float:left;
 		}
@@ -473,52 +602,9 @@ figure {
 		    border-top: 0;
 		}
 	}
-	.toolSubmenu {
-		display: none;
-		position: absolute;
-	    left: 0;
-	    top: 1em;
-	    background: @baseColor4;
-	    color: #222;
-	    a {
-		    color: #222;
-		    padding: 0 @space/2;
-		    line-height: 1.333em;
-		}
-		& > li {
-		    display: list-item;			    
-		}		
-    }
 }
 .no-cssgradients .sectionContainer {
     background: @baseColor3;
-}
-
-/* @end */
-
-/* @group Quick panel */
-
-.quickpanel {
-    display: none;
-}
-
-.quickpanel-dialog .ui-dialog-titlebar {
-    background: white;
-    border: 0;
-}
-
-.north-tail {
-    background: url("fluid_background_tail_north_black.png") no-repeat
-    scroll center;
-    height:10px;
-    width: 14px;
-}
-
-.south-tail {
-    background: url("fluid_background_tail_black.png") no-repeat
-    scroll center;
-    height:10px;
-    width: 14px;
 }
 
 /* @end */
