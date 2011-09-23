@@ -301,10 +301,11 @@ figure {
     margin: 0 0 @space;
     img {
 		display: block;
-	    background: #fff;
-	    border: 1px solid @baseColor2;	
-	    padding: @space/2;
-	    .css3_box_shadow(0 0 10px #bbb);
+	    border: @space/2 solid #fff;
+        -webkit-box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #bbb;
+       -moz-box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #bbb; 
+        box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #bbb;
+	    .css3_box_sizing();
 	}
     figcaption {
 	    padding: 0;

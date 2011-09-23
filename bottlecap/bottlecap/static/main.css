@@ -583,12 +583,16 @@ figure {
 }
 figure img {
   display: block;
-  background: #fff;
-  border: 1px solid #dbcfc1;
-  padding: 0.6665em;
-  -webkit-box-shadow: 0 0 10px #bbbbbb;
-  -moz-box-shadow: 0 0 10px #bbbbbb;
-  box-shadow: 0 0 10px #bbbbbb;
+  border: 0.6665em solid #ffffff;
+  -webkit-box-shadow: 0 0 0 1px #dbcfc1, 0 0 10px 1px #bbbbbb;
+  -moz-box-shadow: 0 0 0 1px #dbcfc1, 0 0 10px 1px #bbbbbb;
+  box-shadow: 0 0 0 1px #dbcfc1, 0 0 10px 1px #bbbbbb;
+  -webkt-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-box: border-box;
+  -moz-border-box: border-box;
+  border-box: border-box;
 }
 figure figcaption {
   padding: 0;
