@@ -5,3 +5,5 @@ lib
 /*/*.egg-info
 /*.egg
 docs/_*
+*.DS_Store
+.gitignore
