@@ -81,7 +81,7 @@
         <footer>
             <div class="keywords">
                 Tags: <a href="#"><b>sometag</b></a>
-                      <input id="search-site-box"
+                      <input id="search-keywords-box"
                              type="search"
                              name="SearchTags"
                              title="Search tags"

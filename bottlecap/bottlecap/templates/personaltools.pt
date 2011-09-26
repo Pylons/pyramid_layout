@@ -12,5 +12,4 @@
     <li><a href="#">${profile_name}</a>
     <li><a href="#">Logout</a></li>
     <li><a href="#">Help</a></li>
-    </li>
 </ul>
