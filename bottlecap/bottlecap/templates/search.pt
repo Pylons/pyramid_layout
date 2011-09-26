@@ -1,0 +1,26 @@
+<form action="#">
+    <label>
+        <input type="radio" name="searchwhere"
+               id="search_options_all"
+               value="searchwhere_search_all"/>
+        All Karl
+    </label>
+    <label>
+        <input type="radio" name="searchwhere"
+               id="search_options_section"
+               value="searchwhere_this_section"/>
+        Only in this Community
+    </label>
+
+    <select name="searchfor">
+        <option value="searchfor_all_content">All Content</option>
+        <option value="searchfor_this_section">This Section</option>
+    </select>
+
+    <input id="search-site-box"
+           class="float-left" type="search"
+           name="SearchTextBox"
+           title="Search this site"
+           accesskey="4" size="15"/>
+    <button class="searchButton" type="submit">Search</button>
+</form>
