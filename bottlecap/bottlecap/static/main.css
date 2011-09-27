@@ -636,6 +636,9 @@ figure figcaption {
   color: #fffdfa;
   font-size: 0.75em;
   font-family: Verdana, sans-serif;
+  -webkit-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
+  -moz-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
 }
 .dropdown-menu ul {
   clear: none;
