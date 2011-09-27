@@ -988,7 +988,7 @@ section.main aside {
 section.main header {
   position: relative;
 }
-ul.contextTools {
+ul.actionsMenu {
   position: absolute;
   top: 0;
   right: 0;
@@ -1001,14 +1001,14 @@ ul.contextTools {
   width: auto;
   height: auto;
 }
-ul.contextTools li {
+ul.actionsMenu li {
   display: inline;
 }
-ul.contextTools li a {
+ul.actionsMenu li a {
   float: none;
   display: inline-block;
 }
-ul.contextTools a {
+ul.actionsMenu a {
   text-decoration: none;
   padding: 0 0.6665em;
   font-size: 0.75em;

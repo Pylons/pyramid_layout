@@ -3,9 +3,9 @@
 
         <header>
             <h1>A Very Important Page</h1>
-            <tal:contextTools tal:content="layout.component('bottlecap.contextTools')">
-                Context tools
-            </tal:contextTools>
+            <tal:actionsMenu tal:content="layout.component('bottlecap.actionsMenu')">
+                Actions menu
+            </tal:actionsMenu>
             <p class="description">
                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                 Nullam quis risus eget urna mollis ornare vel eu leo. Praesent
