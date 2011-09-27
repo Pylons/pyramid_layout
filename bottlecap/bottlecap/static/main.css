@@ -895,7 +895,8 @@ ul[data-dropdown='dropdown'] a.ir:hover, ul[data-dropdown='dropdown'] li.open a.
 }
 .sectionContainer h2 {
   color: #222222;
-  text-shadow: 0 1px 0 #7d9aa6;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #6d8e9c;
   padding-top: 1em;
   font-size: 1.333em;
   padding-left: 26.653px;
@@ -927,6 +928,7 @@ ul[data-dropdown='dropdown'] a.ir:hover, ul[data-dropdown='dropdown'] li.open a.
   float: left;
   width: 80%;
   padding: 0 0 0 13.3265px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
 }
 .sectionContainer ul.sectionTools li {
   float: left;
