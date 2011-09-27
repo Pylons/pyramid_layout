@@ -12,10 +12,11 @@
 
     $.fn.dropdown = function (selector) {
         return this.each(function () {
-            $(this).delegate(selector || 'a.menu, .dropdown-toggle', 'mouseover', function (e) {
+            $(this).delegate(selector || 'a.menu, .dropdown-toggle', 'click', function (e) {
                 var li = $(this).parent('li');
                 clearMenus();
-                li.addClass('open');
+                li.toggleClass('open');
+                return false;
             });
         });
     };
