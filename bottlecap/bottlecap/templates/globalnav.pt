@@ -11,16 +11,31 @@
         <li
         ><a href="#">Intranet</a></li><li class="selected"
         ><a href="#">Communities</a></li><li
-        ><a href="#">People</a></li><li class="dropdown"
-        >
-        <a href="#" class="dropdown-toggle">Calendar</a>
-        <ul class="dropdown-menu">
-            <li><a href="#">Front Page</a></li>
-            <li><a href="#">Index</a></li>
-            <li><a href="#">Contents</a></li>
-            <li><a href="#">Feed</a></li>
-        </ul>
-        </li><li
-        ><a href="#">Explore</a></li>
+        ><a href="#">People</a></li><li
+        ><a href="#">Calendar</a></li><li
+        ><a href="#">Explore</a></li><li class="dropdown"
+        ><a href="#" class="dropdown-toggle ir">More</a>
+            <div class="dropdown-menu">
+                <figure>
+                    <img src="http://lorempixum.com/64/64/" alt="" />
+                </figure>
+                <p>The dropdowns can contain any information you
+                want, including images, lists and plain text.</p>
+                <ul>
+                    <li><a href="#">Cursus Ridiculus Nibh</a></li>
+                    <li><a href="#">Pellentesque Ligula</a></li>
+                    <li><a href="#">Dapibus Etiam Sollicitudin Tristique</a></li>
+                    <li><a href="#">Cursus</a></li>
+                </ul>
+                <p>Morbi leo risus, porta ac consectetur ac,
+                vestibulum at eros. Curabitur blandit tempus
+                porttitor. Cras mattis consectetur purus sit amet
+                fermentum. Aenean lacinia bibendum nulla sed
+                consectetur.</p>
+                <div class="dropdown-footer">
+                    The footer area of the dropdown.
+                </div>
+            </div>
+        </li>
     </ul>
 </nav>
