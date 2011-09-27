@@ -30,10 +30,10 @@
 <body>
     <div id="top-bar">
         <div class="container">
-            <tal:globalnav tal:content="layout.component('bottlecap.globalnav')">
-                global navigation
+            <tal:globalnav tal:content="layout.component('bottlecap.globalNav')">
+                Global navigation
             </tal:globalnav>
-            <tal:personaltools tal:content="layout.component('bottlecap.personaltools')">
+            <tal:personaltools tal:content="layout.component('bottlecap.personalTools')">
                 Personal tools
             </tal:personaltools>
         </div>
