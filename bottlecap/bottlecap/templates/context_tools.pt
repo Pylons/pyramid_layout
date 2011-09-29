@@ -1,7 +1,7 @@
-<ul class="sectionTools" data-dropdown="dropdown">
+<ul class="sectionTools">
     <li><a href="#">Overview</a></li>
     <li class="selected"><a href="#">Blog</a></li>
-    <li class="dropdown">
+    <li>
         <a href="#" class="dropdown-toggle">Wiki</a>
         <ul class="dropdown-menu">
             <li><a href="#">Front Page</a></li>
@@ -13,9 +13,9 @@
     <li><a href="#">Calendar</a></li>
     <li><a href="#">Files</a></li>
     <li><a href="#">Members</a></li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle ir">More</a>
-        <div class="dropdown-menu">
+    <li data-quickpanel="quickpanel">
+        <a href="#" class="quickpanel-toggle ir">More</a>
+        <div class="quickpanel">
             <figure>
                 <img src="http://lorempixum.com/64/64/" alt="" />
             </figure>

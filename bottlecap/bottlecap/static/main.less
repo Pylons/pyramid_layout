@@ -337,10 +337,11 @@ figure {
 
 /* @group Dropdown menu */
 
-.dropdown {
+li[data-quickpanel] {
     position: relative;
 }
-.dropdown-toggle::after {
+.quickpanel-toggle:after,
+.dropdown-toggle:after {
 	width: 0;
 	height: 0;
 	display: inline-block;
@@ -355,6 +356,7 @@ figure {
 	border-right: 4px solid transparent;
 	border-top: 4px solid @baseColor4;
 }
+.quickpanel,
 .dropdown-menu {
 	display: none;
 	position: absolute;
@@ -406,7 +408,7 @@ figure {
 	    margin-bottom: @space/2;
 	}
 }
-div.dropdown-menu {
+div.quickpanel {
     width: 400px;
     a:hover {
 	    text-decoration: underline;
@@ -422,10 +424,15 @@ ul.dropdown-menu {
 	    background: #000;
 	}
 }
-.open {
+.open,
+.sectionContainer li:hover > a.dropdown-toggle {
     background: #333;
 }
-.open .dropdown-menu {
+.sectionContainer li:hover > a.dropdown-toggle {
+    text-decoration: none;
+}
+.open .quickpanel,
+.sectionContainer li:hover > .dropdown-menu {
     display: block;
 }
 
@@ -474,7 +481,7 @@ ul.dropdown-menu {
 		    color: @baseColor4;
 		}
 	}
-	a.dropdown-toggle:after {
+	a.quickpanel-toggle:after {
 		margin-top: 1.1em;
 	}
 	.selected a {
@@ -529,13 +536,13 @@ ul#global-nav {
 	   line-height: 2.367829021em; 
 	}
 }
-ul[data-dropdown='dropdown'] a.ir {
+li[data-quickpanel='quickpanel'] a.ir {
     display: block;
     background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAMCAYAAACA0IaCAAAApklEQVR42p2TYQkDMQyF6yASKiESKuEknJRKmYRJiIRKOAn5Pzi6N0ghhN22rPDR8kIeryktV2uejwY6qCW7zIAcA0wggMEOKGO0DNT2yD2T7AjNkZ5J5hMpkKXFZK8zEMe2CvwmFVutBf0wffcaoOIbAmQ1jjWXTkxr8Zo1pBugB00B+Z7LR7Hm+QHJvOb4YqYZMwY3G66661abK//7GzYbcPu15wnL/Lajnh93HQAAAABJRU5ErkJggg==) 50% 50% no-repeat;
     width: 19px;
 }
-ul[data-dropdown='dropdown'] a.ir:hover,
-ul[data-dropdown='dropdown'] li.open a.ir {
+li[data-quickpanel='quickpanel'] a.ir:hover,
+li[data-quickpanel='quickpanel'].open a.ir {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAMCAYAAACA0IaCAAAAqElEQVR42p2T0QnEIBBE7WBLsIQtwRJSQkqxlJRwJchV4Md93kdKsIRkAissQ+7QCA/DyGzGXQy/1vvzTSCDGJ4sGMVRwQEKULACGSpEBZrtzGsm2U5mJg8no0QNlK5xsusbFMfSD/QmlfZBkL6bvnoNSPAGQvqP+MylK6YlvmakdBVk0hoQ8twPxczHH8rMNCuZmTZTTMFmzW3uutH6qk9fw2INTqOeExzVd+LkbKuOAAAAAElFTkSuQmCC);
 }
 .no-generatedcontent #top-bar nav .selected {

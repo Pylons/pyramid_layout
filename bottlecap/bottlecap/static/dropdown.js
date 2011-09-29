@@ -2,17 +2,17 @@
 (function ($) {
 
     function clearMenus() {
-        $('a.menu, .dropdown-toggle').parent('li').removeClass('open');
+        $('[data-quickpanel]').removeClass('open');
     }
 
     $(function () {
         $('html').bind("click", clearMenus);
-        $('body').dropdown('[data-dropdown] a.menu, [data-dropdown] .dropdown-toggle');
+        $('body').quickpanel('[data-quickpanel] .quickpanel-toggle');
     });
 
-    $.fn.dropdown = function (selector) {
+    $.fn.quickpanel = function (selector) {
         return this.each(function () {
-            $(this).delegate(selector || 'a.menu, .dropdown-toggle', 'click', function (e) {
+            $(this).delegate(selector, 'click', function (e) {
                 var li = $(this).parent('li');
                 clearMenus();
                 li.toggleClass('open');
