@@ -286,10 +286,25 @@ table th {
 h1 {
     color: @complimentaryColor2;
 }*/
+.container:before, 
+.container:after,
+#top-bar:before, 
+#top-bar:after,
+.contentWrapper:before, 
+.contentWrapper:after { content: ""; display: table; }
+
+.container:after,
+#top-bar:after,
+.contentWrapper:after { clear: both; }
+
+.container,
+#top-bar,
+.contentWrapper { *zoom: 1; }
+
 .container {
-	.clearfix();
 	.row(12);	    
 }
+
 img {
     max-width: 100%;
 }
@@ -421,7 +436,6 @@ ul.dropdown-menu {
 #top-bar {
 	.css3_linear_gradient(#444, #222);
 	color: @bodyBg;
-	.clearfix();
 	.row(12);	
 	a {
     	text-decoration: none;
@@ -642,7 +656,6 @@ ul.sectionTools li.open a.ir {
 
 .contentWrapper {
     .row(12);
-    .clearfix();
     .css3_box_shadow(0 0 10px darken(@baseColor3, 20%));
 }
 .contentWrapper > section.main {
