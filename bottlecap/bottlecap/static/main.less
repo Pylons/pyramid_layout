@@ -428,9 +428,6 @@ ul.dropdown-menu {
 .sectionContainer li:hover > a.dropdown-toggle {
     background: #333;
 }
-.sectionContainer li:hover > a.dropdown-toggle {
-    text-decoration: none;
-}
 .open .quickpanel,
 .sectionContainer li:hover > .dropdown-menu {
     display: block;
@@ -627,8 +624,10 @@ li[data-quickpanel='quickpanel'].open a.ir {
 	    li {
 		    float:left;
 		}
-	    .selected a {
+	    .selected a,
+	    .selected a:hover {
 		    color: #fff;
+		    text-decoration: none;
 		}
 		.selected a:after {
 			content: "";
