@@ -624,12 +624,15 @@ li[data-quickpanel] {
   text-indent: -99999px;
   vertical-align: top;
   position: relative;
-  top: -2px;
+  top: -0.1em;
   margin-top: 0.75em;
   margin-left: 4px;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 4px solid #c1d3db;
+}
+.actionsMenu .dropdown-toggle:after {
+  margin-top: 0.9em;
 }
 .quickpanel, .dropdown-menu {
   display: none;
@@ -651,6 +654,9 @@ li[data-quickpanel] {
   -webkit-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
   -moz-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
   box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
+  -webkit-border-radius: 0 0 0.4em 0.4em;
+  -moz-border-radius: 0 0 0.4em 0.4em;
+  border-radius: 0 0 0.4em 0.4em;
 }
 .quickpanel ul, .dropdown-menu ul {
   clear: none;
@@ -701,12 +707,31 @@ ul.dropdown-menu a {
 }
 ul.dropdown-menu a:hover {
   color: #fff;
-  background: #000;
+  background: #777777;
+  background-image: -moz-linear-gradient(top, #777777, #555555);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, #777777, #555555);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, #777777, #555555);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#777777), to(#555555));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, #777777, #555555);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, #777777, #555555);
 }
-.open, .sectionContainer li:hover > a.dropdown-toggle {
+.open, li:hover > a.dropdown-toggle {
   background: #333;
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  border-radius: 0.35em;
 }
-.open .quickpanel, .sectionContainer li:hover > .dropdown-menu {
+.open .quickpanel, li:hover > .dropdown-menu {
   display: block;
 }
 /* @end */
@@ -1013,8 +1038,7 @@ ul.actionsMenu {
   float: none;
   clear: both;
   list-style: none;
-  background: #f5f5f5;
-  padding: 0.6665em;
+  padding: 0;
   margin: 0;
   width: auto;
   height: auto;
@@ -1028,9 +1052,95 @@ ul.actionsMenu li a {
 }
 ul.actionsMenu a {
   text-decoration: none;
-  padding: 0 0.6665em;
+  padding: 0.422em 0.6665em;
   font-size: 0.75em;
   font-family: Verdana, sans-serif;
+  background: #555555;
+  background-image: -moz-linear-gradient(top, #555555, #333333);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, #555555, #333333);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, #555555, #333333);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#555555), to(#333333));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, #555555, #333333);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, #555555, #333333);
+  color: #fff;
+  border: 1px solid #000;
+  margin-left: 1px;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+ul.actionsMenu a:hover {
+  background: #555;
+  border-color: #222;
+}
+ul.actionsMenu .dropdown-menu {
+  left: 1px;
+  top: 2.933em;
+  -webkit-border-radius: 0 0 0.5em 0.5em;
+  -moz-border-radius: 0 0 0.5em 0.5em;
+  border-radius: 0 0 0.5em 0.5em;
+}
+ul.actionsMenu .dropdown-menu a {
+  font-size: 1em;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background: none;
+  background-image: -moz-linear-gradient(top, none, white);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, none, white);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, none, white);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(none), to(white));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, none, white);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, none, white);
+}
+ul.actionsMenu .dropdown-menu a:hover {
+  background: #777777;
+  background-image: -moz-linear-gradient(top, #777777, #555555);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, #777777, #555555);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, #777777, #555555);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#777777), to(#555555));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, #777777, #555555);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, #777777, #555555);
+}
+ul.actionsMenu li:hover > a.dropdown-toggle {
+  background: #333;
+  border-color: #222;
+  padding: 0.422em 0.6665em 0.5222em;
+  -webkit-border-radius: 0.5em 0.5em 0 0;
+  -moz-border-radius: 0.5em 0.5em 0 0;
+  border-radius: 0.5em 0.5em 0 0;
+  border-bottom-color: #333;
 }
 /* @end */
 /* @group Column */

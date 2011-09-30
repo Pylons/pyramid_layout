@@ -349,12 +349,15 @@ li[data-quickpanel] {
 	text-indent: -99999px;
 	vertical-align: top;
 	position: relative;
-	top: -2px;
+	top: -0.1em;
 	margin-top: 0.75em;
 	margin-left: 4px;
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
 	border-top: 4px solid @baseColor4;
+}
+.actionsMenu .dropdown-toggle:after {
+    margin-top: 0.9em;
 }
 .quickpanel,
 .dropdown-menu {
@@ -374,6 +377,7 @@ li[data-quickpanel] {
     color: @bodyBg;
     .smaller();
     .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
+    .css3_border_radius(0 0 0.4em 0.4em);
     ul {
 	    clear: none;
 	    margin-bottom: @space;
@@ -421,15 +425,16 @@ ul.dropdown-menu {
 	}
     a:hover {
 		color: #fff;
-	    background: #000;
+	    .css3_linear_gradient(#777, #555);
 	}
 }
 .open,
-.sectionContainer li:hover > a.dropdown-toggle {
+li:hover > a.dropdown-toggle {
     background: #333;
+    .css3_border_radius(0.35em);
 }
 .open .quickpanel,
-.sectionContainer li:hover > .dropdown-menu {
+li:hover > .dropdown-menu {
     display: block;
 }
 
@@ -692,15 +697,47 @@ ul.actionsMenu {
 	top: 0;
 	right: 0;
 	.horList();
-    background: #f5f5f5;
-    padding: @space/2;
+    padding: 0;
     margin: 0;
     width: auto;
     height: auto;
     a {
 	    text-decoration: none;
-	    padding: 0 @space/2;
+	    padding: 0.422em @space/2;
 	    .smaller();
+		.css3_linear_gradient(#555, #333);
+		color:#fff;
+		border: 1px solid #000;
+		margin-left: 1px;
+		.css3_border_radius(0.5em);
+		&:hover {
+			background: #555;
+			border-color: #222;
+		}
+	}
+	.dropdown-menu {
+    	left: 1px;
+    	top: 1.6em + @space;
+    	.css3_border_radius(0 0 0.5em 0.5em);
+    	a {
+			font-size: 1em;
+		    border:none;
+		    .css3_border_radius(0);
+		    .css3_linear_gradient(none);
+		    &:hover {
+			    .css3_linear_gradient(#777, #555);
+			}
+		}
+	}
+	li:hover > a.dropdown-toggle {
+		background: #333;
+		border-color: #222;
+		padding: 0.422em @space/2 0.5222em;
+		.css3_border_radius(0.5em 0.5em 0 0);
+		border-bottom-color: #333;
+	}
+	li:hover > .dropdown-menu {
+	    
 	}
 }
 
