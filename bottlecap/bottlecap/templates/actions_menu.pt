@@ -1,4 +1,11 @@
 <ul class="actionsMenu">
-    <li><a href="#">Edit</a></li>
-    <li><a href="#">Delete</a></li>
+    <li><a href="#" class="dropdown-toggle">Add</a><ul
+        class="dropdown-menu">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Folder</a></li>
+            <li><a href="#">File</a></li>
+            <li><a href="#">Blog entry</a></li>
+        </ul></li><li><a
+        href="#">Edit</a></li><li><a
+        href="#">Delete</a></li>
 </ul>
