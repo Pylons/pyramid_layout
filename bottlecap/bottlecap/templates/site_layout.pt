@@ -56,12 +56,12 @@
             </nav>
         </div>
     </div>
-    
+
     <div class="contentWrapper">
         <section class="main">
             <metal:content define-slot="content" />
         </section>
-    
+
         <aside class="column">
             <h3>This is a column.</h3>
             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
@@ -74,7 +74,7 @@
             eget metus.</p>
         </aside>
     </div>
-    
+
     <footer>
         <div class="container">Footer with some relevant information.</div>
     </footer>
@@ -86,7 +86,7 @@
     <script type="text/javascript" defer
         src="${layout.bottlecap_static}bottlecap.js"></script>
     <script type="text/javascript"
-        src="${layout.bottlecap_static}dropdown.js"></script>        
+        src="${layout.bottlecap_static}dropdown.js"></script>
 
     <metal:tailslot metal:define-slot="tail_slot" />
 
