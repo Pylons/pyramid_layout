@@ -1,6 +1,7 @@
 <form action="#">
     <label>
         <input type="radio" name="searchwhere"
+               checked="checked"
                id="search_options_all"
                value="searchwhere_search_all"/>
         All Karl
