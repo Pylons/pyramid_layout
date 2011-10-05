@@ -6,7 +6,7 @@
             KARL
         </a>
     </h1>
-    <!-- <h1 class="collapsible"><a href="#" class="collapsible-toggle">Sections</a></h1> -->
+    <h2 class="collapsible" id="sections-toggle"><a href="#">Sections</a></h2>
     <ul id="global-nav">
         <li
         ><a href="#">Intranet</a></li><li class="selected"
