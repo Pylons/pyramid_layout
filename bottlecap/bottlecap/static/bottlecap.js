@@ -21,7 +21,7 @@ $.widget('gumball.quickpanel', {
     _create: function() {
         var self = this;
         this.hasOpenedOnce = false;
-        
+
         // Figure out the quickpanel identifiers.
         var originalText = this.element.find('a').text()
         var panelId = 'quickpanel-' + originalText.toLowerCase();
@@ -43,7 +43,7 @@ $.widget('gumball.quickpanel', {
         }
 
         this._position = {
-            my: 'left top',                    
+            my: 'left top',
             at: 'left bottom',
             offset: '-64 0',
             of: this.positionElement,
@@ -72,7 +72,7 @@ $.widget('gumball.quickpanel', {
             self.southTail
                 .show()
                 .position({
-                    my: 'left center',                    
+                    my: 'left center',
                     at: 'right center',
                     of: self.positionElement,
                     offset: '2 -3',
@@ -131,14 +131,14 @@ $.widget('gumball.quickpanel', {
         this.northTail
             .show()
             .position({
-                my: 'center bottom',                    
+                my: 'center bottom',
                 at: 'center bottom',
                 of: this.positionElement,
                 collision: 'none none'
             });
-        
+
     },
- 
+
     close: function(evt) {
         this.panel.dialog('close');
     },
@@ -161,7 +161,7 @@ $.widget('gumball.quickpanel', {
         if (panelRight > contentRight) {
             var newLeft = (panelLeft - panelRight + contentRight);
             if (newLeft >= contentLeft) {
-                panelWidget.css('left', '' + newLeft + 'px'); 
+                panelWidget.css('left', '' + newLeft + 'px');
             }
         }
     }
