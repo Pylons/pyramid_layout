@@ -588,7 +588,7 @@ figure {
 }
 figure img {
   display: block;
-  border: 0.6665em solid #ffffff;
+  border: 2px solid #fff;
   -webkit-box-shadow: 0 0 0 1px #dbcfc1, 0 0 10px 1px #bbbbbb;
   -moz-box-shadow: 0 0 0 1px #dbcfc1, 0 0 10px 1px #bbbbbb;
   box-shadow: 0 0 0 1px #dbcfc1, 0 0 10px 1px #bbbbbb;
@@ -656,6 +656,13 @@ h2#sections-toggle {
 }
 #top-bar nav ul {
   background: #777;
+}
+#top-bar nav ul a {
+  display: block;
+}
+#top-bar nav ul .selected a {
+  color: #222222;
+  background-color: #c1d3db;
 }
 #top-bar nav ul li, nav.search {
   border-bottom: 1px solid #555;
@@ -747,62 +754,9 @@ ul.dropdown-menu {
 .column {
   margin-top: 1.333em;
 }
-/*.contentWrapper > section.main {
-    .column(8);
-    padding:(@space * 2) 0;
+.column h3 {
+  font-size: 1.777em;
 }
-
-section.main header {
-    position: relative;
-}
-ul.actionsMenu {
-	position: absolute;
-	top: 0;
-	right: 0;
-	.horList();
-    padding: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
-    a {
-	    text-decoration: none;
-	    padding: 0.422em @space/2;
-	    .smaller();
-		.css3_linear_gradient(#555, #333);
-		color:#fff;
-		border: 1px solid #000;
-		margin-left: 1px;
-		.css3_border_radius(0.5em);
-		&:hover {
-			background: #555;
-			border-color: #222;
-		}
-	}
-	.dropdown-menu {
-    	left: 1px;
-    	top: 1.6em + @space;
-    	.css3_border_radius(0 0 0.5em 0.5em);
-    	a {
-			font-size: 1em;
-		    border:none;
-		    .css3_border_radius(0);
-		    .css3_linear_gradient(none);
-		    &:hover {
-			    .css3_linear_gradient(#777, #555);
-			}
-		}
-	}
-	li:hover > a.dropdown-toggle {
-		background: #333;
-		border-color: #222;
-		padding: 0.422em @space/2 0.5222em;
-		.css3_border_radius(0.5em 0.5em 0 0);
-		border-bottom-color: #333;
-	}
-	li:hover > .dropdown-menu {
-	    
-	}
-}*/
 /* @end */
 /* @group Footer */
 body > footer {
@@ -822,6 +776,9 @@ body > footer {
    Modify as content requires.
    ========================================================================== */
 @media only screen and (min-width: 320px) {
+  body {
+    font-size: 0.8em;
+  }
   h2#sections-toggle {
     display: block;
     float: right;
