@@ -224,8 +224,8 @@ td { vertical-align: top; }
 /* Layout definition */
 @font-size: 15;
 @em: @font-size*1em;
-@column: 60;
-@gutter: 26;
+@column: 40;
+@gutter: 20;
 
 
 /* Fonts definition */
@@ -320,6 +320,7 @@ figure {
 
 #top-bar {
 	color: @bodyBg;
+    background: #333;	
 	a {
     	text-decoration: none;
 		color: @bodyBg;
@@ -338,7 +339,6 @@ figure {
 	}
 }
 #top-bar nav h1.sitetitle {
-    background: #333;	
 	font-family: @baseFont;
 	line-height: 35px;
 	font-size: 1em;	
@@ -361,11 +361,15 @@ figure {
 	    margin-top: -12px;
 	}		
 }
-h2#sections-toggle {
+h2#sections-toggle,
+h2#search-toggle {
     display: none;
 }
+#top-bar nav ul,
+nav.search form {
+    background: #5c6367;    
+}
 #top-bar nav ul {
-    background: #777;
     a {
 	    display: block;
 	}
@@ -395,7 +399,6 @@ li[data-quickpanel="quickpanel"] {
 	}
 }
 nav.search {
-    background: #777;
     text-align: center;
 }
 input#search-site-box {
@@ -485,19 +488,72 @@ body > footer {
 	body {
 		font-size: (@font-size - 3)/@font-size*1em;
 	}
-	h2#sections-toggle {
+	html.js #top-bar nav h1.sitetitle {
+	    text-align: left;
+	    width: @2cols;
+	    padding: 0 @space/2;
+	    border-bottom: none;
+	}
+	html.js h2#sections-toggle,
+	html.js h2#search-toggle {
 		display: block;
-	    float: right;
+		position: absolute;
+		top: 0;
+		right: 0;
+	    padding: 0;
+	    margin: 0;
 	    font-size: 1em;
+		border-left: 1px solid #aaa;
+	}
+	html.js h2#sections-toggle {
+	    right: 35px;
+	}	
+	html.js h2#sections-toggle a,
+	html.js h2#search-toggle a {
+	    display: block;
+		height: 35px;
+		width: 35px;		    
+	}	
+	html.js h2#sections-toggle a {
+		background: transparent url('sections_icon.png') 50% 50% no-repeat;	    
+	}
+	html.js h2#search-toggle a {
+		background: transparent url('search_icon.png') 50% 50% no-repeat;	    
+	}
+	li[data-quickpanel]
+	div[data-quickpanel] {
+	    position: relative;
+	}
+	html.js .quickpanel {
+		display: none;
+		width: 100%;
+	    margin: 0;
+	    padding: 0;
+	    ul {
+		    clear: none;
+		    margin-bottom: @space;
+		}
+	    a {
+			display: block;
+		    color: @baseColor2;
+		    padding: @space/4 0;
+		    line-height: 2.369em;
+		}
+	}
+	.open > .quickpanel {
+	    display: block !important;
+	}
+	#top-bar nav ul,
+	nav.search form {
+	    -webkit-box-shadow: inset 0 3px 25px #414649, inset 0 -3px 25px #414649;
+	       -moz-box-shadow: inset 0 3px 25px #414649, inset 0 -3px 25px #414649;
+	            box-shadow: inset 0 3px 25px #414649, inset 0 -3px 25px #414649;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 /* @group Dropdown menu */
 
-li[data-quickpanel] {
-    position: relative;
-}
 .quickpanel-toggle:after,
 .dropdown-toggle:after {
 	width: 0;
@@ -517,46 +573,6 @@ li[data-quickpanel] {
 .actionsMenu .dropdown-toggle:after {
     margin-top: 0.9em;
 }
-.quickpanel,
-.dropdown-menu {
-	display: none;
-	position: absolute;
-    left: 0;
-    top: 1.5em + @space;
-    z-index: 10;
-    min-width: 140px;
-    margin: 0;
-    padding: @space;
-    background: #333;
-    border-width: 0 1px 1px;
-    border-style: solid;
-    border-color: #999;
-    border-color: rgba(0, 0, 0, 0.2);
-    color: @bodyBg;
-    .smaller();
-    .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
-    .css3_border_radius(0 0 0.4em 0.4em);
-    ul {
-	    clear: none;
-	    margin-bottom: @space;
-	}
-	li {
-	    display: list-item !important;
-	    float: none !important;
-	}		
-    a {
-	    color: @baseColor2;
-	    padding: @space/4 0;
-	    line-height: 1.185em;
-	}
-	figure {
-	    float: right;
-	    margin: 0 0 @space/2 @space/2;
-	    img {
-		    .css3_box_shadow(none);
-		}
-	}
-}
 div.quickpanel {
     width: 400px;
     a:hover {
@@ -573,30 +589,7 @@ ul.dropdown-menu {
 	    .css3_linear_gradient(#777, #555);
 	}
 }
-.open,
-li:hover > a.dropdown-toggle {
-    background: #333;
-    .css3_border_radius(0.35em);
-}
 
-}
-.dropdown-footer {
-    border-top: 1px solid #222;
-    padding: 0;
-    margin-top: @space/2;
-    &:before {
-	    content: "";
-	    display: block;
-	    height: 1px;
-	    width: 100%;
-	    background: #444;
-	    margin-bottom: @space/2;
-	}
-
-.open .quickpanel,
-li:hover > .dropdown-menu {
-    display: block;
-}
 
 /* @end */
 
