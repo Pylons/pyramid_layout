@@ -13,9 +13,9 @@
     $.fn.quickpanel = function (selector) {
         return this.each(function () {
             $(this).delegate(selector, 'click', function (e) {
-                var li = $(this).parent('li');
-                clearMenus();
-                li.toggleClass('open');
+                var $li = $(this).parents('[data-quickpanel="quickpanel"]');
+                $('[data-quickpanel]').not($li).removeClass('open');
+                $li.toggleClass('open');
                 return false;
             });
         });
