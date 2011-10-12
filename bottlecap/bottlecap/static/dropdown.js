@@ -6,7 +6,7 @@
     }
 
     $(function () {
-        $('html').bind("click", clearMenus);
+        // $('html').bind("click", clearMenus);
         $('body').quickpanel('[data-quickpanel] .quickpanel-toggle');
     });
 
