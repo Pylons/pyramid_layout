@@ -772,6 +772,58 @@ body > footer {
 .actionsMenu .dropdown-toggle:after {
     margin-top: 0.9em;
 }
+.dropdown-menu {
+	display: none;
+	position: absolute;
+    left: 0;
+    top: 1.5em + @space;
+    z-index: 10;
+    min-width: 140px;
+    margin: 0;
+    padding: @space;
+    background: #333;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: #999;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: @bodyBg;
+    .smaller();
+    .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
+    .css3_border_radius(0 0 0.4em 0.4em);
+    ul {
+	    clear: none;
+	    margin-bottom: @space;
+	}
+	li {
+	    display: list-item !important;
+	    float: none !important;
+	}		
+    a {
+	    color: @baseColor2;
+	    padding: @space/4 0;
+	    line-height: 1.185em;
+	}
+	figure {
+	    float: right;
+	    margin: 0 0 @space/2 @space/2;
+	    img {
+		    .css3_box_shadow(none);
+		}
+	}	
+}
+.dropdown-footer {
+    border-top: 1px solid #222;
+    padding: 0;
+    margin-top: @space/2;
+    &:before {
+	    content: "";
+	    display: block;
+	    height: 1px;
+	    width: 100%;
+	    background: #444;
+	    margin-bottom: @space/2;
+	}
+}
 div.quickpanel {
     width: 400px;
     a:hover {
@@ -789,6 +841,15 @@ ul.dropdown-menu {
 		color: #fff;
 	    .css3_linear_gradient(#777, #555);
 	}
+}
+.open,
+li:hover > a.dropdown-toggle {
+    background: #333;
+    .css3_border_radius(0.35em);
+}
+.open .quickpanel,
+li:hover > .dropdown-menu {
+    display: block;
 }
 
 /* @group Top Bar with the global naviagtion */
@@ -940,7 +1001,18 @@ ul.actionsMenu {
 
 .contentWrapper > aside.column {
     /*.column(4);*/
-    padding: (@space * 2) 0;
+    padding: @space 1.33em;
+    .portlet {
+		float:left;
+	    width: 48%;
+	    margin-right: 4%;
+	}
+	.portlet:nth-child(even) {
+	    margin-right: 0;
+	}
+	.portlet h3 {
+	    font-size: 1.333em;
+	}
 }
 
 /* @end */
@@ -950,7 +1022,7 @@ ul.actionsMenu {
 body > footer {
     border-top: 1px solid darken(@baseColor2, 10%);
     background: @baseColor2;
-    padding: @space 0;
+    padding: @space 0 @space*2;
     .smaller();
 }
 

@@ -1118,6 +1118,65 @@ body > footer {
   .actionsMenu .dropdown-toggle:after {
     margin-top: 0.9em;
   }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 2.833em;
+    z-index: 10;
+    min-width: 140px;
+    margin: 0;
+    padding: 1.333em;
+    background: #333;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: #999;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #fffdfa;
+    font-size: 0.75em;
+    font-family: Verdana, sans-serif;
+    -webkit-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
+    -moz-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
+    box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
+    -webkit-border-radius: 0 0 0.4em 0.4em;
+    -moz-border-radius: 0 0 0.4em 0.4em;
+    border-radius: 0 0 0.4em 0.4em;
+  }
+  .dropdown-menu ul {
+    clear: none;
+    margin-bottom: 1.333em;
+  }
+  .dropdown-menu li {
+    display: list-item !important;
+    float: none !important;
+  }
+  .dropdown-menu a {
+    color: #dbcfc1;
+    padding: 0.33325em 0;
+    line-height: 1.185em;
+  }
+  .dropdown-menu figure {
+    float: right;
+    margin: 0 0 0.6665em 0.6665em;
+  }
+  .dropdown-menu figure img {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  .dropdown-footer {
+    border-top: 1px solid #222;
+    padding: 0;
+    margin-top: 0.6665em;
+  }
+  .dropdown-footer:before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: #444;
+    margin-bottom: 0.6665em;
+  }
   div.quickpanel {
     width: 400px;
   }
@@ -1151,6 +1210,15 @@ body > footer {
     /* Chrome 10+, Saf5.1+ */
   
     background-image: linear-gradient(top, #777777, #555555);
+  }
+  .open, li:hover > a.dropdown-toggle {
+    background: #333;
+    -webkit-border-radius: 0.35em;
+    -moz-border-radius: 0.35em;
+    border-radius: 0.35em;
+  }
+  .open .quickpanel, li:hover > .dropdown-menu {
+    display: block;
   }
   /* @group Top Bar with the global naviagtion */
   li[data-quickpanel='quickpanel'] a.ir {
@@ -1313,14 +1381,25 @@ body > footer {
   .contentWrapper > aside.column {
     /*.column(4);*/
   
-    padding: 2.666em 0;
+    padding: 1.333em 1.33em;
+  }
+  .contentWrapper > aside.column .portlet {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+  }
+  .contentWrapper > aside.column .portlet:nth-child(even) {
+    margin-right: 0;
+  }
+  .contentWrapper > aside.column .portlet h3 {
+    font-size: 1.333em;
   }
   /* @end */
   /* @group Footer */
   body > footer {
     border-top: 1px solid #c8b6a1;
     background: #dbcfc1;
-    padding: 1.333em 0;
+    padding: 1.333em 0 2.666em;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
   }
