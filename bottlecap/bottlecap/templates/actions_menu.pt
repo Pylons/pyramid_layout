@@ -1,5 +1,5 @@
-<ul class="actionsMenu">
-    <li><a href="#" class="dropdown-toggle">Add</a><ul
+<ul class="actionsMenu" data-quickpanel="quickpanel">
+    <li><a href="#" class="quickpanel-toggle">Add</a><ul class="quickpanel"
         class="dropdown-menu">
             <li><a href="#">Page</a></li>
             <li><a href="#">Folder</a></li>

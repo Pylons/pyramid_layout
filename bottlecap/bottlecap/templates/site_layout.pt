@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="${layout.bottlecap_static}main.css"/>
 
     <script src="${layout.bottlecap_static}modernizr-2.0.6.min.js"></script>
-
+    
     <metal:headslot metal:define-slot="head_slot" />
 </head>
 <body>
@@ -41,6 +41,11 @@
 
     <div class="sectionContainer">
         <div class="container">
+            <nav class="search">
+                <tal:searchbox tal:content="layout.component('bottlecap.search')">
+                    Search box
+                </tal:searchbox>
+            </nav>
             <section>
                 <header>
                     <h2>${project}</h2>
@@ -49,11 +54,6 @@
                     Context tools
                 </tal:contextTools>
             </section>
-            <nav class="search">
-                <tal:searchbox tal:content="layout.component('bottlecap.search')">
-                    Search box
-                </tal:searchbox>
-            </nav>
         </div>
     </div>
 
