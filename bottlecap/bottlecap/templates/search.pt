@@ -19,12 +19,12 @@
             <option value="searchfor_all_content">All Content</option>
             <option value="searchfor_this_section">This Section</option>
         </select>
-
         <input id="search-site-box"
                class="float-left" type="search"
                name="SearchTextBox"
                title="Search this site"
-               accesskey="4" size="15"/>
+               accesskey="4" size="15"
+               placeholder="Search" />
         <button class="searchButton" type="submit">Search</button>
     </form>
 </div>
