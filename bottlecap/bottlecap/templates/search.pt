@@ -1,4 +1,4 @@
-<div data-quickpanel="quickpanel">
+<div data-quickpanel="quickpanel" class="topNavIconWrapper">
     <h2 id="search-toggle"><a href="#" class="quickpanel-toggle ir">Search</a></h2>
     <form action="#" class="quickpanel">
         <label>

@@ -6,7 +6,7 @@
             KARL
         </a>
     </h1>
-    <div data-quickpanel="quickpanel">
+    <div data-quickpanel="quickpanel" class="topNavIconWrapper">
         <h2 id="sections-toggle"><a href="#" class="quickpanel-toggle ir">Sections</a></h2>
         <ul id="global-nav" class="quickpanel">
             <li
@@ -29,11 +29,11 @@
                         <li><a href="#">Cursus</a></li>
                     </ul>
                     <p>Morbi leo risus, porta ac consectetur ac,
-                    vestibulum at eros. Curabitur blandit tempus
+                    vestibulum at eros. <a href="#">Curabitur</a> blandit tempus
                     porttitor. Cras mattis consectetur purus sit amet
                     fermentum. Aenean lacinia bibendum nulla sed
                     consectetur.</p>
-                    <div class="dropdown-footer">
+                    <div class="quickpanel-footer">
                         The footer area of the dropdown.
                     </div>
                 </div>
