@@ -6,8 +6,14 @@
     }
 
     $(function () {
-        // $('html').bind("click", clearMenus);
+        $('html.no-touch').bind("click", clearMenus);
+        $('html.touch').bind("touchstart", clearMenus);        
         $('body').quickpanel('[data-quickpanel] .quickpanel-toggle');
+        
+        $('.touch .dropdown-toggle').bind('touchend', function (e) {
+            $(this).parents('[data-quickpanel="dropdown"]').toggleClass('open');
+            e.preventDefault();
+        });
     });
 
     $.fn.quickpanel = function (selector) {

@@ -829,21 +829,22 @@ body > footer {
     .open > a.quickpanel-toggle,
     li.open > a.quickpanel-toggle,
     #global-nav li.open > a.quickpanel-toggle,
-    li[data-quickpanel='dropdown']:hover a.dropdown-toggle {
+    .touch li[data-quickpanel='dropdown'].open a.dropdown-toggle,
+    .no-touch li[data-quickpanel='dropdown']:hover a.dropdown-toggle {
     	border-color: #222;
         background-color: #000;		
     	.css3_border_radius(0.5em 0.5em 0 0);
     	border-bottom-color: #333;
     }
-/*    .open,
-    a.dropdown-toggle:hover {
-        background: #000;
-        .css3_border_radius(0.35em 0.35em 0 0);
-    }*/
     .open .quickpanel,
-    li[data-quickpanel='dropdown']:hover > .dropdown {
+    .touch .open .dropdown,
+    .no-touch li[data-quickpanel='dropdown']:hover > .dropdown {
         display: block !important;
     }
+/*    .open .quickpanel,
+    .open .dropdown {
+        display: block !important;
+    }*/   
     /* @end */
     
     /* @group Content */
@@ -1005,6 +1006,9 @@ body > footer {
     /* @end */
 
     /* @group Top Bar with the global naviagtion */
+    #top-bar nav {
+        position: relative;
+    }
     #top-bar nav a.quickpanel-toggle:after {
     	margin-top: 1.1em;
     }
