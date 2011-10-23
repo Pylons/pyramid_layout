@@ -1133,9 +1133,6 @@ body > footer {
   .no-touch li[data-quickpanel='dropdown']:hover a.dropdown-toggle {
     border-color: #222;
     background-color: #000;
-    -webkit-border-radius: 0.5em 0.5em 0 0;
-    -moz-border-radius: 0.5em 0.5em 0 0;
-    border-radius: 0.5em 0.5em 0 0;
     border-bottom-color: #333;
   }
   .open .quickpanel, .touch .open .dropdown, .no-touch li[data-quickpanel='dropdown']:hover > .dropdown {
@@ -1164,6 +1161,11 @@ body > footer {
   }
   ul.actionsMenu {
     position: relative;
+  }
+  .no-touch ul.actionsMenu li:hover a, .touch ul.actionsMenu .open a {
+    -webkit-border-radius: 0.5em 0.5em 0 0;
+    -moz-border-radius: 0.5em 0.5em 0 0;
+    border-radius: 0.5em 0.5em 0 0;
   }
   ul.actionsMenu .quickpanel {
     left: 1px;
@@ -1290,6 +1292,7 @@ body > footer {
     width: auto;
     padding: 0 0 0 0.6665em;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    font-size: 0.889em;
   }
   ul.sectionTools li {
     display: inline;
@@ -1490,6 +1493,7 @@ body > footer {
   }
   .sectionContainer section .quickpanel {
     top: auto;
+    font-size: 0.75em;
   }
   .touch .dropdown a {
     padding-top: 0 !important;
@@ -1553,6 +1557,13 @@ body > footer {
     width: 30.770140676029676%;
     margin-left: 1.281596328651826%;
     margin-right: 1.281596328651826%;
+  }
+  ul.sectionTools {
+    clear: both;
+    font-size: 1em;
+  }
+  .sectionContainer section .quickpanel {
+    font-size: 0.667em;
   }
   /* @end */
   #members-info {

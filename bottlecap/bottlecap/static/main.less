@@ -821,7 +821,6 @@ body > footer {
     .no-touch li[data-quickpanel='dropdown']:hover a.dropdown-toggle {
     	border-color: #222;
         background-color: #000;		
-    	.css3_border_radius(0.5em 0.5em 0 0);
     	border-bottom-color: #333;
     }
     .open .quickpanel,
@@ -854,6 +853,10 @@ body > footer {
     }
     ul.actionsMenu {
         position: relative;
+    }
+    .no-touch ul.actionsMenu li:hover a,
+    .touch ul.actionsMenu .open a {
+    	.css3_border_radius(0.5em 0.5em 0 0);
     }
     ul.actionsMenu .quickpanel {
     	left: 1px;
@@ -946,6 +949,7 @@ body > footer {
         width: auto;
     	padding:0 0 0 @space/2;
     	font-family: @fancyFont;
+    	font-size: 0.889em;
         li {
             position: relative;
     	    float:left;
@@ -1101,6 +1105,7 @@ body > footer {
     }
     .sectionContainer section .quickpanel {
         top: auto;
+        font-size: 0.75em;
     }
     .touch {
         .dropdown a {
@@ -1163,6 +1168,13 @@ body > footer {
     }
     .sectionContainer nav.search {
         .column(4);
+    }
+    ul.sectionTools {
+        clear: both;
+        font-size: 1em;
+    }
+    .sectionContainer section .quickpanel {
+        font-size: 0.667em;
     }
     
     /* @end */
