@@ -902,6 +902,9 @@ body > footer {
     body {
     	font-size: (@baseFontSize + 1)/@baseFontSize * 1em;
     }
+    .contentWrapper {
+        padding: 1.33em 4%;
+    }
 
     /* @group Section Container */    
     .sectionContainer .container section,
@@ -925,19 +928,22 @@ body > footer {
     	    color: @baseFontColor;
     	    font-weight: bold;
     	    text-shadow: 0 1px 0 lighten(@baseColor3, 5%);
-    	    padding-top: 1em;
+    	    padding-top: 0.422em;
+    	    padding-bottom: 0;
     	    font-size: 1.333em;
-    	    padding-left: @space;
+    	    padding-left: @space/1.33em;
     	}
     	header {
     	    margin: 0;
+    	    float: left;
     	}
     }
     ul.sectionTools {
         margin: 0;	
         .horList();
         float: left;
-        width: 80%;
+        clear: none;
+        width: auto;
     	padding:0 0 0 @space/2;
     	font-family: @fancyFont;
         li {
@@ -1151,6 +1157,9 @@ body > footer {
         .column(8);
 	    .alpha();
 	    position: relative;
+    }
+    .sectionContainer h2 {
+        padding-top: 0.667em;
     }
     .sectionContainer nav.search {
         .column(4);

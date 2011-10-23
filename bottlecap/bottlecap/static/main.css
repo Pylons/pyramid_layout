@@ -1247,6 +1247,9 @@ body > footer {
   body {
     font-size: 1.0666666666666667em;
   }
+  .contentWrapper {
+    padding: 1.33em 4%;
+  }
   /* @group Section Container */.sectionContainer .container section, nav.search label, nav.search select {
     display: block;
   }
@@ -1268,12 +1271,14 @@ body > footer {
     color: #222222;
     font-weight: bold;
     text-shadow: 0 1px 0 #6d8e9c;
-    padding-top: 1em;
+    padding-top: 0.422em;
+    padding-bottom: 0;
     font-size: 1.333em;
-    padding-left: 1.333em;
+    padding-left: 1.0022556390977442em;
   }
   .sectionContainer header {
     margin: 0;
+    float: left;
   }
   ul.sectionTools {
     margin: 0;
@@ -1281,7 +1286,8 @@ body > footer {
     clear: both;
     list-style: none;
     float: left;
-    width: 80%;
+    clear: none;
+    width: auto;
     padding: 0 0 0 0.6665em;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
   }
@@ -1537,6 +1543,9 @@ body > footer {
     margin-right: 1.281596328651826%;
     margin-left: 0;
     position: relative;
+  }
+  .sectionContainer h2 {
+    padding-top: 0.667em;
   }
   .sectionContainer nav.search {
     display: inline;
