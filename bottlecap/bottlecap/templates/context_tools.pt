@@ -1,9 +1,9 @@
 <ul class="sectionTools">
     <li><a href="#">Overview</a></li>
     <li class="selected"><a href="#">Blog</a></li>
-    <li>
+    <li data-quickpanel="dropdown">
         <a href="#" class="dropdown-toggle">Wiki</a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown">
             <li><a href="#">Front Page</a></li>
             <li><a href="#">Index</a></li>
             <li><a href="#">Contents</a></li>
