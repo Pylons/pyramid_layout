@@ -218,6 +218,7 @@ td { vertical-align: top; }
 /* @group Author styles */
 @import "_mixins.less";
 @import "typography.less";
+@import "_grid.less";
 
 
 /* Fonts definition */
@@ -409,19 +410,6 @@ nav.search form {
 	    margin: 0;
 	    padding-bottom: 0.317em;
 	}    
-}
-#global-nav:after,
-nav.search form:after {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 140%;
-    margin-left: -20%;
-/*    .css3_box_shadow(inset 0 1px 10px #747a7f);    */
 }
 #global-nav li[data-quickpanel="quickpanel"] {
     display: none;
@@ -848,8 +836,11 @@ body > footer {
     /* @end */
     
     /* @group Content */
-    section.main header {
+    section.main {
         position: relative;
+    }
+    section.main header {
+        position: static;
     }
     section.main aside {
         float: right;
@@ -1127,18 +1118,54 @@ body > footer {
 
 /* @group 1024 */
 @media only screen and (min-width: 1024px) {
+
+    #global-nav li,
+    ul.sectionTools li[data-quickpanel="quickpanel"] {
+        position: relative;
+    }
     div.quickpanel {
         width: 400px;
         a:hover {
     	    text-decoration: underline;
     	}
     }
+    
+    /* @group Section Container */
+    
+    h2#search-toggle {
+        display: none;
+    }
+    nav.search {
+        position: absolute;
+        right: 0;
+    }
+    nav.search form {
+        display: block;
+        background: transparent;
+        border: none;
+    }
+    nav.search form:before {
+        display: none;
+    }    
+    .sectionContainer section {
+        .column(8);
+	    .alpha();
+	    position: relative;
+    }
+    .sectionContainer nav.search {
+        .column(4);
+    }
+    
+    /* @end */
+    
     #members-info {
         position: static;
         clear: none;
         float: right;
         width: auto;
+        padding: 0 @space/2;
         a {
+            color: @bodyBg;
     	    line-height: 2.8em;
     	}
         a:hover{
@@ -1152,6 +1179,31 @@ body > footer {
     	    padding-left: 14px;
     	}
     }
+    
+    /* @group Content */
+    .contentWrapper section.main {
+        .column(8);
+        padding:(@space * 2) 0;
+    }
+    ul.actionsMenu {
+    	position: absolute;
+    	top: 0;
+    	right: 0;
+    	.horList();
+        padding: 0;
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
+    /* @end */
+    
+    /* @group Column */
+    .contentWrapper > aside.column {
+        border-top: none;
+        .column(4);
+        padding: (@space * 2) 0;
+    }
+    /* @end */
 }
 /* @end */
 
