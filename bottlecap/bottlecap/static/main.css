@@ -1626,7 +1626,41 @@ body > footer {
     margin-right: 1.281596328651826%;
     padding: 2.666em 0;
   }
+  .contentWrapper > aside.column .portlet {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
   /* @end */
+}
+/* @end */
+/* @group 1265 */
+@media only screen and (min-width: 1265px) {
+  body {
+    font-size: 1.2em;
+  }
+  .contentWrapper {
+    padding: 1.33em 10%;
+  }
+}
+/* @end */
+/* @group 2024 */
+@media only screen and (min-width: 2024px) {
+  body {
+    font-size: 1.3333333333333333em;
+  }
+  .contentWrapper {
+    padding: 1.33em 10%;
+  }
+  .contentWrapper > aside.column .portlet {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+    font-size: 0.8em;
+  }
+  .contentWrapper > aside.column .portlet:nth-child(even) {
+    margin-right: 0;
+  }
 }
 /* @end */
 /* ==|== non-semantic helper classes ========================================
