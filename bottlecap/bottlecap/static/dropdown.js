@@ -13,6 +13,7 @@
                 $(this).toggleClass('open');
                 if(e.currentTarget.id === 'search-toggle') {
                     $('#search-site-box').focus();
+                    $('#global-nav').toggleClass('notched');
                 }
             }
             return false;
