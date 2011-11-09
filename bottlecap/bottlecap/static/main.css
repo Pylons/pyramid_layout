@@ -602,7 +602,7 @@ figure figcaption {
   margin: 0;
   position: relative;
 }
-#top-bar nav h1.sitetitle {
+h1.sitetitle {
   font-family: Georgia, serif;
   line-height: 35px;
   font-size: 1em;
@@ -611,7 +611,7 @@ figure figcaption {
   text-align: center;
   border-bottom: 1px solid #555;
 }
-#top-bar nav h1.sitetitle a {
+h1.sitetitle a {
   font-size: 1.333em;
   position: relative;
   line-height: 1.57914em;
@@ -619,7 +619,7 @@ figure figcaption {
   text-decoration: none;
   color: #fff;
 }
-#top-bar nav h1.sitetitle img {
+h1.sitetitle img {
   position: absolute;
   left: 0;
   top: 50%;
@@ -663,23 +663,47 @@ h2#navigation-toggle, h2#search-toggle {
   background-color: #fffdfa;
 }
 nav.search form {
-  padding: 0.422em 0.667em;
+  padding: 0.422em 10%;
   background: #bac3cc;
-  text-align: center;
   width: auto;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #d7dce2;
   border-bottom: 1px solid #9da9b6;
 }
-nav.search form > * {
+nav.search form fieldset {
   position: relative;
   z-index: 2;
-}
-nav.search form input#search-site-box {
-  width: 70%;
+  border: 0;
+  padding: 0;
   margin: 0;
-  padding-bottom: 0.317em;
+  background: #fffdfa;
+  padding: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+}
+input#search-site-box {
+  border: none;
+  background: transparent;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+}
+input#search-site-box:focus, input#search-site-box:active {
+  outline: none;
+  cursor: text;
+}
+nav.search button.searchButton {
+  background: transparent url('search_icon_dark.png') 50% 50% no-repeat;
+  border: none;
+  width: 35px;
+  height: 2em;
+  position: absolute;
+  top: 50%;
+  margin-top: -1em;
+  right: 0;
 }
 #global-nav li[data-quickpanel="quickpanel"] {
   display: none;
@@ -915,18 +939,18 @@ body > footer {
     float: none;
     display: inline-block;
   }
-  #top-bar nav h1.sitetitle {
+  #top-bar [data-quickpanel="quickpanel"] {
+    display: inline;
+  }
+  h1.sitetitle {
     float: left;
     padding: 0 0 0 1.333em;
     margin: 0 1.333em 0 0;
   }
-  #top-bar nav [data-quickpanel="quickpanel"] {
-    display: inline;
-  }
   #top-bar .topNavIconWrapper {
     float: left;
   }
-  #top-bar .topNavIconWrapper > #navigation-toggle {
+  h2#navigation-toggle {
     display: none;
   }
   #global-nav {

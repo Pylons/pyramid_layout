@@ -329,7 +329,7 @@ figure {
 	    position: relative;	    
 	}
 }
-#top-bar nav h1.sitetitle {
+h1.sitetitle {
 	font-family: @baseFont;
 	line-height: 35px;
 	font-size: 1em;	
@@ -391,25 +391,48 @@ h2#search-toggle {
 	}
 }
 nav.search form {
-	padding: 0.422em 0.667em;
-    background: #bac3cc;
-    text-align: center;    
+	padding: 0.422em 10%;
+    background: #bac3cc;   
     width: auto;
     position: relative;
     overflow: hidden;
     border-top:  1px solid lighten(#bac3cc, 10%);
     border-bottom: 1px solid darken(#bac3cc, 10%);    
     
-    > * {
+    fieldset {
         position: relative;
         z-index: 2;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        background: @bodyBg;
+        padding: 0.5em;
+        .css3_border_radius(0.5em);
+    }   
+}
+input#search-site-box {
+    border: none;
+    background: transparent;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    &:focus,
+    &:active {
+        outline: none;
+        cursor: text;
     }
-    
-	input#search-site-box {
-	    width: 70%;
-	    margin: 0;
-	    padding-bottom: 0.317em;
-	}    
+}
+
+nav.search button.searchButton {
+    background: transparent url('search_icon_dark.png') 50% 50% no-repeat;
+    border: none;
+    width: 35px;
+    height: 2em;
+    position: absolute;
+    top: 50%;
+    margin-top: -1em;
+    right: 0;
 }
 #global-nav li[data-quickpanel="quickpanel"] {
     display: none;
@@ -625,22 +648,21 @@ body > footer {
     	    clear:none;
     	    margin: 0;
     	    padding: 0;
-
-            h1.sitetitle {
-        		float: left;
-        		padding: 0 0 0 @space;
-        		margin: 0 @space 0 0;
-        	}
-        	[data-quickpanel="quickpanel"] {
-        	    display: inline;
-        	}
     	}
+        [data-quickpanel="quickpanel"] {
+            display: inline;
+        }    	
     }
+    h1.sitetitle {
+    	float: left;
+    	padding: 0 0 0 @space;
+    	margin: 0 @space 0 0;
+    }    
     #top-bar .topNavIconWrapper {
-        float:  left;
-        > #navigation-toggle {
-            display: none;
-        }
+        float: left;
+    }
+    h2#navigation-toggle {
+        display: none;
     }
     #global-nav {
         background: transparent;
