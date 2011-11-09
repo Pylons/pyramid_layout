@@ -1,7 +1,14 @@
 <div data-quickpanel="quickpanel" class="topNavIconWrapper">
-    <h2 id="search-toggle"><a href="#" class="quickpanel-toggle ir">Search</a></h2>
+    <h2 id="search-toggle" class="quickpanel-toggle ir">Search</h2>
     <form action="#" class="quickpanel">
         <label>
+            Where to search?
+            <select name="searchwhere" id="search-options">
+                <option value="search_all">All KARL</option>
+                <option value="search_this_section">Only in this Community</option>
+            </select>
+        </label>    
+<!--        <label>
             <input type="radio" name="searchwhere"
                    checked="checked"
                    id="search_options_all"
@@ -13,12 +20,15 @@
                    id="search_options_section"
                    value="searchwhere_this_section"/>
             Only in this Community
-        </label>
+        </label>-->
 
-        <select name="searchfor">
-            <option value="searchfor_all_content">All Content</option>
-            <option value="searchfor_this_section">This Section</option>
-        </select>
+        <label>
+            What to search for?
+            <select name="searchfor">
+                <option value="searchfor_all_content">All Content</option>
+                <option value="searchfor_this_section">This Section</option>
+            </select>
+        </label>
         <input id="search-site-box"
                class="float-left" type="search"
                name="SearchTextBox"

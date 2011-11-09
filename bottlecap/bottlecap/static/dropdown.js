@@ -1,30 +1,22 @@
 /*globals jQuery:false  */
 (function ($) {
 
+    var d = '.quickpanel-toggle';
     function clearMenus() {
-        $('[data-quickpanel]').removeClass('open');
+        $(d).removeClass('open');
     }
-
     $(function () {
-        $('html.no-touch').bind("click", clearMenus);
-        $('html.touch').bind("touchstart", clearMenus);        
-        $('body').quickpanel('[data-quickpanel] .quickpanel-toggle');
-        
-        $('.touch .dropdown-toggle').bind('touchend', function (e) {
-            $(this).parents('[data-quickpanel="dropdown"]').toggleClass('open');
-            e.preventDefault();
+        $('#navigation-toggle').add('#search-toggle').bind('click touchstart', function (e) {
+            var isActive = $(this).hasClass('open');
+            clearMenus();
+            if (!isActive) {
+                $(this).toggleClass('open');
+                if(e.currentTarget.id === 'search-toggle') {
+                    $('#search-site-box').focus();
+                }
+            }
+            return false;
         });
     });
-
-    $.fn.quickpanel = function (selector) {
-        return this.each(function () {
-            $(this).delegate(selector, 'click', function (e) {
-                var $li = $(this).parents('[data-quickpanel="quickpanel"]');
-                $('[data-quickpanel]').not($li).removeClass('open');
-                $li.toggleClass('open');
-                return false;
-            });
-        });
-    };
-
+    
 }(jQuery));

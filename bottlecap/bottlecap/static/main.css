@@ -625,7 +625,7 @@ figure figcaption {
   top: 50%;
   margin-top: -12px;
 }
-h2#sections-toggle, h2#search-toggle {
+h2#navigation-toggle, h2#search-toggle {
   display: none;
 }
 #global-nav {
@@ -698,7 +698,7 @@ nav.search form input#search-site-box {
 #members-info li {
   display: inline;
 }
-#members-info li a {
+#members-info li a, #members-info li span {
   float: none;
   display: inline-block;
 }
@@ -782,7 +782,7 @@ body > footer {
     padding: 0.33325em 0;
     line-height: 2.369em;
   }
-  .open > .quickpanel {
+  .open + .quickpanel {
     display: block;
   }
   .topNavIconWrapper {
@@ -790,28 +790,26 @@ body > footer {
   }
   /* @end */
   /* @group Top Bar with the global navigation */
-  h2#sections-toggle, h2#search-toggle {
+  h2#navigation-toggle, h2#search-toggle {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
     padding: 0;
     margin: 0;
+    width: 35px;
+    height: 35px;
     font-size: 1em;
     border-left: 1px solid #aaa;
   }
-  h2#sections-toggle a, h2#search-toggle a {
-    display: block;
-    height: 35px;
-    width: 35px;
+  .quickpanel-toggle:hover {
+    cursor: pointer;
   }
-  h2#sections-toggle {
+  h2#navigation-toggle {
     right: 35px;
-  }
-  h2#sections-toggle a {
     background: transparent url('sections_icon.png') 50% 50% no-repeat;
   }
-  h2#search-toggle a {
+  h2#search-toggle {
     background: transparent url('search_icon.png') 50% 50% no-repeat;
   }
   #top-bar nav h1.sitetitle {
@@ -879,7 +877,7 @@ body > footer {
     font-size: 1.185em;
     font-style: italic;
   }
-  h2#search-toggle a {
+  h2#search-toggle {
     height: 2.35em;
     width: 2.35em;
   }
@@ -913,7 +911,7 @@ body > footer {
   #top-bar nav li {
     display: inline;
   }
-  #top-bar nav li a {
+  #top-bar nav li a, #top-bar nav li span {
     float: none;
     display: inline-block;
   }
@@ -928,7 +926,7 @@ body > footer {
   #top-bar .topNavIconWrapper {
     float: left;
   }
-  #top-bar .topNavIconWrapper > #sections-toggle {
+  #top-bar .topNavIconWrapper > #navigation-toggle {
     display: none;
   }
   #global-nav {
@@ -995,7 +993,7 @@ body > footer {
     background: transparent url('cog.png') 50% 50% no-repeat;
     width: 19px;
   }
-  a.quickpanel-toggle:hover, li.open a.quickpanel-toggle {
+  a.quickpanel-toggle:hover, #global-nav a.open {
     background-image: url('cog_globalnav_hover.png');
   }
   #global-nav:before {
@@ -1126,11 +1124,10 @@ body > footer {
     background: #333;
     margin-bottom: 0.6665em;
   }
-  .open > a.quickpanel-toggle,
-  li.open > a.quickpanel-toggle,
-  #global-nav li.open > a.quickpanel-toggle,
-  .touch li[data-quickpanel='dropdown'].open a.dropdown-toggle,
-  .no-touch li[data-quickpanel='dropdown']:hover a.dropdown-toggle {
+  a.open,
+  #global-nav li a.open,
+  .touch #global-nav li a.open,
+  .no-touch #global-nav li a.quickpanel-toggle:hover {
     border-color: #222;
     background-color: #000;
     border-bottom-color: #333;
@@ -1162,7 +1159,7 @@ body > footer {
   ul.actionsMenu {
     position: relative;
   }
-  .no-touch ul.actionsMenu li:hover a, .touch ul.actionsMenu .open a {
+  .no-touch ul.actionsMenu li:hover a, .touch ul.actionsMenu a.open {
     -webkit-border-radius: 0.5em 0.5em 0 0;
     -moz-border-radius: 0.5em 0.5em 0 0;
     border-radius: 0.5em 0.5em 0 0;
@@ -1255,6 +1252,12 @@ body > footer {
   /* @group Section Container */.sectionContainer .container section, nav.search label, nav.search select {
     display: block;
   }
+  nav.search form label > * {
+    display: none;
+  }
+  nav.search form label > select {
+    display: block;
+  }
   .sectionContainer {
     background: #61818f;
   }
@@ -1297,7 +1300,7 @@ body > footer {
   ul.sectionTools li {
     display: inline;
   }
-  ul.sectionTools li a {
+  ul.sectionTools li a, ul.sectionTools li span {
     float: none;
     display: inline-block;
   }
@@ -1345,7 +1348,7 @@ body > footer {
   ul.sectionTools a.ir {
     background-image: url('cog_section.png');
   }
-  ul.sectionTools a.ir:hover, ul.sectionTools li.open a.ir {
+  ul.sectionTools a.ir:hover, ul.sectionTools li a.open {
     background-image: url('cog.png');
   }
   .no-cssgradients .sectionContainer {
@@ -1365,7 +1368,7 @@ body > footer {
   #top-bar ul#global-nav div.quickpanel a {
     font-size: 1em;
   }
-  h2#search-toggle a {
+  h2#search-toggle {
     height: 2.2em;
     width: 2.2em;
   }
@@ -1430,7 +1433,7 @@ body > footer {
   ul.actionsMenu li {
     display: inline;
   }
-  ul.actionsMenu li a {
+  ul.actionsMenu li a, ul.actionsMenu li span {
     float: none;
     display: inline-block;
   }
@@ -1611,7 +1614,7 @@ body > footer {
   ul.actionsMenu li {
     display: inline;
   }
-  ul.actionsMenu li a {
+  ul.actionsMenu li a, ul.actionsMenu li span {
     float: none;
     display: inline-block;
   }
