@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+    <title>Macros</title>
+</head>
+<body>
+<metal:company_menu define-macro="globalNav">
+    <nav>
+        <h1 class="sitetitle">
+            <a href="#" title="KARL home page">
+                <img src="${view.bottlecap_static}logo.png"
+                     width="25" height="26" alt="KARL logo" />
+                KARL
+            </a>
+        </h1>
+        <div data-quickpanel="quickpanel" class="topNavIconWrapper">
+            <h2 id="navigation-toggle" class="quickpanel-toggle ir">Navigation</h2>
+            <ul id="global-nav" class="quickpanel">
+                <li
+                ><a href="#">Intranet</a></li><li class="selected"
+                ><a href="#">Communities</a></li><li
+                ><a href="#">People</a></li><li
+                ><a href="#">Calendar</a></li><li
+                ><a href="#">Explore</a></li><li data-quickpanel="quickpanel"
+                ><a href="#" class="quickpanel-toggle ir">More</a>
+                    <div class="quickpanel">
+                        <figure>
+                            <img src="http://lorempixum.com/64/64/" alt="" />
+                        </figure>
+                        <p>The dropdowns can contain any information you
+                        want, including images, lists and plain text.</p>
+                        <ul>
+                            <li><a href="#">Cursus Ridiculus Nibh</a></li>
+                            <li><a href="#">Pellentesque Ligula</a></li>
+                            <li><a href="#">Dapibus Etiam Sollicitudin Tristique</a></li>
+                            <li><a href="#">Cursus</a></li>
+                        </ul>
+                        <p>Morbi leo risus, porta ac consectetur ac,
+                        vestibulum at eros. <a href="#">Curabitur</a> blandit tempus
+                        porttitor. Cras mattis consectetur purus sit amet
+                        fermentum. Aenean lacinia bibendum nulla sed
+                        consectetur.</p>
+                        <div class="quickpanel-footer">
+                            The footer area of the dropdown.
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</metal:company_menu>
+<metal:company_menu define-macro="search">
+<div data-quickpanel="quickpanel" class="topNavIconWrapper">
+    <h2 id="search-toggle" class="quickpanel-toggle ir">Search</h2>
+    <form action="#" class="quickpanel">
+        <fieldset>
+            <label for="searchwhere">Where to search?</label>
+            <select name="searchwhere" id="searchwhere">
+                <option value="search_all">All KARL</option>
+                <option value="search_this_section">Only in this Community</option>
+            </select>
+
+            <label for="searchfor">What to search for?</label>
+            <select name="searchfor" id="searchfor">
+                <option value="searchfor_all_content">All Content</option>
+                <option value="searchfor_this_section">This Section</option>
+            </select>
+
+            <input id="search-site-box"
+                   class="float-left" type="search"
+                   name="SearchTextBox"
+                   title="Search this site"
+                   accesskey="4" size="15"
+                   placeholder="Search" />
+            <button class="searchButton ir" type="submit">Search</button>
+        </fieldset>
+    </form>
+</div>
+</metal:company_menu>
+<metal:company_menu define-macro="contextTools">
+    <ul class="sectionTools">
+        <li><a href="#">Overview</a></li>
+        <li class="selected"><a href="#">Blog</a></li>
+        <li data-quickpanel="dropdown">
+            <a href="#" class="dropdown-toggle">Wiki</a>
+            <ul class="dropdown">
+                <li><a href="#">Front Page</a></li>
+                <li><a href="#">Index</a></li>
+                <li><a href="#">Contents</a></li>
+                <li><a href="#">Feed</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Files</a></li>
+        <li><a href="#">Members</a></li>
+        <li data-quickpanel="quickpanel">
+            <a href="#" class="quickpanel-toggle ir">More</a>
+            <div class="quickpanel">
+                <figure>
+                    <img src="http://lorempixum.com/64/64/" alt="" />
+                </figure>
+                <p>The dropdowns can contain any information you
+                want, including images, lists and plain text.</p>
+                <ul>
+                    <li><a href="#">Cursus Ridiculus Nibh</a></li>
+                    <li><a href="#">Pellentesque Ligula</a></li>
+                    <li><a href="#">Dapibus Etiam Sollicitudin Tristique</a></li>
+                    <li><a href="#">Cursus</a></li>
+                </ul>
+                <p>Morbi leo risus, porta ac consectetur ac,
+                vestibulum at eros. Curabitur blandit tempus
+                porttitor. Cras mattis consectetur purus sit amet
+                fermentum. Aenean lacinia bibendum nulla sed
+                consectetur.</p>
+                <div class="quickpanel-footer">
+                    The footer area of the dropdown.
+                </div>
+            </div>
+        </li>
+    </ul>
+</metal:company_menu>
+<metal:company_menu define-macro="personalTools">
+<ul id="members-info">
+    <li><a href="#">${view.profile_name}</a>
+    <li><a href="#">Logout</a></li>
+    <li><a href="#">Help</a></li>
+</ul>
+</metal:company_menu>
+<metal:company_menu define-macro="actionsMenu">
+<ul class="actionsMenu">
+    <li data-quickpanel="dropdown"><a href="#" class="dropdown-toggle">Add</a><ul class="dropdown">
+            <li><a href="#">Page</a></li>
+            <li><a href="#">Folder</a></li>
+            <li><a href="#">File</a></li>
+            <li><a href="#">Blog entry</a></li>
+        </ul></li><li><a
+        href="#">Edit</a></li><li><a
+        href="#">Delete</a></li>
+</ul>
+</metal:company_menu>
+<metal:company_menu define-macro="columnone">
+<section class="portlet">
+    <h3>This is a portlet.</h3>
+    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+    nibh, ut fermentum massa justo sit amet risus. Morbi leo risus,
+    porta ac consectetur ac, vestibulum at eros. Praesent commodo
+    cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus,
+    tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+    fermentum massa justo sit amet risus. Nullam quis risus eget urna
+    mollis ornare vel eu leo. Donec id elit non mi porta gravida at
+    eget metus.</p>
+</section>
+<section class="portlet">
+    <h3>This is another portlet.</h3>
+    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+    lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget
+    metus.</p>
+</section>
+</metal:company_menu>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@column-width: 60;
+@gutter-width: 26.653;
+@columns: 12;
+
+@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+@total-width: 100%;
+
+
+.row(@columns:@columns) {
+	width: @total-width;
+	margin-left: auto;
+	margin-right: auto;	
+	/*margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);*/
+}
+
+.column(@x,@columns:@columns) {
+	display: inline;
+	float: left;
+	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
+	margin-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
+	margin-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
+}
+
+.alpha() {
+    margin-left: 0;
+}
+.omega() {
+    margin-left: 0;
+}

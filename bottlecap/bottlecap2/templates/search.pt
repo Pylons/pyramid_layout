@@ -1,0 +1,26 @@
+<div data-quickpanel="quickpanel" class="topNavIconWrapper">
+    <h2 id="search-toggle" class="quickpanel-toggle ir">Search</h2>
+    <form action="#" class="quickpanel">
+        <fieldset>
+            <label for="searchwhere">Where to search?</label>
+            <select name="searchwhere" id="searchwhere">
+                <option value="search_all">All KARL</option>
+                <option value="search_this_section">Only in this Community</option>
+            </select> 
+    
+            <label for="searchfor">What to search for?</label>
+            <select name="searchfor" id="searchfor">
+                <option value="searchfor_all_content">All Content</option>
+                <option value="searchfor_this_section">This Section</option>
+            </select>
+    
+            <input id="search-site-box"
+                   class="float-left" type="search"
+                   name="SearchTextBox"
+                   title="Search this site"
+                   accesskey="4" size="15"
+                   placeholder="Search" />
+            <button class="searchButton ir" type="submit">Search</button>
+        </fieldset>
+    </form>
+</div>
