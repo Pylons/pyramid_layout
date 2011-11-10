@@ -1,5 +1,5 @@
 /*jslint browser: true */
-/*global jQuery: false, console: false, window: false */
+/*global jQuery: false, console: false, window: false, Modernizr:false */
 
 /* Gumball javascript */
 
@@ -12,4 +12,33 @@
         }
     };
 
-}(jQuery));
+    // polyfill for the borwsers not supporting the 'placeholder' attribute
+    if (!Modernizr.input.placeholder) {
+        $("input, textarea").each(function () {
+            if ($(this).val() === "" && $(this).attr("placeholder") !== "") {
+                $(this).val($(this).attr("placeholder"));
+                $(this).focus(function () {
+                    if ($(this).val() === $(this).attr("placeholder")) {
+                        $(this).val("");
+                    }
+                });
+                $(this).blur(function () {
+                    if ($(this).val() === "") {
+                        $(this).val($(this).attr("placeholder"));
+                    }
+                });
+            }
+        });
+
+        $("form").submit(function () {
+            $("input, textarea").each(function () {
+                if ($(this).attr("placeholder") !== "") {
+                    if ($(this).val() === $(this).attr("placeholder")) {
+                        $(this).val("");
+                    }
+                }
+            });
+        });
+    }
+
+} (jQuery));

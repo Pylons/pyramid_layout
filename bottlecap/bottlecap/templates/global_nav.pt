@@ -7,7 +7,7 @@
         </a>
     </h1>
     <div data-quickpanel="quickpanel" class="topNavIconWrapper">
-        <h2 id="sections-toggle"><a href="#" class="quickpanel-toggle ir">Sections</a></h2>
+        <h2 id="navigation-toggle" class="quickpanel-toggle ir">Navigation</h2>
         <ul id="global-nav" class="quickpanel">
             <li
             ><a href="#">Intranet</a></li><li class="selected"
