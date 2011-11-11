@@ -400,31 +400,35 @@ nav.search form {
     border-bottom: 1px solid darken(#bac3cc, 10%);      
 }
 nav.search fieldset {
+    margin: 0;
+}
+nav.search legend {
+    display: none;
+}
+.searchInputWrapper {
     position: relative;
     z-index: 2;
     border: 0;
-    padding: 0;
+    padding: .5em 35px .5em .5em;
     margin: 0;
     background: @bodyBg;
     padding: 0.5em;
     .css3_border_radius(0.5em);
 } 
 input#search-site-box {
+    display: block;
     border: none;
     background: transparent;
-    width: 90%;
-    margin: .5em;
+    width: 100%;
+    margin: 0;
     padding: 0;
     line-height: 1em;
-    position: relative;
-    z-index: 2;
     &:focus,
     &:active {
         outline: none;
         cursor: text;
     }
 }
-
 nav.search button.searchButton {
     background: transparent url('search_icon_dark.png') 50% 50% no-repeat;
     border: none;
@@ -599,6 +603,7 @@ body > footer {
             -webkit-box-shadow: @shadow;
             -moz-box-shadow: @shadow;
             box-shadow: @shadow;
+            pointer-events: none;
         }
     }
     /* @end */
@@ -930,14 +935,26 @@ body > footer {
     }
 
     /* @group Section Container */    
-    .sectionContainer .container section,
-    nav.search label, nav.search select {
+    .sectionContainer .container section, nav.search select {
         display: block;
     }
-    nav.search fieldset {
-        padding: 2px;
+    nav.search legend {
+        display: block;
+        float: left;
+        font-weight: normal;
+        font-family: @fancyFont;
+        margin: 0 1em 0 0;
+        color: @baseFontColor;
     }
-    nav.search label {
+    nav.search select {
+        display: block;
+        float: left;
+        margin: 0 0.5em 0 0;
+    }
+    .searchInputWrapper {
+        clear: left;
+    }
+/*    nav.search label {
         float: left;
         padding: 0 0.7em;
         margin: 0 2px 0 0;
@@ -968,10 +985,7 @@ body > footer {
         z-index: 2;
         position: absolute;
         -webkit-appearance: none;
-    }
-    input#search-site-box {
-        width: 60%;
-    }
+    }*/
     .sectionContainer {
         background: @baseColor3;
     	a {
@@ -1224,7 +1238,7 @@ body > footer {
         display: none;
     }    
     .sectionContainer section {
-        .column(7);
+        .column(8);
 	    .alpha();
 	    position: relative;
     }
@@ -1232,7 +1246,7 @@ body > footer {
         padding-top: 0.667em;
     }
     .sectionContainer nav.search {
-        .column(5);
+        .column(4);
     }
     ul.sectionTools {
         clear: both;
@@ -1306,6 +1320,11 @@ body > footer {
     .contentWrapper {
         padding: 1.33em 10%;
     }    
+    #top-bar,
+    .sectionContainer {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
 }
 /* @end */
 

@@ -2,31 +2,28 @@
     <h2 id="search-toggle" class="quickpanel-toggle ir">Search</h2>
     <form action="#" class="quickpanel">
         <fieldset>
-            <label for="searchfor">
-                <span>What?</span>
-                <select name="searchfor" id="searchfor">
-                    <option value="searchfor_all_content">All Content</option>
-                    <option value="searchfor_documents">Documents</option>
-                    <option value="searchfor_news">News</option>                    
-                </select>
-            </label>
-
-            <label for="searchwhere">
-                <span>Where?</span>
-                <select name="searchwhere" id="searchwhere">
-                    <option value="search_all">All KARL</option>
-                    <option value="search_this_section">Only in this Community</option>
-                </select> 
-            </label>
+            <legend>Search for:</legend>
+            <label for="searchfor">What to search for?</label>
+            <select name="searchfor" id="searchfor">
+                <option value="searchfor_all_content">All Content</option>
+                <option value="searchfor_documents">Documents</option>
+                <option value="searchfor_news">News</option>                    
+            </select>
+            <label for="searchwhere">Where to search for?</label>
+            <select name="searchwhere" id="searchwhere">
+                <option value="search_all">All KARL</option>
+                <option value="search_this_section">Only in this Community</option>
+            </select> 
             
-
-            <input id="search-site-box"
-                   class="float-left" type="search"
-                   name="SearchTextBox"
-                   title="Search this site"
-                   accesskey="4" size="15"
-                   placeholder="Search" />
-            <button class="searchButton ir" type="submit">Search</button>
+            <div class="searchInputWrapper">
+                <input id="search-site-box"
+                       class="float-left" type="search"
+                       name="SearchTextBox"
+                       title="Search this site"
+                       accesskey="4" size="15"
+                       placeholder="Search" />
+                <button class="searchButton ir" type="submit">Search</button>
+            </div>
         </fieldset>
     </form>
 </div>
