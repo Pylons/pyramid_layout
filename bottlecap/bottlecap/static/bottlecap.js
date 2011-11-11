@@ -40,5 +40,9 @@
             });
         });
     }
+    
+    $('nav.search select').change(function () {
+        $(this).prev().text($('option[value="' +this.value + '"]', this).text());
+    });
 
 } (jQuery));

@@ -2,18 +2,24 @@
     <h2 id="search-toggle" class="quickpanel-toggle ir">Search</h2>
     <form action="#" class="quickpanel">
         <fieldset>
-            <label for="searchwhere">Where to search?</label>
-            <select name="searchwhere" id="searchwhere">
-                <option value="search_all">All KARL</option>
-                <option value="search_this_section">Only in this Community</option>
-            </select> 
-    
-            <label for="searchfor">What to search for?</label>
-            <select name="searchfor" id="searchfor">
-                <option value="searchfor_all_content">All Content</option>
-                <option value="searchfor_this_section">This Section</option>
-            </select>
-    
+            <label for="searchfor">
+                <span>What?</span>
+                <select name="searchfor" id="searchfor">
+                    <option value="searchfor_all_content">All Content</option>
+                    <option value="searchfor_documents">Documents</option>
+                    <option value="searchfor_news">News</option>                    
+                </select>
+            </label>
+
+            <label for="searchwhere">
+                <span>Where?</span>
+                <select name="searchwhere" id="searchwhere">
+                    <option value="search_all">All KARL</option>
+                    <option value="search_this_section">Only in this Community</option>
+                </select> 
+            </label>
+            
+
             <input id="search-site-box"
                    class="float-left" type="search"
                    name="SearchTextBox"
