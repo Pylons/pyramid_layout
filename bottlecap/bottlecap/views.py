@@ -1,6 +1,11 @@
 from pyramid.view import view_config
 
+from layouts import Layouts
 
-@view_config(renderer="bottlecap:templates/index.pt")
-def index_view(request):
-    return {"project": "Some Project"}
+class ProjectorViews(Layouts):
+    def __init__(self, request):
+        self.request = request
+
+    @view_config(renderer="templates/blogpage_view.pt")
+    def blogpage_view(self):
+        return {"project": "Some Project"}

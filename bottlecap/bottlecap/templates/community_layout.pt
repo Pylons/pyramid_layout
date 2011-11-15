@@ -26,42 +26,39 @@
         <meta name="viewport"
               content="width=device-width,initial-scale=1">
 
-        <link rel="stylesheet" href="${layout.bottlecap_static}main.css"/>
+        <link rel="stylesheet" href="${view.bottlecap_static}main.css"/>
 
-        <script src="${layout.bottlecap_static}modernizr-2.0.6.min.js"></script>
+        <script src="${view.bottlecap_static}modernizr-2.0.6.min.js"></script>
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
     <body>
     <div id="top-bar">
         <div class="container">
-            <tal:globalnav
-                    tal:content="layout.component('bottlecap.globalNav')">
+            <metal:block metal:use-macro="view.macros['globalNav']">
                 Global navigation
-            </tal:globalnav>
-            <tal:personaltools
-                    tal:content="layout.component('bottlecap.personalTools')">
-                Personal tools
-            </tal:personaltools>
+            </metal:block>
+            <metal:block metal:use-macro="view.macros['personalTools']">
+                Global navigation
+            </metal:block>
         </div>
     </div>
 
     <div class="sectionContainer">
         <div class="container">
             <nav class="search">
-                <tal:searchbox
-                        tal:content="layout.component('bottlecap.search')">
-                    Search box
-                </tal:searchbox>
+                <metal:block metal:use-macro="view.macros['search']">
+                    Global navigation
+                </metal:block>
             </nav>
             <section>
                 <header>
                     <h2>${project}</h2>
                 </header>
-                <tal:contextTools
-                        tal:content="layout.component('bottlecap.contextTools')">
-                    Context tools
-                </tal:contextTools>
+                <metal:block
+                        metal:use-macro="view.macros['contextTools']">
+                    Global navigation
+                </metal:block>
             </section>
         </div>
     </div>
@@ -72,10 +69,9 @@
         </section>
 
         <aside class="column">
-            <tal:columnone
-                    tal:content="layout.component('bottlecap.columnone')">
-                Column
-            </tal:columnone>
+            <metal:block metal:use-macro="view.macros['columnone']">
+                Global navigation
+            </metal:block>
         </aside>
     </div>
 
@@ -86,12 +82,12 @@
 
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="${layout.bottlecap_static}/jquery-1.6.3.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="${view.bottlecap_static}/jquery-1.6.3.min.js"><\/script>')</script>
 
     <script type="text/javascript" defer
-            src="${layout.bottlecap_static}bottlecap.js"></script>
+            src="${view.bottlecap_static}bottlecap.js"></script>
     <script type="text/javascript"
-            src="${layout.bottlecap_static}dropdown.js"></script>
+            src="${view.bottlecap_static}dropdown.js"></script>
 
     <metal:tailslot metal:define-slot="tail_slot"/>
 
