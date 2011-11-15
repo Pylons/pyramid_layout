@@ -1,39 +1,46 @@
 <metal:page define-macro="layout">
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8" />
+    <!doctype html>
+    <!--[if lt IE 7]>
+    <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <!--[if IE 7]>
+    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+    <!--[if IE 8]>
+    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
 
-    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-         More info: h5bp.com/b/378 -->
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
+        <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+     More info: h5bp.com/b/378 -->
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
 
-    <metal:titleslot metal:define-slot="title_slot">
-        <title>${project} Application</title>
-    </metal:titleslot>
+        <metal:titleslot metal:define-slot="title_slot">
+            <title>${project} Application</title>
+        </metal:titleslot>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport"
+              content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="${layout.bottlecap_static}main.css"/>
+        <link rel="stylesheet" href="${layout.bottlecap_static}main.css"/>
 
-    <script src="${layout.bottlecap_static}modernizr-2.0.6.min.js"></script>
-    
-    <metal:headslot metal:define-slot="head_slot" />
-</head>
-<body>
+        <script src="${layout.bottlecap_static}modernizr-2.0.6.min.js"></script>
+
+        <metal:headslot metal:define-slot="head_slot"/>
+    </head>
+    <body>
     <div id="top-bar">
         <div class="container">
-            <tal:globalnav tal:content="layout.component('bottlecap.globalNav')">
+            <tal:globalnav
+                    tal:content="layout.component('bottlecap.globalNav')">
                 Global navigation
             </tal:globalnav>
-            <tal:personaltools tal:content="layout.component('bottlecap.personalTools')">
+            <tal:personaltools
+                    tal:content="layout.component('bottlecap.personalTools')">
                 Personal tools
             </tal:personaltools>
         </div>
@@ -42,7 +49,8 @@
     <div class="sectionContainer">
         <div class="container">
             <nav class="search">
-                <tal:searchbox tal:content="layout.component('bottlecap.search')">
+                <tal:searchbox
+                        tal:content="layout.component('bottlecap.search')">
                     Search box
                 </tal:searchbox>
             </nav>
@@ -50,7 +58,8 @@
                 <header>
                     <h2>${project}</h2>
                 </header>
-                <tal:contextTools tal:content="layout.component('bottlecap.contextTools')">
+                <tal:contextTools
+                        tal:content="layout.component('bottlecap.contextTools')">
                     Context tools
                 </tal:contextTools>
             </section>
@@ -59,18 +68,20 @@
 
     <div class="contentWrapper">
         <section class="main">
-            <metal:content define-slot="content" />
+            <metal:content define-slot="content"/>
         </section>
 
         <aside class="column">
-            <tal:columnone tal:content="layout.component('bottlecap.columnone')">
+            <tal:columnone
+                    tal:content="layout.component('bottlecap.columnone')">
                 Column
             </tal:columnone>
         </aside>
     </div>
 
     <footer>
-        <div class="container">Footer with some relevant information.</div>
+        <div class="container">Footer with some relevant information.
+        </div>
     </footer>
 
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
@@ -78,12 +89,12 @@
     <script>window.jQuery || document.write('<script src="${layout.bottlecap_static}/jquery-1.6.3.min.js"><\/script>')</script>
 
     <script type="text/javascript" defer
-        src="${layout.bottlecap_static}bottlecap.js"></script>
+            src="${layout.bottlecap_static}bottlecap.js"></script>
     <script type="text/javascript"
-        src="${layout.bottlecap_static}dropdown.js"></script>
+            src="${layout.bottlecap_static}dropdown.js"></script>
 
-    <metal:tailslot metal:define-slot="tail_slot" />
+    <metal:tailslot metal:define-slot="tail_slot"/>
 
-</body>
-</html>
+    </body>
+    </html>
 </metal:page>

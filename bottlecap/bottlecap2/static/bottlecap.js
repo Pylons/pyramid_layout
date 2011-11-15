@@ -5,6 +5,10 @@
 
 (function ($) {
 
+    if(Modernizr.prefixed('boxSizing')) {
+        $('html').addClass('boxsizing');
+    }
+
     var log = function () {
         if (window.console && console.log) {
             // log for FireBug or WebKit console

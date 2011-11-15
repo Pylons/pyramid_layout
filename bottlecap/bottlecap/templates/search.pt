@@ -1,5 +1,6 @@
 <div data-quickpanel="quickpanel" class="topNavIconWrapper">
     <h2 id="search-toggle" class="quickpanel-toggle ir">Search</h2>
+
     <form action="#" class="quickpanel">
         <fieldset>
             <legend>Search for:</legend>
@@ -7,22 +8,24 @@
             <select name="searchfor" id="searchfor">
                 <option value="searchfor_all_content">All Content</option>
                 <option value="searchfor_documents">Documents</option>
-                <option value="searchfor_news">News</option>                    
+                <option value="searchfor_news">News</option>
             </select>
             <label for="searchwhere">Where to search for?</label>
             <select name="searchwhere" id="searchwhere">
                 <option value="search_all">All KARL</option>
-                <option value="search_this_section">Only in this Community</option>
-            </select> 
-            
+                <option value="search_this_section">Only in this Community
+                </option>
+            </select>
+
             <div class="searchInputWrapper">
                 <input id="search-site-box"
                        class="float-left" type="search"
                        name="SearchTextBox"
                        title="Search this site"
                        accesskey="4" size="15"
-                       placeholder="Search" />
-                <button class="searchButton ir" type="submit">Search</button>
+                       placeholder="Search"/>
+                <button class="searchButton ir" type="submit">Search
+                </button>
             </div>
         </fieldset>
     </form>
