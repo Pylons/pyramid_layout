@@ -666,6 +666,7 @@ nav.search form {
   padding: 0.422em 10%;
   background: #bac3cc;
   width: auto;
+  text-align: center;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #d7dce2;
@@ -673,18 +674,15 @@ nav.search form {
 }
 nav.search fieldset {
   position: relative;
+  display: block;
   z-index: 2;
   border: 0;
   padding: 0;
   margin: 0;
   background: #fffdfa;
-  padding: 0.5em;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
-}
-nav.search legend {
-  display: none;
 }
 .searchInputWrapper {
   position: relative;
@@ -1292,54 +1290,78 @@ body > footer {
   /* @group Section Container */.sectionContainer .container section, nav.search select {
     display: block;
   }
-  nav.search legend {
-    display: block;
-    float: left;
-    font-weight: normal;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
-    margin: 0 1em 0 0;
-    color: #222222;
-  }
   nav.search select {
-    display: block;
-    float: left;
+    display: inline;
     margin: 0 0.5em 0 0;
   }
   .searchInputWrapper {
     clear: left;
   }
-  /*    nav.search label {
-          float: left;
-          padding: 0 0.7em;
-          margin: 0 2px 0 0;
-          position: relative;
-          line-height: 2em;
-          height: 2.15em;
-          background: @baseColor1;
-          color: #fff;
-          text-transform: uppercase;
-          font-weight: normal;         
-          span {
-              display: inline-block;
-              .smaller();
-              font-size: 0.7em;
-          }
-      }
-      nav.search label:first-of-type {
-          .css3_border_radius(0.5em 0 0 0.5em);        
-      }
-      nav.search select {
-          display: block;
-          opacity: 0;
-          margin: 0;
-          height: 2em;
-          width: 10em;
-          top: 0;
-          left: 0;
-          z-index: 2;
-          position: absolute;
-          -webkit-appearance: none;
-      }*/
+  nav.search label {
+    display: inline;
+    font-weight: normal;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    margin: 0 0.5em 0 0;
+    color: #222222;
+    position: relative;
+    font-size: 0.75em;
+    font-family: Verdana, sans-serif;
+  }
+  nav.search span.fieldCoverage {
+    display: inline-block;
+    padding: 0 42px 0 1em;
+    margin: 0;
+    position: relative;
+    line-height: 2.25em;
+    background: #777;
+    color: #fff;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    border-radius: 0.3em;
+    pointer-events: none;
+  }
+  nav.search span.fieldCoverage:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height: 2.25em;
+    width: 32px;
+    background: #555;
+    -webkit-border-radius: 0 0.3em 0.3em 0;
+    -moz-border-radius: 0 0.3em 0.3em 0;
+    border-radius: 0 0.3em 0.3em 0;
+  }
+  nav.search span.fieldCoverage:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -3px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #777;
+  }
+  nav.search select {
+    display: block;
+    opacity: 0;
+    margin: 0;
+    height: 2em;
+    width: 10em;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    position: absolute;
+  }
+  nav.search fieldset {
+    margin-top: 0.2em;
+  }
   .sectionContainer {
     background: #61818f;
   }
@@ -1618,8 +1640,7 @@ body > footer {
   nav.search {
     position: absolute;
     right: 0;
-    top: 50%;
-    margin-top: -1.8em;
+    top: 0;
   }
   nav.search form {
     display: block;
@@ -1728,9 +1749,9 @@ body > footer {
 /* @end */
 /* @group 1265 */
 @media only screen and (min-width: 1265px) {
-  body {
-    font-size: 1.2em;
-  }
+  /*    body {
+      	font-size: (@baseFontSize + 3)/@baseFontSize * 1em;
+      }*/
   .contentWrapper {
     padding: 1.33em 10%;
   }
@@ -1743,7 +1764,7 @@ body > footer {
 /* @group 2024 */
 @media only screen and (min-width: 2024px) {
   body {
-    font-size: 1.3333333333333333em;
+    font-size: 1.2em;
   }
   .contentWrapper {
     padding: 1.33em 10%;

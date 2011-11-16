@@ -394,6 +394,7 @@ nav.search form {
 	padding: 0.422em 10%;
     background: #bac3cc;   
     width: auto;
+    text-align: center;
     position: relative;
     overflow: hidden;
     border-top:  1px solid lighten(#bac3cc, 10%);
@@ -401,17 +402,14 @@ nav.search form {
 }
 nav.search fieldset {
     position: relative;
+    display: block;
     z-index: 2;
     border: 0;
     padding: 0;
     margin: 0;
     background: @bodyBg;
-    padding: 0.5em;
     .css3_border_radius(0.5em);
 } 
-nav.search legend {
-    display: none;
-}
 .searchInputWrapper {
      position: relative;
      z-index: 2;
@@ -945,41 +943,58 @@ body > footer {
     .sectionContainer .container section, nav.search select {
         display: block;
     }
-    nav.search legend {
-        display: block;
-        float: left;
-        font-weight: normal;
-        font-family: @fancyFont;
-        margin: 0 1em 0 0;
-        color: @baseFontColor;
-    }
     nav.search select {
-        display: block;
-        float: left;
+        display: inline;
         margin: 0 0.5em 0 0;
     }
     .searchInputWrapper {
         clear: left;
     }
-/*    nav.search label {
-        float: left;
-        padding: 0 0.7em;
-        margin: 0 2px 0 0;
+    nav.search label {
+        display: inline;
+        font-weight: normal;
+        font-family: @fancyFont;
+        margin: 0 0.5em 0 0;
+        color: @baseFontColor;
         position: relative;
-        line-height: 2em;
-        height: 2.15em;
-        background: @baseColor1;
+        .smaller();        
+    }    
+    nav.search span.fieldCoverage {
+        display: inline-block;
+        padding: 0 42px 0 1em;
+        margin: 0;
+        position: relative;
+        line-height: 2.25em;
+        background: #777;
         color: #fff;
-        text-transform: uppercase;
-        font-weight: normal;         
-        span {
-            display: inline-block;
-            .smaller();
-            font-size: 0.7em;
+        .css3_border_radius(.3em);
+        pointer-events: none;
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            height: 2.25em;
+            width: 32px;
+            background: #555;
+            .css3_border_radius(0 .3em .3em 0);
         }
-    }
-    nav.search label:first-of-type {
-        .css3_border_radius(0.5em 0 0 0.5em);        
+        &:before {
+            content: "";        
+            display: block;
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            margin-top: -3px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #777;
+        }
     }
     nav.search select {
         display: block;
@@ -988,11 +1003,13 @@ body > footer {
         height: 2em;
         width: 10em;
         top: 0;
-        left: 0;
+        right: 0;
         z-index: 2;
         position: absolute;
-        -webkit-appearance: none;
-    }*/
+    }
+    nav.search fieldset {
+        margin-top: 0.2em;
+    }
     .sectionContainer {
         background: @baseColor3;
     	a {
@@ -1231,8 +1248,7 @@ body > footer {
     nav.search {
         position: absolute;
         right: 0;
-        top: 50%;
-        margin-top: -1.8em;
+        top: 0;
     }
     nav.search form {
         display: block;
@@ -1321,14 +1337,14 @@ body > footer {
 
 /* @group 1265 */
 @media only screen and (min-width: 1265px) {
-    body {
+/*    body {
     	font-size: (@baseFontSize + 3)/@baseFontSize * 1em;
-    }
+    }*/
     .contentWrapper {
         padding: 1.33em 10%;
     }
     #top-bar,
-        .sectionContainer {
+    .sectionContainer {
         padding-left: 7%;
         padding-right: 7%;
     }
@@ -1338,7 +1354,7 @@ body > footer {
 /* @group 2024 */
 @media only screen and (min-width: 2024px) {
     body {
-    	font-size: (@baseFontSize + 5)/@baseFontSize * 1em;
+    	font-size: (@baseFontSize + 3)/@baseFontSize * 1em;
     }
     .contentWrapper {
         padding: 1.33em 10%;
