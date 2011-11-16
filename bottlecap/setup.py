@@ -13,7 +13,6 @@ except IOError:
 install_requires = [
     'pyramid',
     'sphinx',
-    'gumball',
     ]
 
 test_requires = [

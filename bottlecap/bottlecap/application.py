@@ -7,9 +7,6 @@ def main():
     config.registry.settings['reload_assets'] = True
     config.registry.settings['reload_resources'] = True
     config.registry.settings['reload_templates'] = True
-    config.scan("bottlecap")
-    from bottlecap import layout
-    config.include(layout.configure)
     app = config.make_wsgi_app()
     return app
 

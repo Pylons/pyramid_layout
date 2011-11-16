@@ -2,7 +2,6 @@ from pyramid.decorator import reify
 from pyramid.renderers import get_renderer
 from pyramid.url import resource_url
 from pyramid.url import static_url
-from pyramid.view import render_view
 from pyramid.view import view_config
 
 class Layouts(object):
@@ -42,11 +41,3 @@ class Layouts(object):
     @view_config(name='bottlecap.columnone', renderer='templates/columnone.pt')
     def my_view(self):
         return {'profile_name': 'John Doe'}
-
-
-class Structure(unicode):
-    # Wrapping a string in this class avoids having to prefix the value
-    # with `structure` in TAL
-
-    def __html__(self):
-        return self
