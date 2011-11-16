@@ -672,7 +672,16 @@ nav.search form {
   border-bottom: 1px solid #9da9b6;
 }
 nav.search fieldset {
+  position: relative;
+  z-index: 2;
+  border: 0;
+  padding: 0;
   margin: 0;
+  background: #fffdfa;
+  padding: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
 }
 nav.search legend {
   display: none;
@@ -684,7 +693,6 @@ nav.search legend {
   padding: .5em 35px .5em .5em;
   margin: 0;
   background: #fffdfa;
-  padding: 0.5em;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
