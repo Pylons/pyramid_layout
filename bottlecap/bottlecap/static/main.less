@@ -305,6 +305,45 @@ figure {
 	    border-bottom: 1px solid @baseColor2;
 	}
 }
+.quickpanelToggle(@bg:#777, @dropColor: #555, @color:#fff) {
+    display: inline-block;
+    padding: 0 25px 0 .7em;
+    margin: 0;
+    position: relative;
+    line-height: 1.5em;
+    background: @bg;
+    color: @color;
+    .css3_border_radius(.3em);
+    pointer-events: none;
+    &:after {
+        content: "";
+        font-size: 0;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        height: 1.5em;
+        width: 16px;
+        background: @dropColor;
+        .css3_border_radius(0 .3em .3em 0);
+    }
+    &:before {
+        content: "";    
+        font-size: 0;            
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        margin-top: -2px;
+        right: 4px;
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid @bg;
+    }
+}
 /* @end */
 
 /* @group Top Bar with the global naviagtion */
@@ -368,7 +407,7 @@ h2#search-toggle {
 	    margin: 0;
 	    padding: 0;		
 	}
-	li:first-of-type {
+	li:nth-child(1) {
 	    border-top: none;
 	}
     a {
@@ -599,6 +638,7 @@ body > footer {
         background-repeat: repeat;
         &:before {
             content: "";
+            font-size: 0;
             position: absolute;
             top: 0;
             left: -25%;
@@ -719,6 +759,7 @@ body > footer {
         }	
         .selected a:after {
         	content: "";
+        	font-size: 0;
             display: block;
             position: absolute;
             top: auto;
@@ -753,6 +794,10 @@ body > footer {
         font-size: 1em;
         font-family: @baseFont;
         border-style: none none solid;
+        background-color: #bac3cc; /* for IE to prevent overriding with .quickpanel's black background */        
+    }
+    h2#search-toggle:after {
+        display: none;
     }
     
     /* @group Quickpanels & Dropdowns */
@@ -763,6 +808,7 @@ body > footer {
     	height: 0;
     	display: inline-block;
     	content: "&darr;";
+    	font-size: 0;
     	text-indent: -99999px;
     	vertical-align: top;
     	position: relative;
@@ -781,7 +827,7 @@ body > footer {
         top: 3.2em;
         z-index: 10;
         width: 100%;
-        box-sizing: border-box;
+        .css3_box_sizing(border-box);
         margin: 0;
         padding: @space;
         .css3_linear_gradient(#000, #333);
@@ -838,6 +884,7 @@ body > footer {
         margin-top: @space/2;
         &:before {
     	    content: "";
+    	    font-size: 0;
     	    display: block;
     	    height: 1px;
     	    width: 100%;
@@ -858,10 +905,6 @@ body > footer {
     .no-touch li[data-quickpanel='dropdown']:hover > .dropdown {
         display: block !important;
     }
-/*    .open .quickpanel,
-    .open .dropdown {
-        display: block !important;
-    }*/   
     /* @end */
     
     /* @group Content */
@@ -960,41 +1003,7 @@ body > footer {
         .smaller();        
     }    
     nav.search span.fieldCoverage {
-        display: inline-block;
-        padding: 0 25px 0 .7em;
-        margin: 0;
-        position: relative;
-        line-height: 1.5em;
-        background: #777;
-        color: #fff;
-        .css3_border_radius(.3em);
-        pointer-events: none;
-        &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            right: 0;
-            height: 1.5em;
-            width: 16px;
-            background: #555;
-            .css3_border_radius(0 .3em .3em 0);
-        }
-        &:before {
-            content: "";        
-            display: block;
-            position: absolute;
-            z-index: 2;
-            top: 50%;
-            margin-top: -2px;
-            right: 4px;
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #999;
-        }
+        .quickpanelToggle();
     }
     nav.search select {
         display: block;
@@ -1077,6 +1086,7 @@ body > footer {
     	}
     	.selected a:after {
     		content: "";
+    		font-size: 0;
     	    display: block;
     	    position: absolute;
     	    bottom: 0px;
@@ -1163,24 +1173,24 @@ body > footer {
             background-image: none;
             display: inline-block;
             text-decoration: none;
-            padding: 0.422em @space/2;
-            .css3_linear_gradient(lighten(@baseFontColor, 30%), #333);
+            padding: 0 .7em;
+            line-height: 1.5em;
+        	background: #444;
             color:#fff;
-            border: 1px solid #000;
             margin-right: 1px;
             .css3_border_radius(0.5em);
             .smaller();
+            opacity:  .3;
+            .css3_transition(opacity 0.3s ease);
     		&:hover {
-            	background: #555;
-            	border-color: #222;
+            	opacity:1
             }
     	}
-    	li[data-quickpanel='dropdown']:hover a.dropdown-toggle {
-    	    background: #000;
-    	    border-bottom-color: #000;
-    	}
+/*    	li a.dropdown-toggle {
+            .quickpanelToggle(#444, #000);
+    	}*/
     	.dropdown {
-    	    top: 2.9em;
+    	    top: 1.5em;
     	    width: 200px;
     	    li a {
     	        background: transparent;
@@ -1309,7 +1319,7 @@ body > footer {
         a:hover{
     	    color: @baseColor4;
     	}
-    	li:first-of-type a {
+    	li:nth-child(1) a {
     		background-color: transparent;
     		background-position: 0% 47%;
     		background-repeat: no-repeat;
