@@ -961,10 +961,10 @@ body > footer {
     }    
     nav.search span.fieldCoverage {
         display: inline-block;
-        padding: 0 42px 0 1em;
+        padding: 0 29px 0 1em;
         margin: 0;
         position: relative;
-        line-height: 2.25em;
+        line-height: 1.5em;
         background: #777;
         color: #fff;
         .css3_border_radius(.3em);
@@ -976,8 +976,8 @@ body > footer {
             z-index: 1;
             top: 0;
             right: 0;
-            height: 2.25em;
-            width: 32px;
+            height: 1.5em;
+            width: 16px;
             background: #555;
             .css3_border_radius(0 .3em .3em 0);
         }
@@ -987,13 +987,13 @@ body > footer {
             position: absolute;
             z-index: 2;
             top: 50%;
-            margin-top: -3px;
-            right: 10px;
+            margin-top: -2px;
+            right: 4px;
             width: 0;
             height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 6px solid #777;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #999;
         }
     }
     nav.search select {
@@ -1259,7 +1259,20 @@ body > footer {
     }
     nav.search form:before {
         display: none;
-    }    
+    }   
+    nav.search label {
+        color: @bodyBg;
+    }
+    nav.search span.fieldCoverage {
+        background: @baseColor4;
+        color: @baseFontColor;
+    }
+    nav.search span.fieldCoverage:before {
+        border-top-color: @baseColor4;
+    }
+    nav.search span.fieldCoverage:after {
+        background: darken(@baseColor4, 20%);
+    }
     .sectionContainer section {
         .column(8);
 	    .alpha();
