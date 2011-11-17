@@ -1309,7 +1309,7 @@ body > footer {
   }
   nav.search span.fieldCoverage {
     display: inline-block;
-    padding: 0 29px 0 1em;
+    padding: 0 25px 0 .7em;
     margin: 0;
     position: relative;
     line-height: 1.5em;
@@ -1678,10 +1678,9 @@ body > footer {
     padding-top: 0.667em;
   }
   .sectionContainer nav.search {
-    display: inline;
-    float: left;
-    width: 30.770140676029676%;
-    margin-left: 1.281596328651826%;
+    /* The calculations are from _grid.less  */
+  
+    width: 32.0517370046815%;
     margin-right: 1.281596328651826%;
   }
   ul.sectionTools {

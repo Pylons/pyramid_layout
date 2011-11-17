@@ -961,7 +961,7 @@ body > footer {
     }    
     nav.search span.fieldCoverage {
         display: inline-block;
-        padding: 0 29px 0 1em;
+        padding: 0 25px 0 .7em;
         margin: 0;
         position: relative;
         line-height: 1.5em;
@@ -1282,7 +1282,9 @@ body > footer {
         padding-top: 0.667em;
     }
     .sectionContainer nav.search {
-        .column(4);
+        /* The calculations are from _grid.less  */
+        width: @total-width*((@gutter-width*.5)/@_gridsystem-width) + @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
+        margin-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
     }
     ul.sectionTools {
         clear: both;
