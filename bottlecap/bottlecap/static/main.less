@@ -807,7 +807,7 @@ body > footer {
     	width: 0;
     	height: 0;
     	display: inline-block;
-    	content: "&darr;";
+    	content: "";
     	font-size: 0;
     	text-indent: -99999px;
     	vertical-align: top;
@@ -1100,8 +1100,20 @@ body > footer {
     	    border-top: 0;
     	}
     }
-    ul.sectionTools a.ir {
-        background-image: url('cog_section.png');    
+    ul.sectionTools a.moreToggle {
+        background-image: url('cog_section.png');
+        /* don't ask *me* why this copy of .ir should be here explicitely, ask IE8 */
+        display: block;
+        border: 0;
+        text-indent: -999em;
+        overflow: hidden;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        text-align: left;
+        direction: ltr;
+    }
+    ul.sectionTools a.moreToggle:after {
+        display: none;
     }
     ul.sectionTools a.ir:hover,
     ul.sectionTools li a.open {
@@ -1137,8 +1149,9 @@ body > footer {
     	padding-bottom: 10px;
     	margin-bottom: -10px;
     }
-    #top-bar nav .selected a:after {
-        border-bottom-color: @baseColor3 !important;
+    #top-bar ul#global-nav .selected a:after {
+        font-size: 0; /* hello IE! Since we change the font-size for #top-bar ul#global-nav a, we need to reset the font-size here again. */
+        border-bottom-color: @baseColor3;
     }		    
     /* @end */
     .dropdown {
@@ -1404,7 +1417,7 @@ body > footer {
    ========================================================================== */
 
 /* For image replacement */
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0;}
 .ir br { display: none; }
 
 /* Hide from both screenreaders and browsers: h5bp.com/u */

@@ -103,7 +103,7 @@
         <li><a href="#">Files</a></li>
         <li><a href="#">Members</a></li>
         <li data-quickpanel="quickpanel">
-            <a href="#" class="quickpanel-toggle ir">More</a>
+            <a href="#" class="quickpanel-toggle moreToggle">More</a>
             <div class="quickpanel">
                 <figure>
                     <img src="http://lorempixum.com/64/64/" alt="" />
