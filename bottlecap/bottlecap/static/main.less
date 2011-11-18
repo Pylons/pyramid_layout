@@ -808,12 +808,11 @@ body > footer {
     	height: 0;
     	display: inline-block;
     	content: "";
-    	font-size: 0;
     	text-indent: -99999px;
     	vertical-align: top;
-    	position: relative;
-    	top: -0.1em;
-    	margin-top: 0.75em;
+    	position: absolute;
+    	top: 50%;
+    	margin-top: -2px;
     	margin-left: 4px;
     	border-left: 4px solid transparent;
     	border-right: 4px solid transparent;
@@ -1075,9 +1074,12 @@ body > footer {
     	    position: static;
     	}
     	a {
-        	padding: @space/2 @space/2;
+        	padding: @space/2;
     	    background-position: 50%;
     	    background-repeat: no-repeat;
+    	}
+    	a.quickpanel-toggle, a.dropdown-toggle {
+    	    padding-right: .533333333 + @space/2;
     	}
         .selected a,
         .selected a:hover {
@@ -1112,10 +1114,14 @@ body > footer {
         text-align: left;
         direction: ltr;
     }
+    .ie8 .quickpanel-toggle:after,
+    .ie8 .dropdown-toggle:after {
+        font-size: 0;
+    }
     ul.sectionTools a.moreToggle:after {
         display: none;
     }
-    ul.sectionTools a.ir:hover,
+    ul.sectionTools a.moreToggle:hover,
     ul.sectionTools li a.open {
         background-image: url('cog.png');
     }

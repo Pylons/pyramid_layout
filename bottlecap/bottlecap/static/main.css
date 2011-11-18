@@ -1065,12 +1065,11 @@ body > footer {
     height: 0;
     display: inline-block;
     content: "";
-    font-size: 0;
     text-indent: -99999px;
     vertical-align: top;
-    position: relative;
-    top: -0.1em;
-    margin-top: 0.75em;
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
     margin-left: 4px;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
@@ -1437,9 +1436,12 @@ body > footer {
     position: static;
   }
   ul.sectionTools a {
-    padding: 0.6665em 0.6665em;
+    padding: 0.6665em;
     background-position: 50%;
     background-repeat: no-repeat;
+  }
+  ul.sectionTools a.quickpanel-toggle, ul.sectionTools a.dropdown-toggle {
+    padding-right: 1.199833333em;
   }
   ul.sectionTools .selected a, ul.sectionTools .selected a:hover {
     color: #fff;
@@ -1473,10 +1475,13 @@ body > footer {
     text-align: left;
     direction: ltr;
   }
+  .ie8 .quickpanel-toggle:after, .ie8 .dropdown-toggle:after {
+    font-size: 0;
+  }
   ul.sectionTools a.moreToggle:after {
     display: none;
   }
-  ul.sectionTools a.ir:hover, ul.sectionTools li a.open {
+  ul.sectionTools a.moreToggle:hover, ul.sectionTools li a.open {
     background-image: url('cog.png');
   }
   .no-cssgradients .sectionContainer {
