@@ -28,15 +28,9 @@
 
         <link rel="stylesheet" href="${view.bottlecap_static}main.css"/>
 
-        <script src="${view.bottlecap_static}respond.min.js"></script>
-        <script src="${view.bottlecap_static}modernizr-2.0.6.min.js"></script>
-        
-        <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="${view.bottlecap_static}jquery-1.6.3.min.js"><\/script>')</script>
-        <!--[if (gte IE 6)&(lte IE 8)]>
-        <script type="text/javascript" src="${view.bottlecap_static}selectivizr-min.js"></script>
-        <![endif]-->
+        <script src="${view.bottlecap_static}js/modernizr-2.0.6.min.js"></script>
+        <script src="${view.bottlecap_static}js/respond.min.js"></script>
+
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
@@ -87,11 +81,19 @@
         <div class="container">Footer with some relevant information.
         </div>
     </footer>
+    
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="${view.bottlecap_static}js/jquery-1.6.3.min.js"><\/script>')</script>
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="${view.bottlecap_static}js/jquery-extra-selectors.min.js"></script>        
+    <script type="text/javascript" src="${view.bottlecap_static}js/selectivizr-min.js"></script>
+    <![endif]-->
 
     <script type="text/javascript" defer
-            src="${view.bottlecap_static}bottlecap.js"></script>
+            src="${view.bottlecap_static}js/bottlecap.js"></script>
     <script type="text/javascript"
-            src="${view.bottlecap_static}dropdown.js"></script>
+            src="${view.bottlecap_static}js/dropdown.js"></script>
 
     <metal:tailslot metal:define-slot="tail_slot"/>
 

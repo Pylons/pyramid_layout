@@ -648,7 +648,7 @@ h2#navigation-toggle, h2#search-toggle {
   display: block;
   color: #222222;
   position: relative;
-  background: transparent url('right_arrow_icon.png') 100% 50% no-repeat;
+  background: transparent url('img/right_arrow_icon.png') 100% 50% no-repeat;
   background-origin: content-box;
 }
 #global-nav .selected {
@@ -709,7 +709,7 @@ input#search-site-box:focus, input#search-site-box:active {
   cursor: text;
 }
 nav.search button.searchButton {
-  background: transparent url('search_icon_dark.png') 50% 50% no-repeat;
+  background: transparent url('img/search_icon_dark.png') 50% 50% no-repeat;
   border: none;
   width: 35px;
   height: 2em;
@@ -844,10 +844,10 @@ body > footer {
   }
   h2#navigation-toggle {
     right: 35px;
-    background: transparent url('sections_icon.png') 50% 50% no-repeat;
+    background: transparent url('img/sections_icon.png') 50% 50% no-repeat;
   }
   h2#search-toggle {
-    background: transparent url('search_icon.png') 50% 50% no-repeat;
+    background: transparent url('img/search_icon.png') 50% 50% no-repeat;
   }
   #top-bar nav h1.sitetitle {
     text-align: left;
@@ -860,7 +860,7 @@ body > footer {
   #global-nav, nav.search form {
     position: relative;
     overflow: hidden;
-    background-image: url('vertical_stripes.png');
+    background-image: url('img/vertical_stripes.png');
     background-position: top left;
     background-repeat: repeat;
   }
@@ -1030,11 +1030,11 @@ body > footer {
     border-top: 0;
   }
   a.quickpanel-toggle, #global-nav a.quickpanel-toggle {
-    background: transparent url('cog.png') 50% 50% no-repeat;
+    background: transparent url('img/cog.png') 50% 50% no-repeat;
     width: 19px;
   }
   a.quickpanel-toggle:hover, #global-nav a.open {
-    background-image: url('cog_globalnav_hover.png');
+    background-image: url('img/cog_globalnav_hover.png');
   }
   #global-nav:before {
     display: none;
@@ -1463,7 +1463,7 @@ body > footer {
     border-top: 0;
   }
   ul.sectionTools a.moreToggle {
-    background-image: url('cog_section.png');
+    background-image: url('img/cog_section.png');
     /* don't ask *me* why this copy of .ir should be here explicitely, ask IE8 */
   
     display: block;
@@ -1482,7 +1482,7 @@ body > footer {
     display: none;
   }
   ul.sectionTools a.moreToggle:hover, ul.sectionTools li a.open {
-    background-image: url('cog.png');
+    background-image: url('img/cog.png');
   }
   .no-cssgradients .sectionContainer {
     background: #61818f;
@@ -1509,7 +1509,7 @@ body > footer {
     background-position: 50% 100%;
     background-color: transparent;
     background-repeat: no-repeat;
-    background-image: url('selected_item.png');
+    background-image: url('img/selected_item.png');
     padding-bottom: 10px;
     margin-bottom: -10px;
   }
@@ -1730,7 +1730,7 @@ body > footer {
     background-color: transparent;
     background-position: 0% 47%;
     background-repeat: no-repeat;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIlJREFUeNpinDlzJgMS4AfiDUDsAOUfAOIAIP4IU8DEgAomIClmgLInICtA1xDAgAkS8Gl4gEXDA3waGrBoQHESC5rkRqizYM5YABXDqQHmBJipH9AlkTX4QxUqYDGgAGYTzA/zoeGvgMVGBajcfJgGf/SgwwFAavyZcIQMLtAA0mBAggYDgAADANJ8F7e9ZEZJAAAAAElFTkSuQmCC');
+    background-image: url('img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIlJREFUeNpinDlzJgMS4AfiDUDsAOUfAOIAIP4IU8DEgAomIClmgLInICtA1xDAgAkS8Gl4gEXDA3waGrBoQHESC5rkRqizYM5YABXDqQHmBJipH9AlkTX4QxUqYDGgAGYTzA/zoeGvgMVGBajcfJgGf/SgwwFAavyZcIQMLtAA0mBAggYDgAADANJ8F7e9ZEZJAAAAAElFTkSuQmCC');
     padding-left: 14px;
   }
   /* @group Content */

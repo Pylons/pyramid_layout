@@ -11,7 +11,7 @@
     <nav>
         <h1 class="sitetitle">
             <a href="#" title="KARL home page">
-                <img src="${view.bottlecap_static}logo.png"
+                <img src="${view.bottlecap_static}img/logo.png"
                      width="25" height="26" alt="KARL logo" />
                 KARL
             </a>
