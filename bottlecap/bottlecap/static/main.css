@@ -1368,6 +1368,13 @@ body > footer {
     z-index: 2;
     position: absolute;
   }
+  .oldie nav.search select {
+    position: static;
+    width: auto;
+    height: auto;
+    display: inline;
+    opacity: 1;
+  }
   nav.search fieldset {
     margin-top: 0.2em;
   }

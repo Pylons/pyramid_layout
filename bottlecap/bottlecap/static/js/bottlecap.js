@@ -46,14 +46,16 @@
     }
     
     // Add nice-looking spans to cover the standard <select> elements in the search
-    $('nav.search select').each(function () {
-        var $that = $(this);
-        $(this).before('<span class="fieldCoverage">' + this[0].text + '</select>');
-        $(this).change(function () {
-            $(this).prev().text($('option:selected', $(this)).text());
-        });
-        
-    });
+    if(!$('html').hasClass('oldie')) {
+        $('nav.search select').each(function () {
+            var $that = $(this);
+            $(this).before('<span class="fieldCoverage">' + this[0].text + '</span>');
+            $(this).change(function () {
+                $(this).prev().text($('option:selected', $(this)).text());
+            });
+            
+        });    
+    }
         
 //    $('nav.search select').change(function () {
 //        $(this).prev().text($('option[value="' +this.value + '"]', this).text());
