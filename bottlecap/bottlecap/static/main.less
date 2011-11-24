@@ -317,7 +317,6 @@ figure {
     pointer-events: none;
     &:after {
         content: "";
-        font-size: 0;
         display: block;
         position: absolute;
         z-index: 1;
@@ -327,10 +326,10 @@ figure {
         width: 16px;
         background: @dropColor;
         .css3_border_radius(0 .3em .3em 0);
+        *line-height: 0;
     }
     &:before {
-        content: "";    
-        font-size: 0;            
+        content: "";            
         display: block;
         position: absolute;
         z-index: 2;
@@ -341,7 +340,8 @@ figure {
         height: 0;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
-        border-top: 4px solid @bg;
+        border-top: 4px solid lighten(@bg, 10%);
+        *line-height: 0;        
     }
 }
 /* @end */
@@ -530,7 +530,7 @@ section.main header {
     position: relative;
 }
 ul.actionsMenu,
-ul.dropdown tw{
+ul.dropdown {
 	display: none;  
 }
 .column {
@@ -999,6 +999,7 @@ body > footer {
         margin: 0 0.5em 0 0;
         color: @baseFontColor;
         position: relative;
+        overflow: hidden; /* to not let <select> to 'stretch' longer than it's needed */
         .smaller();        
     }    
     nav.search span.fieldCoverage {
@@ -1009,7 +1010,6 @@ body > footer {
         opacity: 0;
         margin: 0;
         height: 2em;
-        width: 10em;
         top: 0;
         right: 0;
         z-index: 2;
@@ -1212,9 +1212,6 @@ body > footer {
             	opacity:1
             }
     	}
-/*    	li a.dropdown-toggle {
-            .quickpanelToggle(#444, #000);
-    	}*/
     	.dropdown {
     	    top: 1.5em;
     	    width: 200px;

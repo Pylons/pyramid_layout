@@ -769,7 +769,7 @@ section.main aside {
 section.main header {
   position: relative;
 }
-ul.actionsMenu, ul.dropdown tw {
+ul.actionsMenu, ul.dropdown {
   display: none;
 }
 .column {
@@ -1311,6 +1311,9 @@ body > footer {
     margin: 0 0.5em 0 0;
     color: #222222;
     position: relative;
+    overflow: hidden;
+    /* to not let <select> to 'stretch' longer than it's needed */
+  
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
   }
@@ -1329,7 +1332,6 @@ body > footer {
   }
   nav.search span.fieldCoverage:after {
     content: "";
-    font-size: 0;
     display: block;
     position: absolute;
     z-index: 1;
@@ -1341,10 +1343,10 @@ body > footer {
     -webkit-border-radius: 0 0.3em 0.3em 0;
     -moz-border-radius: 0 0.3em 0.3em 0;
     border-radius: 0 0.3em 0.3em 0;
+    *line-height: 0;
   }
   nav.search span.fieldCoverage:before {
     content: "";
-    font-size: 0;
     display: block;
     position: absolute;
     z-index: 2;
@@ -1355,14 +1357,14 @@ body > footer {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4px solid #777777;
+    border-top: 4px solid #919191;
+    *line-height: 0;
   }
   nav.search select {
     display: block;
     opacity: 0;
     margin: 0;
     height: 2em;
-    width: 10em;
     top: 0;
     right: 0;
     z-index: 2;
@@ -1572,10 +1574,6 @@ body > footer {
     height: auto;
     margin-top: 0.134em;
     margin-bottom: 0.677em;
-    /*    	li a.dropdown-toggle {
-              .quickpanelToggle(#444, #000);
-      	}*/
-  
   }
   ul.actionsMenu li {
     display: inline;

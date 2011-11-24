@@ -49,7 +49,7 @@
     if(!$('html').hasClass('oldie')) {
         $('nav.search select').each(function () {
             var $that = $(this);
-            $(this).before('<span class="fieldCoverage">' + this[0].text + '</span>');
+            $(this).after('<span class="fieldCoverage">' + this[0].text + '</span>');
             $(this).change(function () {
                 $(this).prev().text($('option:selected', $(this)).text());
             });
