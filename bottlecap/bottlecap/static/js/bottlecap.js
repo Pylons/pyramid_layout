@@ -57,8 +57,8 @@
         });    
     }
         
-//    $('nav.search select').change(function () {
-//        $(this).prev().text($('option[value="' +this.value + '"]', this).text());
-//    });
+    $('nav.search select').change(function () {
+        $(this).next().text($('option[value="' +this.value + '"]', this).text());
+    });
 
 } (jQuery));
