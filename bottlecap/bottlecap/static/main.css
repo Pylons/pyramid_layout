@@ -1513,7 +1513,7 @@ body > footer {
     display: inline-block;
     text-decoration: none;
     padding: 0 1.333em;
-    background: #777;
+    background: #aaa;
     color: #fff;
     margin-right: 1px;
     -webkit-border-radius: 0.5em;
@@ -1651,7 +1651,7 @@ body > footer {
     width: 64.103474009363%;
     margin-left: 1.281596328651826%;
     margin-right: 1.281596328651826%;
-    padding: 2.666em 0;
+    padding: 1.593137252em 0 2.666em;
   }
   ul.actionsMenu {
     position: absolute;
