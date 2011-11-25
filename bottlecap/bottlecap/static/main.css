@@ -1202,11 +1202,11 @@ body > footer {
   .no-touch ul.actionsMenu > li:hover > a, .touch ul.actionsMenu > li > a.open {
     background: #000;
   }
-  .no-touch li[data-quickpanel="dropdown"]:hover > a, .touch li[data-quickpanel="dropdown"] > a.open {
+  .no-touch li[data-quickpanel="dropdown"]:hover > a, li[data-quickpanel="quickpanel"].open > a.quickpanel-toggle, .touch li[data-quickpanel="dropdown"] > a.open {
     -webkit-border-radius: 0.5em 0.5em 0 0;
     -moz-border-radius: 0.5em 0.5em 0 0;
     border-radius: 0.5em 0.5em 0 0;
-    background: #000;
+    background-color: #000;
   }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
