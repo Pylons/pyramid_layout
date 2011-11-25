@@ -811,7 +811,6 @@ body > footer {
     	vertical-align: top;
     	position: absolute;
     	top: 50%;
-    	margin-top: -2px;
     	margin-left: 4px;
     	border-left: 4px solid transparent;
     	border-right: 4px solid transparent;
@@ -1081,9 +1080,6 @@ body > footer {
     	    background-position: 50%;
     	    background-repeat: no-repeat;
     	}
-    	a.quickpanel-toggle, a.dropdown-toggle {
-    	    padding-right: .533333333 + @space/2;
-    	}
         .selected a,
         .selected a:hover {
     	    color: #fff;
@@ -1104,6 +1100,9 @@ body > footer {
     	    border-bottom: 10px solid #fff;
     	    border-top: 0;
     	}
+    }
+    a.quickpanel-toggle, a.dropdown-toggle {
+        padding-right: .533333333em + @space/2;
     }
     ul.sectionTools a.moreToggle {
         background-image: url('img/cog_section.png');
@@ -1214,11 +1213,11 @@ body > footer {
     	    }
     	}
     }
-/*    ul.actionsMenu li[data-quickpanel="dropdown"] > a {
-        .quickpanelToggle(#777, #555, #fff);
-    }*/
-    .actionsMenu .dropdown-toggle:after {
-        margin-top: 0.9em;
+    li[data-quickpanel="dropdown"] a {
+        padding-right: 1.199833333em;
+    }
+    ul.actionsMenu li[data-quickpanel="dropdown"] a {
+        padding-right: 1.6em;
     }
     #top-bar .quickpanel .quickpanel, 
     .sectionTools .dropdown,
