@@ -449,7 +449,7 @@ ul,
 ol,
 dl {
   margin-top: 0;
-  margin-bottom: 1.333em;
+  margin-bottom: 1.333;
 }
 ul ul,
 ul ol,
@@ -462,19 +462,19 @@ ol dl {
 dt {
   font-style: italic;
   font-weight: bold;
-  margin-bottom: 0.5126923076923077em;
+  margin-bottom: 0.5126923076923077;
 }
 .fontface dt {
   font-style: normal;
 }
 dd {
-  margin-left: 1.333em;
+  margin-left: 1.333;
 }
 pre {
-  padding: 1.333em 1.333em;
+  padding: 1.333 1.333;
 }
 table {
-  margin: 1.333em 1.333em;
+  margin: 1.333 1.333;
 }
 table th, table td {
   padding: 0.75em 1.333em;
@@ -486,12 +486,12 @@ table table th, table table td {
   padding: 3px;
 }
 fieldset {
-  margin: 1.333em 1.333em 0;
+  margin: 1.333 1.333 0;
   padding: 0;
 }
 fieldset legend {
   margin-left: 0;
-  margin-bottom: 0.6665em;
+  margin-bottom: 0.6665;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -1132,7 +1132,7 @@ body > footer {
     font-size: 1em;
     background: transparent;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none;
   }
   .quickpanel figure, .dropdown figure {
     float: right;
@@ -1199,70 +1199,14 @@ body > footer {
   ul.actionsMenu {
     position: relative;
   }
-  .no-touch ul.actionsMenu li:hover a, .touch ul.actionsMenu a.open {
+  .no-touch ul.actionsMenu > li:hover > a, .touch ul.actionsMenu > li > a.open {
+    background: #000;
+  }
+  .no-touch li[data-quickpanel="dropdown"]:hover > a, .touch li[data-quickpanel="dropdown"] > a.open {
     -webkit-border-radius: 0.5em 0.5em 0 0;
     -moz-border-radius: 0.5em 0.5em 0 0;
     border-radius: 0.5em 0.5em 0 0;
-  }
-  ul.actionsMenu .quickpanel {
-    left: 1px;
-    top: 2.9em;
-    width: auto;
-    min-width: 140px;
-    list-style: none;
-    padding: 0;
-    -webkit-border-radius: 0 0 0.5em 0.5em;
-    -moz-border-radius: 0 0 0.5em 0.5em;
-    border-radius: 0 0 0.5em 0.5em;
-  }
-  ul.actionsMenu .quickpanel li {
-    position: relative;
-    list-style: none;
-  }
-  ul.actionsMenu .quickpanel a {
-    display: block;
-    font-size: 1em;
-    border: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    background: none;
-    background-image: -moz-linear-gradient(top, none, white);
-    /* FF3.6 */
-  
-    background-image: -ms-linear-gradient(top, none, white);
-    /* IE10 */
-  
-    background-image: -o-linear-gradient(top, none, white);
-    /* Opera 11.10+ */
-  
-    background-image: -webkit-gradient(linear, left top, left bottom, from(none), to(white));
-    /* Saf4+, Chrome */
-  
-    background-image: -webkit-linear-gradient(top, none, white);
-    /* Chrome 10+, Saf5.1+ */
-  
-    background-image: linear-gradient(top, none, white);
-    position: relative;
-  }
-  ul.actionsMenu .quickpanel a:hover {
-    background: #777777;
-    background-image: -moz-linear-gradient(top, #777777, #555555);
-    /* FF3.6 */
-  
-    background-image: -ms-linear-gradient(top, #777777, #555555);
-    /* IE10 */
-  
-    background-image: -o-linear-gradient(top, #777777, #555555);
-    /* Opera 11.10+ */
-  
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#777777), to(#555555));
-    /* Saf4+, Chrome */
-  
-    background-image: -webkit-linear-gradient(top, #777777, #555555);
-    /* Chrome 10+, Saf5.1+ */
-  
-    background-image: linear-gradient(top, #777777, #555555);
+    background: #000;
   }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
@@ -1533,30 +1477,15 @@ body > footer {
   }
   .dropdown a:hover {
     color: #fff;
-    text-decoration: underline;
+    text-decoration: none;
+    cursor: pointer;
   }
   ul.dropdown li a {
     padding: 0 1.333em;
     font-weight: normal;
   }
   ul.dropdown li a:hover {
-    background: #777777;
-    background-image: -moz-linear-gradient(top, #777777, #555555);
-    /* FF3.6 */
-  
-    background-image: -ms-linear-gradient(top, #777777, #555555);
-    /* IE10 */
-  
-    background-image: -o-linear-gradient(top, #777777, #555555);
-    /* Opera 11.10+ */
-  
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#777777), to(#555555));
-    /* Saf4+, Chrome */
-  
-    background-image: -webkit-linear-gradient(top, #777777, #555555);
-    /* Chrome 10+, Saf5.1+ */
-  
-    background-image: linear-gradient(top, #777777, #555555);
+    background: #777;
   }
   ul.actionsMenu {
     display: block;
@@ -1569,6 +1498,7 @@ body > footer {
     height: auto;
     margin-top: 0.134em;
     margin-bottom: 0.677em;
+    font-size: 0.9em;
   }
   ul.actionsMenu li {
     display: inline;
@@ -1577,13 +1507,12 @@ body > footer {
     float: none;
     display: inline-block;
   }
-  ul.actionsMenu a {
+  ul.actionsMenu > li > a {
     width: auto;
     background-image: none;
     display: inline-block;
     text-decoration: none;
-    padding: 0 .7em;
-    line-height: 1.5em;
+    padding: 0 1.333em;
     background: #777;
     color: #fff;
     margin-right: 1px;
@@ -1594,24 +1523,22 @@ body > footer {
     font-family: Verdana, sans-serif;
   }
   ul.actionsMenu .dropdown {
-    top: 1.5em;
+    top: 1.823076923em;
     width: 200px;
   }
   ul.actionsMenu .dropdown li a {
-    background: transparent;
+    font-size: 1em;
     border: none;
-    line-height: 1.5;
     padding: 0.422em 1.333em;
   }
   li[data-quickpanel="dropdown"] a {
     padding-right: 1.199833333em;
   }
   ul.actionsMenu li[data-quickpanel="dropdown"] a {
-    padding-right: 1.6em;
+    padding-right: 1.9em;
   }
   #top-bar .quickpanel .quickpanel, .sectionTools .dropdown, .sectionTools .quickpanel {
     top: 3.30987em;
-    font-size: 0.667em;
   }
   .sectionContainer section .quickpanel {
     top: auto;

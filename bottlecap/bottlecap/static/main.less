@@ -289,7 +289,7 @@ img {
     color: lighten(@baseFontColor, 20%);
 }
 figure {
-    margin: 0 0 @space;
+    margin: 0 0 ((@space * 1em) * 1em);
     img {
 		display: block;
 	    border: 2px solid #fff;
@@ -301,7 +301,7 @@ figure {
     figcaption {
 	    padding: 0;
 	    .discreet();
-	    padding: @space/2 0;
+	    padding: (@space * 1em)/2 0;
 	    border-bottom: 1px solid @baseColor2;
 	}
 }
@@ -507,10 +507,10 @@ nav.search select {
 
 /* @group Content */
 .contentWrapper {
-    padding: @space/2;
+    padding: (@space * 1em)/2;
 }
 section.main {
-    padding-bottom: @space;
+    padding-bottom: (@space * 1em);
 }
 .description {
     font-style: italic;
@@ -519,8 +519,8 @@ section.main aside {
     @shadow: 0 0 0 2px @bodyBg, 0 0 0 3px @baseColor2;
 	font-style: italic;
 	background: @baseColor2;
-	padding: @space/2;
-	margin: @space/2 0;
+	padding: (@space * 1em)/2;
+	margin: (@space * 1em)/2 0;
 	-webkit-box-shadow: @shadow;
 	   -moz-box-shadow: @shadow; 
 	        box-shadow: @shadow;
@@ -534,7 +534,7 @@ ul.dropdown {
 }
 .column {
     border-top: 1px solid @baseColor2;
-    padding-top: @space;
+    padding-top: (@space * 1em);
     h3 {
 	    font-size: 1.333em;
 	}
@@ -547,7 +547,7 @@ ul.dropdown {
 body > footer {
     border-top: 1px solid darken(@baseColor2, 10%);
     background: @baseColor2;
-    padding: @space/2 @space @space*1.5;
+    padding: (@space * 1em)/2 (@space * 1em) (@space * 1em)*1.5;
     text-align: center;
     .smaller();
 }
@@ -577,12 +577,12 @@ body > footer {
         width: 100%;
         ul {
             clear: none;
-            margin-bottom: @space;
+            margin-bottom: (@space * 1em);
         }
         a {
         	display: block;
             color: @baseColor2;
-            padding: @space/4 0;
+            padding: (@space * 1em)/4 0;
             line-height: 2.369em;
         }
     }
@@ -621,7 +621,7 @@ body > footer {
     #top-bar {
         nav h1.sitetitle {
     	    text-align: left;
-    	    padding: 0 @space/2;
+    	    padding: 0 (@space * 1em)/2;
     	    border-bottom: none;
     	}
     }
@@ -705,8 +705,8 @@ body > footer {
     }
     h1.sitetitle {
     	float: left;
-    	padding: 0 0 0 @space;
-    	margin: 0 @space 0 0;
+    	padding: 0 0 0 (@space * 1em);
+    	margin: 0 (@space * 1em) 0 0;
     }    
     #top-bar .topNavIconWrapper {
         float: left;
@@ -826,7 +826,7 @@ body > footer {
         width: 100%;
         .css3_box_sizing(border-box);
         margin: 0;
-        padding: @space;
+        padding: (@space * 1em);
         .css3_linear_gradient(#000, #333);
         border-width: 0 1px 1px;
         border-style: solid;
@@ -839,7 +839,7 @@ body > footer {
         ul {
     	    clear: none;
     	    background: transparent;
-    	    margin-bottom: @space;
+    	    margin-bottom: (@space * 1em);
     	}	
     	li {
     	    display: list-item;
@@ -852,11 +852,11 @@ body > footer {
     	    font-size: 1em;
     	    background: transparent;
     	    font-weight: bold;
-    	    text-decoration: underline;
+    	    text-decoration: none;
     	}
     	figure {
     	    float: right;
-    	    margin: 0 0 @space/2 @space/2;
+    	    margin: 0 0 (@space * 1em)/2 (@space * 1em)/2;
     	    img {
     		    .css3_box_shadow(none);
     		}
@@ -878,7 +878,7 @@ body > footer {
     .quickpanel-footer {
         border-top: 1px solid #222;
         padding: 0;
-        margin-top: @space/2;
+        margin-top: (@space * 1em)/2;
         &:before {
     	    content: "";
     	    font-size: 0;
@@ -886,7 +886,7 @@ body > footer {
     	    height: 1px;
     	    width: 100%;
     	    background: #333;
-    	    margin-bottom: @space/2;
+    	    margin-bottom: (@space * 1em)/2;
     	}
     }
     a.open,
@@ -914,43 +914,24 @@ body > footer {
     section.main aside {
         float: right;
         width: 15.741em;
-    	padding: @space;
-    	margin: 0 0 @space @space;
+    	padding: (@space * 1em);
+    	margin: 0 0 (@space * 1em) (@space * 1em);
     	font-size: 0.889em;
     }
     ul.actionsMenu {
         position: relative;
     }
-    .no-touch ul.actionsMenu li:hover a,
-    .touch ul.actionsMenu a.open {
-    	.css3_border_radius(0.5em 0.5em 0 0);
+    .no-touch ul.actionsMenu > li:hover > a,
+    .touch ul.actionsMenu > li > a.open {
+    	background: #000;
     }
-    ul.actionsMenu .quickpanel {
-    	left: 1px;
-    	top: 2.9em;
-    	width: auto;
-    	min-width: 140px;
-    	list-style: none;
-    	padding: 0;
-    	.css3_border_radius(0 0 0.5em 0.5em);
-    	li {
-    	    position: relative;
-    	    list-style: none;
-    	}
-    	a {
-            display: block;
-    		font-size: 1em;
-    	    border:none;
-    	    .css3_border_radius(0);
-    	    .css3_linear_gradient(none);
-    	    position: relative;
-    	    &:hover {
-    		    .css3_linear_gradient(#777, #555);
-    		}
-    	}
+    .no-touch li[data-quickpanel="dropdown"]:hover > a,
+    .touch li[data-quickpanel="dropdown"] > a.open {
+    	.css3_border_radius(0.5em 0.5em 0 0);
+    	background: #000;
     }
     .contentWrapper > aside.column {
-        padding: @space 0;
+        padding: (@space * 1em) 0;
         .portlet {
     		float:left;
     	    width: 48%;
@@ -1040,7 +1021,7 @@ body > footer {
     	    padding-top: 0.422em;
     	    padding-bottom: 0;
     	    font-size: 1.333em;
-    	    padding-left: @space/1.33em;
+    	    padding-left: (@space * 1em)/1.33em;
     	}
     	header {
     	    margin: 0;
@@ -1053,7 +1034,7 @@ body > footer {
         float: left;
         clear: none;
         width: auto;
-    	padding:0 0 0 @space/2;
+    	padding:0 0 0 (@space * 1em)/2;
     	font-family: @fancyFont;
     	font-size: 0.889em;
         li {
@@ -1076,7 +1057,7 @@ body > footer {
     	    position: static;
     	}
     	a {
-        	padding: @space/2;
+        	padding: (@space * 1em)/2;
     	    background-position: 50%;
     	    background-repeat: no-repeat;
     	}
@@ -1102,7 +1083,7 @@ body > footer {
     	}
     }
     a.quickpanel-toggle, a.dropdown-toggle {
-        padding-right: .533333333em + @space/2;
+        padding-right: .533333333em + (@space * 1em)/2;
     }
     ul.sectionTools a.moreToggle {
         background-image: url('img/cog_section.png');
@@ -1164,21 +1145,22 @@ body > footer {
     /* @end */
     .dropdown {
         width: 300px;    
-        padding: @space/2 0;
+        padding: (@space * 1em)/2 0;
         a {
     	    display: block !important;
     	}
         a:hover {
     		color: #fff;
-            text-decoration: underline;    		
+            text-decoration: none;
+            cursor: pointer;
     	}
     }
     ul.dropdown li a {
-        padding: 0 @space;
+        padding: 0 (@space * 1em);
         font-weight: normal;
         &:hover {
-            .css3_linear_gradient(#777, #555);        
-        }    
+            background: #777;
+        } 
     }
     ul.actionsMenu {
         display: block;
@@ -1189,13 +1171,13 @@ body > footer {
         height: auto;
     	margin-top: 0.134em;
     	margin-bottom: 0.677em;
-        a {
+    	font-size: 0.9em;
+        > li > a {
             width: auto;
             background-image: none;
             display: inline-block;
             text-decoration: none;
-            padding: 0 .7em;
-            line-height: 1.5em;
+            padding: 0 (@space * 1em);
         	background: #777;
             color:#fff;
             margin-right: 1px;
@@ -1203,13 +1185,12 @@ body > footer {
             .smaller();
     	}
     	.dropdown {
-    	    top: 1.5em;
+    	    top: 1.823076923em;
     	    width: 200px;
     	    li a {
-    	        background: transparent;
+    	        font-size: 1em;
     	        border: none;
-                line-height: 1.5;
-                padding: 0.422em @space;
+                padding: 0.422em (@space * 1em);
     	    }
     	}
     }
@@ -1217,13 +1198,12 @@ body > footer {
         padding-right: 1.199833333em;
     }
     ul.actionsMenu li[data-quickpanel="dropdown"] a {
-        padding-right: 1.6em;
+        padding-right: 1.9em;
     }
     #top-bar .quickpanel .quickpanel, 
     .sectionTools .dropdown,
     .sectionTools .quickpanel {
         top: 3.30987em;
-        font-size: 0.667em;
     }
     .sectionContainer section .quickpanel {
         top: auto;
@@ -1241,7 +1221,7 @@ body > footer {
         	margin-bottom: 0.677em;
         	a {
         	    line-height: 35px;
-        	    padding: 0 @space;
+        	    padding: 0 (@space * 1em);
         	    margin-right: 8px;
         	}
         }        
@@ -1317,7 +1297,7 @@ body > footer {
         clear: none;
         float: right;
         width: auto;
-        padding: 0 @space/2;
+        padding: 0 (@space * 1em)/2;
         a {
             color: @bodyBg;
     	    line-height: 2.8em;
@@ -1337,7 +1317,7 @@ body > footer {
     /* @group Content */
     .contentWrapper section.main {
         .column(8);
-        padding:(@space * 2) 0;
+        padding:((@space * 1em) * 2) 0;
     }
     ul.actionsMenu {
     	position: absolute;
@@ -1355,7 +1335,7 @@ body > footer {
     .contentWrapper > aside.column {
         border-top: none;
         .column(4);
-        padding: (@space * 2) 0;
+        padding: ((@space * 1em) * 2) 0;
     }
     .contentWrapper > aside.column .portlet {
         float: none;
