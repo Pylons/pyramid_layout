@@ -240,7 +240,7 @@ td { vertical-align: top; }
 /* @group Base styles */
 
 body {
-    background: @bodyBg;
+    background: lighten(@bodyBg,3%);
 	font-size: (@baseFontSize - 4)/@baseFontSize*1em;
 	position: relative;
 }
@@ -518,8 +518,7 @@ section.main {
 section.main aside {
     @shadow: 0 0 0 2px @bodyBg, 0 0 0 3px @baseColor2;
 	font-style: italic;
-	background: @baseColor1;
-	color: @bodyBg;
+	background: @baseColor2;
 	padding: @space/2;
 	margin: @space/2 0;
 	-webkit-box-shadow: @shadow;
@@ -916,9 +915,6 @@ body > footer {
     section.main aside {
         float: right;
         width: 15.741em;
-    	font-style: italic;
-    	background: @baseColor1;
-    	color: @bodyBg;
     	padding: @space;
     	margin: 0 0 @space @space;
     	font-size: 0.889em;
@@ -1003,7 +999,7 @@ body > footer {
         .smaller();        
     }    
     nav.search span.fieldCoverage {
-        .quickpanelToggle();
+        .quickpanelToggle(@bodyBg, @baseColor4, @baseFontColor);
     }
     nav.search select {
         display: block;
@@ -1201,16 +1197,11 @@ body > footer {
             text-decoration: none;
             padding: 0 .7em;
             line-height: 1.5em;
-        	background: #444;
+        	background: #777;
             color:#fff;
             margin-right: 1px;
             .css3_border_radius(0.5em);
             .smaller();
-            opacity:  .3;
-            .css3_transition(opacity 0.3s ease);
-    		&:hover {
-            	opacity:1
-            }
     	}
     	.dropdown {
     	    top: 1.5em;
@@ -1223,6 +1214,9 @@ body > footer {
     	    }
     	}
     }
+/*    ul.actionsMenu li[data-quickpanel="dropdown"] > a {
+        .quickpanelToggle(#777, #555, #fff);
+    }*/
     .actionsMenu .dropdown-toggle:after {
         margin-top: 0.9em;
     }
@@ -1295,16 +1289,6 @@ body > footer {
     }   
     nav.search label {
         color: @bodyBg;
-    }
-    nav.search span.fieldCoverage {
-        background: @baseColor4;
-        color: @baseFontColor;
-    }
-    nav.search span.fieldCoverage:before {
-        border-top-color: @baseColor4;
-    }
-    nav.search span.fieldCoverage:after {
-        background: darken(@baseColor4, 20%);
     }
     .sectionContainer section {
         .column(8);

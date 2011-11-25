@@ -511,7 +511,7 @@ fieldset label {
 /* Color schema http://kuler.adobe.com/#themeID/186890 */
 /* @group Base styles */
 body {
-  background: #fffdfa;
+  background: #ffffff;
   font-size: 0.7333333333333333em;
   position: relative;
 }
@@ -758,8 +758,7 @@ section.main {
 }
 section.main aside {
   font-style: italic;
-  background: #8f806f;
-  color: #fffdfa;
+  background: #dbcfc1;
   padding: 0.6665em;
   margin: 0.6665em 0;
   -webkit-box-shadow: 0 0 0 2px #fffdfa, 0 0 0 3px #dbcfc1;
@@ -1194,9 +1193,6 @@ body > footer {
   section.main aside {
     float: right;
     width: 15.741em;
-    font-style: italic;
-    background: #8f806f;
-    color: #fffdfa;
     padding: 1.333em;
     margin: 0 0 1.333em 1.333em;
     font-size: 0.889em;
@@ -1323,8 +1319,8 @@ body > footer {
     margin: 0;
     position: relative;
     line-height: 1.5em;
-    background: #777777;
-    color: #ffffff;
+    background: #fffdfa;
+    color: #222222;
     -webkit-border-radius: 0.3em;
     -moz-border-radius: 0.3em;
     border-radius: 0.3em;
@@ -1339,7 +1335,7 @@ body > footer {
     right: 0;
     height: 1.5em;
     width: 16px;
-    background: #555555;
+    background: #c1d3db;
     -webkit-border-radius: 0 0.3em 0.3em 0;
     -moz-border-radius: 0 0.3em 0.3em 0;
     border-radius: 0 0.3em 0.3em 0;
@@ -1357,7 +1353,7 @@ body > footer {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4px solid #919191;
+    border-top: 4px solid #ffffff;
     *line-height: 0;
   }
   nav.search select {
@@ -1589,7 +1585,7 @@ body > footer {
     text-decoration: none;
     padding: 0 .7em;
     line-height: 1.5em;
-    background: #444;
+    background: #777;
     color: #fff;
     margin-right: 1px;
     -webkit-border-radius: 0.5em;
@@ -1597,15 +1593,6 @@ body > footer {
     border-radius: 0.5em;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
-    opacity: .3;
-    -webkit-transition: opacity 0.3s ease;
-    -moz-transition: opacity 0.3s ease;
-    -ms-transition: opacity 0.3s ease;
-    -o-transition: opacity 0.3s ease;
-    transition: opacity 0.3s ease;
-  }
-  ul.actionsMenu a:hover {
-    opacity: 1;
   }
   ul.actionsMenu .dropdown {
     top: 1.5em;
@@ -1617,6 +1604,9 @@ body > footer {
     line-height: 1.5;
     padding: 0.422em 1.333em;
   }
+  /*    ul.actionsMenu li[data-quickpanel="dropdown"] > a {
+          .quickpanelToggle(#777, #555, #fff);
+      }*/
   .actionsMenu .dropdown-toggle:after {
     margin-top: 0.9em;
   }
@@ -1680,16 +1670,6 @@ body > footer {
   }
   nav.search label {
     color: #fffdfa;
-  }
-  nav.search span.fieldCoverage {
-    background: #c1d3db;
-    color: #222222;
-  }
-  nav.search span.fieldCoverage:before {
-    border-top-color: #c1d3db;
-  }
-  nav.search span.fieldCoverage:after {
-    background: #80a5b6;
   }
   .sectionContainer section {
     display: inline;
