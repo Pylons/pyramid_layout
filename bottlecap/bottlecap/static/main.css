@@ -953,6 +953,9 @@ body > footer {
     float: none;
     display: inline-block;
   }
+  #top-bar nav li a {
+    display: block;
+  }
   #top-bar [data-quickpanel="quickpanel"] {
     display: inline;
   }
@@ -1397,6 +1400,9 @@ body > footer {
   ul.sectionTools li {
     position: relative;
     float: left;
+  }
+  ul.sectionTools li a {
+    display: block;
   }
   ul.sectionTools .dropdown li, ul.sectionTools .quickpanel li {
     display: list-item;
