@@ -829,6 +829,7 @@ ul.actionsMenu, ul.dropdown {
   background: #8f806f;
   padding: 0 .5em;
   color: #fff;
+  margin-right: 0.5em;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;

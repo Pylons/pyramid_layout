@@ -60,5 +60,11 @@
     $('nav.search select').change(function () {
         $(this).next().text($('option[value="' +this.value + '"]', this).text());
     });
+    
+    $('form.addKeyword').bind('submit', function (e) {
+        var keywordsList = $(this).prev('ul.keywords');
+        keywordsList.append('<li><a href="#">'+ $('input[type="text"]', $(this)).val() +'</a></li>');
+        return false;
+    });
 
 } (jQuery));
