@@ -11,19 +11,12 @@
         <h2 id="navigation-toggle" class="quickpanel-toggle ir">
             Navigation</h2>
         <ul id="global-nav" class="quickpanel">
-            <li
-                    ><a href="#">Intranet</a></li>
-            <li class="selected"
-                    ><a href="#">Communities</a></li>
-            <li
-                    ><a href="#">People</a></li>
-            <li
-                    ><a href="#">Calendar</a></li>
-            <li
-                    ><a href="#">Explore</a></li>
-            <li data-quickpanel="quickpanel"
-                    ><a href="#" class="quickpanel-toggle ir">More</a>
-
+            <li><a href="#">Intranet</a></li>
+            <li class="selected"><a href="#">Communities</a></li>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Explore</a></li>
+            <li data-quickpanel="quickpanel"><a href="#" class="quickpanel-toggle ir">More</a>
                 <div class="quickpanel">
                     <figure>
                         <img src="http://lorempixum.com/64/64/" alt=""/>
