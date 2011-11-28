@@ -401,7 +401,7 @@ td {
 }
 body {
   font-size: 15;
-  line-height: 1.5em;
+  line-height: 1.5;
   font-family: Georgia, serif;
   text-rendering: optimizeLegibility;
 }
@@ -512,7 +512,7 @@ fieldset label {
 /* @group Base styles */
 body {
   background: #ffffff;
-  font-size: 0.7333333333333333em;
+  font-size: 0.7333333333333333;
   position: relative;
 }
 a:link {
@@ -1549,7 +1549,6 @@ body > footer {
   }
   .sectionContainer section .quickpanel {
     top: auto;
-    font-size: 0.75em;
   }
   .touch .dropdown a {
     padding-top: 0 !important;
