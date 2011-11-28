@@ -979,6 +979,14 @@ body > footer {
     	.css3_border_radius(0.5em 0.5em 0 0);
     	background-color: #000 !important;
     }
+    .no-touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1):hover > a,
+    .touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1) > a.open {
+        .css3_border_radius(.5em 0 0 0);
+    }
+    .no-touch .actionsMenu li[data-quickpanel="dropdown"]:last-child:hover > a,
+    .touch .actionsMenu li[data-quickpanel="dropdown"]:last-child > a.open {
+        .css3_border_radius(0 .5em 0 0);
+    }    
     .contentWrapper > aside.column {
         padding: (@space * 1em) 0;
         .portlet {

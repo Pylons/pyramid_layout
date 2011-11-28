@@ -1255,6 +1255,16 @@ body > footer {
     border-radius: 0.5em 0.5em 0 0;
     background-color: #000 !important;
   }
+  .no-touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1):hover > a, .touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1) > a.open {
+    -webkit-border-radius: 0.5em 0 0 0;
+    -moz-border-radius: 0.5em 0 0 0;
+    border-radius: 0.5em 0 0 0;
+  }
+  .no-touch .actionsMenu li[data-quickpanel="dropdown"]:last-child:hover > a, .touch .actionsMenu li[data-quickpanel="dropdown"]:last-child > a.open {
+    -webkit-border-radius: 0 0.5em 0 0;
+    -moz-border-radius: 0 0.5em 0 0;
+    border-radius: 0 0.5em 0 0;
+  }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
   }
