@@ -562,6 +562,75 @@ ul.dropdown {
 
 /* Keywords */
 
+.keywords {
+    .horList();
+    float: left;
+    margin: 0 1em 0 0;
+    padding: 0;
+    li {
+        position: relative;
+    }
+    a {
+        .smaller();
+        border: none;
+        background: @baseColor1;
+        padding: 0 .5em;
+        color: #fff;
+        .css3_border_radius(.5em);
+/*        padding-right: 1.78em;
+        &:after {
+            content: "X";
+            position: absolute;
+            top: 50%;
+            margin-top: -0.7em;
+            right: .1em;
+            color: #fff;
+            background: #ff0000;
+            .css3_border_radius(.625em);
+            padding: 0.1em;
+            height: 1.4em;
+            width: 1.4em;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.8em;
+            .css3_box_shadow(-2px 0 0 darken(saturate(@baseColor3, 30%), 20%));
+        }*/
+    }
+}
+form.addKeyword {
+    float: left;
+    fieldset {
+        background: #fff;
+        .css3_border_radius(.5em);
+        border: 1px solid @baseColor1;
+        position: relative;
+    }
+    input,
+    button {
+        border: none;
+        background: transparent;
+    }
+    input {
+        padding: .15em 6.058823529em .15em .25em;
+        line-height: 1.125em;
+        width: 10em;
+    }
+    input:focus {
+        outline: none;
+    }
+    button {
+        position: absolute;
+        top: 0;
+        right: -1px;
+        background: @baseColor1;
+        color: #fff;
+        .smaller();
+        line-height: 1.5em;
+        padding: 0em .666666667em;
+        .css3_border_radius(0 .666666667em .666666667em 0);
+        height: 100%;
+    }
+}
 
 /* @end */
 

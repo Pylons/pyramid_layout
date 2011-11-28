@@ -687,6 +687,9 @@ nav.search fieldset {
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .searchInputWrapper {
   position: relative;
@@ -698,6 +701,9 @@ nav.search fieldset {
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 input#search-site-box {
   display: block;
@@ -798,6 +804,101 @@ ul.actionsMenu, ul.dropdown {
   font-size: 1.333em;
 }
 /* Keywords */
+.keywords {
+  float: none;
+  clear: both;
+  list-style: none;
+  float: left;
+  margin: 0 1em 0 0;
+  padding: 0;
+}
+.keywords li {
+  display: inline;
+}
+.keywords li a, .keywords li span {
+  float: none;
+  display: inline-block;
+}
+.keywords li {
+  position: relative;
+}
+.keywords a {
+  font-size: 0.75em;
+  font-family: Verdana, sans-serif;
+  border: none;
+  background: #8f806f;
+  padding: 0 .5em;
+  color: #fff;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  /*        padding-right: 1.78em;
+        &:after {
+            content: "X";
+            position: absolute;
+            top: 50%;
+            margin-top: -0.7em;
+            right: .1em;
+            color: #fff;
+            background: #ff0000;
+            .css3_border_radius(.625em);
+            padding: 0.1em;
+            height: 1.4em;
+            width: 1.4em;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.8em;
+            .css3_box_shadow(-2px 0 0 darken(saturate(@baseColor3, 30%), 20%));
+        }*/
+
+}
+form.addKeyword {
+  float: left;
+}
+form.addKeyword fieldset {
+  background: #fff;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #8f806f;
+  position: relative;
+}
+form.addKeyword input, form.addKeyword button {
+  border: none;
+  background: transparent;
+}
+form.addKeyword input {
+  padding: .15em 6.058823529em .15em .25em;
+  line-height: 1.125em;
+  width: 10em;
+}
+form.addKeyword input:focus {
+  outline: none;
+}
+form.addKeyword button {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  background: #8f806f;
+  color: #fff;
+  font-size: 0.75em;
+  font-family: Verdana, sans-serif;
+  line-height: 1.5em;
+  padding: 0em .666666667em;
+  -webkit-border-radius: 0 0.666666667em 0.666666667em 0;
+  -moz-border-radius: 0 0.666666667em 0.666666667em 0;
+  border-radius: 0 0.666666667em 0.666666667em 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  height: 100%;
+}
 /* @end */
 /* @group Footer */
 body > footer {
@@ -1104,6 +1205,9 @@ body > footer {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
     font-size: 1em;
     font-family: Georgia, serif;
     border-style: none none solid;
@@ -1172,6 +1276,9 @@ body > footer {
     -webkit-border-radius: 0 0 0.4em 0.4em;
     -moz-border-radius: 0 0 0.4em 0.4em;
     border-radius: 0 0 0.4em 0.4em;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
   .quickpanel ul, .dropdown ul {
     clear: none;
@@ -1260,17 +1367,26 @@ body > footer {
     -webkit-border-radius: 0.5em 0.5em 0 0;
     -moz-border-radius: 0.5em 0.5em 0 0;
     border-radius: 0.5em 0.5em 0 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
     background-color: #000 !important;
   }
   .no-touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1):hover > a, .touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1) > a.open {
     -webkit-border-radius: 0.5em 0 0 0;
     -moz-border-radius: 0.5em 0 0 0;
     border-radius: 0.5em 0 0 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
   .no-touch .actionsMenu li[data-quickpanel="dropdown"]:last-child:hover > a, .touch .actionsMenu li[data-quickpanel="dropdown"]:last-child > a.open {
     -webkit-border-radius: 0 0.5em 0 0;
     -moz-border-radius: 0 0.5em 0 0;
     border-radius: 0 0.5em 0 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
@@ -1331,6 +1447,9 @@ body > footer {
     -webkit-border-radius: 0.3em;
     -moz-border-radius: 0.3em;
     border-radius: 0.3em;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
     pointer-events: none;
   }
   nav.search span.fieldCoverage:after {
@@ -1346,6 +1465,9 @@ body > footer {
     -webkit-border-radius: 0 0.3em 0.3em 0;
     -moz-border-radius: 0 0.3em 0.3em 0;
     border-radius: 0 0.3em 0.3em 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
     *line-height: 0;
   }
   nav.search span.fieldCoverage:before {
@@ -1576,11 +1698,17 @@ body > footer {
     -webkit-border-radius: 0.5em 0 0 0.5em;
     -moz-border-radius: 0.5em 0 0 0.5em;
     border-radius: 0.5em 0 0 0.5em;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
   ul.actionsMenu > li:last-child a {
     -webkit-border-radius: 0 0.5em 0.5em 0;
     -moz-border-radius: 0 0.5em 0.5em 0;
     border-radius: 0 0.5em 0.5em 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
   ul.actionsMenu .dropdown {
     top: 1.823076923em;

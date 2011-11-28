@@ -131,13 +131,13 @@
                 eget urna mollis ornare vel eu leo.
             </p>
         </div>
-        <footer>        
+        <footer>     
             <ul class="keywords">
                 <li><a href="#">flyers</a></li>
                 <li><a href="#">park</a></li>
                 <li><a href="#">volunteer</a></li>
             </ul>
-            <form action="#">
+            <form action="#" class="addKeyword">
                 <fieldset>
                     <input type="text" />
                     <button type="submit">Add keyword</button>
