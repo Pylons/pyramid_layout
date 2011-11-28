@@ -1516,15 +1516,22 @@ body > footer {
     background-image: none;
     display: inline-block;
     text-decoration: none;
-    padding: 0 1.333em;
+    padding: 0 1em;
     background: #aaa;
     color: #fff;
     margin-right: 1px;
-    -webkit-border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    border-radius: 0.5em;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
+  }
+  ul.actionsMenu > li:nth-child(1) a {
+    -webkit-border-radius: 0.5em 0 0 0.5em;
+    -moz-border-radius: 0.5em 0 0 0.5em;
+    border-radius: 0.5em 0 0 0.5em;
+  }
+  ul.actionsMenu > li:last-child a {
+    -webkit-border-radius: 0 0.5em 0.5em 0;
+    -moz-border-radius: 0 0.5em 0.5em 0;
+    border-radius: 0 0.5em 0.5em 0;
   }
   ul.actionsMenu .dropdown {
     top: 1.823076923em;
