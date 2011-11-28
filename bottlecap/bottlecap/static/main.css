@@ -580,7 +580,10 @@ figure figcaption {
   font-family: Verdana, sans-serif;
   color: #555555;
   padding: 0.6665em 0;
-  border-bottom: 1px solid #dbcfc1;
+  border-bottom: 1px solid #f3efeb;
+  font-style: italic;
+  color: #888888;
+  font-family: Georgia, serif;
 }
 /* @end */
 /* @group Top Bar with the global naviagtion */
@@ -794,6 +797,7 @@ ul.actionsMenu, ul.dropdown {
 .column h3 {
   font-size: 1.333em;
 }
+/* Keywords */
 /* @end */
 /* @group Footer */
 body > footer {

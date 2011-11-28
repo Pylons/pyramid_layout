@@ -304,7 +304,10 @@ figure {
 	    padding: 0;
 	    .discreet();
 	    padding: (@space * 1em)/2 0;
-	    border-bottom: 1px solid @baseColor2;
+	    border-bottom: 1px solid lighten(@baseColor2, 13%);
+	    font-style: italic;
+        color: lighten(@baseFontColor, 40%);
+        font-family: @baseFont;
 	}
 }
 .quickpanelToggle(@bg:#777, @dropColor: #555, @color:#fff) {
@@ -556,6 +559,9 @@ ul.dropdown {
 	    font-size: 1.333em;
 	}
 }
+
+/* Keywords */
+
 
 /* @end */
 
