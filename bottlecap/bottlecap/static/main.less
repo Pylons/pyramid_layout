@@ -244,7 +244,8 @@ body {
 	font-size: (@baseFontSize - 4)/@baseFontSize;
 	position: relative;
 }
-a {
+a,
+a:visited {
     color: saturate(@baseColor3, 30%);
     text-decoration: none;
     border-bottom: 1px solid @baseColor4;
@@ -534,8 +535,11 @@ section.main header {
         padding: 0;
     }
     small {
-        color: lighten(@baseFontColor, 30%);
+        color: lighten(@baseFontColor, 40%);
         font-style: italic;
+        a {
+            border-bottom: none;
+        }
     }
     a {
         text-decoration: none;
@@ -1277,6 +1281,9 @@ body > footer {
         	}
         }        
     } 
+    section.main header {
+        margin-bottom: (@space * 2em); 
+    }
 }
 /* @end */
 

@@ -515,7 +515,7 @@ body {
   font-size: 0.7333333333333333;
   position: relative;
 }
-a {
+a, a:visited {
   color: #3d8fb3;
   text-decoration: none;
   border-bottom: 1px solid #c1d3db;
@@ -775,8 +775,11 @@ section.main header h1 {
   padding: 0;
 }
 section.main header small {
-  color: #6f6f6f;
+  color: #888888;
   font-style: italic;
+}
+section.main header small a {
+  border-bottom: none;
 }
 section.main header a {
   text-decoration: none;
@@ -1613,6 +1616,9 @@ body > footer {
     line-height: 35px;
     padding: 0 1.333em;
     margin-right: 8px;
+  }
+  section.main header {
+    margin-bottom: 2.666em;
   }
 }
 /* @end */
