@@ -748,6 +748,10 @@ body > footer {
         		color: @baseColor4;
         	}		   
         }
+        a.quickpanel-toggle {
+            background-image: url('img/cog_section.png');
+            background-position: 50% 50%;
+        }
         .selected a {
         	color: @baseColor4;	
         	margin-bottom: 0;
@@ -773,15 +777,42 @@ body > footer {
             border-top: 0;
         }                
     }
-    a.quickpanel-toggle,
-    #global-nav a.quickpanel-toggle {
-        background: transparent url('img/cog.png') 50% 50% no-repeat;
+    a.quickpanel-toggle, a.dropdown-toggle {
+        padding-right: .533333333em + (@space * 1em)/2;
+    }
+    a.moreToggle {
+        background-image: url('img/cog_section.png');
+        /* don't ask *me* why this copy of .ir should be here explicitely, ask IE8 */
+        display: block;
+        border: 0;
+        text-indent: -999em;
+        overflow: hidden;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        text-align: left;
+        direction: ltr;
         width: 19px;
     }
-    a.quickpanel-toggle:hover,
-    #global-nav a.open {
+    #global-nav a.moreToggle {
+        background-image: url('img/cog.png');
+    }
+    .ie8 .quickpanel-toggle:after,
+    .ie8 .dropdown-toggle:after {
+        font-size: 0;
+    }
+    a.moreToggle:after {
+        display: none;
+    }
+    a.moreToggle:hover,
+    li.open > a {
+        background-image: url('img/cog.png');
+    }
+    #global-nav a.moreToggle:hover {
         background-image: url('img/cog_globalnav_hover.png');
-    }    
+    }        
+    #global-nav li[data-quickpanel="quickpanel"] {
+        display: block;
+    }
     #global-nav:before {
         display: none;
     }
@@ -891,8 +922,7 @@ body > footer {
     }
     a.open,
     #global-nav li a.open,
-    .touch #global-nav li a.open,
-    .no-touch #global-nav li a.quickpanel-toggle:hover {
+    .touch #global-nav li a.open {
     	border-color: #222;
         background-color: #000;		
     	border-bottom-color: #333;
@@ -929,7 +959,7 @@ body > footer {
     li[data-quickpanel="quickpanel"].open > a.quickpanel-toggle,
     .touch li[data-quickpanel="dropdown"] > a.open {
     	.css3_border_radius(0.5em 0.5em 0 0);
-    	background-color: #000;
+    	background-color: #000 !important;
     }
     .contentWrapper > aside.column {
         padding: (@space * 1em) 0;
@@ -1083,32 +1113,6 @@ body > footer {
     	    border-top: 0;
     	}
     }
-    a.quickpanel-toggle, a.dropdown-toggle {
-        padding-right: .533333333em + (@space * 1em)/2;
-    }
-    ul.sectionTools a.moreToggle {
-        background-image: url('img/cog_section.png');
-        /* don't ask *me* why this copy of .ir should be here explicitely, ask IE8 */
-        display: block;
-        border: 0;
-        text-indent: -999em;
-        overflow: hidden;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        text-align: left;
-        direction: ltr;
-    }
-    .ie8 .quickpanel-toggle:after,
-    .ie8 .dropdown-toggle:after {
-        font-size: 0;
-    }
-    ul.sectionTools a.moreToggle:after {
-        display: none;
-    }
-    ul.sectionTools a.moreToggle:hover,
-    ul.sectionTools li a.open {
-        background-image: url('img/cog.png');
-    }
     .no-cssgradients .sectionContainer {
         background: @baseColor3;
     }    
@@ -1201,11 +1205,13 @@ body > footer {
     ul.actionsMenu li[data-quickpanel="dropdown"] a {
         padding-right: 1.9em;
     }
-    #top-bar .quickpanel .quickpanel, 
     .sectionTools .dropdown,
     .sectionTools .quickpanel {
         top: 3.30987em;
     }
+    #top-bar .quickpanel .quickpanel {
+        top: 2.846153846em;
+    }    
     .sectionContainer section .quickpanel {
         top: auto;
         font-size: 0.75em;

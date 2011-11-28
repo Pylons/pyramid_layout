@@ -25,7 +25,7 @@
                 ><a href="#">People</a></li><li
                 ><a href="#">Calendar</a></li><li
                 ><a href="#">Explore</a></li><li data-quickpanel="quickpanel"
-                ><a href="#" class="quickpanel-toggle ir">More</a>
+                ><a href="#" class="quickpanel-toggle moreToggle">More</a>
                     <div class="quickpanel">
                         <figure>
                             <img src="http://lorempixum.com/64/64/" alt="" />
