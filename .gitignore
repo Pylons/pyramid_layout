@@ -2,8 +2,6 @@
 bin
 include
 lib
-/*/*.egg-info
-/*.egg
-docs/_*
+*.egg-info
+*.egg
 *.DS_Store
-.gitignore

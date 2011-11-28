@@ -1,7 +1,0 @@
-
-/* Gumball javascript */
-
-(function($) {
-
-
-})(jQuery);
