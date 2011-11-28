@@ -3,17 +3,20 @@
 
         <header>
             <h1>A Very Important Page</h1>
+            <small>
+                <time datetime="2011-11-15" pubdate="">Tuesday, November 15th, 2011</time> by <a href="#" title="Posts by Paul Everit" rel="author">Paul Everit</a>.
+            </small>
             <metal:block metal:use-macro="view.macros['actionsMenu']">
                 Actions Menu
             </metal:block>
-            <p class="description">
-                Cras justo odio, dapibus ac facilisis in, egestas eget
-                quam.
-                Nullam quis risus eget urna mollis ornare vel eu leo.
-                Praesent
-                commodo cursus magna, vel scelerisque nisl consectetur et.
-            </p>
         </header>
+        <p class="description">
+            Cras justo odio, dapibus ac facilisis in, egestas eget
+            quam.
+            Nullam quis risus eget urna mollis ornare vel eu leo.
+            Praesent
+            commodo cursus magna, vel scelerisque nisl consectetur et.
+        </p>        
         <div class="contentText">
             <figure>
                 <img src="http://lorempixum.com/1024/268/" alt=""/>
@@ -34,8 +37,8 @@
             </p>
 
             <p>
-                Vestibulum id ligula porta felis euismod semper. Etiam
-                porta
+                <a href="http://dev.null" title="just a test link">Vestibulum id ligula porta felis euismod semper. Etiam
+                porta</a>
                 sem
                 malesuada magna mollis euismod. Cum sociis natoque
                 penatibus
@@ -128,17 +131,18 @@
                 eget urna mollis ornare vel eu leo.
             </p>
         </div>
-        <footer>
-            <div class="keywords">
-                Tags: <a href="#"><b>sometag</b></a>
-                <input id="search-keywords-box"
-                       type="search"
-                       name="SearchTags"
-                       title="Search tags"
-                       size="15"/>
-                <button class="searchButton" type="submit">Search</button>
-            </div>
-            <div>by <b><a href="#">Paul Everitt</a></b>, 3 days ago</div>
+        <footer>        
+            <ul class="keywords">
+                <li><a href="#">flyers</a></li>
+                <li><a href="#">park</a></li>
+                <li><a href="#">volunteer</a></li>
+            </ul>
+            <form action="#">
+                <fieldset>
+                    <input type="text" />
+                    <button type="submit">Add keyword</button>
+                </fieldset>
+            </form>
         </footer>
     </metal:content>
 </metal:block>
