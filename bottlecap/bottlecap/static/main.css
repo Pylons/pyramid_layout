@@ -515,14 +515,15 @@ body {
   font-size: 0.7333333333333333;
   position: relative;
 }
-a:link {
-  color: #8f806f;
-}
-a:visited {
-  color: #6f6f6f;
+a {
+  color: #3d8fb3;
+  text-decoration: none;
+  border-bottom: 1px solid #c1d3db;
 }
 a:hover {
-  color: #61818f;
+  color: #62b1d4;
+  text-decoration: none;
+  border-bottom: none;
 }
 h1 {
   font-size: 1.579em;
@@ -588,7 +589,7 @@ figure figcaption {
   background: #333;
 }
 #top-bar a {
-  text-decoration: none;
+  border-bottom: none;
   color: #fffdfa;
 }
 #top-bar nav, #members-info {
@@ -767,6 +768,18 @@ section.main aside {
 }
 section.main header {
   position: relative;
+  margin-bottom: 1.333em;
+}
+section.main header h1 {
+  margin: 0;
+  padding: 0;
+}
+section.main header small {
+  color: #6f6f6f;
+  font-style: italic;
+}
+section.main header a {
+  text-decoration: none;
 }
 ul.actionsMenu, ul.dropdown {
   display: none;
@@ -984,6 +997,7 @@ body > footer {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+    margin-bottom: -3px;
   }
   #global-nav li {
     float: left;
@@ -1004,8 +1018,8 @@ body > footer {
     background-image: none;
   }
   #global-nav a:hover {
-    text-decoration: underline;
     color: #c1d3db;
+    border-bottom: 3px solid #c1d3db;
   }
   #global-nav a.quickpanel-toggle {
     background-image: url('img/cog_section.png');
@@ -1017,7 +1031,8 @@ body > footer {
     background: transparent;
   }
   #global-nav .selected a:hover {
-    text-decoration: none;
+    border-bottom: none;
+    cursor: text;
   }
   #global-nav .selected a:after {
     content: "";
@@ -1403,6 +1418,12 @@ body > footer {
   }
   ul.sectionTools li a {
     display: block;
+    border-bottom: none;
+  }
+  ul.sectionTools li a:hover {
+    text-decoration: none;
+    margin-bottom: -0.2em;
+    border-bottom: 0.2em solid #b69d80;
   }
   ul.sectionTools .dropdown li, ul.sectionTools .quickpanel li {
     display: list-item;
@@ -1426,6 +1447,11 @@ body > footer {
   ul.sectionTools .selected a, ul.sectionTools .selected a:hover {
     color: #fff;
     text-decoration: none;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  ul.sectionTools .selected a:hover {
+    cursor: text;
   }
   ul.sectionTools .selected a:after {
     content: "";

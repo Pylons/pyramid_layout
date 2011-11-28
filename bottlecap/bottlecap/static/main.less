@@ -244,14 +244,15 @@ body {
 	font-size: (@baseFontSize - 4)/@baseFontSize;
 	position: relative;
 }
-a:link {
-    color: @baseColor1;    
-}
-a:visited {
-    color: lighten(@baseFontColor, 30%);
+a {
+    color: saturate(@baseColor3, 30%);
+    text-decoration: none;
+    border-bottom: 1px solid @baseColor4;
 }
 a:hover {
-    color: @baseColor3;
+    color: darken(saturate(@baseColor4, 30%), 20%);
+    text-decoration: none;
+    border-bottom: none;
 }
 h1 {
     font-size: 1.579em;
@@ -352,7 +353,7 @@ figure {
 	color: @bodyBg;
     background: #333;	
 	a {
-    	text-decoration: none;
+    	border-bottom: none;
 		color: @bodyBg;
 	}
 }
@@ -527,6 +528,18 @@ section.main aside {
 }
 section.main header {
     position: relative;
+    margin-bottom: (@space * 1em);
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+    small {
+        color: lighten(@baseFontColor, 30%);
+        font-style: italic;
+    }
+    a {
+        text-decoration: none;
+    }
 }
 ul.actionsMenu,
 ul.dropdown {
@@ -729,6 +742,7 @@ body > footer {
         font-size: 1em;
         font-family: @baseFont;
         .css3_box_shadow(none);
+        margin-bottom: -3px;
         li {
         	float:left;
             border-top: none;
@@ -746,9 +760,9 @@ body > footer {
         	font-size: 0.889em;
         	color: @bodyBg;
         	background-image: none;
-        	&:hover {
-        		text-decoration: underline;   
+        	&:hover { 
         		color: @baseColor4;
+        		border-bottom: 3px solid @baseColor4;
         	}		   
         }
         a.quickpanel-toggle {
@@ -760,7 +774,8 @@ body > footer {
         	margin-bottom: 0;
         	background: transparent;
         	&:hover {
-        	    text-decoration: none;
+                border-bottom: none;
+                cursor: text;
         	}
         }	
         .selected a:after {
@@ -1076,6 +1091,12 @@ body > footer {
     	    float:left;
     	    a {
     	        display: block;
+    	        border-bottom: none;
+    	        &:hover {
+    	            text-decoration: none;
+    	            margin-bottom: -0.2em;
+            		border-bottom: .2em solid darken(@baseColor2, 20%);
+    	        }
     	    }
     	}
     	.dropdown li,
@@ -1102,6 +1123,11 @@ body > footer {
         .selected a:hover {
     	    color: #fff;
     	    text-decoration: none;
+    	    border-bottom: none;
+    	    margin-bottom: 0;
+    	}
+    	.selected a:hover {
+    	    cursor: text;
     	}
     	.selected a:after {
     		content: "";
