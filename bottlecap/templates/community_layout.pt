@@ -1,4 +1,4 @@
-<metal:page define-macro="layout">
+<metal:page define-macro="community">
     <!doctype html>
     <!--[if lt IE 7]>
     <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -26,10 +26,10 @@
         <meta name="viewport"
               content="width=device-width,initial-scale=1">
 
-        <link rel="stylesheet" href="${view.bottlecap_static}main.css"/>
+        <link rel="stylesheet" href="${lm.bottlecap_static}main.css"/>
 
-        <script src="${view.bottlecap_static}js/modernizr-2.0.6.min.js"></script>
-        <script src="${view.bottlecap_static}js/respond.min.js"></script>
+        <script src="${lm.bottlecap_static}js/modernizr-2.0.6.min.js"></script>
+        <script src="${lm.bottlecap_static}js/respond.min.js"></script>
 
 
         <metal:headslot metal:define-slot="head_slot"/>
@@ -37,32 +37,27 @@
     <body>
     <div id="top-bar">
         <div class="container">
-            <metal:block metal:use-macro="view.macros['globalNav']">
-                Global navigation
-            </metal:block>
-            <metal:block metal:use-macro="view.macros['personalTools']">
-                Global navigation
-            </metal:block>
-        </div>
+	        <tal:actions_menu
+	                tal:content="lm.component('bottlecap.global_nav')">
+	        <tal:actions_menu
+	                tal:content="lm.component('bottlecap.personal_tools')">
+	    </div>
     </div>
 
     <div class="sectionContainer">
         <div class="container">
-            <nav class="search">
-                <metal:block metal:use-macro="view.macros['search']">
-                    Global navigation
-                </metal:block>
-            </nav>
-            <section>
-                <header>
-                    <h2>${project}</h2>
-                </header>
-                <metal:block
-                        metal:use-macro="view.macros['contextTools']">
-                    Global navigation
-                </metal:block>
-            </section>
-        </div>
+	        <nav class="search">
+	            <tal:actions_menu
+	                    tal:content="lm.component('bottlecap.search')">
+	        </nav>
+	        <section>
+	            <header>
+	                <h2>${project}</h2>
+	            </header>
+	            <tal:actions_menu
+	                    tal:content="lm.component('bottlecap.context_tools')">
+	        </section>
+	    </div>
     </div>
 
     <div class="contentWrapper">
@@ -71,10 +66,9 @@
         </section>
 
         <aside class="column">
-            <metal:block metal:use-macro="view.macros['columnone']">
-                Global navigation
-            </metal:block>
-        </aside>
+	        <tal:actions_menu
+	                tal:content="lm.component('bottlecap.column_one')">
+	    </aside>
     </div>
 
     <footer>
@@ -84,16 +78,16 @@
     
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="${view.bottlecap_static}js/jquery-1.6.3.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="${lm.bottlecap_static}js/jquery-1.6.3.min.js"><\/script>')</script>
     <!--[if (gte IE 6)&(lte IE 8)]>
-    <script type="text/javascript" src="${view.bottlecap_static}js/jquery-extra-selectors.min.js"></script>        
-    <script type="text/javascript" src="${view.bottlecap_static}js/selectivizr-min.js"></script>
+    <script type="text/javascript" src="${lm.bottlecap_static}js/jquery-extra-selectors.min.js"></script>        
+    <script type="text/javascript" src="${lm.bottlecap_static}js/selectivizr-min.js"></script>
     <![endif]-->
 
     <script type="text/javascript" defer
-            src="${view.bottlecap_static}js/bottlecap.js"></script>
+            src="${lm.bottlecap_static}js/bottlecap.js"></script>
     <script type="text/javascript"
-            src="${view.bottlecap_static}js/dropdown.js"></script>
+            src="${lm.bottlecap_static}js/dropdown.js"></script>
 
     <metal:tailslot metal:define-slot="tail_slot"/>
 
