@@ -8,7 +8,7 @@
  * Kroc Camen, and the H5BP dev community and team.
  *
  * Detailed information about this CSS: h5bp.com/css
- *
+ 
  * ==|== normalize ==========================================================
  */
 
@@ -958,9 +958,6 @@ body > footer {
         padding: (@space * 1em);
         .css3_linear_gradient(#000, #333);
         border-width: 0 1px 1px;
-        border-style: solid;
-        border-color: #999;
-        border-color: rgba(0, 0, 0, 0.2);
         color: @bodyBg;
         .smaller();
         .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
@@ -1311,9 +1308,15 @@ body > footer {
     	> li:nth-child(1) a {
             .css3_border_radius(.5em 0 0 .5em);    	    
     	}
+    	> li:nth-child(1) a:hover {
+            .css3_border_radius(.5em 0 0 0);    	    
+    	}
         > li:last-child a {
             .css3_border_radius(0 .5em .5em 0);    	    
         }    	
+        > li:last-child a:hover {
+            .css3_border_radius(0 .5em 0 0);    	    
+        }        
     	.dropdown {
     	    top: 1.823076923em;
     	    width: 200px;

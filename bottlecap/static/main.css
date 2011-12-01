@@ -7,7 +7,7 @@
  * Kroc Camen, and the H5BP dev community and team.
  *
  * Detailed information about this CSS: h5bp.com/css
- *
+ 
  * ==|== normalize ==========================================================
  */
 /* =============================================================================
@@ -1265,9 +1265,6 @@ body > footer {
   
     background-image: linear-gradient(top, #000000, #333333);
     border-width: 0 1px 1px;
-    border-style: solid;
-    border-color: #999;
-    border-color: rgba(0, 0, 0, 0.2);
     color: #fffdfa;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
@@ -1703,10 +1700,26 @@ body > footer {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
+  ul.actionsMenu > li:nth-child(1) a:hover {
+    -webkit-border-radius: 0.5em 0 0 0;
+    -moz-border-radius: 0.5em 0 0 0;
+    border-radius: 0.5em 0 0 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
   ul.actionsMenu > li:last-child a {
     -webkit-border-radius: 0 0.5em 0.5em 0;
     -moz-border-radius: 0 0.5em 0.5em 0;
     border-radius: 0 0.5em 0.5em 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  ul.actionsMenu > li:last-child a:hover {
+    -webkit-border-radius: 0 0.5em 0 0;
+    -moz-border-radius: 0 0.5em 0 0;
+    border-radius: 0 0.5em 0 0;
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
