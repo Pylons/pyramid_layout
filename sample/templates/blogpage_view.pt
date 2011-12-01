@@ -21,15 +21,20 @@
                     tal:content="lm.component('sample.test_component')">
         </div>
         <div class="contentText">
-            <dl class="portalMessage info">
-                <dt>
-                    Info
-                </dt>
-                <dd>
-                    The portalMessage class, can also contain <a href="#">links</a> - used to
+
+            <section>
+                <h2>Notifications</h2>
+                <div class="notification info">
+                    The <code>notification</code> CSS class, can also contain <a href="#">links</a> - used to
                     give the user temporary status messages.
-                </dd>
-            </dl>
+                    <p>
+                        This is <code>info</code> notification type.
+                    </p>
+                </div>
+                <div class="notification alert">
+                    This is <code>alert</code> notification type.
+                </div>
+            </section>
 
             <section>
                 <h1>Headline h1</h1>
