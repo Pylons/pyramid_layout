@@ -796,6 +796,33 @@ section.main header a {
 ul.actionsMenu, ul.dropdown {
   display: none;
 }
+/* Notifications */
+.notification {
+  padding: 0.6665em 1.333em;
+  margin: 0 0 1.333em;
+  border: 1px solid #fe9320;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  text-shadow: 0 1px 0 #fed47e;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #fed47e;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fed47e), to(#fe9320));
+  background-image: -webkit-linear-gradient(top, #fed47e, #fe9320);
+  background-image: -moz-linear-gradient(top, #fed47e, #fe9320);
+  background-image: -o-linear-gradient(top, #fed47e, #fe9320);
+  background-image: -ms-linear-gradient(top, #fed47e, #fe9320);
+  background-image: linear-gradient(top, #fed47e, #fe9320);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#fed47e', EndColorStr='#fe9320');
+}
+.notification a {
+  color: #fff;
+  border: none;
+}
+/* Column */
 .column {
   border-top: 1px solid #dbcfc1;
   padding-top: 1.333em;

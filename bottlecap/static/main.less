@@ -552,6 +552,33 @@ ul.actionsMenu,
 ul.dropdown {
 	display: none;  
 }
+
+/* Notifications */
+.notification {
+    padding: @space/2 * 1em @space * 1em;
+    margin: 0 0 @space * 1em;
+    border: 1px solid #fe9320;
+    font-family: @fancyFont;
+    text-shadow: 0 1px 0 #fed47e;
+    
+    .css3_border_radius(.5em);
+    
+    background-color: #fed47e;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 212, 126)), to(rgb(254, 147, 32)));
+    background-image: -webkit-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
+    background-image: -moz-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
+    background-image: -o-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
+    background-image: -ms-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
+    background-image: linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#fed47e', EndColorStr='#fe9320')";
+    
+    a {
+        color: #fff;
+        border: none;
+    }
+}
+
+/* Column */
 .column {
     border-top: 1px solid @baseColor2;
     padding-top: (@space * 1em);
