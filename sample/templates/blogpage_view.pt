@@ -21,118 +21,165 @@
                     tal:content="lm.component('sample.test_component')">
         </div>
         <div class="contentText">
-            <figure>
-                <img src="http://lorempixum.com/1024/268/" alt=""/>
-                <figcaption>Just a test caption for an image</figcaption>
-            </figure>
-            <p>
-                Nullam quis risus eget urna mollis ornare vel eu leo.
-                Aenean
-                lacinia bibendum nulla sed consectetur. Donec ullamcorper
-                nulla
-                non metus auctor fringilla. Maecenas faucibus mollis
-                interdum.
-                Morbi leo risus, <em>porta ac consectetur ac, vestibulum
-                at
-                eros</em>. Aenean eu leo quam. Pellentesque ornare sem
-                lacinia
-                quam venenatis vestibulum.
-            </p>
+            <dl class="portalMessage info">
+                <dt>
+                    Info
+                </dt>
+                <dd>
+                    The portalMessage class, can also contain <a href="#">links</a> - used to
+                    give the user temporary status messages.
+                </dd>
+            </dl>
 
-            <p>
-                <a href="http://dev.null" title="just a test link">Vestibulum id ligula porta felis euismod semper. Etiam
-                porta</a>
-                sem
-                malesuada magna mollis euismod. Cum sociis natoque
-                penatibus
-                et
-                magnis dis parturient montes, nascetur ridiculus mus.
-                Curabitur
-                blandit tempus porttitor. <strong>Nullam id dolor</strong>
-                id
-                nibh
-                ultricies vehicula ut id elit. Cras mattis consectetur
-                purus
-                sit
-                amet fermentum. Nullam quis risus eget urna mollis ornare
-                vel
-                eu
-                leo.
-            </p>
+            <section>
+                <h1>Headline h1</h1>
+                <figure class="image-left">
+                    <img src="http://lorempixum.com/251/155/" alt="" />
+                    <figcaption>Just a test caption</figcaption>
+                </figure>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                esse molestie consequat, vel illum dolore eu feugiat nulla
+                facilisis at vero eros et accumsan et iusto odio dignissim qui
+                blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+                <h2>Headline h2</h2>
+                <figure class="image-right">
+                    <img src="http://lorempixum.com/155/251/" alt="" />
+                </figure>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                esse molestie consequat, vel illum dolore eu feugiat nulla
+                facilisis at vero eros et accumsan et iusto odio dignissim qui
+                blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+                <h3>Headline h3</h3>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                esse molestie consequat, vel illum dolore eu feugiat nulla
+                facilisis at vero eros et accumsan et iusto odio dignissim qui
+                blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+                <h4>Headline h4</h4>
+                <aside>
+                    Donec sed odio dui. Aenean lacinia bibendum nulla sed
+                    consectetur.
+                    Nullam quis risus eget urna mollis ornare vel eu leo. Cum
+                    sociis
+                    natoque penatibus et magnis dis parturient montes,
+                    nascetur
+                    ridiculus mus.
+                </aside>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                esse molestie consequat, vel illum dolore eu feugiat nulla
+                facilisis at vero eros et accumsan et iusto odio dignissim qui
+                blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+                <h5>Headline h5</h5>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                esse molestie consequat, vel illum dolore eu feugiat nulla
+                facilisis at vero eros et accumsan et iusto odio dignissim qui
+                blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+                <h6>Headline h6</h6>
+                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                esse molestie consequat, vel illum dolore eu feugiat nulla
+                facilisis at vero eros et accumsan et iusto odio dignissim qui
+                blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.</p>
+            </section>
 
-            <h2>Some other header.</h2>
-            <aside>
-                Donec sed odio dui. Aenean lacinia bibendum nulla sed
-                consectetur.
-                Nullam quis risus eget urna mollis ornare vel eu leo. Cum
-                sociis
-                natoque penatibus et magnis dis parturient montes,
-                nascetur
-                ridiculus mus.
-            </aside>
-            <p>
-                Cum sociis natoque penatibus et magnis dis parturient
-                montes,
-                nascetur ridiculus mus. Etiam porta sem malesuada magna
-                mollis
-                euismod. Nullam quis risus eget urna mollis ornare vel eu
-                leo.
-                Cras mattis consectetur purus sit amet fermentum. Duis
-                mollis,
-                est
-                non commodo luctus, nisi erat porttitor ligula, eget
-                lacinia
-                odio
-                sem nec elit. Cum sociis natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Aenean eu leo
-                quam.
-                Pellentesque ornare sem lacinia quam venenatis vestibulum.
-            </p>
+            <section>
+                <h2>Lists</h2>
+                <ul>
+                    <li>Unordered list element 1
+                        <ul>
+                            <li>Unordered list subelement 1</li>
+                        </ul>
+                    </li>
+                    <li>Unordered list element 2</li>
+                    <li>Unordered list element 3</li>
+                </ul>
 
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Donec
-                sed
-                odio
-                dui. Morbi leo risus, porta ac consectetur ac, vestibulum
-                at
-                eros.
-                Donec sed odio dui. Fusce dapibus, tellus ac cursus
-                commodo,
-                tortor mauris condimentum nibh, ut fermentum massa justo
-                sit
-                amet
-                risus. Vestibulum id ligula porta felis euismod semper.
-            </p>
+                <ol>
+                    <li>Ordered list element 1
+                        <ol><li>Ordered list subelement 1</li></ol>
+                    </li>
+                    <li>Ordered list element 2</li>
+                    <li>Ordered list element 3</li>
+                </ol>
 
-            <p>
-                Nullam id dolor id nibh ultricies vehicula ut id elit.
-                Integer
-                posuere erat a ante venenatis dapibus posuere velit
-                aliquet.
-                Maecenas sed diam eget risus varius blandit sit amet non
-                magna.
-                Duis mollis, est non commodo luctus, nisi erat porttitor
-                ligula,
-                eget lacinia odio sem nec elit.
-            </p>
+                <dl>
+                    <dt>Definition list term</dt>
+                    <dd>Definition List description, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque odio sem, aliquam ut, suscipit at, aliquet non, justo.
+                    </dd>
+                    <dd>Another Definition List description, Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque odio sem, aliquam ut, suscipit at, aliquet non, justo.
+                    </dd>
+                </dl>
+            </section>
 
-            <p>
-                Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum
-                nibh, ut fermentum massa justo sit amet risus. Vestibulum
-                id
-                ligula porta felis euismod semper. Cras justo odio,
-                dapibus ac
-                facilisis in, egestas eget quam. Integer posuere erat a
-                ante
-                venenatis dapibus posuere velit aliquet. Nullam quis risus
-                eget
-                urna mollis ornare vel eu leo. Aenean eu leo quam.
-                Pellentesque
-                ornare sem lacinia quam venenatis vestibulum. Nullam quis
-                risus
-                eget urna mollis ornare vel eu leo.
-            </p>
+            <section>
+                <h2>Tables</h2>
+
+                <table class="listing" id="someid" summary="">
+                    <thead>
+                        <tr>
+                            <th>Table heading</th>
+                            <th>Another heading</th>
+                            <th>Another heading</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd">
+                            <td>Odd table item</td>
+                            <td>Item 1</td>
+                            <td>Another item</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Even table item</td>
+                            <td>Item 2</td>
+                            <td>Yet another item</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Odd table item</td>
+                            <td>Item 3</td>
+                            <td>And one more item</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>A form</h2>
+
+                <form>
+                    <fieldset>
+                        <legend>Fieldset legend</legend>
+
+                        <div class="field">
+                            <label for="onefield">Text field</label>
+                            <span class="formHelp">
+                                This is the help for this form field. And <a href="#">links are also possible</a>.
+                            </span>
+                            <input type="text" id="onefield" required="required" placeholder="Some content">
+                        </div>
+
+                        <div class="field">
+                            <label for="anotherfield">Text area</label>
+                            <textarea name="anotherfield" id="anotherfield">
+                                Duis autem vel eum iriure dolor in hendrerit in
+                                vulputate velit esse molestie consequat, vel illum
+                                dolore eu feugiat nulla facilisis at vero eros et
+                                accumsan et iusto odio dignissim qui blandit praesent
+                                luptatum zzril delenit augue duis dolore te feugait
+                                nulla facilisi.
+                            </textarea>
+                        </div>
+                        <div class="formControls">
+                            <input type="submit" value="Submit" />
+                            <input type="cancel" value="Cancel" />
+                            <button type="submit">Submit button</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
         </div>
         <footer>
             <ul class="keywords">
