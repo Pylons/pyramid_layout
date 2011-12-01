@@ -32,7 +32,7 @@ class LayoutManager(object):
     def layout(self, name):
         value = self.layouts[name]
         renderer = get_renderer(value)
-        macro = renderer.implementation().macros[name]
+        macro = renderer.implementation()
         return macro
 
     def component(self, name):
