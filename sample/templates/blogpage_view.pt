@@ -142,7 +142,7 @@
             </ul>
             <form action="#" class="addKeyword">
                 <fieldset>
-                    <input type="text" />
+                    <input type="text" name="keyword" placeholder="A keyword to add" />
                     <button type="submit">Add keyword</button>
                 </fieldset>
             </form>
