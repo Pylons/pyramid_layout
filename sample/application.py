@@ -8,7 +8,7 @@ from bottlecap.layout import LayoutManager
 class MyLayoutManager(LayoutManager):
 
     @property
-    def my_global_nav_menus(self):
+    def global_nav_menus(self):
         menu_items = [
             dict(title="Item 1", selected='selected'),
             dict(title="Item 2", selected=None),
