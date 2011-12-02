@@ -5,3 +5,5 @@ lib
 *.egg-info
 *.egg
 *.DS_Store
+.coverage
+
