@@ -264,10 +264,6 @@ h2 {
 h3, h4 {
 	font-size: 1.185em;
 }
-table th {
-	background-color: lighten(@baseColor2, 20%);
-	text-shadow: 0 1px 0 @baseColor1;
-}
 .container:before, 
 .container:after,
 #top-bar:before, 
@@ -557,25 +553,77 @@ ul.dropdown {
 .notification {
     padding: @space/2 * 1em @space * 1em;
     margin: 0 0 @space * 1em;
-    border: 1px solid #fe9320;
+    border: 1px solid darken(#f1cd71, 10%);
     font-family: @fancyFont;
-    text-shadow: 0 1px 0 #fed47e;
+    text-shadow: 0 1px 0 #f1d693;
     
     .css3_border_radius(.5em);
     
-    background-color: #fed47e;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 212, 126)), to(rgb(254, 147, 32)));
-    background-image: -webkit-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
-    background-image: -moz-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
-    background-image: -o-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
-    background-image: -ms-linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
-    background-image: linear-gradient(top, rgb(254, 212, 126), rgb(254, 147, 32));
-    filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#fed47e', EndColorStr='#fe9320')";
-    
+background-color: #f1d693;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(241, 214, 147)), to(rgb(241, 205, 113)));
+background-image: -webkit-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
+background-image: -moz-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
+background-image: -o-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
+background-image: -ms-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
+background-image: linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
+filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f1d693', EndColorStr='#f1cd71')";
+
     a {
-        color: #fff;
         border: none;
     }
+}
+.notification.alert {
+    color: #fff;
+    text-shadow: 0 1px 0 #e36143;
+    border: 1px solid darken(#aa342b, 10%);    
+background-color: #e36143;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(227, 97, 67)), to(rgb(170, 52, 43)));
+background-image: -webkit-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
+background-image: -moz-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
+background-image: -o-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
+background-image: -ms-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
+background-image: linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
+filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e36143', EndColorStr='#aa342b')";  
+}
+
+/* Images in the text */
+.image-left {
+    float: left;
+    margin: 0 (@space * 1em) (@space * 1em) 0;
+}
+.image-right {
+    float: right;
+    margin: 0  0 (@space * 1em) (@space * 1em);
+}
+
+/* Styling generic elements */
+dt {
+    font-family: @fancyFont;
+    margin-top: .3em;
+}
+
+/* Tables */
+table {
+    
+}
+th {
+    background: @baseColor2;
+    border: 1px solid lighten(@baseColor1, 20%);
+    border-style: solid none solid solid;
+    font-family: @fancyFont;
+}
+th:last-child {
+    border-right: 1px solid lighten(@baseColor1, 20%);
+}
+tr.odd {
+    background: lighten(@baseColor4, 15%);
+}
+td {
+    border-left: 1px solid @baseColor4;
+    border-bottom: 1px solid @baseColor4;
+}
+td:last-child {
+    border-right: 1px solid @baseColor4;    
 }
 
 /* Column */
