@@ -7,6 +7,12 @@ starting point for your UI. Bottlecap serves that purpose. Mix
 Bottlecap into your Pyramid/ZPT application and use it until you get
 your own UX in place.
 
+- Inject Bottlecap into your application
+
+- Point your ZPTs at one of Bottlecap's "layouts"
+
+- Configure, override and extend using subclassing and view machinery
+
 Quick Start
 ===========
 
@@ -82,32 +88,35 @@ How Does It Work
 ================
 
 #. Your application does a normal ``config.include`` on stuff in
-``bottlecap/__init__.py``. This adds some new ``Configurator``
-directives and registers a renderer global which makes an instance of
-``LayoutManager`` on each render. This ``config.include`` also adds some
-default views for the built-in components.
+   ``bottlecap/__init__.py``. This adds some new ``Configurator``
+   directives and registers a renderer global which makes an instance of
+   ``LayoutManager`` on each render. This ``config.include`` also adds
+   some default views for the built-in components.
 
 #. You then write views as normal, with ZPT templates which choose a
-"layout" from the layout manager.
+   "layout" from the layout manager.
 
 #. To get custom stuff into the boxes in Bottlecap,
-you subclass the default ``LayoutManager``, override some methods,
-and tell the ``Configurator`` to use your class instead.
+   you subclass the default ``LayoutManager``, override some methods,
+   and tell the ``Configurator`` to use your class instead.
 
 #. Alternatively, you override the components by registering your own
-views to override those from Bottlecap.
+   views to override those from Bottlecap.
 
 Extra Points
 ============
 
 - Bottlecap doesn't use ZPT's METAL machinery for main template slots.
-We just assume that the main template is the one and only macro used
-for a layout. This means your template developers can have a more
-normal looking first line.
+  We just assume that the main template is the one and only macro used
+  for a layout. This means your template developers can have a more
+  normal looking first line.
 
 - Ditto for components. You don't have to wrap each component in a
-TAL ``define-macro``. We aren't using macros as the reuse facility.
+  TAL ``define-macro``. We aren't using macros as the reuse facility.
 
 - Unlike with ZPT macros, if one component fails, it doesn't cause the
-entire page to have an exception. Just that box fails,
-with a customizable error message.
+  entire page to have an exception. Just that box fails,
+  with a customizable error message.
+
+- The Bottlecap UX has a concept of "Quick Panels". That is,
+  popup dialogs associated with each "menu".
