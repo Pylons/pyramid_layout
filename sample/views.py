@@ -24,3 +24,8 @@ class SampleBlogView(object):
         renderer='sample:templates/global_nav.pt')
     def global_nav(self):
         return {}
+
+    @view_config('bottlecap.column_one',
+        renderer='sample:templates/column_one.pt')
+    def column_one(self):
+        return {}
