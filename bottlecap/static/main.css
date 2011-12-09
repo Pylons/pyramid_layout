@@ -323,6 +323,7 @@ td {
    Author:
    ========================================================================== */
 /* @group Author styles */
+/*Clearfix for clearing floats like a boss h5bp.com/q*/
 /* Modular Scale
 // All the relative values are taken from the table below.
 ----------------------
@@ -511,7 +512,23 @@ fieldset label {
 /* Color schema http://kuler.adobe.com/#themeID/186890 */
 /* @group Base styles */
 body {
-  background: #ffffff;
+  background: #eadecc;
+  background-image: -moz-linear-gradient(top, #eadecc, #e2d0b8);
+  /* FF3.6 */
+
+  background-image: -ms-linear-gradient(top, #eadecc, #e2d0b8);
+  /* IE10 */
+
+  background-image: -o-linear-gradient(top, #eadecc, #e2d0b8);
+  /* Opera 11.10+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eadecc), to(#e2d0b8));
+  /* Saf4+, Chrome */
+
+  background-image: -webkit-linear-gradient(top, #eadecc, #e2d0b8);
+  /* Chrome 10+, Saf5.1+ */
+
+  background-image: linear-gradient(top, #eadecc, #e2d0b8);
   font-size: 0.7333333333333333;
   position: relative;
 }
@@ -584,12 +601,12 @@ figure figcaption {
 /* @end */
 /* @group Top Bar with the global naviagtion */
 #top-bar {
-  color: #fffdfa;
+  color: #fff;
   background: #333;
 }
 #top-bar a {
   border-bottom: none;
-  color: #fffdfa;
+  color: #fff;
 }
 #top-bar nav, #members-info {
   clear: none;
@@ -660,7 +677,7 @@ h2#navigation-toggle, h2#search-toggle {
 #global-nav .selected a {
   color: #222222;
   font-weight: bold;
-  background-color: #fffdfa;
+  background-color: #fff;
 }
 nav.search form {
   padding: 0.422em 10%;
@@ -679,7 +696,7 @@ nav.search fieldset {
   border: 0;
   padding: 0;
   margin: 0;
-  background: #fffdfa;
+  background: #fff;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
@@ -693,7 +710,7 @@ nav.search fieldset {
   border: 0;
   padding: .5em 35px .5em .5em;
   margin: 0;
-  background: #fffdfa;
+  background: #fff;
   -webkit-border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   border-radius: 0.5em;
@@ -764,12 +781,12 @@ section.main {
 }
 section.main aside {
   font-style: italic;
-  background: #dbcfc1;
+  background: #d7c09d;
   padding: 0.6665em;
   margin: 0.6665em 0;
-  -webkit-box-shadow: 0 0 0 2px #fffdfa, 0 0 0 3px #dbcfc1;
-  -moz-box-shadow: 0 0 0 2px #fffdfa, 0 0 0 3px #dbcfc1;
-  box-shadow: 0 0 0 2px #fffdfa, 0 0 0 3px #dbcfc1;
+  -webkit-box-shadow: 0 0 0 2px #eadecc, 0 0 0 3px #dbc7a8;
+  -moz-box-shadow: 0 0 0 2px #eadecc, 0 0 0 3px #dbc7a8;
+  box-shadow: 0 0 0 2px #eadecc, 0 0 0 3px #dbc7a8;
 }
 section.main header {
   position: relative;
@@ -1192,12 +1209,11 @@ body > footer {
     line-height: 2.6923em;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
     font-size: 0.889em;
-    color: #fffdfa;
+    color: #fff;
     background-image: none;
   }
   #global-nav a:hover {
     color: #c1d3db;
-    border-bottom: 3px solid #c1d3db;
   }
   #global-nav a.quickpanel-toggle {
     background-image: url('img/cog_section.png');
@@ -1225,7 +1241,7 @@ body > footer {
     height: 0;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
-    border-bottom: 7px solid #fffdfa;
+    border-bottom: 7px solid #eadecc;
     border-top: 0;
   }
   a.quickpanel-toggle, a.dropdown-toggle {
@@ -1334,7 +1350,7 @@ body > footer {
   
     background-image: linear-gradient(top, #000000, #333333);
     border-width: 0 1px 1px;
-    color: #fffdfa;
+    color: #fff;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
     -webkit-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
@@ -1357,7 +1373,7 @@ body > footer {
     float: none;
   }
   .quickpanel a, .dropdown a {
-    color: #dbcfc1;
+    color: #3d8fb3;
     padding: 0;
     line-height: normal;
     font-size: 1em;
@@ -1379,7 +1395,7 @@ body > footer {
     float: none;
   }
   #global-nav .quickpanel a {
-    color: #dbcfc1;
+    color: #3d8fb3;
     padding: 0;
     line-height: normal;
     font-size: 1em;
@@ -1509,7 +1525,7 @@ body > footer {
     margin: 0;
     position: relative;
     line-height: 1.5em;
-    background: #fffdfa;
+    background: #ffffff;
     color: #222222;
     -webkit-border-radius: 0.3em;
     -moz-border-radius: 0.3em;
@@ -1574,6 +1590,22 @@ body > footer {
   }
   .sectionContainer {
     background: #61818f;
+    background-image: -moz-linear-gradient(top, #61818f, #7298a8);
+    /* FF3.6 */
+  
+    background-image: -ms-linear-gradient(top, #61818f, #7298a8);
+    /* IE10 */
+  
+    background-image: -o-linear-gradient(top, #61818f, #7298a8);
+    /* Opera 11.10+ */
+  
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#61818f), to(#7298a8));
+    /* Saf4+, Chrome */
+  
+    background-image: -webkit-linear-gradient(top, #61818f, #7298a8);
+    /* Chrome 10+, Saf5.1+ */
+  
+    background-image: linear-gradient(top, #61818f, #7298a8);
   }
   .sectionContainer a {
     color: #dbcfc1;
@@ -1589,7 +1621,6 @@ body > footer {
   .sectionContainer h2 {
     color: #222222;
     font-weight: bold;
-    text-shadow: 0 1px 0 #6d8e9c;
     padding-top: 0.422em;
     padding-bottom: 0;
     font-size: 1.333em;
@@ -1671,7 +1702,7 @@ body > footer {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #fff;
+    border-bottom: 10px solid #eadecc;
     border-top: 0;
   }
   .no-cssgradients .sectionContainer {
@@ -1755,11 +1786,12 @@ body > footer {
     display: inline-block;
     text-decoration: none;
     padding: 0 1em;
-    background: #aaa;
+    background: #c5ae8b;
     color: #fff;
     margin-right: 1px;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
+    border-bottom: none;
   }
   ul.actionsMenu > li:nth-child(1) a {
     -webkit-border-radius: 0.5em 0 0 0.5em;
@@ -1871,7 +1903,7 @@ body > footer {
     display: none;
   }
   nav.search label {
-    color: #fffdfa;
+    color: #eadecc;
   }
   .sectionContainer section {
     display: inline;
@@ -1907,7 +1939,7 @@ body > footer {
     padding: 0 0.6665em;
   }
   #members-info a {
-    color: #fffdfa;
+    color: #fff;
     line-height: 2.8em;
   }
   #members-info a:hover {

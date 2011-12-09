@@ -230,7 +230,7 @@ td { vertical-align: top; }
 /* Colors definition */
 /* Color schema http://kuler.adobe.com/#themeID/186890 */
 @baseFontColor: #222;
-@bodyBg: #FFFDFA;
+@bodyBg: #eadecc;
 @baseColor1: #8F806F;
 @baseColor2: #DBCFC1;
 @baseColor3: #61818F;
@@ -240,7 +240,7 @@ td { vertical-align: top; }
 /* @group Base styles */
 
 body {
-    background: lighten(@bodyBg,3%);
+    .css3_linear_gradient(#eadecc, #e2d0b8);
 	font-size: (@baseFontSize - 4)/@baseFontSize;
 	position: relative;
 }
@@ -350,11 +350,11 @@ figure {
 /* @group Top Bar with the global naviagtion */
 
 #top-bar {
-	color: @bodyBg;
+	color: #fff;
     background: #333;	
 	a {
     	border-bottom: none;
-		color: @bodyBg;
+		color: #fff;
 	}
 }
 #top-bar nav,
@@ -427,7 +427,7 @@ h2#search-toggle {
 	.selected a {
 		color: @baseFontColor;
 		font-weight: bold;
-		background-color: @bodyBg;
+		background-color: #fff;
 	}
 }
 nav.search form {
@@ -447,7 +447,7 @@ nav.search fieldset {
     border: 0;
     padding: 0;
     margin: 0;
-    background: @bodyBg;
+    background: #fff;
     .css3_border_radius(0.5em);
 } 
 .searchInputWrapper {
@@ -456,7 +456,7 @@ nav.search fieldset {
      border: 0;
      padding: .5em 35px .5em .5em;
      margin: 0;
-     background: @bodyBg;
+     background: #fff;
      .css3_border_radius(0.5em);
  } 
 input#search-site-box {
@@ -517,9 +517,9 @@ section.main {
     font-style: italic;
 }
 section.main aside {
-    @shadow: 0 0 0 2px @bodyBg, 0 0 0 3px @baseColor2;
+    @shadow: 0 0 0 2px @bodyBg, 0 0 0 3px darken(@bodyBg, 10%);
 	font-style: italic;
-	background: @baseColor2;
+	background: darken(@bodyBg, 13%);
 	padding: (@space * 1em)/2;
 	margin: (@space * 1em)/2 0;
 	-webkit-box-shadow: @shadow;
@@ -913,11 +913,10 @@ body > footer {
         	line-height: 2.6923em;
         	font-family: @fancyFont;
         	font-size: 0.889em;
-        	color: @bodyBg;
+        	color: #fff;
         	background-image: none;
         	&:hover { 
         		color: @baseColor4;
-        		border-bottom: 3px solid @baseColor4;
         	}		   
         }
         a.quickpanel-toggle {
@@ -1033,7 +1032,7 @@ body > footer {
         padding: (@space * 1em);
         .css3_linear_gradient(#000, #333);
         border-width: 0 1px 1px;
-        color: @bodyBg;
+        color: #fff;
         .smaller();
         .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
         .css3_border_radius(0 0 0.4em 0.4em);
@@ -1047,7 +1046,7 @@ body > footer {
     	    float: none;
     	}
         a {
-    	    color: @baseColor2;
+            color: saturate(@baseColor3, 30%);
     	    padding: 0;
     	    line-height: normal;
     	    font-size: 1em;
@@ -1068,7 +1067,7 @@ body > footer {
         float: none;
     }
     #global-nav .quickpanel a {
-	    color: @baseColor2;
+        color: saturate(@baseColor3, 30%);
 	    padding: 0;
         line-height: normal;
         font-size: 1em;
@@ -1188,7 +1187,7 @@ body > footer {
         .smaller();        
     }    
     nav.search span.fieldCoverage {
-        .quickpanelToggle(@bodyBg, @baseColor4, @baseFontColor);
+        .quickpanelToggle(#fff, @baseColor4, @baseFontColor);
     }
     nav.search select {
         display: block;
@@ -1211,7 +1210,7 @@ body > footer {
         margin-top: 0.2em;
     }
     .sectionContainer {
-        background: @baseColor3;
+        .css3_linear_gradient(@baseColor3, #7298a8);
     	a {
     	    color: @baseColor2;
     	    text-decoration: none;
@@ -1226,7 +1225,6 @@ body > footer {
     	h2 {
     	    color: @baseFontColor;
     	    font-weight: bold;
-    	    text-shadow: 0 1px 0 lighten(@baseColor3, 5%);
     	    padding-top: 0.422em;
     	    padding-bottom: 0;
     	    font-size: 1.333em;
@@ -1301,7 +1299,7 @@ body > footer {
     	    height:0; 
     	    border-left: 10px solid transparent; 
     	    border-right: 10px solid transparent;
-    	    border-bottom: 10px solid #fff;
+    	    border-bottom: 10px solid @bodyBg;
     	    border-top: 0;
     	}
     }
@@ -1375,10 +1373,11 @@ body > footer {
             display: inline-block;
             text-decoration: none;
             padding: 0 1em;
-        	background: #aaa;
+        	background: #c5ae8b;
             color:#fff;
             margin-right: 1px;
             .smaller();
+            border-bottom: none;
     	}
     	> li:nth-child(1) a {
             .css3_border_radius(.5em 0 0 .5em);    	    
@@ -1511,7 +1510,7 @@ body > footer {
         width: auto;
         padding: 0 (@space * 1em)/2;
         a {
-            color: @bodyBg;
+            color: #fff;
     	    line-height: 2.8em;
     	}
         a:hover{
