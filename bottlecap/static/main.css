@@ -2388,10 +2388,12 @@ body > footer {
   .sectionContainer h2 {
     color: #222222;
     font-weight: bold;
-    padding-top: 0.422em;
+    padding-top: 0.3em;
     padding-bottom: 0;
     font-size: 1.333em;
     padding-left: 1.0022556390977442em;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .sectionContainer header {
     margin: 0;
