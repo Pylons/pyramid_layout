@@ -484,7 +484,7 @@ table {
   margin: 1.333 1.333;
 }
 table th, table td {
-  padding: 0.75em 1.333em;
+  padding: 0.5em 1em;
 }
 table table {
   margin: 0;
@@ -1740,9 +1740,9 @@ form.addKeyword button {
   font-family: Verdana, sans-serif;
   line-height: 1.5em;
   padding: 0em .666666667em;
-  -webkit-border-radius: 0 0.666666667em 0.666666667em 0;
-  -moz-border-radius: 0 0.666666667em 0.666666667em 0;
-  border-radius: 0 0.666666667em 0.666666667em 0;
+  -webkit-border-radius: 0 0.3em 0.3em 0;
+  -moz-border-radius: 0 0.3em 0.3em 0;
+  border-radius: 0 0.3em 0.3em 0;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1781,6 +1781,8 @@ body > footer {
   .quickpanel ul {
     clear: none;
     margin-bottom: 1.333em;
+    list-style: circle;
+    list-style-position: inside;
   }
   .quickpanel a {
     display: block;
@@ -2428,12 +2430,22 @@ body > footer {
   }
   ul.sectionTools li a:hover {
     text-decoration: none;
-    margin-bottom: -0.2em;
-    border-bottom: 0.2em solid #b69d80;
+  }
+  ul.sectionTools .dropdown ul, ul.sectionTools .quickpanel ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-position: inside;
   }
   ul.sectionTools .dropdown li, ul.sectionTools .quickpanel li {
     display: list-item;
     float: none;
+  }
+  ul.sectionTools .dropdown li a, ul.sectionTools .quickpanel li a {
+    text-decoration: underline;
+  }
+  ul.sectionTools .quickpanel li a {
+    padding: 0;
+    line-height: 1.3;
   }
   ul.sectionTools .dropdown li {
     list-style: none;
@@ -2441,6 +2453,7 @@ body > footer {
   ul.sectionTools .dropdown li a {
     padding-top: 0.422em;
     padding-bottom: 0.422em;
+    text-decoration: none;
   }
   ul.sectionTools li[data-quickpanel="quickpanel"] {
     position: static;
