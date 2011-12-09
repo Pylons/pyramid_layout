@@ -197,10 +197,6 @@ button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 
 textarea { overflow: auto; vertical-align: top; resize: vertical; }
 
-/* Colors for form validity */
-input:valid, textarea:valid {  }
-input:invalid, textarea:invalid { background-color: #f0dddd; }
-
 
 /* =============================================================================
    Tables
@@ -220,13 +216,6 @@ td { vertical-align: top; }
 @import "typography.less";
 @import "_grid.less";
 
-
-/* Fonts definition */
-@baseFontSize: 15;
-@baseFont: Georgia, serif;
-@fancyFont: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Arial,sans-serif;
-
-
 /* Colors definition */
 /* Color schema http://kuler.adobe.com/#themeID/186890 */
 @baseFontColor: #222;
@@ -241,7 +230,6 @@ td { vertical-align: top; }
 
 body {
     .css3_linear_gradient(@bodyBg, darken(@bodyBg, 3%));
-	font-size: (@baseFontSize - 4)/@baseFontSize;
 	position: relative;
 }
 a,
@@ -604,6 +592,10 @@ tr.even {
 td {
     border-top: 1px solid #fff;
 }
+
+/* Forms */
+
+@import "forms.less";
 
 /* Column */
 .column {

@@ -1,0 +1,634 @@
+/* Forms.less
+ * Base styles for various input types, form layouts, and states
+ * ------------------------------------------------------------- */
+
+
+// Griditude
+// Modify the grid styles in mixins.less
+@gridColumns:       16;
+@gridColumnWidth:   40px;
+@gridGutterWidth:   20px;
+@extraSpace:        (@gridGutterWidth * 2); // For our grid calculations
+@siteWidth:         (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// FORM STYLES
+// -----------
+
+form {
+  margin-bottom: @space * 1em;
+}
+
+// Groups of fields with labels on top (legends)
+fieldset {
+  margin-bottom: @space * 1em;
+  padding-top: @space * 1em;
+  legend {
+    display: block;
+    padding-left: 150px;
+    font-size: 1.185em;
+    font-family: @fancyFont;
+    line-height: 1;
+    color: #000;
+    *padding: 0 0 5px 145px; /* IE6-7 */
+    *line-height: 1.5; /* IE6-7 */
+  }
+}
+
+// Parent element that clears floats and wraps labels and fields together
+form .clearfix,
+form .field {
+  margin-bottom: @space * 1em;
+  .clearfix()
+}
+
+// Set font for forms
+label,
+input,
+select,
+textarea {
+
+}
+
+// Float labels left
+label {
+  padding-top: 6px;
+  font-size: 0.889em;
+  font-family: @fancyFont;
+  line-height: 1.5;
+  float: left;
+  width: 130px;
+  text-align: right;
+  color: #000;
+}
+
+// Shift over the inside div to align all label's relevant content
+form .input {
+  margin-left: 150px;
+}
+
+// Checkboxs and radio buttons
+input[type=checkbox],
+input[type=radio] {
+  cursor: pointer;
+}
+
+// Inputs, Textareas, Selects
+input,
+textarea,
+select,
+.uneditable-input {
+  display: inline-block;
+  width: 28em;
+  height: @space * 1em;
+  padding: .235294118em;
+  font-size: .889em;
+  line-height: 1.5;
+/*  color: @gray;*/
+  border: 1px solid darken(@bodyBg, 30%);
+  .css3_border_radius(3px);
+}
+
+// remove padding from select
+select {
+  padding: initial;
+}
+
+// mini reset for non-html5 file types
+input[type=checkbox],
+input[type=radio] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 3px 0;
+  *margin-top: 0; /* IE6-7 */
+  line-height: normal;
+  border: none;
+}
+
+input[type=file] {
+  background-color: #fff;
+  padding: initial;
+  border: initial;
+  line-height: initial;
+  .css3_box_shadow(none);
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  width: auto;
+  height: auto;
+}
+
+select,
+input[type=file] {
+  height: @space * 1em * 1.5; // In IE7, the height of the select element cannot be changed by height, only font-size
+  *height: auto; // Reset for IE7
+  line-height: 1.5 * 1.5;
+  *margin-top: 4px; /* For IE7, add top margin to align select with labels */
+}
+
+// Make multiple select elements height not fixed
+select[multiple] {
+  height: inherit;
+  background-color: #fff; // Fixes Chromium bug of unreadable items
+}
+
+textarea {
+  height: auto;
+}
+
+// For text that needs to appear as an input but should not be an input
+.uneditable-input {
+  background-color: #fff;
+  display: block;
+  border-color: #eee;
+  .css3_box_shadow(inset 0 1px 2px rgba(0,0,0,.025));
+  cursor: not-allowed;
+}
+
+// Placeholder text gets special styles; can't be bundled together though for some reason
+:-moz-placeholder {
+/*  color: @grayLight;*/
+}
+::-webkit-input-placeholder {
+  /*color: @grayLight;*/
+}
+
+// Focus states
+input,
+textarea {
+  @transition: border linear .2s, box-shadow linear .2s;
+  .css3_transition(@transition);
+/*  .css3_box_shadow(inset 0 1px 3px rgba(0,0,0,.1));*/
+}
+input:focus,
+textarea:focus {
+  outline: 0;
+/*  border-color: rgba(82,168,236,.8);*/
+  .css3_box_shadow(0 0 .5em #b0a28f);
+}
+input[type=file]:focus,
+input[type=checkbox]:focus,
+select:focus {
+  .css3_box_shadow(none); // override for file inputs
+  outline: 1px dotted #666; // Selet elements don't get box-shadow styles, so instead we do outline
+}
+
+
+// FORM FIELD FEEDBACK STATES
+// --------------------------
+
+// Mixin for form field states
+.formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) {
+  // Set the text color
+  > label,
+  .help-block,
+  .help-inline {
+    color: @textColor;
+  }
+  // Style inputs accordingly
+  input,
+  textarea {
+    color: @textColor;
+    border-color: @borderColor;
+    &:focus {
+      border-color: darken(@borderColor, 10%);
+      .css3_box_shadow(0 0 6px lighten(@borderColor, 20%));
+    }
+  }
+  // Give a small background color for input-prepend/-append
+  .input-prepend .add-on,
+  .input-append .add-on {
+    color: @textColor;
+    background-color: @backgroundColor;
+    border-color: @textColor;
+  }
+}
+// Error
+form .clearfix.error {
+  .formFieldState(#b94a48, #ee5f5b, lighten(#ee5f5b, 30%));
+}
+// Warning
+form .clearfix.warning {
+  .formFieldState(#c09853, #ccae64, lighten(#CCAE64, 5%));
+}
+// Success
+form .clearfix.success {
+  .formFieldState(#468847, #57a957, lighten(#57a957, 30%));
+}
+
+
+// Form element sizes
+// TODO v2: remove duplication here and just stick to .input-[size] in light of adding .spanN sizes
+.input-mini,
+input.mini,
+textarea.mini,
+select.mini {
+  width: 60px;
+}
+.input-small,
+input.small,
+textarea.small,
+select.small {
+  width: 90px;
+}
+.input-medium,
+input.medium,
+textarea.medium,
+select.medium {
+  width: 150px;
+}
+.input-large,
+input.large,
+textarea.large,
+select.large {
+  width: 210px;
+}
+.input-xlarge,
+input.xlarge,
+textarea.xlarge,
+select.xlarge {
+  width: 270px;
+}
+.input-xxlarge,
+input.xxlarge,
+textarea.xxlarge,
+select.xxlarge {
+  width: 530px;
+}
+textarea.xxlarge {
+  overflow-y: auto;
+}
+
+// Grid style input sizes
+// This is a duplication of the main grid .columns() mixin, but subtracts 10px to account for input padding and border
+.formColumns(@columnSpan: 1) {
+  display: inline-block;
+  float: none;
+  width: ((@gridColumnWidth) * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1)) - 10;
+  margin-left: 0;
+}
+input,
+textarea {
+  // Default columns
+  &.span1     { .formColumns(1); }
+  &.span2     { .formColumns(2); }
+  &.span3     { .formColumns(3); }
+  &.span4     { .formColumns(4); }
+  &.span5     { .formColumns(5); }
+  &.span6     { .formColumns(6); }
+  &.span7     { .formColumns(7); }
+  &.span8     { .formColumns(8); }
+  &.span9     { .formColumns(9); }
+  &.span10    { .formColumns(10); }
+  &.span11    { .formColumns(11); }
+  &.span12    { .formColumns(12); }
+  &.span13    { .formColumns(13); }
+  &.span14    { .formColumns(14); }
+  &.span15    { .formColumns(15); }
+  &.span16    { .formColumns(16); }
+}
+
+// Disabled and read-only inputs
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+// Actions (the buttons)
+.actions {
+  margin-top: @space * 1em;
+  margin-bottom: @space * 1em;
+  padding: (@space * 1em - 1) 20px @space * 1em 150px;
+  .css3_border_radius(0 0 3px 3px);
+  .secondary-action {
+    float: right;
+    a {
+      line-height: 30px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Help Text
+// TODO: Do we need to set basefont and baseline here?
+.help-inline,
+.help-block {
+  font-size: 1em;
+  line-height: 1.5;
+  .smaller();
+  color: darken(@bodyBg, 30%);
+}
+.help-inline {
+  padding-left: 5px;
+  *position: relative; /* IE6-7 */
+  *top: -5px; /* IE6-7 */
+}
+
+// Big blocks of help text
+.help-block {
+  display: block;
+  max-width: 600px;
+}
+
+// Inline Fields (input fields that appear as inline objects
+.inline-inputs {
+/*  color: @gray;*/
+  span {
+    padding: 0 2px 0 1px;
+  }
+}
+
+// Allow us to put symbols and text within the input field for a cleaner look
+.input-prepend,
+.input-append {
+  input {
+    .css3_border_radius(0 3px 3px 0);
+  }
+  .add-on {
+    position: relative;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    z-index: 2;
+    float: left;
+    display: block;
+    width: auto;
+    min-width: 16px;
+    height: 18px;
+    padding: 4px 4px 4px 5px;
+    margin-right: -1px;
+    font-weight: normal;
+    line-height: 18px;
+/*    color: @grayLight;*/
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    .css3_border_radius(3px 0 0 3px);
+  }
+  .active {
+    background: lighten(@baseColor3, 30);
+    border-color: @baseColor3;
+  }
+}
+.input-prepend {
+  .add-on {
+    *margin-top: 1px; /* IE6-7 */
+  }
+}
+.input-append {
+  input {
+    float: left;
+    .css3_border_radius(3px 0 0 3px);
+  }
+  .add-on {
+    .css3_border_radius(0 3px 3px 0);
+    margin-right: 0;
+    margin-left: -1px;
+  }
+}
+
+// Stacked options for forms (radio buttons or checkboxes)
+.inputs-list {
+  margin: 0 0 5px;
+  width: 100%;
+  li {
+    display: block;
+    padding: 0;
+    width: 100%;
+  }
+  label {
+    display: block;
+    float: none;
+    width: auto;
+    padding: 0;
+    margin-left: 20px;
+    line-height: 1.5;
+    text-align: left;
+    white-space: normal;
+    strong {
+/*      color: @gray;*/
+    }
+    small {
+      font-size: 1em - 2;
+      font-weight: normal;
+    }
+  }
+  .inputs-list {
+    margin-left: 25px;
+    margin-bottom: 10px;
+    padding-top: 0;
+  }
+  &:first-child {
+    padding-top: 6px;
+  }
+  li + li {
+    padding-top: 2px;
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    margin-bottom: 0;
+    margin-left: -20px;
+    float: left;
+  }
+}
+
+// Stacked forms
+.form-stacked {
+  padding-left: 20px;
+  fieldset {
+    padding-top: @space * 1em / 2;
+  }
+  legend {
+    padding-left: 0;
+  }
+  label {
+    display: block;
+    float: none;
+    width: auto;
+    font-weight: bold;
+    text-align: left;
+    line-height: 20px;
+    padding-top: 0;
+  }
+  .clearfix {
+    margin-bottom: @space * 1em / 2;
+    div.input {
+      margin-left: 0;
+    }
+  }
+  .inputs-list {
+    margin-bottom: 0;
+    li {
+      padding-top: 0;
+      label {
+        font-weight: normal;
+        padding-top: 0;
+      }
+    }
+  }
+  div.clearfix.error {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-top: 0;
+    margin-left: -10px;
+  }
+  .actions {
+    margin-left: -20px;
+    padding-left: 20px;
+  }
+}
+
+// Buttons
+.btn.danger,
+.alert-message.danger,
+.btn.danger:hover,
+.alert-message.danger:hover,
+.btn.error,
+.alert-message.error,
+.btn.error:hover,
+.alert-message.error:hover,
+.btn.success,
+.alert-message.success,
+.btn.success:hover,
+.alert-message.success:hover,
+.btn.info,
+.alert-message.info,
+.btn.info:hover,
+.alert-message.info:hover {
+  color: #ffffff;
+}
+.btn .close, .alert-message .close {
+  font-family: Arial, sans-serif;
+  line-height: 18px;
+}
+.btn.danger,
+.alert-message.danger,
+.btn.error,
+.alert-message.error {
+  background-repeat: repeat-x;
+  .css3_linear_gradient(#f1d693, #f1cd71);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #c43c35 #c43c35 #882a25;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.btn.success, .alert-message.success {
+  background-repeat: repeat-x;
+  .css3_linear_gradient(#62c462, #57a957);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #57a957 #57a957 #3d773d;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.btn.info, .alert-message.info {
+  background-repeat: repeat-x;
+  .css3_linear_gradient(#5bc0de, #339bb9);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #339bb9 #339bb9 #22697d;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #e6e6e6;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0)";
+  padding: 5px 14px 6px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  color: #333;
+  font-size: 13px;
+  line-height: normal;
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  -ms-transition: 0.1s linear all;
+  -o-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+}
+.btn:hover {
+  background-position: 0 -15px;
+  color: #333;
+  text-decoration: none;
+}
+.btn:focus {
+  outline: 1px dotted #666;
+}
+.btn.primary {
+  color: #ffffff;
+  background-repeat: repeat-x;
+  .css3_linear_gradient(#7298a8, #47798f);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #47798f #47798f #7298a8;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+.btn.active, .btn:active {
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn.disabled {
+  cursor: default;
+  background-image: none;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(enabled = false)";
+  filter: alpha(opacity=65);
+  -khtml-opacity: 0.65;
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(enabled = false)";
+  filter: alpha(opacity=65);
+  -khtml-opacity: 0.65;
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn.large {
+  font-size: 15px;
+  line-height: normal;
+  padding: 9px 14px 9px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.btn.small {
+  padding: 7px 9px 7px;
+  font-size: 11px;
+}
+:root .alert-message, :root .btn {
+  border-radius: 0 \0;
+}
+button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* @end */
+

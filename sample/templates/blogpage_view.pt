@@ -163,27 +163,25 @@
 
                         <div class="field">
                             <label for="onefield">Text field</label>
-                            <span class="formHelp">
-                                This is the help for this form field. And <a href="#">links are also possible</a>.
-                            </span>
-                            <input type="text" id="onefield" required="required" placeholder="Some content">
+                            <div class="input">
+                                <input type="text" id="onefield" required="required" placeholder="Some content">
+                                <span class="help-block">
+                                    This is the help for this form field. And <a href="#">links are also possible</a>.
+                                </span>
+                            </div>
                         </div>
 
                         <div class="field">
                             <label for="anotherfield">Text area</label>
-                            <textarea name="anotherfield" id="anotherfield">
-                                Duis autem vel eum iriure dolor in hendrerit in
-                                vulputate velit esse molestie consequat, vel illum
-                                dolore eu feugiat nulla facilisis at vero eros et
-                                accumsan et iusto odio dignissim qui blandit praesent
-                                luptatum zzril delenit augue duis dolore te feugait
-                                nulla facilisi.
-                            </textarea>
+                            <div class="input">
+                                <textarea name="anotherfield"
+                                id="anotherfield"></textarea>
+                            </div>
                         </div>
-                        <div class="formControls">
-                            <input type="submit" value="Submit" />
-                            <input type="reset" value="Cancel" />
-                            <button type="submit">Submit button</button>
+                        <div class="actions">
+                            <input type="submit" value="Submit" class="btn primary" />
+                            <input type="reset" value="Cancel" class="btn" />
+                            <button type="submit" class="btn primary">Submit button</button>
                         </div>
                     </fieldset>
                 </form>

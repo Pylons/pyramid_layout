@@ -30,6 +30,14 @@
     background-image: linear-gradient(top, @begin, @end);    
 }
 
+.css3_transition( @transition ) {
+    -webkit-transition: @transition;
+       -moz-transition: @transition;
+        -ms-transition: @transition;
+         -o-transition: @transition;
+            transition: @transition;
+}
+
 .css3_box_sizing( @type : border-box ) {
     -webkt-box-sizing: @type;
        -moz-box-sizing: @type;
