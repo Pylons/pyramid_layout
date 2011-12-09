@@ -713,6 +713,9 @@ input#search-site-box {
 input#search-site-box:focus, input#search-site-box:active {
   outline: none;
   cursor: text;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 nav.search button.searchButton {
   background: transparent url('img/search_icon_dark.png') 50% 50% no-repeat;
@@ -1019,8 +1022,6 @@ input, textarea {
 }
 input:focus, textarea:focus {
   outline: 0;
-  /*  border-color: rgba(82,168,236,.8);*/
-
   -webkit-box-shadow: 0 0 0.5em #b0a28f;
   -moz-box-shadow: 0 0 0.5em #b0a28f;
   box-shadow: 0 0 0.5em #b0a28f;
@@ -2259,6 +2260,9 @@ body > footer {
   }
   nav.search label {
     display: inline;
+    width: auto;
+    padding: 0;
+    float: none;
     font-weight: normal;
     font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
     margin: 0 0.5em 0 0;
@@ -2328,6 +2332,8 @@ body > footer {
     right: 0;
     z-index: 2;
     position: absolute;
+    width: auto;
+    padding: 0;
   }
   .oldie nav.search select {
     position: static;

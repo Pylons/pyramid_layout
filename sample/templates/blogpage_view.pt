@@ -161,7 +161,7 @@
                     <fieldset>
                         <legend>Fieldset legend</legend>
 
-                        <div class="field">
+                        <div class="clearfix">
                             <label for="onefield">Text field</label>
                             <div class="input">
                                 <input type="text" id="onefield" required="required" placeholder="Some content">
@@ -171,7 +171,7 @@
                             </div>
                         </div>
 
-                        <div class="field">
+                        <div class="clearfix">
                             <label for="anotherfield">Text area</label>
                             <div class="input">
                                 <textarea name="anotherfield"

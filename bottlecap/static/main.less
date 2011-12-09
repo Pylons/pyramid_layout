@@ -459,6 +459,7 @@ input#search-site-box {
     &:active {
         outline: none;
         cursor: text;
+        .css3_box_shadow(none);
     }
 }
 
@@ -1149,6 +1150,9 @@ body > footer {
     }
     nav.search label {
         display: inline;
+        width: auto;
+        padding: 0;
+        float: none;
         font-weight: normal;
         font-family: @fancyFont;
         margin: 0 0.5em 0 0;
@@ -1169,6 +1173,8 @@ body > footer {
         right: 0;
         z-index: 2;
         position: absolute;
+        width: auto;
+        padding: 0;
     }
     .oldie nav.search select {
         position: static;
