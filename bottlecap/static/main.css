@@ -418,7 +418,7 @@ body {
 h1, h2, h3 {
   margin: 1.333em 0 .75em;
   line-height: 1.25;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
 h1 {
@@ -800,7 +800,7 @@ ul.actionsMenu, ul.dropdown {
   padding: 0.6665em 1.333em;
   margin: 0 0 1.333em;
   border: 1px solid #eab42b;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0 1px 0 #f1d693;
   -webkit-border-radius: 0.3em;
   -moz-border-radius: 0.3em;
@@ -865,7 +865,7 @@ ul.actionsMenu, ul.dropdown {
 }
 /* Styling generic elements */
 dt {
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: .3em;
 }
 /* Tables */
@@ -881,7 +881,7 @@ table {
 }
 th {
   background: #cebeaa;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: left;
 }
 tr.even {
@@ -905,7 +905,7 @@ fieldset legend {
   display: block;
   padding-left: 150px;
   font-size: 1.185em;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1;
   color: #000;
   *padding: 0 0 5px 145px;
@@ -924,7 +924,7 @@ form .clearfix, form .field {
 label {
   padding-top: 6px;
   font-size: 0.889em;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   float: left;
   width: 130px;
@@ -1969,7 +1969,7 @@ body > footer {
     z-index: 1;
     display: block;
     line-height: 2.6923em;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 0.889em;
     color: #fff;
     background-image: none;
@@ -2274,7 +2274,7 @@ body > footer {
     padding: 0;
     float: none;
     font-weight: normal;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0 0.5em 0 0;
     color: #222222;
     position: relative;
@@ -2406,7 +2406,7 @@ body > footer {
     clear: none;
     width: auto;
     padding: 0 0 0 0.6665em;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 0.889em;
   }
   ul.sectionTools li {
