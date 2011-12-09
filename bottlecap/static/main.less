@@ -553,21 +553,12 @@ ul.dropdown {
 .notification {
     padding: @space/2 * 1em @space * 1em;
     margin: 0 0 @space * 1em;
-    border: 1px solid darken(#f1cd71, 10%);
+    border: 1px solid darken(#f1cd71, 15%);
     font-family: @fancyFont;
     text-shadow: 0 1px 0 #f1d693;
     
     .css3_border_radius(.5em);
-    
-background-color: #f1d693;
-background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(241, 214, 147)), to(rgb(241, 205, 113)));
-background-image: -webkit-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
-background-image: -moz-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
-background-image: -o-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
-background-image: -ms-linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
-background-image: linear-gradient(top, rgb(241, 214, 147), rgb(241, 205, 113));
-filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f1d693', EndColorStr='#f1cd71')";
-
+    .css3_linear_gradient(#f1d693, #f1cd71);
     a {
         border: none;
     }
@@ -575,15 +566,8 @@ filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorSt
 .notification.alert {
     color: #fff;
     text-shadow: 0 1px 0 #e36143;
-    border: 1px solid darken(#aa342b, 10%);    
-background-color: #e36143;
-background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(227, 97, 67)), to(rgb(170, 52, 43)));
-background-image: -webkit-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
-background-image: -moz-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
-background-image: -o-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
-background-image: -ms-linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
-background-image: linear-gradient(top, rgb(227, 97, 67), rgb(170, 52, 43));
-filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e36143', EndColorStr='#aa342b')";  
+    border: 1px solid darken(#aa342b, 10%); 
+    .css3_linear_gradient(#e36143, #aa342b);
 }
 
 /* Images in the text */
