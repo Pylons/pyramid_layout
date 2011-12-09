@@ -342,14 +342,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 h1, h2, h3 {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 1.333em 0 .75em;
   line-height: 1.25;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
   font-weight: normal;
-  padding-bottom: 0.667em;
-  margin-left: 0;
-  margin-right: 0;
 }
 h1 {
   font-size: 2.105em;
@@ -362,6 +358,7 @@ h3 {
 }
 h4 {
   font-size: 1.185em;
+  margin: 1.185em 0 .75em;
 }
 .normal {
   font-size: 1em;
@@ -442,22 +439,22 @@ fieldset label {
 /* @group Base styles */
 body {
   background: #eadecc;
-  background-image: -moz-linear-gradient(top, #eadecc, #e2d0b8);
+  background-image: -moz-linear-gradient(top, #eadecc, #e6d7c1);
   /* FF3.6 */
 
-  background-image: -ms-linear-gradient(top, #eadecc, #e2d0b8);
+  background-image: -ms-linear-gradient(top, #eadecc, #e6d7c1);
   /* IE10 */
 
-  background-image: -o-linear-gradient(top, #eadecc, #e2d0b8);
+  background-image: -o-linear-gradient(top, #eadecc, #e6d7c1);
   /* Opera 11.10+ */
 
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#eadecc), to(#e2d0b8));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eadecc), to(#e6d7c1));
   /* Saf4+, Chrome */
 
-  background-image: -webkit-linear-gradient(top, #eadecc, #e2d0b8);
+  background-image: -webkit-linear-gradient(top, #eadecc, #e6d7c1);
   /* Chrome 10+, Saf5.1+ */
 
-  background-image: linear-gradient(top, #eadecc, #e2d0b8);
+  background-image: linear-gradient(top, #eadecc, #e6d7c1);
   font-size: 0.7333333333333333;
   position: relative;
 }
@@ -768,6 +765,9 @@ ul.actionsMenu, ul.dropdown {
   /* Chrome 10+, Saf5.1+ */
 
   background-image: linear-gradient(top, #f1d693, #f1cd71);
+  -webkit-box-shadow: 0 0 0.5em #b0a28f;
+  -moz-box-shadow: 0 0 0.5em #b0a28f;
+  box-shadow: 0 0 0.5em #b0a28f;
 }
 .notification a {
   border: none;
@@ -809,24 +809,21 @@ dt {
   margin-top: .3em;
 }
 /* Tables */
+table {
+  background: #f9f5f0;
+  border-radius: .5em;
+  overflow: hidden;
+}
 th {
-  background: #dbcfc1;
-  border: 1px solid #bcb3a8;
-  border-style: solid none solid solid;
+  background: #cebeaa;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
+  text-align: left;
 }
-th:last-child {
-  border-right: 1px solid #bcb3a8;
-}
-tr.odd {
-  background: #f1f5f7;
+tr.even {
+  background: #f1eade;
 }
 td {
-  border-left: 1px solid #c1d3db;
-  border-bottom: 1px solid #c1d3db;
-}
-td:last-child {
-  border-right: 1px solid #c1d3db;
+  border-top: 1px solid #fff;
 }
 /* Column */
 .column {

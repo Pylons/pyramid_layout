@@ -240,7 +240,7 @@ td { vertical-align: top; }
 /* @group Base styles */
 
 body {
-    .css3_linear_gradient(#eadecc, #e2d0b8);
+    .css3_linear_gradient(@bodyBg, darken(@bodyBg, 3%));
 	font-size: (@baseFontSize - 4)/@baseFontSize;
 	position: relative;
 }
@@ -559,6 +559,7 @@ ul.dropdown {
     
     .css3_border_radius(.5em);
     .css3_linear_gradient(#f1d693, #f1cd71);
+    .css3_box_shadow(0 0 .5em #b0a28f);
     a {
         border: none;
     }
@@ -588,26 +589,20 @@ dt {
 
 /* Tables */
 table {
-    
+    background: lighten(@bodyBg, 10%);
+    border-radius: .5em;
+    overflow: hidden;
 }
 th {
-    background: @baseColor2;
-    border: 1px solid lighten(@baseColor1, 20%);
-    border-style: solid none solid solid;
+    background: darken(@baseColor2, 7%);
     font-family: @fancyFont;
+    text-align: left;
 }
-th:last-child {
-    border-right: 1px solid lighten(@baseColor1, 20%);
-}
-tr.odd {
-    background: lighten(@baseColor4, 15%);
+tr.even {
+    background: lighten(@bodyBg, 5%);
 }
 td {
-    border-left: 1px solid @baseColor4;
-    border-bottom: 1px solid @baseColor4;
-}
-td:last-child {
-    border-right: 1px solid @baseColor4;    
+    border-top: 1px solid #fff;
 }
 
 /* Column */
