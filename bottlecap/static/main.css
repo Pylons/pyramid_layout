@@ -680,9 +680,9 @@ nav.search fieldset {
   padding: 0;
   margin: 0;
   background: #fff;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -694,9 +694,9 @@ nav.search fieldset {
   padding: .5em 35px .5em .5em;
   margin: 0;
   background: #fff;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -802,9 +802,9 @@ ul.actionsMenu, ul.dropdown {
   border: 1px solid #eab42b;
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, sans-serif;
   text-shadow: 0 1px 0 #f1d693;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -871,7 +871,12 @@ dt {
 /* Tables */
 table {
   background: #f9f5f0;
-  border-radius: .5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
   overflow: hidden;
 }
 th {
@@ -1668,9 +1673,9 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   padding: 0 .5em;
   color: #fff;
   margin-right: 0.5em;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1699,14 +1704,16 @@ form.addKeyword {
 }
 form.addKeyword fieldset {
   background: #fff;
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  border-radius: 0.5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
   border: 1px solid #8f806f;
   position: relative;
+  padding-top: 0;
+  margin-bottom: 0;
 }
 form.addKeyword input, form.addKeyword button {
   border: none;
@@ -1719,6 +1726,9 @@ form.addKeyword input {
 }
 form.addKeyword input:focus {
   outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 form.addKeyword button {
   position: absolute;

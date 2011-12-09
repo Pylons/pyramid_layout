@@ -436,7 +436,7 @@ nav.search fieldset {
     padding: 0;
     margin: 0;
     background: #fff;
-    .css3_border_radius(0.5em);
+    .css3_border_radius(0.3em);
 } 
 .searchInputWrapper {
      position: relative;
@@ -445,7 +445,7 @@ nav.search fieldset {
      padding: .5em 35px .5em .5em;
      margin: 0;
      background: #fff;
-     .css3_border_radius(0.5em);
+     .css3_border_radius(0.3em);
  } 
 input#search-site-box {
     display: block;
@@ -546,7 +546,7 @@ ul.dropdown {
     font-family: @fancyFont;
     text-shadow: 0 1px 0 #f1d693;
     
-    .css3_border_radius(.5em);
+    .css3_border_radius(.3em);
     .css3_linear_gradient(#f1d693, #f1cd71);
     .css3_box_shadow(0 0 .5em #b0a28f);
     a {
@@ -579,7 +579,7 @@ dt {
 /* Tables */
 table {
     background: lighten(@bodyBg, 10%);
-    border-radius: .5em;
+    .css3_border_radius(.3em);
     overflow: hidden;
 }
 th {
@@ -624,7 +624,7 @@ td {
         padding: 0 .5em;
         color: #fff;
         margin-right: 0.5em;
-        .css3_border_radius(.5em);
+        .css3_border_radius(.3em);
 /*        padding-right: 1.78em;
         &:after {
             content: "X";
@@ -649,9 +649,11 @@ form.addKeyword {
     float: left;
     fieldset {
         background: #fff;
-        .css3_border_radius(.5em);
+        .css3_border_radius(.3em);
         border: 1px solid @baseColor1;
         position: relative;
+        padding-top: 0;
+        margin-bottom: 0;
     }
     input,
     button {
@@ -665,6 +667,7 @@ form.addKeyword {
     }
     input:focus {
         outline: none;
+        .css3_box_shadow(none);
     }
     button {
         position: absolute;
