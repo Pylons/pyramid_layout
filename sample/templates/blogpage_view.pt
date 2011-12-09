@@ -182,7 +182,7 @@
                         </div>
                         <div class="formControls">
                             <input type="submit" value="Submit" />
-                            <input type="cancel" value="Cancel" />
+                            <input type="reset" value="Cancel" />
                             <button type="submit">Submit button</button>
                         </div>
                     </fieldset>
