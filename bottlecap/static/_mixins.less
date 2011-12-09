@@ -1,0 +1,50 @@
+.css3_border_radius( @radius: 3px ) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+    .css3_background_clip ( padding-box );
+}
+
+.css3_background_clip ( @clipping: padding-box ) {
+    -webkit-background-clip: @clipping;
+    -moz-background-clip: @clipping;    
+    background-clip: @clipping;
+}
+
+.css3_box_shadow( @shadow ) {
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow; 
+            box-shadow: @shadow;
+}
+
+.css3_linear_gradient( 
+    @begin: black, 
+    @end: white
+) {
+    background:  @begin;
+    background-image: -moz-linear-gradient(top, @begin, @end); /* FF3.6 */
+    background-image: -ms-linear-gradient(top, @begin, @end); /* IE10 */
+    background-image: -o-linear-gradient(top, @begin, @end); /* Opera 11.10+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@begin), to(@end)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, @begin, @end); /* Chrome 10+, Saf5.1+ */
+    background-image: linear-gradient(top, @begin, @end);    
+}
+
+.css3_box_sizing( @type : border-box ) {
+    -webkt-box-sizing: @type;
+       -moz-box-sizing: @type;
+            box-sizing: @type;      
+}
+
+.horList (@float: none) {
+    float: @float;
+    clear: both;
+    list-style: none;
+    li {
+        display: inline;
+        a, span {
+            float:@float;
+            display: inline-block;
+        }
+    }
+}

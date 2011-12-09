@@ -1,0 +1,117 @@
+@baseFontSize: 15px;
+@space: 1.333; /* 14px * 1.333 (from the table above) */
+@baseFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@fancyFont: Georgia, "Times New Roman", serif;
+@smallestbaseFont: Verdana, sans-serif;
+
+/* Provide sub–, sup–like styles without affecting line-height: gist.github.com/413930 */
+.sub,
+.sup { line-height: 0; position: relative; }
+.sup { top: -0.5em; }
+.sub { bottom: -0.25em; }
+
+
+
+body {
+    font-size: @baseFontSize;
+    line-height: 1.5;
+    font-family: @baseFont;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.25;
+    font-family: @fancyFont;
+    font-weight: normal;
+    padding-bottom: 0.667em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+h1 {
+    font-size: 2.105em;
+}
+
+h2 {
+    font-size: 1.777em;
+}
+
+h3 {
+    font-size: 1.333em;
+}
+
+h4 {
+    font-size: 1.185em;
+}
+.normal {
+    font-size: 1em;
+}
+.smaller {
+    font-size: 0.75em;
+    font-family: @smallestbaseFont;
+}
+.smallest {
+    font-size: 10px;
+    font-family: @smallestbaseFont;
+}
+.larger {
+    font-size: 1.185em;
+}
+.largest {
+    font-size: 1.333em;
+}
+p, ul, ol, dl {
+    margin-top: 0;
+    margin-bottom: @space;
+}
+ul ul,
+ul ol,
+ul dl,
+ol ul,
+ol ol,
+ol dl {
+    margin-bottom: 0;
+}
+dt {
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: (@space / 2)/1.3;
+}
+.fontface dt {
+    font-style: normal;
+}
+dd {
+    margin-left: @space;
+}
+pre {
+    padding: @space @space;
+}
+table {
+    margin: @space @space;
+    th, td {
+        padding: 0.75em 1.333em;
+    }
+    table {
+        margin: 0;
+        th, td {
+            padding: 3px;
+        }
+    }
+}
+fieldset {
+    margin: @space @space 0;
+    padding: 0;
+    legend {
+        margin-left: 0;
+        margin-bottom: @space / 2;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    label {
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 0;
+    }
+}
