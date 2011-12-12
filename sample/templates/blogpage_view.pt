@@ -8,14 +8,14 @@
             </small>
             <tal:actions_menu
                     tal:content="lm.component('bottlecap.actions_menu')">
+            <p class="description">
+                Cras justo odio, dapibus ac facilisis in, egestas eget
+                quam.
+                Nullam quis risus eget urna mollis ornare vel eu leo.
+                Praesent
+                commodo cursus magna, vel scelerisque nisl consectetur et.
+            </p>
         </header>
-        <p class="description">
-            Cras justo odio, dapibus ac facilisis in, egestas eget
-            quam.
-            Nullam quis risus eget urna mollis ornare vel eu leo.
-            Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et.
-        </p>
         <div>
             <tal:actions_menu
                     tal:content="lm.component('sample.test_component')">
