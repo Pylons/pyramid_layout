@@ -1,4 +1,4 @@
-<metal:block use-macro="lm.layout('community')">
+<metal:block use-macro="lm.layout('global')">
     <metal:content fill-slot="content">
 
         <header>

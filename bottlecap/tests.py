@@ -40,7 +40,7 @@ class LayoutManagerTests(unittest.TestCase):
     def test_layout(self):        
         request = testing.DummyRequest()
         lm = LayoutManager(request.context, request)
-        self.assertTrue(repr(lm.layout('community'))
+        self.assertTrue(repr(lm.layout('global'))
                 .startswith('<PageTemplateFile'))
 
     def test_component(self):

@@ -24,7 +24,7 @@ def main():
     config.registry.settings['reload_templates'] = True
     config.include('bottlecap')
     config.add_bc_layout({
-        'site': 'sample:templates/site_layout.pt'
+        'site': 'templates/site_layout.pt'
         })
     config.add_bc_layoutmanager_factory(MyLayoutManager)
     config.scan('views')

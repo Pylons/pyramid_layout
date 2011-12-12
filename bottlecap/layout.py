@@ -10,7 +10,7 @@ from zope.interface import implements
 from zope.interface import Interface
 
 DEFAULT_LAYOUTS = {
-    'community': 'bottlecap:/templates/community_layout.pt',
+    'global': 'bottlecap:/templates/global_layout.pt',
     }
 
 
