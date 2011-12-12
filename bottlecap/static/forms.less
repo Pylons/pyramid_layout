@@ -24,12 +24,12 @@ fieldset {
   padding-top: @space * 1em;
   legend {
     display: block;
-    padding-left: 150px;
+    padding-left: 0;
     font-size: 1.185em;
     font-family: @fancyFont;
     line-height: 1;
     color: #000;
-    *padding: 0 0 5px 145px; /* IE6-7 */
+    *padding: 0 0 5px 0px; /* IE6-7 */
     *line-height: 1.5; /* IE6-7 */
   }
 }
@@ -38,6 +38,7 @@ fieldset {
 form .clearfix,
 form .field {
   margin-bottom: @space * 1em;
+  width: 100%;
   .clearfix()
 }
 
@@ -56,14 +57,13 @@ label {
   font-family: @fancyFont;
   line-height: 1.5;
   float: left;
-  width: 130px;
   text-align: right;
   color: #000;
 }
 
 // Shift over the inside div to align all label's relevant content
 form .input {
-  margin-left: 150px;
+
 }
 
 // Checkboxs and radio buttons
@@ -305,7 +305,7 @@ textarea[readonly] {
 .actions {
   margin-top: @space * 1em;
   margin-bottom: @space * 1em;
-  padding: (@space * 1em - 1) 20px @space * 1em 150px;
+  padding: (@space * 1em - 1) 20px @space * 1em 0px;
   .css3_border_radius(0 0 .3em .3em);
   .secondary-action {
     float: right;
