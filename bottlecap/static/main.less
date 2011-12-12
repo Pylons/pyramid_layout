@@ -279,9 +279,9 @@ figure {
     img {
 		display: block;
 	    border: 2px solid #fff;
-        -webkit-box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #bbb;
-       -moz-box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #bbb; 
-        box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #bbb;
+        -webkit-box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #999082;
+       -moz-box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #999082; 
+        box-shadow: 0 0 0 1px @baseColor2, 0 0 10px 1px #999082;
 	    .css3_box_sizing();
 	}
     figcaption {
@@ -991,10 +991,11 @@ body > footer {
     	vertical-align: top;
     	position: absolute;
     	top: 50%;
+    	right: 4px;
     	margin-left: 4px;
     	border-left: 4px solid transparent;
     	border-right: 4px solid transparent;
-    	border-top: 4px solid @baseColor4;
+    	border-top: 4px solid #fff;
     }
     .quickpanel,
     .dropdown {
@@ -1365,6 +1366,7 @@ body > footer {
     	font-size: 0.9em;
         > li > a {
             width: auto;
+            position: relative;
             background-image: none;
             display: inline-block;
             text-decoration: none;

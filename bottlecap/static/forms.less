@@ -486,147 +486,135 @@ textarea[readonly] {
   }
 }
 
-// Buttons
-.btn.danger,
-.alert-message.danger,
-.btn.danger:hover,
-.alert-message.danger:hover,
-.btn.error,
-.alert-message.error,
-.btn.error:hover,
-.alert-message.error:hover,
-.btn.success,
-.alert-message.success,
-.btn.success:hover,
-.alert-message.success:hover,
-.btn.info,
-.alert-message.info,
-.btn.info:hover,
-.alert-message.info:hover {
-  color: #ffffff;
+// BUTTON STYLES
+// -------------
+
+// Shared colors for buttons and alerts
+.btn,
+.alert-message {
+  // Set text color
+  &.danger,
+  &.danger:hover,
+  &.error,
+  &.error:hover,
+  &.success,
+  &.success:hover,
+  &.info,
+  &.info:hover {
+    color: #fff
+  }
+  // Sets the close button to the middle of message
+  .close{
+    font-family: Arial, sans-serif;
+    line-height: 18px;
+  }
+  // Danger and error appear as red
+  &.danger,
+  &.error {
+    .gradientBar(#ee5f5b, #c43c35);
+  }
+  // Success appears as green
+  &.success {
+    .gradientBar(#62c462, #57a957);
+  }
+  // Info appears as a neutral blue
+  &.info {
+    .gradientBar(#5bc0de, #339bb9);
+  }
 }
-.btn .close, .alert-message .close {
-  font-family: Arial, sans-serif;
-  line-height: 18px;
-}
-.btn.danger,
-.alert-message.danger,
-.btn.error,
-.alert-message.error {
-  background-repeat: repeat-x;
-  .css3_linear_gradient(#f1d693, #f1cd71);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-color: #c43c35 #c43c35 #882a25;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.btn.success, .alert-message.success {
-  background-repeat: repeat-x;
-  .css3_linear_gradient(#62c462, #57a957);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-color: #57a957 #57a957 #3d773d;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.btn.info, .alert-message.info {
-  background-repeat: repeat-x;
-  .css3_linear_gradient(#5bc0de, #339bb9);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-color: #339bb9 #339bb9 #22697d;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
+
+// Base .btn styles
 .btn {
+  // Button Base
   cursor: pointer;
   display: inline-block;
-  background-color: #e6e6e6;
-  background-repeat: no-repeat;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
-  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
-  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
-  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0)";
+  #css3_gradient > .vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
   padding: 5px 14px 6px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
   color: #333;
-  font-size: 13px;
+  font-size: @basefont;
   line-height: normal;
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -webkit-transition: 0.1s linear all;
-  -moz-transition: 0.1s linear all;
-  -ms-transition: 0.1s linear all;
-  -o-transition: 0.1s linear all;
-  transition: 0.1s linear all;
+  .css3_border_radius(4px);
+  @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  .css3_box_shadow(@shadow);
+
+  &:hover {
+    background-position: 0 -15px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    outline: 1px dotted #666;
+  }
+
+  // Primary Button Type
+  &.primary {
+    color: #fff;
+    .gradientBar(#7298a8, #47798f)
+  }
+
+   // Transitions
+  .css3_transition(.1s linear all);
+
+  // Active and Disabled states
+  &.active,
+  &:active {
+    @shadow: inset 0 2px 4px rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.05);
+    .css3_box_shadow(@shadow);
+  }
+  &.disabled {
+    cursor: default;
+    background-image: none;
+    .reset-filter();
+    .opacity(65);
+    .css3_box_shadow(none);
+  }
+  &[disabled] {
+    // disabled pseudo can't be included with .disabled
+    // def because IE8 and below will drop it ;_;
+    cursor: default;
+    background-image: none;
+    .reset-filter();
+    .opacity(65);
+    .css3_box_shadow(none);
+  }
+
+  // Button Sizes
+  &.large {
+    font-size: @basefont + 2px;
+    line-height: normal;
+    padding: 9px 14px 9px;
+    .css3_border_radius(6px);
+  }
+  &.small {
+    padding: 7px 9px 7px;
+    font-size: @basefont - 2px;
+  }
 }
-.btn:hover {
-  background-position: 0 -15px;
-  color: #333;
-  text-decoration: none;
-}
-.btn:focus {
-  outline: 1px dotted #666;
-}
-.btn.primary {
-  color: #ffffff;
-  background-repeat: repeat-x;
-  .css3_linear_gradient(#7298a8, #47798f);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-color: #47798f #47798f #7298a8;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.btn.active, .btn:active {
-  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-.btn.disabled {
-  cursor: default;
-  background-image: none;
-  filter: ~"progid:DXImageTransform.Microsoft.gradient(enabled = false)";
-  filter: alpha(opacity=65);
-  -khtml-opacity: 0.65;
-  -moz-opacity: 0.65;
-  opacity: 0.65;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.btn[disabled] {
-  cursor: default;
-  background-image: none;
-  filter: ~"progid:DXImageTransform.Microsoft.gradient(enabled = false)";
-  filter: alpha(opacity=65);
-  -khtml-opacity: 0.65;
-  -moz-opacity: 0.65;
-  opacity: 0.65;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.btn.large {
-  font-size: 15px;
-  line-height: normal;
-  padding: 9px 14px 9px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-}
-.btn.small {
-  padding: 7px 9px 7px;
-  font-size: 11px;
-}
-:root .alert-message, :root .btn {
+// Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons
+:root .alert-message,
+:root .btn {
   border-radius: 0 \0;
 }
-button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
-  padding: 0;
-  border: 0;
+
+// Help Firefox not be a jerk about adding extra padding to buttons
+button.btn,
+input[type=submit].btn {
+  &::-moz-focus-inner {
+  	padding: 0;
+  	border: 0;
+  }
+}
+// Opacity
+.opacity(@opacity: 100) {
+  filter: e(%("alpha(opacity=%d)", @opacity));
+  -khtml-opacity: @opacity / 100;
+    -moz-opacity: @opacity / 100;
+         opacity: @opacity / 100;
 }
 
 /* @end */
