@@ -808,51 +808,40 @@ ul.actionsMenu, ul.dropdown {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
-  background: #f1d693;
-  background-image: -moz-linear-gradient(top, #f1d693, #f1cd71);
-  /* FF3.6 */
-
-  background-image: -ms-linear-gradient(top, #f1d693, #f1cd71);
-  /* IE10 */
-
-  background-image: -o-linear-gradient(top, #f1d693, #f1cd71);
-  /* Opera 11.10+ */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1d693), to(#f1cd71));
-  /* Saf4+, Chrome */
-
-  background-image: -webkit-linear-gradient(top, #f1d693, #f1cd71);
-  /* Chrome 10+, Saf5.1+ */
-
-  background-image: linear-gradient(top, #f1d693, #f1cd71);
-  -webkit-box-shadow: 0 0 0.5em #b0a28f;
-  -moz-box-shadow: 0 0 0.5em #b0a28f;
-  box-shadow: 0 0 0.5em #b0a28f;
+  background-color: #e6c36c;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f1d693), to(#e6c36c));
+  background-image: -moz-linear-gradient(top, #f1d693, #e6c36c);
+  background-image: -ms-linear-gradient(top, #f1d693, #e6c36c);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f1d693), color-stop(100%, #e6c36c));
+  background-image: -webkit-linear-gradient(top, #f1d693, #e6c36c);
+  background-image: -o-linear-gradient(top, #f1d693, #e6c36c);
+  background-image: linear-gradient(top, #f1d693, #e6c36c);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1d693', endColorstr='#e6c36c', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #e6c36c #e6c36c #dba82b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 .notification a {
   border: none;
 }
 .notification.alert {
   color: #fff;
-  text-shadow: 0 1px 0 #e36143;
-  border: 1px solid #812821;
-  background: #e36143;
+  background-color: #aa342b;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#e36143), to(#aa342b));
   background-image: -moz-linear-gradient(top, #e36143, #aa342b);
-  /* FF3.6 */
-
   background-image: -ms-linear-gradient(top, #e36143, #aa342b);
-  /* IE10 */
-
-  background-image: -o-linear-gradient(top, #e36143, #aa342b);
-  /* Opera 11.10+ */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e36143), to(#aa342b));
-  /* Saf4+, Chrome */
-
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e36143), color-stop(100%, #aa342b));
   background-image: -webkit-linear-gradient(top, #e36143, #aa342b);
-  /* Chrome 10+, Saf5.1+ */
-
+  background-image: -o-linear-gradient(top, #e36143, #aa342b);
   background-image: linear-gradient(top, #e36143, #aa342b);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e36143', endColorstr='#aa342b', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #aa342b #aa342b #6d211c;
 }
 /* Images in the text */
 .image-left {
@@ -950,9 +939,9 @@ select,
   /*  color: @gray;*/
 
   border: 1px solid #bd9860;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1240,9 +1229,9 @@ textarea[readonly] {
   margin-top: 1.333em;
   margin-bottom: 1.333em;
   padding: 0.33299999999999996em 20px 1.333em 150px;
-  -webkit-border-radius: 0 0 3px 3px;
-  -moz-border-radius: 0 0 3px 3px;
-  border-radius: 0 0 3px 3px;
+  -webkit-border-radius: 0 0 0.3em 0.3em;
+  -moz-border-radius: 0 0 0.3em 0.3em;
+  border-radius: 0 0 0.3em 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1284,9 +1273,9 @@ textarea[readonly] {
   padding: 0 2px 0 1px;
 }
 .input-prepend input, .input-append input {
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 0.3em 0.3em 0;
+  -moz-border-radius: 0 0.3em 0.3em 0;
+  border-radius: 0 0.3em 0.3em 0;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1309,9 +1298,9 @@ textarea[readonly] {
 
   text-align: center;
   text-shadow: 0 1px 0 #fff;
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 0.3em 0 0 0.3em;
+  -moz-border-radius: 0.3em 0 0 0.3em;
+  border-radius: 0.3em 0 0 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1327,17 +1316,17 @@ textarea[readonly] {
 }
 .input-append input {
   float: left;
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 0.3em 0 0 0.3em;
+  -moz-border-radius: 0.3em 0 0 0.3em;
+  border-radius: 0.3em 0 0 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
 }
 .input-append .add-on {
-  -webkit-border-radius: 0 3px 3px 0;
-  -moz-border-radius: 0 3px 3px 0;
-  border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 0.3em 0.3em 0;
+  -moz-border-radius: 0 0.3em 0.3em 0;
+  border-radius: 0 0.3em 0.3em 0;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1518,9 +1507,9 @@ textarea[readonly] {
   line-height: normal;
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -1589,9 +1578,9 @@ textarea[readonly] {
   font-size: 15px;
   line-height: normal;
   padding: 9px 14px 9px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -2091,9 +2080,9 @@ body > footer {
     -webkit-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
     -moz-box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
     box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.8);
-    -webkit-border-radius: 0 0 0.4em 0.4em;
-    -moz-border-radius: 0 0 0.4em 0.4em;
-    border-radius: 0 0 0.4em 0.4em;
+    -webkit-border-radius: 0 0 0.3em 0.3em;
+    -moz-border-radius: 0 0 0.3em 0.3em;
+    border-radius: 0 0 0.3em 0.3em;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
@@ -2182,26 +2171,26 @@ body > footer {
     background: #000;
   }
   .no-touch li[data-quickpanel="dropdown"]:hover > a, li[data-quickpanel="quickpanel"].open > a.quickpanel-toggle, .touch li[data-quickpanel="dropdown"] > a.open {
-    -webkit-border-radius: 0.5em 0.5em 0 0;
-    -moz-border-radius: 0.5em 0.5em 0 0;
-    border-radius: 0.5em 0.5em 0 0;
+    -webkit-border-radius: 0.3em 0.3em 0 0;
+    -moz-border-radius: 0.3em 0.3em 0 0;
+    border-radius: 0.3em 0.3em 0 0;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
     background-color: #000 !important;
   }
   .no-touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1):hover > a, .touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1) > a.open {
-    -webkit-border-radius: 0.5em 0 0 0;
-    -moz-border-radius: 0.5em 0 0 0;
-    border-radius: 0.5em 0 0 0;
+    -webkit-border-radius: 0.3em 0 0 0;
+    -moz-border-radius: 0.3em 0 0 0;
+    border-radius: 0.3em 0 0 0;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
   .no-touch .actionsMenu li[data-quickpanel="dropdown"]:last-child:hover > a, .touch .actionsMenu li[data-quickpanel="dropdown"]:last-child > a.open {
-    -webkit-border-radius: 0 0.5em 0 0;
-    -moz-border-radius: 0 0.5em 0 0;
-    border-radius: 0 0.5em 0 0;
+    -webkit-border-radius: 0 0.3em 0 0;
+    -moz-border-radius: 0 0.3em 0 0;
+    border-radius: 0 0.3em 0 0;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
@@ -2548,33 +2537,33 @@ body > footer {
     border-bottom: none;
   }
   ul.actionsMenu > li:nth-child(1) a {
-    -webkit-border-radius: 0.5em 0 0 0.5em;
-    -moz-border-radius: 0.5em 0 0 0.5em;
-    border-radius: 0.5em 0 0 0.5em;
+    -webkit-border-radius: 0.3em 0 0 0.3em;
+    -moz-border-radius: 0.3em 0 0 0.3em;
+    border-radius: 0.3em 0 0 0.3em;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
   ul.actionsMenu > li:nth-child(1) a:hover {
-    -webkit-border-radius: 0.5em 0 0 0;
-    -moz-border-radius: 0.5em 0 0 0;
-    border-radius: 0.5em 0 0 0;
+    -webkit-border-radius: 0.3em 0 0 0;
+    -moz-border-radius: 0.3em 0 0 0;
+    border-radius: 0.3em 0 0 0;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
   ul.actionsMenu > li:last-child a {
-    -webkit-border-radius: 0 0.5em 0.5em 0;
-    -moz-border-radius: 0 0.5em 0.5em 0;
-    border-radius: 0 0.5em 0.5em 0;
+    -webkit-border-radius: 0 0.3em 0.3em 0;
+    -moz-border-radius: 0 0.3em 0.3em 0;
+    border-radius: 0 0.3em 0.3em 0;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
   ul.actionsMenu > li:last-child a:hover {
-    -webkit-border-radius: 0 0.5em 0 0;
-    -moz-border-radius: 0 0.5em 0 0;
-    border-radius: 0 0.5em 0 0;
+    -webkit-border-radius: 0 0.3em 0 0;
+    -moz-border-radius: 0 0.3em 0 0;
+    border-radius: 0 0.3em 0 0;
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;

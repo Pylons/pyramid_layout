@@ -547,17 +547,17 @@ ul.dropdown {
     text-shadow: 0 1px 0 #f1d693;
     
     .css3_border_radius(.3em);
-    .css3_linear_gradient(#f1d693, #f1cd71);
-    .css3_box_shadow(0 0 .5em #b0a28f);
+    .gradientBar(#f1d693, #e6c36c);
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    @shadow: inset 0 1px 0 rgba(255,255,255,.25); 
+    .css3_box_shadow(@shadow);
     a {
         border: none;
     }
 }
 .notification.alert {
     color: #fff;
-    text-shadow: 0 1px 0 #e36143;
-    border: 1px solid darken(#aa342b, 10%); 
-    .css3_linear_gradient(#e36143, #aa342b);
+    .gradientBar(#e36143, #aa342b);
 }
 
 /* Images in the text */
@@ -1013,7 +1013,7 @@ body > footer {
         color: #fff;
         .smaller();
         .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
-        .css3_border_radius(0 0 0.4em 0.4em);
+        .css3_border_radius(0 0 0.3em 0.3em);
         ul {
     	    clear: none;
     	    background: transparent;
@@ -1105,16 +1105,16 @@ body > footer {
     .no-touch li[data-quickpanel="dropdown"]:hover > a,
     li[data-quickpanel="quickpanel"].open > a.quickpanel-toggle,
     .touch li[data-quickpanel="dropdown"] > a.open {
-    	.css3_border_radius(0.5em 0.5em 0 0);
+    	.css3_border_radius(0.3em 0.3em 0 0);
     	background-color: #000 !important;
     }
     .no-touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1):hover > a,
     .touch .actionsMenu li[data-quickpanel="dropdown"]:nth-child(1) > a.open {
-        .css3_border_radius(.5em 0 0 0);
+        .css3_border_radius(.3em 0 0 0);
     }
     .no-touch .actionsMenu li[data-quickpanel="dropdown"]:last-child:hover > a,
     .touch .actionsMenu li[data-quickpanel="dropdown"]:last-child > a.open {
-        .css3_border_radius(0 .5em 0 0);
+        .css3_border_radius(0 .3em 0 0);
     }    
     .contentWrapper > aside.column {
         padding: (@space * 1em) 0;
@@ -1378,16 +1378,16 @@ body > footer {
             border-bottom: none;
     	}
     	> li:nth-child(1) a {
-            .css3_border_radius(.5em 0 0 .5em);    	    
+            .css3_border_radius(.3em 0 0 .3em);
     	}
     	> li:nth-child(1) a:hover {
-            .css3_border_radius(.5em 0 0 0);    	    
+            .css3_border_radius(.3em 0 0 0);    	    
     	}
         > li:last-child a {
-            .css3_border_radius(0 .5em .5em 0);    	    
+            .css3_border_radius(0 .3em .3em 0);
         }    	
         > li:last-child a:hover {
-            .css3_border_radius(0 .5em 0 0);    	    
+            .css3_border_radius(0 .3em 0 0);    	    
         }        
     	.dropdown {
     	    top: 1.823076923em;
