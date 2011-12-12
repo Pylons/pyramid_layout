@@ -784,7 +784,7 @@ section.main header h1 {
   padding: 0;
 }
 section.main header small {
-  color: #888888;
+  color: #555555;
   font-style: italic;
 }
 section.main header small a {
@@ -2545,13 +2545,26 @@ body > footer {
     background-image: none;
     display: inline-block;
     text-decoration: none;
-    padding: 0 1em;
-    background: #c5ae8b;
+    padding: .1em 1em;
+    background-color: #ab9779;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#c5ae8b), to(#ab9779));
+    background-image: -moz-linear-gradient(top, #c5ae8b, #ab9779);
+    background-image: -ms-linear-gradient(top, #c5ae8b, #ab9779);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c5ae8b), color-stop(100%, #ab9779));
+    background-image: -webkit-linear-gradient(top, #c5ae8b, #ab9779);
+    background-image: -o-linear-gradient(top, #c5ae8b, #ab9779);
+    background-image: linear-gradient(top, #c5ae8b, #ab9779);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c5ae8b', endColorstr='#ab9779', GradientType=0);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #ab9779 #ab9779 #847153;
     color: #fff;
     margin-right: 1px;
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
-    border-bottom: none;
+  }
+  ul.actionsMenu > li > a:hover {
+    border-bottom: 1px solid #000;
   }
   ul.actionsMenu > li:nth-child(1) a {
     -webkit-border-radius: 0.3em 0 0 0.3em;
@@ -2561,7 +2574,7 @@ body > footer {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
-  ul.actionsMenu > li:nth-child(1) a:hover {
+  ul.actionsMenu > li:nth-child(1) adropdown-toggle:hover {
     -webkit-border-radius: 0.3em 0 0 0;
     -moz-border-radius: 0.3em 0 0 0;
     border-radius: 0.3em 0 0 0;
@@ -2577,7 +2590,7 @@ body > footer {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
-  ul.actionsMenu > li:last-child a:hover {
+  ul.actionsMenu > li:last-child adropdown-toggle:hover {
     -webkit-border-radius: 0 0.3em 0 0;
     -moz-border-radius: 0 0.3em 0 0;
     border-radius: 0 0.3em 0 0;
@@ -2594,11 +2607,14 @@ body > footer {
     border: none;
     padding: 0.422em 1.333em;
   }
-  li[data-quickpanel="dropdown"] a {
-    padding-right: 1.199833333em;
-  }
-  ul.actionsMenu li[data-quickpanel="dropdown"] a {
-    padding-right: 1.9em;
+  /*    li[data-quickpanel="dropdown"] a {
+          padding-right: 1.199833333em;
+      }
+      ul.actionsMenu li[data-quickpanel="dropdown"] a {
+          padding-right: 1.9em;
+      }*/
+  li[data-quickpanel="dropdown"] a.dropdown-toggle:after {
+    display: none;
   }
   .sectionTools .dropdown, .sectionTools .quickpanel {
     top: 3.30987em;

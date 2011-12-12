@@ -523,7 +523,7 @@ section.main header {
         padding: 0;
     }
     small {
-        color: lighten(@baseFontColor, 40%);
+        color: lighten(@baseFontColor, 20%);
         font-style: italic;
         a {
             border-bottom: none;
@@ -1396,23 +1396,25 @@ body > footer {
             background-image: none;
             display: inline-block;
             text-decoration: none;
-            padding: 0 1em;
-        	background: #c5ae8b;
+            padding: .1em 1em;
+        	.gradientBar(#c5ae8b, #ab9779);            
             color:#fff;
             margin-right: 1px;
             .smaller();
-            border-bottom: none;
+            &:hover {
+                border-bottom: 1px solid #000;
+            }
     	}
     	> li:nth-child(1) a {
             .css3_border_radius(.3em 0 0 .3em);
     	}
-    	> li:nth-child(1) a:hover {
-            .css3_border_radius(.3em 0 0 0);    	    
+    	> li:nth-child(1) adropdown-toggle:hover {
+            .css3_border_radius(.3em 0 0 0);   	    
     	}
         > li:last-child a {
             .css3_border_radius(0 .3em .3em 0);
         }    	
-        > li:last-child a:hover {
+        > li:last-child adropdown-toggle:hover {
             .css3_border_radius(0 .3em 0 0);    	    
         }        
     	.dropdown {
@@ -1425,11 +1427,14 @@ body > footer {
     	    }
     	}
     }
-    li[data-quickpanel="dropdown"] a {
+/*    li[data-quickpanel="dropdown"] a {
         padding-right: 1.199833333em;
     }
     ul.actionsMenu li[data-quickpanel="dropdown"] a {
         padding-right: 1.9em;
+    }*/
+    li[data-quickpanel="dropdown"] a.dropdown-toggle:after {
+        display: none;
     }
     .sectionTools .dropdown,
     .sectionTools .quickpanel {
