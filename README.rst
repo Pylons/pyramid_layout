@@ -25,12 +25,12 @@ in Bottlecap:
 
 #. ``path/to/virtualenv/bin/python setup.py develop``
 
-#. ``path/to/virtualenv/bin/python sample/application``
+#. ``path/to/virtualenv/bin/python samples/minimum/application.py``
 
 #. Open ``http://localhost:8080`` in a browser.
 
 To see how you mix Bottlecap into your application,
-just look in ``sample/application.py`` and ``sample/views.py``.
+just look in ``samples`` at the ``minimum`` and ``maximum`` examples.
 
 Background
 ==========
