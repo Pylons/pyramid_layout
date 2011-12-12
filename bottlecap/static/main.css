@@ -1853,23 +1853,19 @@ body > footer {
     width: 2.35em;
   }
   #top-bar {
-    background: #444444;
+    background-color: #222222;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#444444), to(#222222));
     background-image: -moz-linear-gradient(top, #444444, #222222);
-    /* FF3.6 */
-  
     background-image: -ms-linear-gradient(top, #444444, #222222);
-    /* IE10 */
-  
-    background-image: -o-linear-gradient(top, #444444, #222222);
-    /* Opera 11.10+ */
-  
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#444444), to(#222222));
-    /* Saf4+, Chrome */
-  
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #444444), color-stop(100%, #222222));
     background-image: -webkit-linear-gradient(top, #444444, #222222);
-    /* Chrome 10+, Saf5.1+ */
-  
+    background-image: -o-linear-gradient(top, #444444, #222222);
     background-image: linear-gradient(top, #444444, #222222);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#222222', GradientType=0);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #222222 #222222 #000000;
+    text-shadow: 0 -1px 0 black;
   }
   #top-bar nav {
     float: none;
@@ -2133,15 +2129,19 @@ body > footer {
     border-top: 1px solid #222;
     padding: 0;
     margin-top: 0.6665em;
+    padding-top: 0.6665em;
+    position: relative;
   }
   .quickpanel-footer:before {
     content: "";
-    font-size: 0;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
     height: 1px;
     width: 100%;
     background: #333;
-    margin-bottom: 0.6665em;
   }
   a.open, #global-nav li a.open, .touch #global-nav li a.open {
     border-color: #222;
@@ -2337,23 +2337,20 @@ body > footer {
     margin-top: 0.2em;
   }
   .sectionContainer {
-    background: #61818f;
+    /*        .css3_linear_gradient(@baseColor3, #7298a8);*/
+  
+    background-color: #7298a8;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#61818f), to(#7298a8));
     background-image: -moz-linear-gradient(top, #61818f, #7298a8);
-    /* FF3.6 */
-  
     background-image: -ms-linear-gradient(top, #61818f, #7298a8);
-    /* IE10 */
-  
-    background-image: -o-linear-gradient(top, #61818f, #7298a8);
-    /* Opera 11.10+ */
-  
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#61818f), to(#7298a8));
-    /* Saf4+, Chrome */
-  
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #61818f), color-stop(100%, #7298a8));
     background-image: -webkit-linear-gradient(top, #61818f, #7298a8);
-    /* Chrome 10+, Saf5.1+ */
-  
+    background-image: -o-linear-gradient(top, #61818f, #7298a8);
     background-image: linear-gradient(top, #61818f, #7298a8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#61818f', endColorstr='#7298a8', GradientType=0);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-color: #7298a8 #7298a8 #4e717f;
   }
   .sectionContainer a {
     color: #dbcfc1;
@@ -2375,6 +2372,7 @@ body > footer {
     padding-left: 1.0022556390977442em;
     margin-top: 0;
     margin-bottom: 0;
+    text-shadow: none;
   }
   .sectionContainer header {
     margin: 0;

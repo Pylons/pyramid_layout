@@ -840,7 +840,8 @@ body > footer {
     	width: 2.35em;		    
     }
     #top-bar {
-    	.css3_linear_gradient(#444, #222);
+        .gradientBar(#444, #222);
+        text-shadow: 0 -1px 0 black;
         nav {
     	    .horList();
     	    clear:none;
@@ -1060,14 +1061,18 @@ body > footer {
         border-top: 1px solid #222;
         padding: 0;
         margin-top: (@space * 1em)/2;
+        padding-top: (@space * 1em)/2;
+        position: relative;
         &:before {
     	    content: "";
-    	    font-size: 0;
     	    display: block;
+    	    position: absolute;
+    	    top: 0;
+    	    left: 0;
+    	    font-size: 0;    	    
     	    height: 1px;
     	    width: 100%;
     	    background: #333;
-    	    margin-bottom: (@space * 1em)/2;
     	}
     }
     a.open,
@@ -1212,7 +1217,8 @@ body > footer {
         margin-top: 0.2em;
     }
     .sectionContainer {
-        .css3_linear_gradient(@baseColor3, #7298a8);
+/*        .css3_linear_gradient(@baseColor3, #7298a8);*/
+        .gradientBar(@baseColor3, #7298a8);
     	a {
     	    color: @baseColor2;
     	    text-decoration: none;
@@ -1233,6 +1239,7 @@ body > footer {
     	    padding-left: (@space * 1em)/1.33em;
     	    margin-top: 0;
     	    margin-bottom: 0;
+    	    text-shadow: none;
     	}
     	header {
     	    margin: 0;
