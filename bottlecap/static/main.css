@@ -1603,6 +1603,11 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   font-size: 1.333em;
 }
 /* Keywords */
+.contentWrapper footer {
+  content: "";
+  display: table;
+  *zoom: 1;
+}
 .keywords {
   float: none;
   clear: both;
