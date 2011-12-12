@@ -56,7 +56,6 @@ label {
   font-size: 0.889em;
   font-family: @fancyFont;
   line-height: 1.5;
-  float: left;
   text-align: right;
   color: #000;
 }
@@ -78,7 +77,7 @@ textarea,
 select,
 .uneditable-input {
   display: inline-block;
-  width: 28em;
+  width: 80%;
   height: @space * 1em;
   padding: .235294118em;
   font-size: .889em;
@@ -532,7 +531,7 @@ textarea[readonly] {
   padding: 5px 14px 6px;
   text-shadow: 0 1px 1px rgba(255,255,255,.75);
   color: #333;
-  font-size: @basefont;
+  font-size: 0.889em;
   line-height: normal;
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
@@ -585,14 +584,14 @@ textarea[readonly] {
 
   // Button Sizes
   &.large {
-    font-size: @basefont + 2px;
+    font-size: 1.2em;
     line-height: normal;
     padding: 9px 14px 9px;
     .css3_border_radius(.3em);
   }
   &.small {
     padding: 7px 9px 7px;
-    font-size: @basefont - 2px;
+    font-size: .8em;
   }
 }
 // Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons

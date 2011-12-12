@@ -917,7 +917,6 @@ label {
   font-size: 0.889em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  float: left;
   text-align: right;
   color: #000;
 }
@@ -929,7 +928,7 @@ textarea,
 select,
 .uneditable-input {
   display: inline-block;
-  width: 28em;
+  width: 80%;
   height: 1.333em;
   padding: .235294118em;
   font-size: .889em;
@@ -1501,7 +1500,7 @@ textarea[readonly] {
   padding: 5px 14px 6px;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   color: #333;
-  font-size: 13px;
+  font-size: 0.889em;
   line-height: normal;
   border: 1px solid #ccc;
   border-bottom-color: #bbb;
@@ -1573,7 +1572,7 @@ textarea[readonly] {
   box-shadow: none;
 }
 .btn.large {
-  font-size: 15px;
+  font-size: 1.2em;
   line-height: normal;
   padding: 9px 14px 9px;
   -webkit-border-radius: 0.3em;
@@ -1585,7 +1584,7 @@ textarea[readonly] {
 }
 .btn.small {
   padding: 7px 9px 7px;
-  font-size: 11px;
+  font-size: .8em;
 }
 :root .alert-message, :root .btn {
   border-radius: 0 \0;
@@ -2195,6 +2194,9 @@ body > footer {
   }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
+    content: "";
+    display: table;
+    *zoom: 1;
   }
   .contentWrapper > aside.column .portlet {
     float: left;
@@ -2214,6 +2216,7 @@ body > footer {
   }
   label {
     width: 20%;
+    float: left;
   }
   form .input {
     margin-left: 25%;
