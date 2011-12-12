@@ -236,11 +236,16 @@ a,
 a:visited {
     color: saturate(@baseColor3, 30%);
     text-decoration: none;
-    border-bottom: 1px solid @baseColor4;
+}
+.contenttext a, .contentText a:visited {
+    border-bottom: 1px solid @baseColor4;    
 }
 a:hover {
     color: darken(saturate(@baseColor4, 30%), 20%);
     text-decoration: none;
+    border-bottom: none;
+}
+.contenttext a:hover {
     border-bottom: none;
 }
 h1 {
@@ -352,7 +357,7 @@ figure {
     padding: 0;
     font-family: Verdana, Tahoma, Trebuchet MS, sans-serif;
     li a {
-	    padding: 0 0.667em;
+	    padding: 0 0.75em;
 	    margin: 0;
 	    position: relative;	    
 	}
@@ -484,7 +489,8 @@ nav.search button.searchButton {
     width: 100%;
     text-align: center;
     a {
-	    color: @baseColor1;	    
+	    color: @baseColor1;
+        text-shadow: none;
 	}
 }
 .sectionContainer .container section,
@@ -622,38 +628,62 @@ td {
     }
     a {
         .smaller();
-        border: none;
-        background: @baseColor1;
-        padding: 0 .5em;
-        color: #fff;
-        margin-right: 0.5em;
-        .css3_border_radius(.3em);
-/*        padding-right: 1.78em;
-        &:after {
-            content: "X";
-            position: absolute;
-            top: 50%;
-            margin-top: -0.7em;
-            right: .1em;
+        float: left;
+        margin-right: .2em;
+        position: relative;
+        .keyword {
+            position: relative;
+            z-index: 2;
+            float: left;
+            #css3_gradient > .vertical(#f3e4ce, #e1d4bf);
+            text-shadow: 0 1px 0 rgba(255,255,255,.6);
+            border-width: .1em;
+            border-style: solid;
+            border-color: darken(#e1d4bf, 15%) darken(#e1d4bf, 40%) darken(#e1d4bf, 30%) darken(#e1d4bf, 15%);
+            padding: .1em 1em;
+            color: #222;   
+            .css3_border_radius(.3em 0 0 .3em);    
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 50%;
+                margin-top: -0.2em;
+                right: -0.2em;
+                background: darken(#e1d4bf, 30%);
+                border-width: .1em;
+                border-style: solid;
+                border-color: darken(#e1d4bf, 35%) darken(#e1d4bf, 30%) darken(#e1d4bf, 40%) darken(#e1d4bf, 40%);
+                height: .4em;
+                width: .4em;
+                .css3_border_radius(50%);
+            }                 
+        }
+        .keywordCounter {
+            position: relative;
+            z-index: 1;
+            float: left;            
+            margin-left: -1.3em;            
+            padding: .1em .5em;
+            background: darken(#e1d4bf, 30%);
+            border: .1em solid darken(#e1d4bf, 30%);
             color: #fff;
-            background: #ff0000;
-            .css3_border_radius(.625em);
-            padding: 0.1em;
-            height: 1.4em;
-            width: 1.4em;
-            text-align: center;
-            font-weight: bold;
-            font-size: 0.8em;
-            .css3_box_shadow(-2px 0 0 darken(saturate(@baseColor3, 30%), 20%));
-        }*/
+            text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+            .css3_border_radius(0 .3em .3em 0);
+            .css3_transition(margin-left .2s ease-out);
+        }
+        &:hover .keywordCounter {
+            margin-left: 0em;
+        }
     }
 }
 form.addKeyword {
     float: left;
+/*    clear: left;*/
     fieldset {
-        background: #fff;
+        background: lighten(#f3e4ce, 5%);
         .css3_border_radius(.3em);
-        border: 1px solid @baseColor1;
+        border: 1px solid darken(#e1d4bf, 40%);
         position: relative;
         padding-top: 0;
         margin-bottom: 0;
@@ -676,11 +706,12 @@ form.addKeyword {
         position: absolute;
         top: 0;
         right: -1px;
-        background: @baseColor1;
         color: #fff;
         .smaller();
         line-height: 1.5em;
         padding: 0em .666666667em;
+        #css3_gradient > .vertical(darken(#e1d4bf, 30%), darken(#e1d4bf, 40%));
+        text-shadow: 0 1px 0 rgba(0,0,0,.25);
         .css3_border_radius(0 .3em .3em 0);
         height: 100%;
     }
@@ -885,19 +916,19 @@ body > footer {
             border-bottom: none;	
             position: static;	    
         }
-        a {
-        	padding: 0 0.667em;
+        > li > a {
         	margin: 0 1px 0 0;
         	position: relative;
         	z-index: 1;
         	display: block;
         	line-height: 2.6923em;
         	font-family: @fancyFont;
+            font-weight: normal;
         	font-size: 0.889em;
-        	color: #fff;
+        	color: #bbb;
         	background-image: none;
         	&:hover { 
-        		color: @baseColor4;
+        		color: #fff;
         	}		   
         }
         a.quickpanel-toggle {
@@ -905,9 +936,10 @@ body > footer {
             background-position: 50% 50%;
         }
         .selected a {
-        	color: @baseColor4;	
+        	color: #fff;	
         	margin-bottom: 0;
-        	background: transparent;
+        	background: #000;
+            font-weight: normal;
         	&:hover {
                 border-bottom: none;
                 cursor: text;
@@ -1217,8 +1249,8 @@ body > footer {
         margin-top: 0.2em;
     }
     .sectionContainer {
-/*        .css3_linear_gradient(@baseColor3, #7298a8);*/
         .gradientBar(@baseColor3, #7298a8);
+        text-shadow: none;
     	a {
     	    color: @baseColor2;
     	    text-decoration: none;
@@ -1239,7 +1271,6 @@ body > footer {
     	    padding-left: (@space * 1em)/1.33em;
     	    margin-top: 0;
     	    margin-bottom: 0;
-    	    text-shadow: none;
     	}
     	header {
     	    margin: 0;
@@ -1427,13 +1458,10 @@ body > footer {
     	    }
     	}
     }
-/*    li[data-quickpanel="dropdown"] a {
+    li[data-quickpanel="dropdown"] a {
         padding-right: 1.199833333em;
     }
-    ul.actionsMenu li[data-quickpanel="dropdown"] a {
-        padding-right: 1.9em;
-    }*/
-    li[data-quickpanel="dropdown"] a.dropdown-toggle:after {
+    ul.actionsMenu li[data-quickpanel="dropdown"] a.dropdown-toggle:after {
         display: none;
     }
     .sectionTools .dropdown,
@@ -1539,11 +1567,12 @@ body > footer {
         width: auto;
         padding: 0 (@space * 1em)/2;
         a {
-            color: #fff;
+            color: #bbb;
     	    line-height: 2.8em;
+    	    text-shadow: 0 -1px 0 black;
     	}
         a:hover{
-    	    color: @baseColor4;
+    	    color: #fff;
     	}
     	li:nth-child(1) a {
     		background-color: transparent;

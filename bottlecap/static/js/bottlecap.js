@@ -63,7 +63,7 @@
     
     $('form.addKeyword').bind('submit', function (e) {
         var keywordsList = $(this).prev('ul.keywords');
-        keywordsList.append('<li><a href="#">'+ $('input[type="text"]', $(this)).val() +'</a></li>');
+        keywordsList.append('<li><a href="#"><span class="keyword">'+ $('input[type="text"]', $(this)).val() +'</span><span class="keywordCounter"></span></a></li>');
         return false;
     });
 

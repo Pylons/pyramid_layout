@@ -116,3 +116,10 @@
 .reset-filter() {
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
+// Opacity
+.opacity(@opacity: 100) {
+  filter: e(%("alpha(opacity=%d)", @opacity));
+  -khtml-opacity: @opacity / 100;
+    -moz-opacity: @opacity / 100;
+         opacity: @opacity / 100;
+}

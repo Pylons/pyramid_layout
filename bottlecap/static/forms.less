@@ -556,9 +556,6 @@ textarea[readonly] {
     .gradientBar(#7298a8, #47798f)
   }
 
-   // Transitions
-  .css3_transition(.1s linear all);
-
   // Active and Disabled states
   &.active,
   &:active {
@@ -607,13 +604,6 @@ input[type=submit].btn {
   	padding: 0;
   	border: 0;
   }
-}
-// Opacity
-.opacity(@opacity: 100) {
-  filter: e(%("alpha(opacity=%d)", @opacity));
-  -khtml-opacity: @opacity / 100;
-    -moz-opacity: @opacity / 100;
-         opacity: @opacity / 100;
 }
 
 /* @end */
