@@ -75,7 +75,7 @@ class LayoutManagerTests(unittest.TestCase):
         request = testing.DummyRequest()
         lm = LayoutManager(request.context, request)
         self.assertIsInstance(lm.global_nav_menus, list)
-        self.assertTrue(lm.global_nav_menus[0], 'Intranet')
+        self.assertEquals(lm.global_nav_menus[0]['title'], 'Item 1')
 
     def test_structure(self):
         from bottlecap.layout import Structure
