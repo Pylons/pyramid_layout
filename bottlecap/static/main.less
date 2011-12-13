@@ -1023,25 +1023,29 @@ body > footer {
     }
     
     /* @group Quickpanels & Dropdowns */
+    .quickpanel-toggle,
+    .dropdown-toggle {
+        position: relative;
+    }
     .quickpanel-toggle:after,
     .dropdown-toggle:after {
         /* Triangle after the normal quickpanel/dropdown toggle */
     	width: 0;
     	height: 0;
-    	display: inline-block;
+    	display: block;
     	content: "";
     	text-indent: -99999px;
     	vertical-align: top;
     	position: absolute;
     	top: 50%;
     	right: .5em;
-    	margin-left: 4px;
+    	margin-top: -4px;
     	border-left: 4px solid transparent;
     	border-right: 4px solid transparent;
     	border-top: 4px solid #fff;
     }
     ul.sectionTools .dropdown-toggle:after {
-        top: 1.25em;
+        margin-top: -4px;
         border-top-color: lighten(#204A5D, 10%);
     }
     .quickpanel,
@@ -1174,8 +1178,9 @@ body > footer {
     	    width: 48%;
     	    margin-right: 4%;
     	}
-    	.portlet:nth-child(even) {
+    	.portlet:nth-child(2) {
     	    margin-right: 0;
+    	    width: 47%;
     	}
     	.portlet h3 {
     	    font-size: 1.333em;
@@ -1389,9 +1394,9 @@ body > footer {
     #top-bar nav {
         position: relative;
     }
-    #top-bar nav a.quickpanel-toggle:after {
+/*    #top-bar nav a.quickpanel-toggle:after {
     	margin-top: 1.1em;
-    }
+    }*/
     #top-bar ul#global-nav a {
         font-size: 0.82em;
     }
