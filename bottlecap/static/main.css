@@ -2044,7 +2044,7 @@ body > footer {
     width: 19px;
   }
   #global-nav a.moreToggle {
-    background-image: url('img/cog.png');
+    background-image: url('img/cog_globalnav.png');
   }
   .ie8 .quickpanel-toggle:after, .ie8 .dropdown-toggle:after {
     font-size: 0;
@@ -2056,7 +2056,7 @@ body > footer {
     background-image: url('img/cog.png');
   }
   #global-nav a.moreToggle:hover {
-    background-image: url('img/cog_globalnav_hover.png');
+    background-image: url('img/cog.png');
   }
   #global-nav li[data-quickpanel="quickpanel"] {
     display: block;
@@ -2854,8 +2854,8 @@ body > footer {
     padding: 1.33em 10%;
   }
   #top-bar, .sectionContainer {
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 /* @end */
