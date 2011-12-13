@@ -1503,7 +1503,7 @@ textarea[readonly] {
   background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
   background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-  padding: 5px 14px 6px;
+  padding: .5em 1em;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   color: #333;
   font-size: 0.889em;
@@ -2096,11 +2096,14 @@ body > footer {
     vertical-align: top;
     position: absolute;
     top: 50%;
-    right: 4px;
+    right: .5em;
     margin-left: 4px;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px solid #fff;
+  }
+  ul.sectionTools .dropdown-toggle:after {
+    top: 1.25em;
   }
   .quickpanel, .dropdown {
     display: none;
@@ -2499,7 +2502,7 @@ body > footer {
   }
   ul.sectionTools a {
     padding: 0.6665em;
-    background-position: 50%;
+    background-position: 50% .685294118em;
     background-repeat: no-repeat;
   }
   ul.sectionTools .selected a, ul.sectionTools .selected a:hover {
@@ -2628,7 +2631,7 @@ body > footer {
   ul.actionsMenu > li > a:hover {
     border-color: #000;
   }
-  ul.actionsMenu > li:nth-child(1) a {
+  ul.actionsMenu > li:nth-child(1) > a {
     -webkit-border-radius: 0.3em 0 0 0.3em;
     -moz-border-radius: 0.3em 0 0 0.3em;
     border-radius: 0.3em 0 0 0.3em;
@@ -2636,7 +2639,7 @@ body > footer {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
-  ul.actionsMenu > li:nth-child(1) adropdown-toggle:hover {
+  ul.actionsMenu > li:nth-child(1) > adropdown-toggle:hover {
     -webkit-border-radius: 0.3em 0 0 0;
     -moz-border-radius: 0.3em 0 0 0;
     border-radius: 0.3em 0 0 0;
@@ -2644,7 +2647,7 @@ body > footer {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
-  ul.actionsMenu > li:last-child a {
+  ul.actionsMenu > li:last-child > a {
     -webkit-border-radius: 0 0.3em 0.3em 0;
     -moz-border-radius: 0 0.3em 0.3em 0;
     border-radius: 0 0.3em 0.3em 0;
@@ -2652,7 +2655,7 @@ body > footer {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
   }
-  ul.actionsMenu > li:last-child adropdown-toggle:hover {
+  ul.actionsMenu > li:last-child > adropdown-toggle:hover {
     -webkit-border-radius: 0 0.3em 0 0;
     -moz-border-radius: 0 0.3em 0 0;
     border-radius: 0 0.3em 0 0;

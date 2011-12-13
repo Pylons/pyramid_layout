@@ -1028,11 +1028,14 @@ body > footer {
     	vertical-align: top;
     	position: absolute;
     	top: 50%;
-    	right: 4px;
+    	right: .5em;
     	margin-left: 4px;
     	border-left: 4px solid transparent;
     	border-right: 4px solid transparent;
     	border-top: 4px solid #fff;
+    }
+    ul.sectionTools .dropdown-toggle:after {
+        top: 1.25em;
     }
     .quickpanel,
     .dropdown {
@@ -1333,7 +1336,7 @@ body > footer {
     	}
     	a {
         	padding: (@space * 1em)/2;
-    	    background-position: 50%;
+    	    background-position: 50% .685294118em;
     	    background-repeat: no-repeat;
     	}
         .selected a,
@@ -1441,16 +1444,16 @@ body > footer {
                 border-color: #000;
             }
     	}
-    	> li:nth-child(1) a {
+    	> li:nth-child(1) > a {
             .css3_border_radius(.3em 0 0 .3em);
     	}
-    	> li:nth-child(1) adropdown-toggle:hover {
+    	> li:nth-child(1) > adropdown-toggle:hover {
             .css3_border_radius(.3em 0 0 0);   	    
     	}
-        > li:last-child a {
+        > li:last-child > a {
             .css3_border_radius(0 .3em .3em 0);
         }    	
-        > li:last-child adropdown-toggle:hover {
+        > li:last-child > adropdown-toggle:hover {
             .css3_border_radius(0 .3em 0 0);    	    
         }        
     	.dropdown {
