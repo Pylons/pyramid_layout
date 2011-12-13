@@ -2621,7 +2621,7 @@ body > footer {
     font-family: Verdana, sans-serif;
   }
   ul.actionsMenu > li > a:hover {
-    border-bottom: 1px solid #000;
+    border-color: #000;
   }
   ul.actionsMenu > li:nth-child(1) a {
     -webkit-border-radius: 0.3em 0 0 0.3em;
