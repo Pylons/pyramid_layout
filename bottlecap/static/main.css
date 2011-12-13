@@ -1973,7 +1973,6 @@ body > footer {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    margin-bottom: -3px;
   }
   #global-nav li {
     float: left;
