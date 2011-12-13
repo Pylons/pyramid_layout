@@ -1649,7 +1649,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   background-image: linear-gradient(top, #f3e4ce, #e1d4bf);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3e4ce', endColorstr='#e1d4bf', GradientType=0);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-  border-width: .1em;
+  border-width: 1px;
   border-style: solid;
   border-color: #c9b18b #907344 #b08e57 #c9b18b;
   padding: .1em 1em;
@@ -1669,7 +1669,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   margin-top: -0.2em;
   right: -0.2em;
   background: #b08e57;
-  border-width: .1em;
+  border-width: 1px;
   border-style: solid;
   border-color: #a2814c #b08e57 #907344 #907344;
   height: .4em;
@@ -1687,7 +1687,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   float: left;
   padding: .1em .5em;
   background: #b08e57;
-  border: 0.1em solid #b08e57;
+  border: 1px solid #b08e57;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   -webkit-border-radius: 0 0.3em 0.3em 0;
@@ -1724,7 +1724,7 @@ form.addKeyword fieldset {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
-  border: 0.1em solid #907344;
+  border: 1px solid #907344;
   position: relative;
   padding-top: 0;
   margin-bottom: 0;
