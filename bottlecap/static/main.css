@@ -2820,6 +2820,7 @@ body > footer {
   }
   .sectionContainer h2 {
     padding-top: 0.667em;
+    padding-left: .50112782em;
     font-size: 1.333em;
   }
   .sectionContainer nav.search {
@@ -2831,6 +2832,7 @@ body > footer {
   ul.sectionTools {
     clear: both;
     font-size: 1em;
+    padding-left: 0;
   }
   /* @end */
   #members-info {
@@ -2924,11 +2926,25 @@ body > footer {
   .contentWrapper {
     padding: 1.33em 10%;
   }
+  .contentWrapper section.main {
+    display: inline;
+    float: left;
+    width: 55.77014067602967%;
+    margin-left: 1.281596328651826%;
+    margin-right: 1.281596328651826%;
+  }
+  .contentWrapper > aside.column {
+    display: inline;
+    float: left;
+    width: 39.10347400936301%;
+    margin-left: 1.281596328651826%;
+    margin-right: 1.281596328651826%;
+  }
   .contentWrapper > aside.column .portlet {
     float: left;
     width: 48%;
+    font-size: 0.889em;
     margin-right: 4%;
-    font-size: 0.8em;
   }
   .contentWrapper > aside.column .portlet:nth-child(even) {
     margin-right: 0;
