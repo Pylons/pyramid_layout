@@ -2326,7 +2326,7 @@ body > footer {
     font-weight: normal;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0 0.5em 0 0;
-    color: #222222;
+    color: #444;
     position: relative;
     overflow: hidden;
     /* to not let <select> to 'stretch' longer than it's needed */
@@ -2349,6 +2349,7 @@ body > footer {
     -moz-background-clip: padding-box;
     background-clip: padding-box;
     pointer-events: none;
+    border: 1px solid #fff;
   }
   nav.search span.fieldCoverage:after {
     content: "";
@@ -2359,7 +2360,7 @@ body > footer {
     right: 0;
     height: 1.5em;
     width: 16px;
-    background: #c1d3db;
+    background: #204a5d;
     -webkit-border-radius: 0 0.3em 0.3em 0;
     -moz-border-radius: 0 0.3em 0.3em 0;
     border-radius: 0 0.3em 0.3em 0;
@@ -2754,6 +2755,56 @@ body > footer {
   }
   nav.search form:before {
     display: none;
+  }
+  nav.search span.fieldCoverage {
+    display: inline-block;
+    padding: 0 25px 0 .7em;
+    margin: 0;
+    position: relative;
+    line-height: 1.5em;
+    background: #97b9c7;
+    color: #444444;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    border-radius: 0.3em;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    pointer-events: none;
+    border: 1px solid #97B9C7;
+  }
+  nav.search span.fieldCoverage:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height: 1.5em;
+    width: 16px;
+    background: #204a5d;
+    -webkit-border-radius: 0 0.3em 0.3em 0;
+    -moz-border-radius: 0 0.3em 0.3em 0;
+    border-radius: 0 0.3em 0.3em 0;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    *line-height: 0;
+  }
+  nav.search span.fieldCoverage:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -2px;
+    right: 4px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #b8cfd9;
+    *line-height: 0;
   }
   nav.search label {
     color: #eadecc;

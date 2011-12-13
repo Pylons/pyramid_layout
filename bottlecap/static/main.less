@@ -1228,13 +1228,14 @@ body > footer {
         font-weight: normal;
         font-family: @fancyFont;
         margin: 0 0.5em 0 0;
-        color: @baseFontColor;
+        color: #444;
         position: relative;
         overflow: hidden; /* to not let <select> to 'stretch' longer than it's needed */
         .smaller();
     }   
     nav.search span.fieldCoverage {
-        .quickpanelToggle(#fff, @baseColor4, @baseFontColor);
+        .quickpanelToggle(#fff, #204A5D, @baseFontColor);
+        border: 1px solid #fff;
     }
     nav.search select {
         display: block;
@@ -1556,6 +1557,10 @@ body > footer {
     nav.search form:before {
         display: none;
     }   
+    nav.search span.fieldCoverage {
+        .quickpanelToggle(#97B9C7, #204A5D, #444);
+        border: 1px solid #97B9C7;
+    }
     nav.search label {
         color: @bodyBg;
     }
