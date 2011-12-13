@@ -724,9 +724,10 @@ form.addKeyword {
 /* @group Footer */
 
 body > footer {
-    border-top: 1px solid darken(@baseColor2, 10%);
-    background: @baseColor2;
-    padding: (@space * 1em)/2 (@space * 1em) (@space * 1em)*1.5;
+    border-top: 2px solid lighten(@baseColor1, 20%);
+    background-color:@baseColor1;
+    color: #fff;
+    padding: 1.333em (@space * 1em);
     text-align: center;
     .smaller();
 }
@@ -1036,6 +1037,7 @@ body > footer {
     }
     ul.sectionTools .dropdown-toggle:after {
         top: 1.25em;
+        border-top-color: lighten(#204A5D, 10%);
     }
     .quickpanel,
     .dropdown {
@@ -1069,7 +1071,6 @@ body > footer {
     	    line-height: normal;
     	    font-size: 1em;
     	    background: transparent;
-    	    font-weight: bold;
     	    text-decoration: none;
     	}
     	figure {
@@ -1091,7 +1092,6 @@ body > footer {
         line-height: normal;
         font-size: 1em;
         background: transparent;
-        font-weight: bold;
         text-decoration: underline;
     }
     .quickpanel-footer {
@@ -1254,10 +1254,11 @@ body > footer {
         margin-top: 0.2em;
     }
     .sectionContainer {
-        .gradientBar(@baseColor3, #7298a8);
+        .gradientBar(@baseColor3, #82adbf);
         text-shadow: none;
     	a {
-    	    color: @baseColor2;
+/*    	    color: #204A5D;
+    	    text-shadow: 0 1px 0 rgba(255,255,255,.1);*/
     	    text-decoration: none;
     	    &:hover {
     		    color: #fff;
@@ -1291,18 +1292,26 @@ body > footer {
     	padding:0 0 0 (@space * 1em)/2;
     	font-family: @fancyFont;
     	font-size: 0.889em;
-        li {
+        > li {
             position: relative;
     	    float:left;
-    	    a {
+    	    > a {
     	        display: block;
     	        border-bottom: none;
     	        padding-top: .3em;
     	        margin-top: .3em;
+                color: #204A5D;
+                text-shadow: 0 1px 0 rgba(255,255,255,.1);    	        
     	        &:hover {
     	            text-decoration: none;
     	        }
     	    }
+    	}
+    	> li[data-quickpanel='dropdown']:hover > a {
+    	    color: #fff;
+    	}
+    	> li[data-quickpanel='dropdown']:hover > a:after {
+            border-top-color: #fff;
     	}
     	.dropdown ul,
     	.quickpanel ul {
@@ -1561,9 +1570,6 @@ body > footer {
     ul.sectionTools {
         clear: both;
         font-size: 1em;
-    }
-    .sectionContainer section .quickpanel {
-        font-size: 0.667em;
     }
     
     /* @end */
