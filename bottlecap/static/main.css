@@ -2462,6 +2462,8 @@ body > footer {
   ul.sectionTools li a {
     display: block;
     border-bottom: none;
+    padding-top: .3em;
+    margin-top: .3em;
   }
   ul.sectionTools li a:hover {
     text-decoration: none;
