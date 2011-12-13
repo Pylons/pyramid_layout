@@ -1685,7 +1685,6 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   position: relative;
   z-index: 1;
   float: left;
-  margin-left: -1.3em;
   padding: .1em .5em;
   background: #b08e57;
   border: 0.1em solid #b08e57;
@@ -1704,6 +1703,12 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   transition: margin-left 0.2s ease-out;
 }
 .keywords a:hover .keywordCounter {
+  margin-left: 0em;
+}
+.no-touch a .keywordCounter {
+  margin-left: -1.3em;
+}
+.no-touch a:hover .keywordCounter {
   margin-left: 0em;
 }
 form.addKeyword {

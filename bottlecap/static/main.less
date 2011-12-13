@@ -662,8 +662,7 @@ td {
         .keywordCounter {
             position: relative;
             z-index: 1;
-            float: left;            
-            margin-left: -1.3em;            
+            float: left;         
             padding: .1em .5em;
             background: darken(#e1d4bf, 30%);
             border: .1em solid darken(#e1d4bf, 30%);
@@ -676,6 +675,12 @@ td {
             margin-left: 0em;
         }
     }
+}
+.no-touch a .keywordCounter {
+    margin-left: -1.3em;
+}
+.no-touch a:hover .keywordCounter {
+    margin-left: 0em;
 }
 form.addKeyword {
     float: left;
