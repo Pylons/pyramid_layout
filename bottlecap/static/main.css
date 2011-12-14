@@ -1638,16 +1638,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   position: relative;
   z-index: 2;
   float: left;
-  background-color: #e1d4bf;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#f3e4ce), to(#e1d4bf));
-  background-image: -moz-linear-gradient(top, #f3e4ce, #e1d4bf);
-  background-image: -ms-linear-gradient(top, #f3e4ce, #e1d4bf);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f3e4ce), color-stop(100%, #e1d4bf));
-  background-image: -webkit-linear-gradient(top, #f3e4ce, #e1d4bf);
-  background-image: -o-linear-gradient(top, #f3e4ce, #e1d4bf);
-  background-image: linear-gradient(top, #f3e4ce, #e1d4bf);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3e4ce', endColorstr='#e1d4bf', GradientType=0);
+  background: #f3e4ce;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
   border-width: 1px;
   border-style: solid;
@@ -2290,6 +2281,7 @@ body > footer {
   /* @end */
   fieldset legend {
     padding-left: 25%;
+    width: 75%;
     *padding: 0 0 5px 23%;
   }
   label {
