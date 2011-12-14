@@ -1180,7 +1180,6 @@ body > footer {
     	}
     	.portlet:nth-child(2) {
     	    margin-right: 0;
-    	    width: 47%;
     	}
     	.portlet h3 {
     	    font-size: 1.333em;
@@ -1637,12 +1636,16 @@ body > footer {
     .contentWrapper > aside.column {
         border-top: none;
         .column(4);
-        padding: ((@space * 1em) * 2) 0;
+        padding: 1.593137252em 0 (@space * 2em);
     }
     .contentWrapper > aside.column .portlet {
         float: none;
         width: 100%;
         margin: 0;
+    }
+    .portlet h3 {
+        margin-top: 0;
+        padding-top: .269230769em;
     }
     /* @end */
 }
@@ -1679,14 +1682,28 @@ body > footer {
         .column(5);
     }
     .contentWrapper > aside.column .portlet {
-        float: left;
+/*        float: left;
         width: 48%;
         font-size: 0.889em;
-        margin-right: 4%;
-    }    
-    .contentWrapper > aside.column .portlet:nth-child(even) {
-        margin-right: 0;
+        margin-right: 4%;*/
+/*        .column(6);
+        .alpha();*/
+        @x: 6;
+        display: inline;
+        float: left;
+        width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width) + (@total-width*((@gutter-width*.5)/@_gridsystem-width));
+        margin-left: 0;
+        margin-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	        
     }
+    .contentWrapper > aside.column .portlet:nth-child(even) {
+        @x: 6;
+        display: inline;
+        float: left;
+        width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width) + (@total-width*((@gutter-width*.5)/@_gridsystem-width));
+        margin-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
+        margin-right: 0;	        
+    }
+/*    .ie7*/
 }
 /* @end */
 

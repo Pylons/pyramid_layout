@@ -2273,7 +2273,6 @@ body > footer {
   }
   .contentWrapper > aside.column .portlet:nth-child(2) {
     margin-right: 0;
-    width: 47%;
   }
   .contentWrapper > aside.column .portlet h3 {
     font-size: 1.333em;
@@ -2890,12 +2889,16 @@ body > footer {
     width: 30.770140676029676%;
     margin-left: 1.281596328651826%;
     margin-right: 1.281596328651826%;
-    padding: 2.666em 0;
+    padding: 1.593137252em 0 2.666em;
   }
   .contentWrapper > aside.column .portlet {
     float: none;
     width: 100%;
     margin: 0;
+  }
+  .portlet h3 {
+    margin-top: 0;
+    padding-top: .269230769em;
   }
   /* @end */
 }
@@ -2937,14 +2940,28 @@ body > footer {
     margin-right: 1.281596328651826%;
   }
   .contentWrapper > aside.column .portlet {
+    /*        float: left;
+          width: 48%;
+          font-size: 0.889em;
+          margin-right: 4%;*/
+  
+    /*        .column(6);
+          .alpha();*/
+  
+    display: inline;
     float: left;
-    width: 48%;
-    font-size: 0.889em;
-    margin-right: 4%;
+    width: 48.718403671348156%;
+    margin-left: 0;
+    margin-right: 1.281596328651826%;
   }
   .contentWrapper > aside.column .portlet:nth-child(even) {
+    display: inline;
+    float: left;
+    width: 48.718403671348156%;
+    margin-left: 1.281596328651826%;
     margin-right: 0;
   }
+  /*    .ie7*/
 }
 /* @end */
 /* ==|== non-semantic helper classes ========================================
