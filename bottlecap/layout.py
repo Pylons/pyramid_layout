@@ -1,4 +1,4 @@
-#import types
+import sys
 
 from pyramid.decorator import reify
 from pyramid.renderers import get_renderer
@@ -12,6 +12,9 @@ from zope.interface import Interface
 DEFAULT_LAYOUTS = {
     'global': 'bottlecap:/templates/global_layout.pt',
     }
+
+
+_marker = object()
 
 
 class ILayoutManagerFactory(Interface):
@@ -36,7 +39,28 @@ class LayoutManager(object):
         return macro
 
     def component(self, name):
-        return Structure(render_view(self.context, self.request, name))
+        # If called from a Chameleon template the active template variables
+        # are accessible by going up on stack frame and getting the 'econtext'
+        # local. We want to capture the current template context and execute
+        # the component view in the same context. If we're able to find an
+        # econtext, we attach it to the request object where our BeforeRender
+        # handler will use it to set renderer globals.
+        parent_locals = sys._getframe(1).f_locals
+        econtext = parent_locals.get('econtext')
+        prev_econtext = _marker
+        request = self.request
+        if econtext:
+            # Don't clobber previously set econtext, just store it here at this
+            # point in the call stack and restore it when we're done.
+            prev_econtext = getattr(request, '_parent_econtext', _marker)
+            request._parent_econtext = econtext
+        try:
+            return Structure(render_view(self.context, request, name))
+        finally:
+            if prev_econtext is not _marker:
+                request._parent_econtext = prev_econtext
+            elif econtext:
+                del request._parent_econtext
 
     @reify
     def context_url(self):

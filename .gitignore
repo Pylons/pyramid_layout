@@ -6,4 +6,4 @@ lib
 *.egg
 *.DS_Store
 .coverage
-
+*.swp

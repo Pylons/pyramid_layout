@@ -23,6 +23,15 @@ def add_renderer_globals(event):
         lm._add_layout(bc['layouts'])
     event['lm'] = lm
 
+    # If being called on a layout component, the econtext of the calling
+    # template will be stashed away on the request.  This should be used
+    # to update the globals.  It shouldn't clobber anything already added.
+    econtext = getattr(request, '_parent_econtext', None)
+    if econtext:
+        for k, v in econtext.items():
+            if k not in event:
+                event[k] = v
+
 
 def includeme(config):
     config.registry.settings['bc'] = {}

@@ -1,6 +1,6 @@
-try:
+try: #pragma NO COVERAGE
     import unittest2 as unittest
-except ImportError:
+except ImportError: #pragma NO COVERAGE
     import unittest
 
 from pyramid import testing
@@ -32,6 +32,20 @@ class MainTests(unittest.TestCase):
         settings = request.registry.settings
         self.assertTrue('bc' in settings)
 
+    def test_add_renderer_globals_w_econtext(self):
+        from bottlecap import add_renderer_globals
+
+        request = testing.DummyRequest()
+        request._parent_econtext = {'establishment': 'clause'}
+        event = {
+            'request': request,
+            'context': request.context
+            }
+        add_renderer_globals(event)
+        settings = request.registry.settings
+        self.assertTrue('bc' in settings)
+        self.assertEqual(event['establishment'], 'clause')
+
 
 class LayoutManagerTests(unittest.TestCase):
     def setUp(self):
@@ -56,6 +70,21 @@ class LayoutManagerTests(unittest.TestCase):
             'bottlecap.column_one']
         for view in views:
             self.assertNotEqual(lm.component(view), None)
+
+    def test_component_w_econtext(self):
+        request = testing.DummyRequest()
+        lm = LayoutManager(request.context, request)
+        econtext = {'grit': 'cakes'} # Used by lm.component
+        lm.component('bottlecap.global_nav')
+        self.assertFalse(hasattr('request', '_parent_econtext'))
+
+    def test_component_w_nested_econtext(self):
+        request = testing.DummyRequest()
+        request._parent_econtext = 'falafel'
+        lm = LayoutManager(request.context, request)
+        econtext = {'grit': 'cakes'} # Used by lm.component
+        lm.component('bottlecap.global_nav')
+        self.assertEqual(request._parent_econtext, 'falafel')
 
     def test_app_url(self):
         request = testing.DummyRequest()
