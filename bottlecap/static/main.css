@@ -2747,6 +2747,12 @@ body > footer {
     border: none;
     padding-left: 0;
     padding-right: 0;
+    padding-top: .882352941em;
+    white-space: nowrap;
+  }
+  .searchInputWrapper {
+    padding-top: .3em;
+    padding-bottom: .3em;
   }
   nav.search form:before {
     display: none;
@@ -2984,7 +2990,7 @@ body > footer {
     padding-top: .2em;
     padding-bottom: .3em;
   }
-  nav.search span.fieldCoverage::after {
+  nav.search span.fieldCoverage:after {
     height: 1.9em;
   }
 }
