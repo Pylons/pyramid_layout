@@ -1,12 +1,10 @@
-import unittest
+import unittest2 as unittest
 
 from pyramid import testing
-from pyramid.view import render_view
 
 from bottlecap.layout import (
     ILayoutManagerFactory,
     LayoutManager,
-    add_bc_layoutmanager_factory
     )
 
 
@@ -37,7 +35,7 @@ class LayoutManagerTests(unittest.TestCase):
         self.config = testing.setUp()
         self.config.include('bottlecap')
 
-    def test_layout(self):        
+    def test_layout(self):
         request = testing.DummyRequest()
         lm = LayoutManager(request.context, request)
         self.assertTrue(repr(lm.layout('global'))
@@ -90,4 +88,4 @@ class LayoutManagerTests(unittest.TestCase):
         request = testing.DummyRequest()
         lm = request.registry.queryUtility(ILayoutManagerFactory)
         self.assertNotEqual(lm, None)
-        
+
