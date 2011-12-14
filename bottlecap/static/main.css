@@ -2915,6 +2915,26 @@ body > footer {
     padding-left: 10%;
     padding-right: 10%;
   }
+  .sectionContainer section {
+    display: inline;
+    float: left;
+    width: 64.103474009363%;
+    margin-left: 1.281596328651826%;
+    margin-right: 1.281596328651826%;
+  }
+  .sectionContainer nav.search {
+    display: inline;
+    float: left;
+    width: 30.770140676029676%;
+    margin-left: 1.281596328651826%;
+    margin-right: 1.281596328651826%;
+  }
+  .sectionContainer h2 {
+    padding-left: 0;
+  }
+  ul.sectionTools > li:first-child > a {
+    padding-left: 0;
+  }
 }
 /* @end */
 /* @group 2024 */
@@ -2925,14 +2945,14 @@ body > footer {
   .contentWrapper {
     padding: 1.33em 10%;
   }
-  .contentWrapper section.main {
+  .contentWrapper section.main, .sectionContainer section {
     display: inline;
     float: left;
     width: 55.77014067602967%;
     margin-left: 1.281596328651826%;
     margin-right: 1.281596328651826%;
   }
-  .contentWrapper > aside.column {
+  .contentWrapper > aside.column, .sectionContainer nav.search {
     display: inline;
     float: left;
     width: 39.10347400936301%;
@@ -2940,14 +2960,6 @@ body > footer {
     margin-right: 1.281596328651826%;
   }
   .contentWrapper > aside.column .portlet {
-    /*        float: left;
-          width: 48%;
-          font-size: 0.889em;
-          margin-right: 4%;*/
-  
-    /*        .column(6);
-          .alpha();*/
-  
     display: inline;
     float: left;
     width: 48.718403671348156%;
@@ -2955,13 +2967,26 @@ body > footer {
     margin-right: 1.281596328651826%;
   }
   .contentWrapper > aside.column .portlet:nth-child(even) {
-    display: inline;
-    float: left;
-    width: 48.718403671348156%;
     margin-left: 1.281596328651826%;
     margin-right: 0;
   }
-  /*    .ie7*/
+  .ie7 .contentWrapper > aside.column .portlet {
+    width: 48.218403671348156%;
+  }
+  nav.search form {
+    text-align: right;
+    padding-top: 1.333em;
+  }
+  nav.search fieldset {
+    display: inline;
+  }
+  .searchInputWrapper, nav.search span.fieldCoverage {
+    padding-top: .2em;
+    padding-bottom: .3em;
+  }
+  nav.search span.fieldCoverage::after {
+    height: 1.9em;
+  }
 }
 /* @end */
 /* ==|== non-semantic helper classes ========================================
