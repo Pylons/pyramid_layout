@@ -914,8 +914,6 @@ fieldset legend {
 form .clearfix, form .field {
   margin-bottom: 1.333em;
   width: 100%;
-  content: "";
-  display: table;
   *zoom: 1;
 }
 label {
@@ -1605,8 +1603,6 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 /* Keywords */
 .contentWrapper footer {
-  content: "";
-  display: table;
   *zoom: 1;
 }
 .keywords {
@@ -2262,8 +2258,6 @@ body > footer {
   }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
-    content: "";
-    display: table;
     *zoom: 1;
   }
   .contentWrapper > aside.column .portlet {
