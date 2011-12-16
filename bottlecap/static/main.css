@@ -1780,13 +1780,60 @@ body > footer {
 }
 #chatter-panel .chatter-content {
   background-color: #eadecc;
-  padding: 25px;
+  padding: 10px 10%;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+}
+#chatter-panel .chatter-content .on-your-mind {
+  display: inline;
+  float: left;
+  width: 39.10347400936301%;
+  margin-left: 1.281596328651826%;
+  margin-right: 1.281596328651826%;
+}
+#chatter-panel .chatter-content .your-stream {
+  display: inline;
+  float: left;
+  width: 26.60347400936301%;
+  margin-left: 1.281596328651826%;
+  margin-right: 1.281596328651826%;
+}
+#chatter-panel .chatter-content .recent-friend {
+  display: inline;
+  float: left;
+  width: 26.60347400936301%;
+  margin-left: 1.281596328651826%;
+  margin-right: 1.281596328651826%;
+}
+#chatter-panel .chatter-content .tips {
+  font-size: 0.65em;
+  font-style: italic;
+}
+#chatter-panel .chatter-content .stream-item {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  margin-bottom: 20px;
+  display: block;
+}
+#chatter-panel .chatter-content .stream-item .stream-image {
+  width: 42px;
+  height: 42px;
+  float: left;
+}
+#chatter-panel .chatter-content .stream-item .stream-content, #chatter-panel .chatter-content .stream-item .stream-footer {
+  margin-left: 42px;
+  padding-left: 10px;
+  display: block;
+}
+#chatter-panel .chatter-content .stream-item .stream-footer .more {
+  float: left;
+}
+#chatter-panel .chatter-content .stream-item .stream-footer .timestamp {
+  float: right;
 }
 /* @group HTML5 boilerplate helpers */
 /* ==|== media queries ======================================================
