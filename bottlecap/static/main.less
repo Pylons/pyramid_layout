@@ -739,6 +739,17 @@ body > footer {
 
 /* @end */
 
+#chatter-panel {
+    background-color: @baseColor3;
+    display: none;
+    padding: 5px;
+    .chatter-content {
+        background-color: @bodyBg;
+        padding: 25px;
+        .css3_border_radius()
+    }
+}
+
 /* @group HTML5 boilerplate helpers */
 
 /* ==|== media queries ======================================================
@@ -1407,7 +1418,7 @@ body > footer {
     	height: 2.2em;
     	width: 2.2em;		    
     }
-    .no-generatedcontent #top-bar nav .selected {
+    .no-generatedcontent #top-bar nav .selected, #members-info .selected {
     	background-position: 50% 100%;
     	background-color: transparent;
     	background-repeat: no-repeat;

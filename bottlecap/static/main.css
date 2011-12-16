@@ -914,8 +914,6 @@ fieldset legend {
 form .clearfix, form .field {
   margin-bottom: 1.333em;
   width: 100%;
-  content: "";
-  display: table;
   *zoom: 1;
 }
 label {
@@ -1605,8 +1603,6 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 /* Keywords */
 .contentWrapper footer {
-  content: "";
-  display: table;
   *zoom: 1;
 }
 .keywords {
@@ -1777,6 +1773,21 @@ body > footer {
   font-family: Verdana, sans-serif;
 }
 /* @end */
+#chatter-panel {
+  background-color: #61818f;
+  display: none;
+  padding: 5px;
+}
+#chatter-panel .chatter-content {
+  background-color: #eadecc;
+  padding: 25px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
 /* @group HTML5 boilerplate helpers */
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
@@ -2262,8 +2273,6 @@ body > footer {
   }
   .contentWrapper > aside.column {
     padding: 1.333em 0;
-    content: "";
-    display: table;
     *zoom: 1;
   }
   .contentWrapper > aside.column .portlet {
@@ -2561,7 +2570,7 @@ body > footer {
     height: 2.2em;
     width: 2.2em;
   }
-  .no-generatedcontent #top-bar nav .selected {
+  .no-generatedcontent #top-bar nav .selected, #members-info .selected {
     background-position: 50% 100%;
     background-color: transparent;
     background-repeat: no-repeat;

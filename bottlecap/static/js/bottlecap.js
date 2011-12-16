@@ -82,6 +82,7 @@
 
         show: function(callback) {
             var self = this;
+            $('a#chatter').parent().addClass('selected');
             if (this.state != this._STATES.HIDDEN) {
                 // Ignore it if we are not showable.
                 if (callback) {
@@ -109,6 +110,7 @@
 
         hide: function(callback) {
             var self = this;
+            $('a#chatter').parent().removeClass('selected');
             if (this.state != this._STATES.VISIBLE) {
                 // Ignore it if we are not hidable.
                 if (callback) {
