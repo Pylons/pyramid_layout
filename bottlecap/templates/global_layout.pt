@@ -84,6 +84,9 @@
     <![endif]-->
 
     <script type="text/javascript" defer
+            src="${lm.bottlecap_static}js/jquery.ui.widget.js"></script>
+
+    <script type="text/javascript" defer
             src="${lm.bottlecap_static}js/bottlecap.js"></script>
     <script type="text/javascript"
             src="${lm.bottlecap_static}js/dropdown.js"></script>
