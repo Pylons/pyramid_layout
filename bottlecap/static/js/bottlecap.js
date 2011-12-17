@@ -244,12 +244,10 @@
     $(function() {
 
         var microtemplateChatter = $('<div id="microtemplate-chatter"></div>')
-            .insertAfter('#top-bar');
-        microtemplateChatter
+            .insertAfter('#top-bar')
             .microtemplate({
                 name: 'chatter'
-                });
-        microtemplateChatter
+                })
             .expandpanel({
                 beforeShow: function(evt) {
                     chatterLink.parent().addClass('selected');
