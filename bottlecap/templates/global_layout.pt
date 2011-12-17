@@ -30,6 +30,9 @@
         <script src="${lm.bottlecap_static}js/modernizr-2.0.6.min.js"></script>
         <script src="${lm.bottlecap_static}js/respond.min.js"></script>
 
+        <script language="javascript" type="text/javascript">
+            window.head_data = <span tal:replace="structure lm.head_data_json"></span>;
+        </script>
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>

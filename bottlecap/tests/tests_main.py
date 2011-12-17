@@ -120,4 +120,3 @@ class LayoutManagerTests(unittest.TestCase):
         request = testing.DummyRequest()
         lm = request.registry.queryUtility(ILayoutManagerFactory)
         self.assertNotEqual(lm, None)
-

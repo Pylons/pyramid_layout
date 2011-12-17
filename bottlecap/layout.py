@@ -1,4 +1,5 @@
 import sys
+import json
 
 from pyramid.decorator import reify
 from pyramid.renderers import get_renderer
@@ -8,6 +9,9 @@ from pyramid.view import render_view
 
 from zope.interface import implements
 from zope.interface import Interface
+
+from bottlecap.utils import get_microtemplates
+
 
 DEFAULT_LAYOUTS = {
     'global': 'bottlecap:/templates/global_layout.pt',
@@ -86,6 +90,37 @@ class LayoutManager(object):
             dict(title="Item 5", selected=None),
             ]
         return menu_items
+
+    
+    # --
+    # Head data and microtemplates management
+    # --
+
+    @property
+    def head_data(self):
+        if getattr(self, '_head_data', None) is None:
+            self._head_data = {
+                'microtemplates': self.microtemplates,
+            }
+        return self._head_data
+
+    @property
+    def head_data_json(self):
+        return json.dumps(self.head_data)
+
+    def use_microtemplates(self, names):
+        self._used_microtemplate_names = names
+        self._microtemplates = None
+        # update head data with it
+        self.head_data['microtemplates'] = self.microtemplates
+
+    @property
+    def microtemplates(self):
+        """Render the whole microtemplates dictionary"""
+        if getattr(self, '_microtemplates', None) is None:
+            self._microtemplates = get_microtemplates(
+                names=getattr(self, '_used_microtemplate_names', ()))
+        return self._microtemplates
 
 
 class Structure(unicode):

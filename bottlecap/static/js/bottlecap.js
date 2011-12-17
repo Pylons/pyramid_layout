@@ -70,19 +70,72 @@
 
 
     // --
-    // Component for Chatter
+    // Component for expanding panels
     // --
+    
 
-    $.widget('bc.chatterpanel', {
+    $.widget('bc.microtemplate', {
 
         options: {
-            container: 'body',
-            insertMethod: 'insertAfter'
+            //name: ''           // name of the microtemplate
+        },
+
+        render: function(data) {
+            var rendered = this._rendered(data);
+            this.element.html(rendered);
+            // allow chaining
+            return this;
+        },
+
+
+        // --
+        // private parts
+        // --
+        
+
+        _create: function() {
+            var self = this;
+            if (! (this.options.name && this.options.name.length > 0)) {
+                throw new Error('bc.microtemplate: "name" option is mandatory.');
+            }
+        },
+
+
+        //destroy: function() {
+        //    // In jQuery UI 1.8, you must invoke the destroy method from the base widget
+        //    $.Widget.prototype.destroy.call( this );
+        //    // In jQuery UI 1.9 and above, you would define _destroy instead of destroy and not call the base method
+        //}
+        
+        _rendered: function(data) {
+            var head_data = window.head_data || {};
+            var microtemplates = head_data.microtemplates || {};
+            var template = microtemplates[this.options.name];
+            if (template === undefined) {
+                throw new Error('bc.microtemplate: "' + this.options.name + '" template does not exist in head_data.microtemplates.');
+            }
+
+            // XXX We ignore data now, and just return
+            // the template from the head data.
+            result = template;
+
+            return result;
+        }
+
+    });
+
+
+    $.widget('bc.expandpanel', {
+
+        options: {
+            //beforeShow: function(evt) {},    // onBeforeShow event handler
+            //show: function(evt) {},    // onShow event handler
+            //beforeHide: function(evt) {},    // onBeforeHide event handler
+            //hide: function(evt) {}    // onHide event handler
         },
 
         show: function(callback) {
             var self = this;
-            $('a#chatter').parent().addClass('selected');
             if (this.state != this._STATES.HIDDEN) {
                 // Ignore it if we are not showable.
                 if (callback) {
@@ -91,6 +144,7 @@
             } else {
                 // Show it.
                 this.state = this._STATES.TO_VISIBLE;
+                this._trigger('beforeShow', null);
                 this.element.show();
                 this.element.css('height', '100%');
                 var height = this.element.height();
@@ -103,14 +157,16 @@
                         if (callback) {
                             callback();
                         }
+                        self._trigger('show', null);
                     });
                 
             }
+            // allow chaining
+            return this;
         },
 
         hide: function(callback) {
             var self = this;
-            $('a#chatter').parent().removeClass('selected');
             if (this.state != this._STATES.VISIBLE) {
                 // Ignore it if we are not hidable.
                 if (callback) {
@@ -119,6 +175,7 @@
             } else {
                 // Hide it.
                 this.state = this._STATES.TO_HIDDEN;
+                this._trigger('beforeShow', null);
                 this.element
                     .animate({
                         height: 0
@@ -128,8 +185,11 @@
                         if (callback) {
                             callback();
                         }
+                        self._trigger('hide', null);
                     });
             }
+            // allow chaining
+            return this;
         },
 
         toggle: function(callback) {
@@ -143,7 +203,8 @@
                     callback();
                 }
             }
-
+            // allow chaining
+            return this;
         },
 
 
@@ -161,12 +222,6 @@
 
         _create: function() {
             var self = this;
-            // Fill in the content for now. We will want this to
-            // come from a microtemplate.
-            // For now, we just reposition the tag to the
-            // position as specified in the container option.
-            var content = this.options.content;
-            this.element[this.options.insertMethod](this.options.container);
             // initialize the content to hidden
             this.state = this._STATES.HIDDEN;
             this.element.hide();
@@ -187,14 +242,33 @@
     // --
     
     $(function() {
-        $('#chatter-panel').chatterpanel({
-            container: '#top-bar'
+
+        var microtemplateChatter = $('<div id="microtemplate-chatter"></div>')
+            .insertAfter('#top-bar');
+        microtemplateChatter
+            .microtemplate({
+                name: 'chatter'
+                });
+        microtemplateChatter
+            .expandpanel({
+                beforeShow: function(evt) {
+                    chatterLink.parent().addClass('selected');
+                },
+                hide: function(evt) {
+                    chatterLink.parent().addClass('selected');
+                }
         });
 
-        $('#chatter').click(function() {
-            $('#chatter-panel').chatterpanel('toggle');
-            return false;
-        });
+        var data = {};
+
+        var chatterLink = $('a#chatter')
+            .click(function() {
+                microtemplateChatter
+                    .microtemplate('render', data)
+                    .expandpanel('toggle');
+                return false;
+            });
+
     });
 
 
