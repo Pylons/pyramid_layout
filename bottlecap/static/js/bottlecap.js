@@ -115,11 +115,10 @@
                 throw new Error('bc.microtemplate: "' + this.options.name + '" template does not exist in head_data.microtemplates.');
             }
 
-            // XXX We ignore data now, and just return
-            // the template from the head data.
-            result = template;
+            // Render the template.
+            var html = Mustache.to_html(template, data);
 
-            return result;
+            return html;
         }
 
     });
@@ -256,8 +255,10 @@
                     chatterLink.parent().addClass('selected');
                 }
         });
-
-        var data = {};
+        
+        var head_data = window.head_data || {};
+        var data = head_data.panel_data.chatter;
+        log('preload data for chatter panel:', data);
 
         var chatterLink = $('a#chatter')
             .click(function() {

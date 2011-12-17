@@ -1,56 +1,39 @@
 <div id="chatter-panel">
     <div class="chatter-content clearfix">
         <div class="on-your-mind">
-			<h3>On your mind...</h3>
-			<form class="form-stacked" href="#">
-				<div class="clearfix">
-					<div class="input">
-						<textarea id="mywords" name="mywords"></textarea>
-						<span class="help-block tips">Tips: Use @username, #tag, and #this for this page</span>
-					</div>
-				</div>
-				<div class="actions">
-					<input type="submit" value="speak" class="btn primary">
-				</div>
-			</form>
-		</div>
-		<div class="your-stream">
-			<h3>@plonepaul (to you)</h3>
-			<div class="stream-items">
-				
-				<div class="stream-item clearfix" tal:repeat="row 1, 2, 3">
-					<div class="stream-image">
-						<img src="http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png">
-					</div>
-					<div class="stream-content">
-						Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh...
-					</div>
-					<div class="stream-footer">
-						<span class="more">more</span>
-						<span class="timestamp">(3 min ago, 2 files)</span>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-		<div class="recent-friend">
-			<h3>Recent Friend Chatter</h3>
-			<div class="stream-items">
-				
-				<div class="stream-item clearfix" tal:repeat="row 1, 2, 3">
-					<div class="stream-image">
-						<img src="http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png">
-					</div>
-					<div class="stream-content">
-						Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh...
-					</div>
-					<div class="stream-footer">
-						<span class="more">more</span>
-						<span class="timestamp">(3 min ago, 2 files)</span>
-					</div>
-				</div>
-				
-			</div>
-		</div>
+            <h3>On your mind...</h3>
+            <form class="form-stacked" href="#">
+                <div class="clearfix">
+                    <div class="input">
+                        <textarea id="mywords" name="mywords"></textarea>
+                        <span class="help-block tips">Tips: Use @username, #tag, and #this for this page</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <input type="submit" value="speak" class="btn primary">
+                </div>
+            </form>
+        </div>
+        {{#streams}}
+        <div class="{{class}}">
+            <h3>{{title}}</h3>
+            <div class="stream-items">
+                {{#items}}
+                <div class="stream-item clearfix">
+                    <div class="stream-image">
+                        <img src="{{image_url}}">
+                    </div>
+                    <div class="stream-content">
+                        {{text}}
+                    </div>
+                    <div class="stream-footer">
+                        <span class="more">more</span>
+                        <span class="timestamp">{{info}}</span>
+                    </div>
+                </div>
+                {{/items}}
+            </div>
+        </div>
+        {{/streams}}
     </div>
 </div>

@@ -93,7 +93,7 @@
             src="${lm.bottlecap_static}js/bottlecap.js"></script>
     <script type="text/javascript"
             src="${lm.bottlecap_static}js/dropdown.js"></script>
-
+    <script src="${lm.bottlecap_static}js/mustache-0.3.0.js" type="text/javascript"></script>
     <metal:tailslot metal:define-slot="tail_slot"/>
 
     </body>
