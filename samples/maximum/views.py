@@ -1,3 +1,4 @@
+from bottlecap.panel import panel_config
 from pyramid.view import view_config
 
 
@@ -15,9 +16,9 @@ class SampleBlogView(object):
     def testpage_view(self):
         return {"project": "Some Project"}
 
-    @view_config('sample.test_component',
-            renderer="templates/test_component.pt")
-    def test_component(self):
+    @panel_config('sample.test_panel',
+            renderer="templates/test_panel.pt")
+    def test_panel(self):
         return {}
 
     @view_config('sample.global_nav',

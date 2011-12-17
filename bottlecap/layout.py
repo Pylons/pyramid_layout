@@ -1,13 +1,13 @@
-import sys
-
+from bottlecap.interfaces import IPanel
 from pyramid.decorator import reify
 from pyramid.renderers import get_renderer
 from pyramid.url import resource_url
 from pyramid.url import static_url
-from pyramid.view import render_view
 
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import providedBy
+
 
 DEFAULT_LAYOUTS = {
     'global': 'bottlecap:/templates/global_layout.pt',
@@ -38,29 +38,12 @@ class LayoutManager(object):
         macro = renderer.implementation()
         return macro
 
-    def component(self, name):
-        # If called from a Chameleon template the active template variables
-        # are accessible by going up on stack frame and getting the 'econtext'
-        # local. We want to capture the current template context and execute
-        # the component view in the same context. If we're able to find an
-        # econtext, we attach it to the request object where our BeforeRender
-        # handler will use it to set renderer globals.
-        parent_locals = sys._getframe(1).f_locals
-        econtext = parent_locals.get('econtext')
-        prev_econtext = _marker
+    def panel(self, name, *args, **kw):
+        context = self.context
         request = self.request
-        if econtext:
-            # Don't clobber previously set econtext, just store it here at this
-            # point in the call stack and restore it when we're done.
-            prev_econtext = getattr(request, '_parent_econtext', _marker)
-            request._parent_econtext = econtext
-        try:
-            return Structure(render_view(self.context, request, name))
-        finally:
-            if prev_econtext is not _marker:
-                request._parent_econtext = prev_econtext
-            elif econtext:
-                del request._parent_econtext
+        adapters = request.registry.adapters
+        panel = adapters.lookup((providedBy(context),), IPanel, name=name)
+        return Structure(panel(context, request, *args, **kw))
 
     @reify
     def context_url(self):
