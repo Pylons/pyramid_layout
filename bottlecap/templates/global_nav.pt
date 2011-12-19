@@ -5,6 +5,7 @@
                  width="25" height="26" alt="KARL logo" />
             KARL
         </a>
+        <small>(3)</small>
     </h1>
     <div data-quickpanel="quickpanel" class="topNavIconWrapper">
         <h2 id="navigation-toggle" class="quickpanel-toggle ir">Navigation</h2>
