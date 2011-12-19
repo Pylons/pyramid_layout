@@ -135,6 +135,7 @@ class LayoutManager(object):
                                 }],
                             }],
                         },
+                    'radar': {}
                     },
                 }
         return self._head_data

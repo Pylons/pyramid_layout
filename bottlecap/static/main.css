@@ -1773,6 +1773,20 @@ body > footer {
   font-family: Verdana, sans-serif;
 }
 /* @end */
+#radar-panel {
+  background-color: #61818f;
+  padding: 5px;
+}
+#radar-panel .radar-content {
+  background-color: #eadecc;
+  padding: 10px 10%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
 #chatter-panel {
   background-color: #61818f;
   padding: 5px;

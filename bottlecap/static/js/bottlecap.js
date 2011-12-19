@@ -127,6 +127,7 @@
     $.widget('bc.expandpanel', {
 
         options: {
+            fullWindow: false
             //beforeShow: function(evt) {},    // onBeforeShow event handler
             //show: function(evt) {},    // onShow event handler
             //beforeHide: function(evt) {},    // onBeforeHide event handler
@@ -145,7 +146,8 @@
                 this.state = this._STATES.TO_VISIBLE;
                 this._trigger('beforeShow', null);
                 this.element.show();
-                this.element.css('height', '100%');
+                this_height = (this.options.fullWindow) ? $(window).height() - ($('#top-bar').height() * 2) : '100%';
+                this.element.css('height', this_height);
                 var height = this.element.height();
                 this.element.height(0);
                 this.element
@@ -242,6 +244,8 @@
     
     $(function() {
 
+        var head_data = window.head_data || {};
+
         var microtemplateChatter = $('<div id="microtemplate-chatter"></div>')
             .insertAfter('#top-bar')
             .microtemplate({
@@ -252,18 +256,44 @@
                     chatterLink.parent().addClass('selected');
                 },
                 hide: function(evt) {
-                    chatterLink.parent().addClass('selected');
+                    chatterLink.parent().removeClass('selected');
                 }
         });
         
-        var head_data = window.head_data || {};
-        var data = head_data.panel_data.chatter;
-        log('preload data for chatter panel:', data);
+        var chatterData = head_data.panel_data.chatter;
+        log('preload data for chatter panel:', chatterData);
 
         var chatterLink = $('a#chatter')
             .click(function() {
                 microtemplateChatter
-                    .microtemplate('render', data)
+                    .microtemplate('render', chatterData)
+                    .expandpanel('toggle');
+                return false;
+            });
+
+        var microtemplateRadar = $('<div id="microtemplate-radar"></div>')
+            .insertAfter('#top-bar')
+            .microtemplate({
+                name: 'radar'
+                })
+            .expandpanel({
+                fullWindow: true,
+                beforeShow: function(evt) {
+                    radarLink.addClass('selected');
+                    $('.radar-content').css('height', $(window).height() - ($('#top-bar').height() * 2) - 30);
+                },
+                hide: function(evt) {
+                    radarLink.removeClass('selected');
+                }
+        });
+
+        var radarData = head_data.panel_data.radar;
+        log('preload data for radar panel:', radarData);
+
+        var radarLink = $('a#radar')
+            .click(function() {
+                microtemplateRadar
+                    .microtemplate('render', radarData)
                     .expandpanel('toggle');
                 return false;
             });
