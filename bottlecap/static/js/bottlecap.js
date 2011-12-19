@@ -279,11 +279,11 @@
             .expandpanel({
                 fullWindow: true,
                 beforeShow: function(evt) {
-                    radarLink.addClass('selected');
+                    radarLink.parent().addClass('selected');
                     $('.radar-content').css('height', ($(window).height()-50) - ($('#top-bar').height() * 2) - 35);
                 },
                 hide: function(evt) {
-                    radarLink.removeClass('selected');
+                    radarLink.parent().removeClass('selected');
                 }
         });
 

@@ -2638,6 +2638,14 @@ body > footer {
     padding-bottom: 12px;
     margin-bottom: -12px;
   }
+  #top-bar h1.selected {
+    background-position: 50% 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url('img/selected_item.png');
+    padding-bottom: 12px;
+    margin-bottom: -12px;
+  }
   #top-bar ul#global-nav .selected a:after, #top-bar ul#members-info .selected a:after {
     font-size: 0;
     /* hello IE! Since we change the font-size for #top-bar ul#global-nav a, we need to reset the font-size here again. */
