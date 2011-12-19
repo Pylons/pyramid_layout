@@ -1775,7 +1775,7 @@ body > footer {
 /* @end */
 #radar-panel {
   background-color: #61818f;
-  padding: 5px;
+  padding: 15px;
 }
 #radar-panel .radar-content {
   background-color: #eadecc;
@@ -1789,7 +1789,7 @@ body > footer {
 }
 #chatter-panel {
   background-color: #61818f;
-  padding: 5px;
+  padding: 15px;
 }
 #chatter-panel .chatter-content {
   background-color: #eadecc;
