@@ -740,12 +740,35 @@ body > footer {
 /* @end */
 
 #radar-panel {
+    font-family: @fancyFont;
     background-color: @baseColor3;
     padding: 15px;
     .radar-content {
         background-color: @bodyBg;
         padding: 10px 10%;
         .css3_border_radius(10px);
+        ul#sections {
+            padding: 10px 0;
+            margin: 0;
+            list-style: none;
+            font-size: 0.9em;
+            li {
+                background: #f1eade;
+                .css3_border_radius(10px);
+                margin: 0 5px;
+                padding: 5px 10px;
+                display: inline-block;
+            }
+            li:nth-child(1) {
+                margin-left: 0;
+            }
+            li:nth-last-child {
+                margin-right: 0;
+            }
+            li.selected {
+                background: #ffffff;
+            }
+        }
     }
 }
 

@@ -1774,6 +1774,7 @@ body > footer {
 }
 /* @end */
 #radar-panel {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #61818f;
   padding: 15px;
 }
@@ -1786,6 +1787,33 @@ body > footer {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
+}
+#radar-panel .radar-content ul#sections {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.9em;
+}
+#radar-panel .radar-content ul#sections li {
+  background: #f1eade;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  margin: 0 5px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+#radar-panel .radar-content ul#sections li:nth-child(1) {
+  margin-left: 0;
+}
+#radar-panel .radar-content ul#sections li:nth-last-child {
+  margin-right: 0;
+}
+#radar-panel .radar-content ul#sections li.selected {
+  background: #ffffff;
 }
 #chatter-panel {
   background-color: #61818f;
