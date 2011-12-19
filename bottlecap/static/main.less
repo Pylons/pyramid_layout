@@ -747,26 +747,71 @@ body > footer {
         background-color: @bodyBg;
         padding: 10px 10%;
         .css3_border_radius(10px);
-        ul#sections {
-            padding: 10px 0;
-            margin: 0;
-            list-style: none;
-            font-size: 0.9em;
-            li {
-                background: #f1eade;
-                .css3_border_radius(10px);
-                margin: 0 5px;
-                padding: 5px 10px;
-                display: inline-block;
+        .radar-header {
+        position: relative;
+            h2 {
+                font-family: @baseFont;
+                width: 150px;
+                float: left;
+                margin: 0;
+                padding: 8px 0;
             }
-            li:nth-child(1) {
-                margin-left: 0;
+            ul#sections {
+                padding: 10px 0;
+                margin: 0x;
+                list-style: none;
+                font-size: 0.9em;
+                float: left;
+                li {
+                    background: #f1eade;
+                    .css3_border_radius(10px);
+                    margin: 0 5px;
+                    padding: 5px 10px;
+                    display: inline-block;
+                }
+                li:nth-child(1) {
+                    margin-left: 0;
+                }
+                li:nth-last-child {
+                    margin-right: 0;
+                }
+                li.selected {
+                    background: #ffffff;
+                }
             }
-            li:nth-last-child {
-                margin-right: 0;
+        }
+        .stream1 {
+            .column(4);
+        }
+        .stream2 {
+            .column(4);
+        }
+        .stream3 {
+            .column(4);
+        }
+
+        .stream-item {
+            font-family: @fancyFont;
+            font-size: 0.7em;
+            margin-bottom: 20px;
+            display: block;
+            .stream-image {
+                width: 42px;
+                height: 42px;
+                float: left;
             }
-            li.selected {
-                background: #ffffff;
+            .stream-content, .stream-footer {
+                margin-left: 42px;
+                padding-left: 10px;
+                display: block;
+            }
+            .stream-footer {
+                .more {
+                    float: left;
+                }
+                .timestamp {
+                    float: right;
+                }
             }
         }
     }

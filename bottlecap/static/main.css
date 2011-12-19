@@ -1788,13 +1788,24 @@ body > footer {
   -moz-background-clip: padding-box;
   background-clip: padding-box;
 }
-#radar-panel .radar-content ul#sections {
-  padding: 10px 0;
+#radar-panel .radar-content .radar-header {
+  position: relative;
+}
+#radar-panel .radar-content .radar-header h2 {
+  font-family: Georgia, serif;
+  width: 150px;
+  float: left;
   margin: 0;
+  padding: 8px 0;
+}
+#radar-panel .radar-content .radar-header ul#sections {
+  padding: 10px 0;
+  margin: 0x;
   list-style: none;
   font-size: 0.9em;
+  float: left;
 }
-#radar-panel .radar-content ul#sections li {
+#radar-panel .radar-content .radar-header ul#sections li {
   background: #f1eade;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1806,14 +1817,57 @@ body > footer {
   padding: 5px 10px;
   display: inline-block;
 }
-#radar-panel .radar-content ul#sections li:nth-child(1) {
+#radar-panel .radar-content .radar-header ul#sections li:nth-child(1) {
   margin-left: 0;
 }
-#radar-panel .radar-content ul#sections li:nth-last-child {
+#radar-panel .radar-content .radar-header ul#sections li:nth-last-child {
   margin-right: 0;
 }
-#radar-panel .radar-content ul#sections li.selected {
+#radar-panel .radar-content .radar-header ul#sections li.selected {
   background: #ffffff;
+}
+#radar-panel .radar-content .stream1 {
+  display: inline;
+  float: left;
+  width: 30.770140676029676%;
+  margin-left: 1.281596328651826%;
+  margin-right: 1.281596328651826%;
+}
+#radar-panel .radar-content .stream2 {
+  display: inline;
+  float: left;
+  width: 30.770140676029676%;
+  margin-left: 1.281596328651826%;
+  margin-right: 1.281596328651826%;
+}
+#radar-panel .radar-content .stream3 {
+  display: inline;
+  float: left;
+  width: 30.770140676029676%;
+  margin-left: 1.281596328651826%;
+  margin-right: 1.281596328651826%;
+}
+#radar-panel .radar-content .stream-item {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  margin-bottom: 20px;
+  display: block;
+}
+#radar-panel .radar-content .stream-item .stream-image {
+  width: 42px;
+  height: 42px;
+  float: left;
+}
+#radar-panel .radar-content .stream-item .stream-content, #radar-panel .radar-content .stream-item .stream-footer {
+  margin-left: 42px;
+  padding-left: 10px;
+  display: block;
+}
+#radar-panel .radar-content .stream-item .stream-footer .more {
+  float: left;
+}
+#radar-panel .radar-content .stream-item .stream-footer .timestamp {
+  float: right;
 }
 #chatter-panel {
   background-color: #61818f;

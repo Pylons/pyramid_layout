@@ -135,7 +135,71 @@ class LayoutManager(object):
                                 }],
                             }],
                         },
-                    'radar': {}
+                    
+                    'radar': {
+                        'streams': [{
+                            'class': 'stream1',
+                            'title': 'Action',
+                            'items': [{
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh...',
+                                    'info': '(3 min ago, 2 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': '"At vero eos et accusamus et iusto odio dignissimos ducimus...',
+                                    'info': '(4 min ago, 4 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...',
+                                    'info': '(5 min ago, 3 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...',
+                                    'info': '(5 min ago, 3 files)',
+                                }],
+                            }, {
+                            'class': 'stream2',
+                            'title': '@plonepaul (to you)',
+                            'items': [{
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh...',
+                                    'info': '(3 min ago, 2 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'At vero eos et accusamus et iusto odio dignissimos ducimus...',
+                                    'info': '(4 min ago, 4 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...',
+                                    'info': '(5 min ago, 3 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...',
+                                    'info': '(5 min ago, 3 files)',
+                                }],
+                            }, {
+                            'class': 'stream3',
+                            'title': '@plonepaul (to you)',
+                            'items': [{
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh...',
+                                    'info': '(3 min ago, 2 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'At vero eos et accusamus et iusto odio dignissimos ducimus...',
+                                    'info': '(4 min ago, 4 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...',
+                                    'info': '(5 min ago, 3 files)',
+                                }, {
+                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
+                                    'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...',
+                                    'info': '(5 min ago, 3 files)',
+                                }],
+                            }],
+                        },
+
                     },
                 }
         return self._head_data

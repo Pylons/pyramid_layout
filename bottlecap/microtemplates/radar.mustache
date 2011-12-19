@@ -1,14 +1,42 @@
 <div id="radar-panel">
     <div class="radar-content clearfix">
-        <ul id="sections">
-            <li class="selected">Home</li>
-            <li>Timeslice</li>
-            <li>Topics</li>
-            <li>Featured</li>
-            <li>Apps</li>
-            <li>Configure</li>
-        </ul>
+        <div class="radar-header clearfix">
+            <h2>Radar</h2>
+            <ul id="sections">
+                <li class="selected">Home</li>
+                <li>Timeslice</li>
+                <li>Topics</li>
+                <li>Featured</li>
+                <li>Apps</li>
+                <li>Configure</li>
+            </ul>
+        </div>
+        
         <div class="panel">
+            {{#streams}}
+            <div class="{{class}}">
+                <h3>{{title}}</h3>
+                <div class="stream-items">
+                    {{#items}}
+                    <div class="stream-item clearfix">
+                        <div class="stream-image">
+                            <img src="{{image_url}}">
+                        </div>
+                        <div class="stream-content">
+                            {{text}}
+                        </div>
+                        <div class="stream-footer">
+                            <span class="more">more</span>
+                            <span class="timestamp">{{info}}</span>
+                        </div>
+                    </div>
+                    {{/items}}
+                </div>
+            </div>
+            {{/streams}}
+        </div>
+        
+        <div class="panel" style="display: none">
             <h2>Vote for the Office Christmas Menu</h2>
             <form href="#">
                 <div class="clearfix">
