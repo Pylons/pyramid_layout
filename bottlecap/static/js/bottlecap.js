@@ -244,9 +244,15 @@
     
     $(function() {
 
+        function closeAllPanels() {
+            // temporary solution here
+            $('.expanding-panel').expandpanel('hide');
+        }
+
+
         var head_data = window.head_data || {};
 
-        var microtemplateChatter = $('<div id="microtemplate-chatter"></div>')
+        var microtemplateChatter = $('<div id="microtemplate-chatter" class="expanding-panel"></div>')
             .insertAfter('#top-bar')
             .microtemplate({
                 name: 'chatter'
@@ -260,18 +266,20 @@
                 }
         });
         
+
         var chatterData = head_data.panel_data.chatter;
         log('preload data for chatter panel:', chatterData);
 
         var chatterLink = $('a#chatter')
             .click(function() {
+                closeAllPanels();
                 microtemplateChatter
                     .microtemplate('render', chatterData)
                     .expandpanel('toggle');
                 return false;
             });
 
-        var microtemplateRadar = $('<div id="microtemplate-radar"></div>')
+        var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')
             .insertAfter('#top-bar')
             .microtemplate({
                 name: 'radar'
@@ -292,6 +300,7 @@
 
         var radarLink = $('a#radar')
             .click(function() {
+                closeAllPanels();
                 microtemplateRadar
                     .microtemplate('render', radarData)
                     .expandpanel('toggle');
