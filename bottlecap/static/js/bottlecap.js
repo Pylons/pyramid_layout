@@ -279,6 +279,31 @@
                 return false;
             });
 
+
+        // chatter options toggling
+        //
+        //var chatterOptionsPanel = $('#chatter-options-panel')
+        //    .expandpanel({
+        //    });
+        //var chatterOptionsLink = $('#chatter-options-link')
+        //    .click(function() {
+        //        log('XXX')
+        //        chatterOptionsPanel.expandpanel('toggle');
+        //        return false;
+        //    });
+
+        var chatterOptionsPanel = $('.chatter-options-link')
+            .live('click', function() {
+                var el = $(this);
+                var panel = el.parent().find('.chatter-options-panel');
+                log(panel.css('opacity'));
+                if (panel.css('opacity') != '1') {
+                    panel.css('opacity', '1');
+                } else {
+                    panel.css('opacity', '0');
+                }
+            });
+
         var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')
             .insertAfter('#top-bar')
             .microtemplate({
