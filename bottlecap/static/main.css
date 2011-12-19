@@ -2630,15 +2630,15 @@ body > footer {
     height: 2.2em;
     width: 2.2em;
   }
-  .no-generatedcontent #top-bar nav .selected, #members-info .selected {
+  .no-generatedcontent #top-bar nav .selected {
     background-position: 50% 100%;
     background-color: transparent;
     background-repeat: no-repeat;
     background-image: url('img/selected_item.png');
-    padding-bottom: 10px;
-    margin-bottom: -10px;
+    padding-bottom: 12px;
+    margin-bottom: -12px;
   }
-  #top-bar ul#global-nav .selected a:after {
+  #top-bar ul#global-nav .selected a:after, #top-bar ul#members-info .selected a:after {
     font-size: 0;
     /* hello IE! Since we change the font-size for #top-bar ul#global-nav a, we need to reset the font-size here again. */
   
@@ -2926,6 +2926,14 @@ body > footer {
     background-repeat: no-repeat;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIlJREFUeNpinDlzJgMS4AfiDUDsAOUfAOIAIP4IU8DEgAomIClmgLInICtA1xDAgAkS8Gl4gEXDA3waGrBoQHESC5rkRqizYM5YABXDqQHmBJipH9AlkTX4QxUqYDGgAGYTzA/zoeGvgMVGBajcfJgGf/SgwwFAavyZcIQMLtAA0mBAggYDgAADANJ8F7e9ZEZJAAAAAElFTkSuQmCC');
     padding-left: 14px;
+  }
+  #members-info .selected {
+    background-position: 50% 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url('img/selected_item.png');
+    padding-bottom: 12px;
+    margin-bottom: -12px;
   }
   /* @group Content */
   .contentWrapper section.main {
