@@ -146,7 +146,7 @@
                 this.state = this._STATES.TO_VISIBLE;
                 this._trigger('beforeShow', null);
                 this.element.show();
-                this_height = (this.options.fullWindow) ? $(window).height() - ($('#top-bar').height() * 2) : '100%';
+                this_height = (this.options.fullWindow) ? ($(window).height()-50) - ($('#top-bar').height() * 2) : '100%';
                 this.element.css('height', this_height);
                 var height = this.element.height();
                 this.element.height(0);
@@ -280,7 +280,7 @@
                 fullWindow: true,
                 beforeShow: function(evt) {
                     radarLink.addClass('selected');
-                    $('.radar-content').css('height', $(window).height() - ($('#top-bar').height() * 2) - 30);
+                    $('.radar-content').css('height', ($(window).height()-50) - ($('#top-bar').height() * 2) - 35);
                 },
                 hide: function(evt) {
                     radarLink.removeClass('selected');
