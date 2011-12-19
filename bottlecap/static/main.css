@@ -1792,6 +1792,7 @@ body > footer {
   padding: 15px;
 }
 #chatter-panel .chatter-content {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #eadecc;
   padding: 10px 10%;
   -webkit-border-radius: 10px;
@@ -1825,6 +1826,12 @@ body > footer {
 #chatter-panel .chatter-content .tips {
   font-size: 0.65em;
   font-style: italic;
+}
+#chatter-panel .chatter-content .chatter-options-panel {
+  font-size: 0.9em;
+  clear: both;
+  margin-top: 16px;
+  opacity: 0;
 }
 #chatter-panel .chatter-content .stream-item {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

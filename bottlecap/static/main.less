@@ -746,7 +746,6 @@ body > footer {
         background-color: @bodyBg;
         padding: 10px 10%;
         .css3_border_radius(10px);
-        
     }
 }
 
@@ -754,6 +753,7 @@ body > footer {
     background-color: @baseColor3;
     padding: 15px;
     .chatter-content {
+        font-family: @fancyFont;
         background-color: @bodyBg;
         padding: 10px 10%;
         .css3_border_radius(10px);
@@ -769,6 +769,12 @@ body > footer {
         .tips {
             font-size: 0.65em;
             font-style: italic;
+        }
+        .chatter-options-panel {
+            font-size: 0.9em;
+            clear: both;
+            margin-top: 16px;
+            opacity: 0;
         }
         .stream-item {
             font-family: @fancyFont;
