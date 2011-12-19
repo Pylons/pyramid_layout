@@ -10,7 +10,6 @@ from bottlecap.layout import (
 
 from pyramid import renderers
 from pyramid.config import ConfigurationError
-from pyramid.config.util import action_method
 from pyramid.events import BeforeRender
 from pyramid.interfaces import IRendererFactory
 
@@ -22,22 +21,13 @@ def add_renderer_globals(event):
     context = request.context
     settings = request.registry.settings
     bc = settings['bc']
-    _lm = request.registry.queryUtility(ILayoutManagerFactory)
-    if not _lm:
-        _lm = LayoutManager
-    lm = _lm(context, request)
+    lm_factory = request.registry.queryUtility(ILayoutManagerFactory)
+    if not lm_factory:
+        lm_factory = LayoutManager
+    lm = lm_factory(context, request)
     if 'layouts' in bc:
         lm._add_layout(bc['layouts'])
     event['lm'] = lm
-
-    # If being called on a layout component, the econtext of the calling
-    # template will be stashed away on the request.  This should be used
-    # to update the globals.  It shouldn't clobber anything already added.
-    econtext = getattr(request, '_parent_econtext', None)
-    if econtext:
-        for k, v in econtext.items():
-            if k not in event:
-                event[k] = v
 
 
 def includeme(config):
@@ -52,7 +42,6 @@ def includeme(config):
            cache_max_age=86400)
 
 
-@action_method
 def add_panel(config, panel=None, name="", context=None,
               renderer=None, attr=None):
     """ Add a :term:`panel configuration` to the current
