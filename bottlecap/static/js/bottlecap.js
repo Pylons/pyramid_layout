@@ -296,7 +296,6 @@
             .live('click', function() {
                 var el = $(this);
                 var panel = el.parent().find('.chatter-options-panel');
-                log(panel.css('opacity'));
                 if (panel.css('opacity') != '1') {
                     panel.css('opacity', '1');
                 } else {
