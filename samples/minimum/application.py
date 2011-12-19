@@ -10,6 +10,7 @@ def main():
     config.include('bottlecap')
 
     config.scan('views')
+    config.scan('panels')
     app = config.make_wsgi_app()
     return app
 
