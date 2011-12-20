@@ -14,6 +14,7 @@ class SampleBlogView(object):
 
     @view_config('test', renderer="templates/testpage_view.pt")
     def testpage_view(self):
+        self.request.layout_manager.use_layout('site')
         return {"project": "Some Project"}
 
     @panel_config('sample.test_panel',

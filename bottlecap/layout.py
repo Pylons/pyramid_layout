@@ -1,74 +1,39 @@
+from bottlecap.interfaces import ILayout
 from bottlecap.interfaces import IPanel
-from pyramid.decorator import reify
-from pyramid.renderers import get_renderer
-from pyramid.url import resource_url
-from pyramid.url import static_url
 
-from zope.interface import implements
-from zope.interface import Interface
+from pyramid.decorator import reify
+
 from zope.interface import providedBy
 
 
-DEFAULT_LAYOUTS = {
-    'global': 'bottlecap:/templates/global_layout.pt',
-    }
-
-
-_marker = object()
-
-
-class ILayoutManagerFactory(Interface):
-    pass
-
-
 class LayoutManager(object):
-    implements(ILayoutManagerFactory)
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.layouts = DEFAULT_LAYOUTS
 
-    def _add_layout(self, layout):
-        self.layouts.update(layout)
+    def use_layout(self, name):
+        layout = find_layout(self.context, self.request, name)
+        setattr(self, 'layout', layout)
 
-    def layout(self, name):
-        value = self.layouts[name]
-        renderer = get_renderer(value)
-        macro = renderer.implementation()
-        return macro
+    @reify
+    def layout(self):
+        return find_layout(self.context, self.request)
 
     def panel(self, name, *args, **kw):
         context = self.context
         request = self.request
         adapters = request.registry.adapters
         panel = adapters.lookup((providedBy(context),), IPanel, name=name)
+        if panel is None:
+            raise KeyError(name) # XXX What should we raise here?
         return Structure(panel(context, request, *args, **kw))
 
-    @reify
-    def context_url(self):
-        return resource_url(self.context, self.request)
 
-    @reify
-    def app_url(self):
-        return self.request.application_url
-
-    @reify
-    def bottlecap_static(self):
-        return static_url('bottlecap:static/', self.request)
-
-    @reify
-    def global_nav_menus(self):
-        # TODO we will need a way in sample/application (the custom
-        # app) to reach over and grab lm instance to override
-        menu_items = [
-            dict(title="Item 1", selected=None),
-            dict(title="Item 2", selected="selected"),
-            dict(title="Item 3", selected=None),
-            dict(title="Item 4", selected=None),
-            dict(title="Item 5", selected=None),
-            ]
-        return menu_items
+def find_layout(context, request, name=''):
+    adapters = request.registry.adapters
+    layout = adapters.lookup((providedBy(context),), ILayout, name=name)
+    return layout(context, request)
 
 
 class Structure(unicode):
@@ -77,16 +42,4 @@ class Structure(unicode):
 
     def __html__(self):
         return self
-
-
-def add_bc_layout(config, layout):
-    settings = config.registry.settings
-    bc = settings['bc']
-    if isinstance(layout, dict):
-        bc['layouts'] = layout
-
-
-def add_bc_layoutmanager_factory(config, factory):
-    factory = config.maybe_dotted(factory)
-    config.registry.registerUtility(factory, ILayoutManagerFactory)
 
