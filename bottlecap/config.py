@@ -24,7 +24,7 @@ def add_renderer_globals(event):
     lm = request.layout_manager
     event['lm'] = lm
     event['layout'] = lm.layout
-    event['main_template'] = lm.layout.template
+    event['main_template'] = lm.layout.__template__
 
 
 def create_layout_manager(event):
@@ -209,24 +209,32 @@ class _PanelMapper(object):
         return class_panel
 
 
-def add_layout(config, template, name='', context=None, containment=None,
-               globals_factory=None):
+def add_layout(config, layout=None, template=None, name='', context=None,
+               containment=None):
+    layout = config.maybe_dotted(layout)
     context = config.maybe_dotted(context)
     containment = config.maybe_dotted(containment)
+
+    if layout is None:
+        class layout(object):
+            def __init__(self, context, request):
+                self.context = context
+                self.request = request
+
+    if template is None:
+        raise ConfigurationError('"template" is required')
+
     if isinstance(template, basestring):
         helper = renderers.RendererHelper(name=template,
             package=config.package, registry=config.registry)
         template = helper.renderer.implementation()
 
     def register():
-        class Layout(object):
-            def __init__(self, context, request):
-                if globals_factory is not None:
-                    self.__dict__.update(globals_factory(context, request))
-                self.__name__ = name
-                self.context = context
-                self.request = request
-                self.template = template
+        def derived_layout(context, request):
+            wrapped = layout(context, request)
+            wrapped.__name__ = name
+            wrapped.__template__ = template
+            return wrapped
 
         r_context = context
         if r_context is None:
@@ -234,19 +242,21 @@ def add_layout(config, template, name='', context=None, containment=None,
         if not IInterface.providedBy(r_context):
             r_context = implementedBy(r_context)
 
-        layout = config.registry.adapters.lookup(
+        reg_layout = config.registry.adapters.lookup(
             (r_context,), ILayout, name=name)
-        if isinstance(layout, _MultiLayout):
-            layout[containment] = Layout
+        if isinstance(reg_layout, _MultiLayout):
+            reg_layout[containment] = derived_layout
             return
         elif containment:
-            layout = _MultiLayout(layout)
+            reg_layout = _MultiLayout(reg_layout)
+            reg_layout[containment] = derived_layout
         else:
-            layout = Layout
+            reg_layout = derived_layout
 
-        config.registry.registerAdapter(layout, (context,), ILayout, name=name)
+        config.registry.registerAdapter(
+            reg_layout, (context,), ILayout, name=name)
 
-    config.action(('layout', context, name), register)
+    config.action(('layout', context, name, containment), register)
 
 
 class _MultiLayout(dict):
