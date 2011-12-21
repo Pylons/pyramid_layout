@@ -26,9 +26,9 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1">
 
-    <link rel="stylesheet" href="${lm.bottlecap_static}main.css"/>
+    <link rel="stylesheet" href="${layout.static_url}main.css"/>
 
-    <script src="${lm.bottlecap_static}modernizr-2.0.6.min.js"></script>
+    <script src="${layout.static_url}modernizr-2.0.6.min.js"></script>
 
     <metal:headslot metal:define-slot="head_slot"/>
 </head>
@@ -36,9 +36,9 @@
 <div id="top-bar">
     <div class="container">
         <tal:actions_menu
-                tal:content="lm.component('sample.global_nav')">
+                tal:content="lm.panel('popper.global_nav')">
         <tal:actions_menu
-                tal:content="lm.component('bottlecap.personal_tools')">
+                tal:content="lm.panel('popper.personal_tools')">
     </div>
 </div>
 
@@ -46,14 +46,14 @@
     <div class="container">
         <nav class="search">
             <tal:actions_menu
-                    tal:content="lm.component('bottlecap.search')">
+                    tal:content="lm.panel('popper.search')">
         </nav>
         <section>
             <header>
                 <h2>${project} with site layout</h2>
             </header>
             <tal:actions_menu
-                    tal:content="lm.component('bottlecap.context_tools')">
+                    tal:content="lm.panel('popper.context_tools')">
         </section>
     </div>
 </div>
@@ -65,7 +65,7 @@
 
     <aside class="column">
         <tal:actions_menu
-                tal:content="lm.component('bottlecap.column_one')">
+                tal:content="lm.panel('popper.column_one')">
     </aside>
 </div>
 
@@ -76,12 +76,12 @@
 
 <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="${lm.bottlecap_static}/jquery-1.6.3.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="${layout.static_url}/jquery-1.6.3.min.js"><\/script>')</script>
 
 <script type="text/javascript" defer
-        src="${lm.bottlecap_static}bottlecap.js"></script>
+        src="${layout.static_url}popper.js"></script>
 <script type="text/javascript"
-        src="${lm.bottlecap_static}dropdown.js"></script>
+        src="${layout.static_url}dropdown.js"></script>
 
 <metal:tailslot metal:define-slot="tail_slot"/>
 

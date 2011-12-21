@@ -1,10 +1,10 @@
-<metal:block use-macro="lm.layout('site')">
+<metal:block use-macro="main_template">
     <metal:content fill-slot="content">
 
         <header>
             <h1>A Very Important Page</h1>
             <tal:actions_menu
-                    tal:content="lm.component('bottlecap.actions_menu')">
+                    tal:content="lm.panel('popper.actions_menu')">
             
             <p class="description">
                 Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -16,7 +16,7 @@
         </header>
         <div>
             <tal:actions_menu
-                    tal:content="lm.component('sample.test_component')">
+                    tal:content="lm.panel('sample.test_panel')">
         </div>
         <div class="contentText">
             <figure>

@@ -1,45 +1,50 @@
 import inspect
 
+from bottlecap.interfaces import ILayout
+from bottlecap.interfaces import ILayoutManager
 from bottlecap.interfaces import IPanel
-from bottlecap.layout import (
-        ILayoutManagerFactory,
-        LayoutManager,
-        add_bc_layout,
-        add_bc_layoutmanager_factory
-        )
+from bottlecap.layout import LayoutManager
 
 from pyramid import renderers
 from pyramid.config import ConfigurationError
 from pyramid.events import BeforeRender
+from pyramid.events import ContextFound
 from pyramid.interfaces import IRendererFactory
+
+from zope.interface import implementedBy
+from zope.interface import Interface
+from zope.interface import providedBy
+from zope.interface.interfaces import IInterface
 
 
 def add_renderer_globals(event):
     # Note that, since we have so many renderings going on now (due to
-    # layout components), this gets called 8 times or so
+    # panels), this gets called 8 times or so
     request = event['request']
+    lm = request.layout_manager
+    event['lm'] = lm
+    event['layout'] = lm.layout
+    event['main_template'] = lm.layout.__template__
+
+
+def create_layout_manager(event):
+    request = event.request
     context = request.context
-    settings = request.registry.settings
-    bc = settings['bc']
-    lm_factory = request.registry.queryUtility(ILayoutManagerFactory)
+    lm_factory = request.registry.queryUtility(ILayoutManager)
     if not lm_factory:
         lm_factory = LayoutManager
     lm = lm_factory(context, request)
-    if 'layouts' in bc:
-        lm._add_layout(bc['layouts'])
-    event['lm'] = lm
+    request.layout_manager = lm
 
 
 def includeme(config):
-    config.registry.settings['bc'] = {}
-    config.add_directive('add_bc_layout', add_bc_layout)
-    config.add_directive('add_bc_layoutmanager_factory',
-            add_bc_layoutmanager_factory)
+    config.add_directive('add_layout', add_layout)
     config.add_directive('add_panel', add_panel)
-    config.scan('bottlecap.panels')
     config.add_subscriber(add_renderer_globals, BeforeRender)
-    config.add_static_view('bc-static', 'bottlecap:static/',
-           cache_max_age=86400)
+    config.add_subscriber(create_layout_manager, ContextFound)
+
+    # Include Popper layout by default
+    config.include('bottlecap.layouts.popper')
 
 
 def add_panel(config, panel=None, name="", context=None,
@@ -136,9 +141,8 @@ def add_panel(config, panel=None, name="", context=None,
                                      'no "renderer" specified')
 
     if isinstance(renderer, basestring):
-        renderer = renderers.RendererHelper(
-            name=renderer, package=config.package,
-            registry = config.registry)
+        renderer = renderers.RendererHelper(name=renderer,
+            package=config.package, registry=config.registry)
 
     def register(renderer=renderer):
         if renderer is None:
@@ -204,3 +208,81 @@ class _PanelMapper(object):
             return getattr(inst, attr)()
         return class_panel
 
+
+def add_layout(config, layout=None, template=None, name='', context=None,
+               containment=None):
+    layout = config.maybe_dotted(layout)
+    context = config.maybe_dotted(context)
+    containment = config.maybe_dotted(containment)
+
+    if layout is None:
+        class layout(object):
+            def __init__(self, context, request):
+                self.context = context
+                self.request = request
+
+    if template is None:
+        raise ConfigurationError('"template" is required')
+
+    if isinstance(template, basestring):
+        helper = renderers.RendererHelper(name=template,
+            package=config.package, registry=config.registry)
+        template = helper.renderer.implementation()
+
+    def register():
+        def derived_layout(context, request):
+            wrapped = layout(context, request)
+            wrapped.__name__ = name
+            wrapped.__template__ = template
+            return wrapped
+
+        r_context = context
+        if r_context is None:
+            r_context = Interface
+        if not IInterface.providedBy(r_context):
+            r_context = implementedBy(r_context)
+
+        reg_layout = config.registry.adapters.lookup(
+            (r_context,), ILayout, name=name)
+        if isinstance(reg_layout, _MultiLayout):
+            reg_layout[containment] = derived_layout
+            return
+        elif containment:
+            reg_layout = _MultiLayout(reg_layout)
+            reg_layout[containment] = derived_layout
+        else:
+            reg_layout = derived_layout
+
+        config.registry.registerAdapter(
+            reg_layout, (context,), ILayout, name=name)
+
+    config.action(('layout', context, name, containment), register)
+
+
+class _MultiLayout(dict):
+
+    def __init__(self, default=None):
+        super(_MultiLayout, self).__init__()
+        self[None] = default
+
+    def choose_layout(self, context):
+        layouts = self.layouts
+        node = context
+        while node is not None:
+            for iface in providedBy(node):
+                layout = layouts.get(iface)
+                if layout:
+                    return layout
+            for cls in type(node).mro():
+                layout = layouts.get(cls)
+                if layout:
+                    return layout
+            node = getattr(node, '__parent__', None)
+
+        return layouts[None]
+
+    def __call__(self, context, request):
+        layout = self.choose_layout(context)
+        if layout is None:
+            raise KeyError # XXX What would ZCA or Pyramid raise?
+        return layout(context, request)

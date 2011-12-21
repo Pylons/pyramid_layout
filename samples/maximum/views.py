@@ -14,6 +14,7 @@ class SampleBlogView(object):
 
     @view_config('test', renderer="templates/testpage_view.pt")
     def testpage_view(self):
+        self.request.layout_manager.use_layout('site')
         return {"project": "Some Project"}
 
     @panel_config('sample.test_panel',
@@ -21,12 +22,12 @@ class SampleBlogView(object):
     def test_panel(self):
         return {}
 
-    @view_config('sample.global_nav',
+    @panel_config('popper.global_nav',
         renderer='templates/global_nav.pt')
     def global_nav(self):
         return {}
 
-    @view_config('bottlecap.column_one',
+    @panel_config('bottlecap.column_one',
         renderer='templates/column_one.pt')
     def column_one(self):
         return {}
