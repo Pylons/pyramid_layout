@@ -17,22 +17,10 @@ def global_nav(context, request):
         dict(title="Item 5", url='#', selected=None)]
     return {'nav_menu': nav_menu}
 
-@panel_config(name='popper.search',
-        renderer='templates/search.pt')
-def search(context, request):
-    return {}
-
+@panel_config(name='popper.search', renderer='templates/search.pt')
 @panel_config(name='popper.context_tools',
-        renderer='templates/context_tools.pt')
-def context_tools(context, request):
-    return {}
-
-@panel_config(name='popper.actions_menu',
-        renderer='templates/actions_menu.pt')
-def actions_menu(context, request):
-    return {}
-
-@panel_config(name='popper.column_one',
-        renderer='templates/column_one.pt')
+              renderer='templates/context_tools.pt')
+@panel_config(name='popper.actions_menu', renderer='templates/actions_menu.pt')
+@panel_config(name='popper.column_one', renderer='templates/column_one.pt')
 def column_one(context, request):
     return {}
