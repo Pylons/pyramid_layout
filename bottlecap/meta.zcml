@@ -10,6 +10,12 @@
         handler="bottlecap.zcml.panel"
         />
 
+    <meta:directive
+        name="layout"
+        schema="bottlecap.zcml.ILayoutDirective"
+        handler="bottlecap.zcml.layout"
+        />
+
   </meta:directives>
 
 </configure>
