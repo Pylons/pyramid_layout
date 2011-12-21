@@ -40,9 +40,9 @@
     <div id="top-bar">
         <div class="container">
 	        <tal:actions_menu
-	                tal:content="lm.panel('popper.global_nav')">
+	                tal:content="panel('popper.global_nav')">
 	        <tal:actions_menu
-	                tal:content="lm.panel('popper.personal_tools')">
+	                tal:content="panel('popper.personal_tools')">
 	    </div>
     </div>
 
@@ -50,14 +50,14 @@
         <div class="container">
 	        <nav class="search">
 	            <tal:actions_menu
-	                    tal:content="lm.panel('popper.search')">
+	                    tal:content="panel('popper.search')">
 	        </nav>
 	        <section>
 	            <header>
 	                <h2>${project}</h2>
 	            </header>
 	            <tal:actions_menu
-	                    tal:content="lm.panel('popper.context_tools')">
+	                    tal:content="panel('popper.context_tools')">
 	        </section>
 	    </div>
     </div>
@@ -69,7 +69,7 @@
 
         <aside class="column">
 	        <tal:actions_menu
-	                tal:content="lm.panel('popper.column_one')">
+	                tal:content="panel('popper.column_one')">
 	    </aside>
     </div>
 

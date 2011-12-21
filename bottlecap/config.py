@@ -21,10 +21,11 @@ def add_renderer_globals(event):
     # Note that, since we have so many renderings going on now (due to
     # panels), this gets called 8 times or so
     request = event['request']
-    lm = request.layout_manager
-    event['lm'] = lm
-    event['layout'] = lm.layout
-    event['main_template'] = lm.layout.__template__
+    layout_manager = request.layout_manager
+    layout = layout_manager.layout
+    event['layout'] = layout
+    event['main_template'] = layout.__template__
+    event['panel'] = layout_manager.render_panel
 
 
 def create_layout_manager(event):

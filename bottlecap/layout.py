@@ -21,7 +21,7 @@ class LayoutManager(object):
     def layout(self):
         return find_layout(self.context, self.request)
 
-    def panel(self, name, *args, **kw):
+    def render_panel(self, name, *args, **kw):
         context = self.context
         request = self.request
         adapters = request.registry.adapters

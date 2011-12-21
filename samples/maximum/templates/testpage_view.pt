@@ -4,7 +4,7 @@
         <header>
             <h1>A Very Important Page</h1>
             <tal:actions_menu
-                    tal:content="lm.panel('popper.actions_menu')">
+                    tal:content="panel('popper.actions_menu')">
             
             <p class="description">
                 Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -16,7 +16,7 @@
         </header>
         <div>
             <tal:actions_menu
-                    tal:content="lm.panel('sample.test_panel')">
+                    tal:content="panel('sample.test_panel')">
         </div>
         <div class="contentText">
             <figure>
