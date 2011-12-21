@@ -3,6 +3,7 @@ from bottlecap.interfaces import IPanel
 
 from pyramid.decorator import reify
 
+import venusian
 from zope.interface import providedBy
 
 
@@ -43,3 +44,38 @@ class Structure(unicode):
     def __html__(self):
         return self
 
+
+class layout_config(object):
+    """ A function, class or method :term:`decorator` which allows a
+    developer to create layout registrations.
+
+    For example, this code in a module ``layout.py``::
+
+      @layout_config(name='my_layout', template='mypackage:templates/layout.pt')
+      def my_layout(context, request):
+          return 'OK'
+
+    The following arguments are supported as arguments to
+    :class:`bottlecap.layout.layout_config`: ``context``, ``name``,
+    ``template``, ``containment``.
+
+    The meanings of these arguments are the same as the arguments passed to
+    :meth:`bottlecap.config.add_layout`.
+    """
+    def __init__(self, name='', context=None, template=None, containment=None):
+        self.name = name
+        self.context = context
+        self.template = template
+        self.containment = containment
+
+    def __call__(self, wrapped):
+        settings = self.__dict__.copy()
+
+        def callback(context, name, ob):
+            config = context.config.with_package(info.module)
+            config.add_layout(layout=ob, **settings)
+
+        info = venusian.attach(wrapped, callback, category='bottlecap')
+
+        settings['_info'] = info.codeinfo # fbo "action_method"
+        return wrapped

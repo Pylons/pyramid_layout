@@ -1,6 +1,8 @@
+from bottlecap.layout import layout_config
 from pyramid.decorator import reify
 
 
+@layout_config(template='templates/popper_layout.pt')
 class PopperLayout(object):
 
     def __init__(self, context, request):
