@@ -7,17 +7,9 @@ from pyramid.config import Configurator
 
 
 class CustomLayout(PopperLayout):
-
-    @property
-    def global_nav_menus(self):
-        menu_items = [
-            dict(title="Intranet", selected=None),
-            dict(title="Communities", selected='selected'),
-            dict(title="People", selected=None),
-            dict(title="Calendar", selected=None),
-            dict(title="Feed", selected=None),
-            ]
-        return menu_items
+    """
+    Pretend like we added something custom and useful here.
+    """
 
 
 def main():
