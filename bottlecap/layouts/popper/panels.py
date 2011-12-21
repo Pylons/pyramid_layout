@@ -9,7 +9,13 @@ def personal_tools(context, request):
 @panel_config(name='popper.global_nav',
         renderer='templates/global_nav.pt')
 def global_nav(context, request):
-    return {}
+    nav_menu = [
+        dict(title="Item 1", url='#', selected=None),
+        dict(title="Item 2", url='#', selected="selected"),
+        dict(title="Item 3", url='#', selected=None),
+        dict(title="Item 4", url='#', selected=None),
+        dict(title="Item 5", url='#', selected=None)]
+    return {'nav_menu': nav_menu}
 
 @panel_config(name='popper.search',
         renderer='templates/search.pt')
