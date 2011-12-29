@@ -6,70 +6,47 @@ except ImportError: #pragma NO COVERAGE
     import unittest
 
 from pyramid import testing
-
-from bottlecap.layout import (
-    ILayoutManagerFactory,
-    LayoutManager,
-    )
+from bottlecap.layout import LayoutManager
 
 
 class LayoutManagerTests(unittest.TestCase):
+    # This is pretty leaky as a unittest, as we wind up testing the whole
+    # registration framework for the default Popper layout.
 
     def setUp(self):
         self.config = testing.setUp()
         self.config.include('bottlecap')
 
     def test_layout(self):
+        from bottlecap.layouts.popper.layout import PopperLayout
         request = testing.DummyRequest()
         lm = LayoutManager(request.context, request)
-        self.assertTrue(repr(lm.layout('global'))
-                .startswith('<PageTemplateFile'))
+        self.assertIsInstance(lm.layout, PopperLayout)
 
-    def test_panel(self):
+    def test_render_panel(self):
         request = testing.DummyRequest()
-        lm = LayoutManager(request.context, request)
+        request.layout_manager = lm = LayoutManager(request.context, request)
         panels = [
-            'bottlecap.personal_tools',
-            'bottlecap.global_nav',
-            'bottlecap.search',
-            'bottlecap.context_tools',
-            'bottlecap.actions_menu',
-            'bottlecap.column_one']
+            'popper.personal_tools',
+            'popper.global_nav',
+            'popper.search',
+            'popper.context_tools',
+            'popper.actions_menu',
+            'popper.column_one']
         for panel in panels:
-            self.assertNotEqual(lm.panel(panel), None)
+            self.assertNotEqual(lm.render_panel(panel), None)
 
-    def test_app_url(self):
+    def test_use_layout(self):
         request = testing.DummyRequest()
-        lm = LayoutManager(request.context, request)
-        self.assertEqual(lm.app_url, 'http://example.com')
-
-    def test_context_url(self):
-        request = testing.DummyRequest()
-        lm = LayoutManager(request.context, request)
-        self.assertEqual(lm.context_url, 'http://example.com/')
-
-    def test_bottlecap_static(self):
-        request = testing.DummyRequest()
-        lm = LayoutManager(request.context, request)
-        self.assertEqual(lm.bottlecap_static, 'http://example.com/bc-static/')
-
-    def test_global_nav_menus(self):
-        request = testing.DummyRequest()
-        lm = LayoutManager(request.context, request)
-        self.assertIsInstance(lm.global_nav_menus, list)
-        self.assertEquals(lm.global_nav_menus[0]['title'], 'Item 1')
+        request.layout_manager = lm = LayoutManager(request.context, request)
+        self.config.add_layout(name='test',
+            template='bottlecap.layouts.popper:templates/popper_layout.pt')
+        self.assertEqual(lm.layout.__name__, '')
+        lm.use_layout('test')
+        self.assertEqual(lm.layout.__name__, 'test')
 
     def test_structure(self):
         from bottlecap.layout import Structure
         html = u'<h1>Hello</h1>'
         s = Structure(html)
         self.assertTrue(s.__html__(), html)
-
-    def test_add_bc_layoutmanager_factory(self):
-        class MyLayoutManager(LayoutManager):
-            pass
-        self.config.add_bc_layoutmanager_factory(MyLayoutManager)
-        request = testing.DummyRequest()
-        lm = request.registry.queryUtility(ILayoutManagerFactory)
-        self.assertNotEqual(lm, None)
-

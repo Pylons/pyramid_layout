@@ -17,6 +17,8 @@ from sys import version
 
 from setuptools import setup, find_packages
 
+VERSION = '0.2a1'
+
 here = os.path.abspath(os.path.dirname(__file__))
 try:
     README = open(os.path.join(here, 'README.rst')).read()
@@ -32,7 +34,7 @@ if version < '2.7':
     tests_require.append('unittest2')
 
 setup(name='pyramid_bottlecap',
-      version='0.2dev',
+      version=VERSION,
       description=('Nice UX you can plug in as a starting point for '
                    'your Pyramid application.'),
       long_description=README + '\n\n' + CHANGES,
@@ -44,7 +46,7 @@ setup(name='pyramid_bottlecap',
         "License :: Repoze Public License",
         ],
       keywords='wsgi pylons bottlecap web pyramid',
-      author="Chris McDonough",
+      author="Paul Everitt, Chris Rossi",
       author_email="pylons-devel@googlegroups.com",
       url="http://docs.pylonsproject.org",
       license="BSD-derived (http://www.repoze.org/LICENSE.txt)",
