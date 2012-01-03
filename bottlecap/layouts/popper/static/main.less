@@ -1699,7 +1699,8 @@ body > footer {
         border: none;
         padding-left: 0;
         padding-right: 0;
-        padding-top: .882352941em;
+        padding-top: 0;
+        padding-bottom: .5em;
         white-space: nowrap;
     }
     .searchInputWrapper {
@@ -1715,6 +1716,7 @@ body > footer {
     }
     nav.search label {
         color: @bodyBg;
+        font-size: 0.667em;
     }
     .sectionContainer section {
         .column(8);
@@ -1728,8 +1730,13 @@ body > footer {
     }
     .sectionContainer nav.search {
         /* The calculations are from _grid.less  */
-        width: @total-width*((@gutter-width*.5)/@_gridsystem-width) + @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
-        margin-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
+        .column(4);
+        width: @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
+        padding-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
+        padding-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
+        margin: 0;
+        background: #222;
+        .css3_border_radius(0 0 .5em .5em);
     }
     ul.sectionTools {
         clear: both;
@@ -1821,9 +1828,6 @@ body > footer {
     }
     .sectionContainer section {
         .column(8);
-    }
-    .sectionContainer nav.search {
-        .column(4);
     }
     .sectionContainer h2 {
         padding-left: 0;
