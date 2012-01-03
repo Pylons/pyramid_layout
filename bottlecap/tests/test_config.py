@@ -29,16 +29,6 @@ class Test_add_renderer_globals(unittest.TestCase):
         self.assertEqual(event['layout'], lm.layout)
         self.assertEqual(event['main_template'], 'TEMPLATE')
 
-    def test_request_none(self):
-        from bottlecap.config import add_renderer_globals
-        request = None
-        event = {
-            'request': request,
-            'context': None,
-            }
-        add_renderer_globals(event)
-        self.assertEqual(len(event.keys()), 2)
-
 
 class Test_add_panel(unittest.TestCase):
 
