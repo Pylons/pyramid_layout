@@ -13,16 +13,21 @@ class Test_add_renderer_globals(unittest.TestCase):
 
     def test_it(self):
         from bottlecap.config import add_renderer_globals
-
+        lm = mock.Mock()
         request = testing.DummyRequest()
         request.registry.settings = {'bc': {}}
+        request.layout_manager = lm
+        lm.layout.__template__ = 'TEMPLATE'
         event = {
             'request': request,
             'context': request.context
             }
         add_renderer_globals(event)
         settings = request.registry.settings
-        self.assertTrue('bc' in settings)
+        self.assertIn('bc', settings)
+        self.assertIn('panel', event)
+        self.assertEqual(event['layout'], lm.layout)
+        self.assertEqual(event['main_template'], 'TEMPLATE')
 
 
 class Test_add_panel(unittest.TestCase):

@@ -11,5 +11,3 @@ class TestPopperLayout(unittest.TestCase):
     def make_one(self, context, request):
         from bottlecap.layouts.popper.layout import PopperLayout
         return PopperLayout(context, request)
-
-
