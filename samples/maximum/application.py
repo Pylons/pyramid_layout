@@ -18,7 +18,7 @@ def main():
     config.registry.settings['reload_templates'] = True
     config.include('bottlecap')
     # Since we're not running in a package, we need an absolute path
-    alternative_template = abspath('templates/alternative_layout.pt')
+    alternative_template = '__main__:templates/alternative_layout.pt'
     popper_template = 'bottlecap.layouts.popper:templates/popper_layout.pt'
     config.add_layout(CustomLayout, alternative_template,
                       'alternative')
