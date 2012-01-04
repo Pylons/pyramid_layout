@@ -35,6 +35,7 @@ class LayoutManagerTests(unittest.TestCase):
             'popper.column_one']
         for panel in panels:
             self.assertNotEqual(lm.render_panel(panel), None)
+        self.assertEqual(lm.render_panel('does_not_exist'), None)
 
     def test_use_layout(self):
         request = testing.DummyRequest()

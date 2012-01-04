@@ -27,7 +27,8 @@ class LayoutManager(object):
         adapters = request.registry.adapters
         panel = adapters.lookup((providedBy(context),), IPanel, name=name)
         if panel is None:
-            raise KeyError(name) # XXX What should we raise here?
+            # Mimics behavior of pyramid.view.render_view
+            return None
         return Structure(panel(context, request, *args, **kw))
 
 
