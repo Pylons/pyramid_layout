@@ -18,21 +18,14 @@
             <title>${project} Application</title>
         </metal:titleslot>
 
-        <meta name="description" content="">
-        <meta name="author" content="">
-
         <!-- Mobile viewport optimized: j.mp/bplateviewport -->
         <meta name="viewport"
-              content="width=device-width,initial-scale=1">
+              content="width=device-width,initial-scale=1" />
 
-        <link rel="stylesheet" href="${layout.static_url}main.css"/>
+        <link rel="stylesheet" href="${layout.static_url}main.css" />
 
         <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
         <script src="${layout.static_url}js/respond.min.js"></script>
-
-        <script language="javascript" type="text/javascript">
-            window.head_data = <span tal:replace="structure layout.head_data_json"></span>;
-        </script>
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
@@ -77,23 +70,29 @@
         <div class="container">Footer with some relevant information.
         </div>
     </footer>
-    
-    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="${layout.static_url}js/jquery-1.6.3.min.js"><\/script>')</script>
+
+    <script src="${layout.static_url}js/jquery-1.6.3.min.js"
+            type="text/javascript"></script>
     <!--[if (gte IE 6)&(lte IE 8)]>
-    <script type="text/javascript" src="${layout.static_url}js/jquery-extra-selectors.min.js"></script>        
-    <script type="text/javascript" src="${layout.static_url}js/selectivizr-min.js"></script>
+    <script src="${layout.static_url}js/jquery-extra-selectors.min.js"
+            type="text/javascript"></script>
+    <script type="text/javascript"
+            src="${layout.static_url}js/selectivizr-min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" defer
-            src="${layout.static_url}js/jquery.ui.widget.js"></script>
+    <script src="${layout.static_url}js/jquery.ui.widget.js"
+            type="text/javascript" defer></script>
 
-    <script type="text/javascript" defer
-            src="${layout.static_url}js/popper.js"></script>
-    <script type="text/javascript"
-            src="${layout.static_url}js/dropdown.js"></script>
-    <script src="${layout.static_url}js/mustache-0.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript" defer>
+        window.head_data = ${structure: layout.head_data_json};
+    </script>
+
+    <script src="${layout.static_url}js/dropdown.js"
+            type="text/javascript" defer></script>
+    <script src="${layout.static_url}js/popper.js"
+            type="text/javascript" defer></script>
+    <script src="${layout.static_url}js/mustache-0.3.0.js"
+            type="text/javascript" defer></script>
     <metal:tailslot metal:define-slot="tail_slot"/>
 
     </body>
