@@ -38,12 +38,18 @@
     <div class="sectionContainer">
         <div class="container">
             ${panel('popper.search')}
-	        <section>
-	            <header>
-	                <h2>${project}</h2>
-	            </header>
-                ${panel('popper.context_tools')}
-	        </section>
+            <tal:section_style switch="section_style|'full'">
+                <tal:no_section case="'none'"></tal:no_section>
+                <section tal:case="'compact'">
+                    ${panel('popper.context_tools')}
+                </section>
+                <section tal:case="'full'">
+                    <header>
+                        <h2>${project}</h2>
+                    </header>
+                    ${panel('popper.context_tools')}
+                </section>
+            </tal:section_style>
 	    </div>
     </div>
 
