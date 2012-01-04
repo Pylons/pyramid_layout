@@ -16,7 +16,7 @@ class BottlecapFunctionalTests(TestCase):
 
         # Default "tab" in People section
         res = self.testapp.get('/peopleosf', status=200)
-        self.failUnless('People OSF' in res.body)
+        self.failUnless('OSF Offices' in res.body)
 
         # A report in that tab
         res = self.testapp.get('/peopleosfbaltimore', status=200)
@@ -24,11 +24,11 @@ class BottlecapFunctionalTests(TestCase):
 
         # The /communities screen
         res = self.testapp.get('/communities', status=200)
-        self.failUnless('Communities Page' in res.body)
+        self.failUnless('All Communities' in res.body)
 
         # The blog in a community
         res = self.testapp.get('/communitiesblog', status=200)
-        self.failUnless('Communities Blog Page' in res.body)
+        self.failUnless('Some Blog Page' in res.body)
 
         # The test on the alternative layout, make sure it works
         res = self.testapp.get('/test', status=200)
