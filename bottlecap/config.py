@@ -19,8 +19,6 @@ from zope.interface.interfaces import IInterface
 
 
 def add_renderer_globals(event):
-    # Note that, since we have so many renderings going on now (due to
-    # panels), this gets called 8 times or so
     request = event['request']
     # if the rendering is done from a script or otherwise outside a
     # regular request, the request will be None, so globals can't be set
