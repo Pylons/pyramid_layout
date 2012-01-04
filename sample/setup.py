@@ -6,7 +6,10 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-requires = ['pyramid', 'pyramid_debugtoolbar']
+requires = [
+    'pyramid>=1.1b3',
+    'pyramid_debugtoolbar'
+    ]
 
 setup(name='sample',
       version='0.0',
