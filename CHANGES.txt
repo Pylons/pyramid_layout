@@ -1,0 +1,7 @@
+pyramid_bottlecap changelog
+===========================
+
+0.2 (2012-01-04)
+----------------
+
+- initial release
