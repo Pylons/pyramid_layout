@@ -30,6 +30,26 @@ class Test_add_renderer_globals(unittest.TestCase):
         self.assertEqual(event['main_template'], 'TEMPLATE')
 
 
+class Test_create_layout_manager(unittest.TestCase):
+
+    @mock.patch('bottlecap.config.LayoutManager')
+    def test_it_default_factory(self, factory):
+        from bottlecap.config import create_layout_manager as fut
+        event = mock.Mock()
+        event.request.registry.queryUtility.return_value = None
+        fut(event)
+        factory.assert_called_once_with(event.request.context, event.request)
+        self.assertEqual(event.request.layout_manager, factory.return_value)
+
+    def test_it_custom_factory(self):
+        from bottlecap.config import create_layout_manager as fut
+        event = mock.Mock()
+        fut(event)
+        factory = event.request.registry.queryUtility.return_value
+        factory.assert_called_once_with(event.request.context, event.request)
+        self.assertEqual(event.request.layout_manager, factory.return_value)
+
+
 class Test_add_panel(unittest.TestCase):
 
     def call_fut(self, config, panel, **kw):
@@ -244,3 +264,102 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(name, '')
 
 
+class Test_add_layout(unittest.TestCase):
+
+    def call_fut(self, config, *args, **kw):
+        from bottlecap.config import add_layout as fut
+        return fut(config, *args, **kw)
+
+    def test_no_template(self):
+        from pyramid.config import ConfigurationError
+        config = mock.Mock()
+        with self.assertRaises(ConfigurationError):
+            self.call_fut(config)
+
+    def test_it_context_is_class(self):
+        from bottlecap.interfaces import ILayout
+        config = mock.Mock()
+        config.maybe_dotted = lambda x: x
+        template = 'template'
+        renderer_factory = config.registry.queryUtility.return_value
+        renderer_factory.return_value.implementation.return_value = template
+        self.call_fut(config, template=template, context=object)
+        args, kwargs = config.action.call_args
+        self.assertEqual(kwargs, {})
+        discriminator, register = args
+        self.assertEqual(discriminator, ('layout', object, '', None))
+        register()
+        args, kwargs = config.registry.registerAdapter.call_args
+        self.assertEqual(kwargs, {'name': ''})
+        factory, context, iface = args
+        layout = factory('context', 'request')
+        self.assertEqual(layout.__layout__, '')
+        self.assertEqual(layout.__template__, 'template')
+        self.assertEqual(layout.context, 'context')
+        self.assertEqual(layout.request, 'request')
+        self.assertEqual(context, (object,))
+        self.assertEqual(iface, ILayout)
+
+    def test_multi_layout(self):
+        from pyramid.exceptions import PredicateMismatch
+        from bottlecap.interfaces import ILayout
+        class Container(object):
+            pass
+        config = mock.Mock()
+        config.maybe_dotted = lambda x: x
+        template = 'template'
+        renderer_factory = config.registry.queryUtility.return_value
+        renderer_factory.return_value.implementation.return_value = template
+        config.registry.adapters.lookup.return_value = None
+
+        self.call_fut(config, template=template, containment=Container,
+                      name='foo')
+        args, kwargs = config.action.call_args
+        self.assertEqual(kwargs, {})
+        discriminator, register = args
+        self.assertEqual(discriminator, ('layout', None, 'foo', Container))
+        register()
+        args, kwargs = config.registry.registerAdapter.call_args
+        self.assertEqual(kwargs, {'name': 'foo'})
+        factory, context, iface = args
+        with self.assertRaises(PredicateMismatch):
+            # Context of type 'str' won't match containment
+            layout = factory('context', 'request')
+        container = Container()
+        layout = factory(container, 'request')
+        self.assertEqual(layout.__layout__, 'foo')
+        self.assertEqual(layout.__template__, 'template')
+        self.assertEqual(layout.context, container)
+        self.assertEqual(layout.request, 'request')
+        self.assertEqual(context, (None,))
+        self.assertEqual(iface, ILayout)
+
+    def test_second_multi_layout(self):
+        from bottlecap.config import _MultiLayout
+        from zope.interface import implements
+        from zope.interface import Interface
+        class IContainer(Interface):
+            pass
+        class Container(object):
+            implements(IContainer)
+        config = mock.Mock()
+        config.maybe_dotted = lambda x: x
+        template = 'template'
+        renderer_factory = config.registry.queryUtility.return_value
+        renderer_factory.return_value.implementation.return_value = template
+        multi = _MultiLayout()
+        config.registry.adapters.lookup.return_value = multi
+
+        self.call_fut(config, template=template, containment=IContainer,
+                      name='foo')
+        args, kwargs = config.action.call_args
+        self.assertEqual(kwargs, {})
+        discriminator, register = args
+        self.assertEqual(discriminator, ('layout', None, 'foo', IContainer))
+        register()
+        container = Container()
+        layout = multi(container, 'request')
+        self.assertEqual(layout.__layout__, 'foo')
+        self.assertEqual(layout.__template__, 'template')
+        self.assertEqual(layout.context, container)
+        self.assertEqual(layout.request, 'request')

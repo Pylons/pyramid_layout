@@ -41,9 +41,9 @@ class LayoutManagerTests(unittest.TestCase):
         request.layout_manager = lm = LayoutManager(request.context, request)
         self.config.add_layout(name='test',
             template='bottlecap.layouts.popper:templates/popper_layout.pt')
-        self.assertEqual(lm.layout.__name__, '')
+        self.assertEqual(lm.layout.__layout__, '')
         lm.use_layout('test')
-        self.assertEqual(lm.layout.__name__, 'test')
+        self.assertEqual(lm.layout.__layout__, 'test')
 
     def test_structure(self):
         from bottlecap.layout import Structure

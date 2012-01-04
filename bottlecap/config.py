@@ -7,6 +7,7 @@ from bottlecap.layout import LayoutManager
 
 from pyramid import renderers
 from pyramid.config import ConfigurationError
+from pyramid.exceptions import PredicateMismatch
 from pyramid.events import BeforeRender
 from pyramid.events import ContextFound
 from pyramid.interfaces import IRendererFactory
@@ -233,7 +234,7 @@ def add_layout(config, layout=None, template=None, name='', context=None,
     def register():
         def derived_layout(context, request):
             wrapped = layout(context, request)
-            wrapped.__name__ = name
+            wrapped.__layout__ = name
             wrapped.__template__ = template
             return wrapped
 
@@ -267,23 +268,23 @@ class _MultiLayout(dict):
         self[None] = default
 
     def choose_layout(self, context):
-        layouts = self.layouts
         node = context
         while node is not None:
             for iface in providedBy(node):
-                layout = layouts.get(iface)
+                layout = self.get(iface)
                 if layout:
                     return layout
             for cls in type(node).mro():
-                layout = layouts.get(cls)
+                layout = self.get(cls)
                 if layout:
                     return layout
             node = getattr(node, '__parent__', None)
 
-        return layouts[None]
+        return self[None]
 
     def __call__(self, context, request):
         layout = self.choose_layout(context)
         if layout is None:
-            raise KeyError # XXX What would ZCA or Pyramid raise?
+            raise PredicateMismatch("No layout matches containment for %s." %
+                                    type(context))
         return layout(context, request)
