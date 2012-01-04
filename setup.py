@@ -29,7 +29,8 @@ except IOError:
 install_requires = [
     'pyramid>=1.1b3', # requires static_view with use_subpath
     ]
-tests_require = install_requires + ['coverage', 'nose', 'mock']
+tests_require = install_requires + ['coverage', 'nose', 'mock',
+                                    'webtest']
 if version < '2.7':
     tests_require.append('unittest2')
 

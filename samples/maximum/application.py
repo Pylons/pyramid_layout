@@ -22,7 +22,7 @@ def main():
     config.add_layout(CustomLayout, site_template, 'site')
     config.add_layout(CustomLayout, popper_template)
 
-    config.scan('views')
+    config.scan('.views')
     app = config.make_wsgi_app()
     return app
 
