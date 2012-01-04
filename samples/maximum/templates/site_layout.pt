@@ -64,8 +64,6 @@
     </section>
 
     <aside class="column">
-        <tal:actions_menu
-                tal:content="panel('popper.column_one')">
     </aside>
 </div>
 

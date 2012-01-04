@@ -23,6 +23,7 @@ def main():
     config.add_layout(CustomLayout, popper_template)
 
     config.scan('views')
+    config.scan('panels')
     app = config.make_wsgi_app()
     return app
 

@@ -3,9 +3,7 @@
 
         <header>
             <h1>A Very Important Page</h1>
-            <tal:actions_menu
-                    tal:content="panel('popper.actions_menu')">
-            
+            ${panel('popper.actions_menu')}
             <p class="description">
                 Cras justo odio, dapibus ac facilisis in, egestas eget
                 quam.
@@ -14,10 +12,6 @@
                 commodo cursus magna, vel scelerisque nisl consectetur et.
             </p>
         </header>
-        <div>
-            <tal:actions_menu
-                    tal:content="panel('sample.test_panel')">
-        </div>
         <div class="contentText">
             <figure>
                 <img src="http://lorempixum.com/1024/268/" alt=""/>

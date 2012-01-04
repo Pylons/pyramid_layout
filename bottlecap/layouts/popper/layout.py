@@ -8,6 +8,7 @@ class PopperLayout(object):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        self.app_url = request.application_url
         self.context_url = request.resource_url(context)
         self.static_url = request.static_url('bottlecap.layouts.popper:static/')
 

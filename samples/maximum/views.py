@@ -1,12 +1,36 @@
-from bottlecap.panel import panel_config
 from pyramid.view import view_config
 
-
-class SampleBlogView(object):
+class MaximumViews(object):
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+    @view_config(name="peopleosf",
+                 renderer="templates/peopleosf.pt")
+    def peopleosf_view(self):
+        """ The equivalent of /people/ """
+        return {"project": "Some Project"}
+
+    @view_config(name="peopleosfbaltimore",
+                 renderer="templates/peopleosfbaltimore.pt")
+    def peopleosfbaltimore_view(self):
+        return {"project": "Some Project"}
+
+    @view_config(name="communities",
+                 renderer="templates/communities.pt")
+    def communities_view(self):
+        return {"project": "Some Project"}
+
+    @view_config(name="communitiesblog",
+                 renderer="templates/communitiesblog.pt")
+    def communitiesblog_view(self):
+        return {"project": "Some Project"}
+
+
+
+    # Things below here need to be cleaned up, I think there are some
+    # fossils in there.
 
     @view_config(renderer="templates/blogpage_view.pt")
     def blogpage_view(self):
@@ -17,20 +41,3 @@ class SampleBlogView(object):
         self.request.layout_manager.use_layout('site')
         return {"project": "Some Project"}
 
-    @panel_config('sample.test_panel', renderer="templates/test_panel.pt")
-    def test_panel(self):
-        return {}
-
-    @panel_config('popper.global_nav', renderer='templates/global_nav.pt')
-    def global_nav(self):
-        nav_menu = [
-            dict(title="Intranet", url='#', selected=None),
-            dict(title="Communities", url='#', selected='selected'),
-            dict(title="People", url='#', selected=None),
-            dict(title="Calendar", url='#', selected=None),
-            dict(title="Feed", url='#', selected=None)]
-        return {'nav_menu': nav_menu}
-
-    @panel_config('bottlecap.column_one', renderer='templates/column_one.pt')
-    def column_one(self):
-        return {}
