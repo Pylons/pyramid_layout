@@ -38,6 +38,6 @@ class MaximumViews(object):
 
     @view_config('test', renderer="templates/testpage_view.pt")
     def testpage_view(self):
-        self.request.layout_manager.use_layout('site')
+        self.request.layout_manager.use_layout('alternative')
         return {"project": "Some Project"}
 

@@ -1,4 +1,5 @@
-import os
+from os.path import abspath
+from os.path import dirname
 
 from bottlecap.layouts.popper.layout import PopperLayout
 
@@ -17,9 +18,10 @@ def main():
     config.registry.settings['reload_templates'] = True
     config.include('bottlecap')
     # Since we're not running in a package, we need an absolute path
-    site_template = os.path.abspath('templates/site_layout.pt')
+    alternative_template = abspath('templates/alternative_layout.pt')
     popper_template = 'bottlecap.layouts.popper:templates/popper_layout.pt'
-    config.add_layout(CustomLayout, site_template, 'site')
+    config.add_layout(CustomLayout, alternative_template,
+                      'alternative')
     config.add_layout(CustomLayout, popper_template)
 
     config.scan('views')
@@ -30,7 +32,7 @@ def main():
 
 if __name__ == '__main__':
     import sys
-    folder = os.path.dirname(os.path.abspath(__file__))
+    folder = dirname(abspath(__file__))
     sys.path.append(folder)
     app = main()
     serve(app, host='0.0.0.0')

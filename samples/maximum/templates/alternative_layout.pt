@@ -19,9 +19,6 @@
         <title>${project} Application</title>
     </metal:titleslot>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <!-- Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="viewport"
           content="width=device-width,initial-scale=1">
@@ -37,24 +34,6 @@
     <div class="container">
         <tal:actions_menu
                 tal:content="panel('popper.global_nav')">
-        <tal:actions_menu
-                tal:content="panel('popper.personal_tools')">
-    </div>
-</div>
-
-<div class="sectionContainer">
-    <div class="container">
-        <nav class="search">
-            <tal:actions_menu
-                    tal:content="panel('popper.search')">
-        </nav>
-        <section>
-            <header>
-                <h2>${project} with site layout</h2>
-            </header>
-            <tal:actions_menu
-                    tal:content="panel('popper.context_tools')">
-        </section>
     </div>
 </div>
 
@@ -72,9 +51,7 @@
     </div>
 </footer>
 
-<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="${layout.static_url}/jquery-1.6.3.min.js"><\/script>')</script>
+<script src="${layout.static_url}/jquery-1.6.3.min.js"></script>
 
 <script type="text/javascript" defer
         src="${layout.static_url}popper.js"></script>

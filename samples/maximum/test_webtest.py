@@ -30,3 +30,6 @@ class BottlecapFunctionalTests(TestCase):
         res = self.testapp.get('/communitiesblog', status=200)
         self.failUnless('Some' in res.body)
 
+        # The test on the alternative layout, make sure it works
+        res = self.testapp.get('/test', status=200)
+        self.failUnless('Some' in res.body)
