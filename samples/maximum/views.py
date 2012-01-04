@@ -10,7 +10,7 @@ class MaximumViews(object):
                  renderer="templates/peopleosf.pt")
     def peopleosf_view(self):
         """ The equivalent of /people/ """
-        return {"project": "Some Project"}
+        return {"project": "People Reports for OSF"}
 
     @view_config(name="peopleosfbaltimore",
                  renderer="templates/peopleosfbaltimore.pt")
@@ -22,19 +22,13 @@ class MaximumViews(object):
     def communities_view(self):
         return {"project": "Some Project"}
 
+    @view_config(renderer="templates/communitiesblog.pt")
     @view_config(name="communitiesblog",
                  renderer="templates/communitiesblog.pt")
     def communitiesblog_view(self):
         return {"project": "Some Project"}
 
-
-
-    # Things below here need to be cleaned up, I think there are some
-    # fossils in there.
-
-    @view_config(renderer="templates/blogpage_view.pt")
-    def blogpage_view(self):
-        return {"project": "Some Project"}
+    ####
 
     @view_config('test', renderer="templates/testpage_view.pt")
     def testpage_view(self):
