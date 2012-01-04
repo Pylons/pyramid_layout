@@ -1,6 +1,6 @@
 from pyramid.view import view_config
 
-class MaximumViews(object):
+class SampleViews(object):
 
     def __init__(self, context, request):
         self.context = context

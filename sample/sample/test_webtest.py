@@ -3,8 +3,8 @@ from webtest import TestApp
 
 class BottlecapFunctionalTests(TestCase):
     def setUp(self):
-        from samples.maximum.application import main
-        app = main()
+        from sample import main
+        app = main({})
         self.testapp = TestApp(app)
 
     def test_it(self):
