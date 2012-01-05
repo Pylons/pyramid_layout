@@ -24,6 +24,7 @@
           content="width=device-width,initial-scale=1">
 
     <link rel="stylesheet" href="${layout.static_url}main.css"/>
+	<link rel="stylesheet" href="${request.static_url('sample:static/sample.css')}"/>
 
     <script src="${layout.static_url}modernizr-2.0.6.min.js"></script>
 
