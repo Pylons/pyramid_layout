@@ -1,4 +1,11 @@
 <ul id="members-info">
+    <tal:comment condition="layout.devmode">
+    <!--
+    This is the personal-tools panel per
+    https://agendaless.mybalsamiq.com/projects/popper/Popper+Overview
+    Filename is bottlecap/layouts/popper/templates/personal_tools.pt
+    -->
+    </tal:comment>
     <li><a href="#">${profile_name}</a></li>
     <li><a id="chatter" href="#">Chatter</a></li>
     <li><a href="#">Logout</a></li>

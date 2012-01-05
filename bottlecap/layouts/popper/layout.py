@@ -1,4 +1,6 @@
 import json
+
+from pyramid.decorator import reify
 from bottlecap.layout import layout_config
 
 
@@ -11,6 +13,14 @@ class PopperLayout(object):
         self.app_url = request.application_url
         self.context_url = request.resource_url(context)
         self.static_url = request.static_url('bottlecap.layouts.popper:static/')
+
+    @reify
+    def devmode(self):
+        """Let templates know if we are in devmode, for comments """
+
+        sn = 'bottlecap.devmode'
+        dm = self.request.registry.settings.get(sn, "false")
+        return dm == "true"
 
     # --
     # Head data and microtemplates management
