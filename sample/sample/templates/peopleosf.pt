@@ -2,13 +2,12 @@
     <metal:content fill-slot="content">
 
         <div class="row contentText">
-            <div class="span4">
-                <header>
-                    <h1>OSF Offices</h1>
-                    <p><a href="/peopleosfbaltimore">Baltimore</a></p>
-                    ${panel('popper.actions_menu')}
-                </header>
-            </div>
+            <header>
+                <h1>OSF Offices</h1>
+
+                <p><a href="/peopleosfbaltimore">Baltimore</a></p>
+                ${panel('popper.actions_menu')}
+            </header>
         </div>
     </metal:content>
 </metal:block>
