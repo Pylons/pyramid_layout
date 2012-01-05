@@ -1,7 +1,8 @@
 from bottlecap.panel import panel_config
 
 @panel_config(name='popper.global_nav',
-              renderer='templates/global_nav.pt')
+              renderer='bottlecap:layouts/popper/templates/global_nav' \
+                       '.pt')
 def global_nav(context, request):
     nav_menu = [
         dict(title="Intranet", url='/', selected=None),
