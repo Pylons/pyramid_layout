@@ -20,7 +20,7 @@ class BottlecapFunctionalTests(TestCase):
 
         # A report in that tab
         res = self.testapp.get('/peopleosfbaltimore', status=200)
-        self.failUnless('People Baltimore' in res.body)
+        self.failUnless('Baltimore Office' in res.body)
 
         # The /communities screen
         res = self.testapp.get('/communities', status=200)
