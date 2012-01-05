@@ -3,39 +3,45 @@ Bottlecap
 =========
 
 When building a new Pyramid application, you might want an attractive
-starting point for your UI. Bottlecap serves that purpose. Mix
-Bottlecap into your Pyramid/ZPT application and use it until you get
-your own UX in place.
+starting point for your UI. Later, as you need a custom UX, you might
+want a system for organizing your global UX and shared templating into
+layouts and panels.
+
+Bottlecap serves that purpose.
 
 - Inject Bottlecap into your application
 
-- Point your ZPTs at one of Bottlecap's "layouts"
+- Point your ZPTs at Bottlecap's Popper layout
 
-- Configure, override and extend using subclassing and view machinery
+- Configure, override and extend using Pyramid machinery
+
+- Later, make and register your own layouts and panels
 
 Quick Start
 ===========
 
-You can see Bottlecap added to a simple sample Pyramid app that ships
-in Bottlecap:
+You can see Bottlecap added to a sample Pyramid app that ships in
+Bottlecap:
 
 #. Make a virtualenv as usual.
 
+#. ``git clone git@github.com:pauleveritt/pyramid_bottlecap.git``
+
 #. ``cd pyramid_bottlecap``
 
-#. ``path/to/virtualenv/bin/python setup.py develop``
+#. ``/virtualenv/bin/python setup.py develop``
 
 #. ``cd sample``
 
-#. ``path/to/virtualenv/bin/python setup.py develop``
+#. ``/virtualenv/bin/python setup.py develop``
 
-#. ``path/to/virtualenv/bin/pserve development.ini --reload``
+#. ``/virtualenv/bin/pserve development.ini --reload``
 
 #. Open ``http://localhost:6543`` in a browser.
 
 Bottlecap will now be running on port 6543. To run the WebTest tests
-on the templates in the sample app:
+on the templates in the sample app::
 
-$ ``path/to/virtualenv/bin/nosetests``
+  $ ``/virtualenv/bin/nosetests``
 
 More information is available in the ``docs`` directory.
