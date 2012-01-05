@@ -988,7 +988,17 @@ body > footer {
 	
 	h4 {
 	    font-size: 1.185em;
-	}	
+	}
+	.span-half {
+	    .column(6);
+	    &:nth-child(odd){
+	        clear: left;
+	    }
+	}
+	.span-one-third {
+	    .column(4);
+	}
+	
 }
 /* @end */
 

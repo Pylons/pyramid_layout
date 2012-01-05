@@ -1,13 +1,64 @@
 <metal:block use-macro="main_template">
     <metal:content fill-slot="content">
 
-        <div class="row contentText">
-            <header>
-                <h1>OSF Offices</h1>
+        ${panel('popper.actions_menu')}
 
-                <p><a href="/peopleosfbaltimore">Baltimore</a></p>
-                ${panel('popper.actions_menu')}
-            </header>
+        <div class="transparentGrid clearfix">
+            <secton class="span-half">
+                <h3>OSF Offices</h3>
+                <ul class="noBullets">
+                    <li><a href="/peopleosfbaltimore" class="general">Baltimore</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r1/budapest-office/" class="general">Budapest</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r1/brussels-office/" class="general">Brussels</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r1/london-office/" class="general">London</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r1/new-york-office/" class="general">New York</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r1/paris-office/" class="general">Paris</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r1/washington-dc-office/" class="general">Washington DC</a></li>
+                </ul>
+            </secton>
+            <section class="span-half">
+                <h3>Executive Offices</h3>
+                <ul class="noBullets">
+                    <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-chairman/" class="general">Office of the Chairman</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-president/" class="general">Office of the President</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-executive-vice-president/" class="general">Office of the Executive Vice President</a></li>
+                </ul>
+            </section>
+            <section class="span-half">
+                <h3>Administrative Offices</h3>
+                <ul class="noBullets">
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/communications/" class="general">Communications</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/finance/" class="general">Finance</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/general-counsel/" class="general">General Counsel</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/grants-management/" class="general">Grants Management</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/human-resources-and-facilities-management-department/" class="general">Human Resources and Facilities Management</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/information-systems/" class="general">Information Systems</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/knowledge-management-initiative/" class="general">Knowledge Management Initiative</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/library/" class="general">Library</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r3/network-finance-and-systems-support/" class="general">Network Finance and Systems Support</a></li>
+                </ul>
+            </section>
+            <section class="span-half">
+                <h3>US Programs</h3>
+                <ul class="noBullets">
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/us-programs-director-s-office/" class="priority">US Programs Director's Office</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/campaign-for-black-male-achievement/" class="general">Campaign for Black Male Achievement</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/closing-the-addiction-treatment-gap/" class="general">Closing the Addiction Treatment Gap</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/criminal-justice-fund/" class="general">Criminal Justice Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/democracy-and-power-fund/" class="general">Democracy and Power Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/equality-and-opportunity-fund/" class="general">Equality and Opportunity Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/national-security-and-human-rights-campaign/" class="general">National Security and Human Rights Campaign</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/strategic-opportunities-fund/" class="general">Strategic Opportunities Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/transparency-and-integrity-fund/" class="general">Transparency and Integrity Fund</a></li>
+                </ul>
+            </section>
+            <section class="span-half">
+                <h3>Advocacy</h3>
+                <ul class="noBullets">
+                    <li><a href="https://karl.soros.org/people/osi/c1/r5/office-of-the-international-advocacy-director/" class="general">Office of the International Advocacy Director</a></li>
+                </ul>
+            </section>
         </div>
+
     </metal:content>
 </metal:block>
