@@ -1,9 +1,7 @@
 <nav>
     <h1 class="sitetitle">
-        <a href="#" title="KARL home page">
-            <img src="${layout.static_url}img/logo.png"
-                 width="25" height="26" alt="KARL logo" />
-            KARL
+        <a href="${request.registry.settings['bottlecap.site_title_link']}" title="${request.registry.settings['bottlecap.site_title']} home page">
+            ${request.registry.settings['bottlecap.site_title']}
         </a>
     </h1>
     <div data-quickpanel="quickpanel" class="topNavIconWrapper">

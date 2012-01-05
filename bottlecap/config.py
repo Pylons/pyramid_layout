@@ -46,6 +46,16 @@ def includeme(config):
     config.add_directive('add_panel', add_panel)
     config.add_subscriber(add_renderer_globals, BeforeRender)
     config.add_subscriber(create_layout_manager, ContextFound)
+    
+    defaults = {
+        'bottlecap.site_title': 'KARL',
+        'bottlecap.site_title_link': '/'
+        }
+    settings = {}
+    for key in defaults.keys()[:]:
+        if key in config.registry.settings:
+            defaults.pop(key)
+    config.registry.settings.update(defaults)
 
     # Include Popper layout by default
     config.include('bottlecap.layouts.popper')
