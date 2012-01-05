@@ -22,8 +22,7 @@
             </label>
             <fieldset>
                 <div class="searchInputWrapper">
-                    <input id="search-site-box"
-                           class="float-left" type="search"
+                    <input class="float-left search-site-box" type="search"
                            name="SearchTextBox"
                            title="Search this site"
                            accesskey="4" size="15"

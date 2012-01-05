@@ -1,199 +1,65 @@
 <metal:block use-macro="main_template">
     <metal:content fill-slot="content">
 
-        <header>
-            <h1>People Baltimore Page</h1>
-            <small>
-                <time datetime="2011-11-15" pubdate="">Tuesday, November 15th, 2011</time> by <a href="#" title="Posts by Paul Everit" rel="author">Paul Everit</a>.
-            </small>
-            ${panel('popper.actions_menu')}
-            <p class="description">
-                Cras justo odio, dapibus ac facilisis in, egestas eget
-                quam.
-                Nullam quis risus eget urna mollis ornare vel eu leo.
-                Praesent
-                commodo cursus magna, vel scelerisque nisl consectetur et.
-            </p>
-        </header>
-        <div class="contentText">
-
-            <section>
-                <h2>Notifications</h2>
-                <div class="notification info">
-                    The <code>notification</code> CSS class, can also contain <a href="#">links</a> - used to
-                    give the user temporary status messages.
-                    <p>
-                        This is <code>info</code> notification type.
-                    </p>
-                </div>
-                <div class="notification alert">
-                    This is <code>alert</code> notification type.
-                </div>
-            </section>
-
-            <section>
-                <h1>Headline h1</h1>
-                <figure class="image-left">
-                    <img src="http://lorempixum.com/251/155/people" alt="" />
-                    <figcaption>Just a test caption</figcaption>
-                </figure>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum dolore eu feugiat nulla
-                facilisis at vero eros et accumsan et iusto odio dignissim qui
-                blandit praesent luptatum zzril delenit augue duis dolore te
-                feugait nulla facilisi.</p>
-                <h2>Headline h2</h2>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum dolore eu feugiat nulla
-                facilisis at vero eros et accumsan et iusto odio dignissim qui
-                blandit praesent luptatum zzril delenit augue duis dolore te
-                feugait nulla facilisi.</p>
-                <h3>Headline h3</h3>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum dolore eu feugiat nulla
-                facilisis at vero eros et accumsan et iusto odio dignissim qui
-                blandit praesent luptatum zzril delenit augue duis dolore te
-                feugait nulla facilisi.</p>
-                <h4>Headline h4</h4>
-                <figure class="image-right">
-                    <img src="http://lorempixum.com/155/251/nature" alt="" />
-                </figure>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum dolore eu feugiat nulla
-                facilisis at vero eros et accumsan et iusto odio dignissim qui
-                blandit praesent luptatum zzril delenit augue duis dolore te
-                feugait nulla facilisi.</p>
-                <h5>Headline h5</h5>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum dolore eu feugiat nulla
-                facilisis at vero eros et accumsan et iusto odio dignissim qui
-                blandit praesent luptatum zzril delenit augue duis dolore te
-                feugait nulla facilisi.</p>
-                <h6>Headline h6</h6>
-                <aside>
-                    This is an aside block with tangible information, related
-                    to the main content, but that can easily be tossed away
-                    without the text loosing it's meaning.<br/>
-                    Donec sed odio dui. Aenean lacinia bibendum nulla sed
-                    consectetur.
-                    Nullam quis risus eget urna mollis ornare vel eu leo. Cum
-                    sociis.
-                </aside>
-                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-                esse molestie consequat, vel illum dolore eu feugiat nulla
-                facilisis at vero eros et accumsan et iusto odio dignissim qui
-                blandit praesent luptatum zzril delenit augue duis dolore te
-                feugait nulla facilisi.</p>
-            </section>
-
-            <section>
-                <h2>Lists</h2>
-                <ul>
-                    <li>Unordered list element 1
-                        <ul>
-                            <li>Unordered list subelement 1</li>
-                        </ul>
-                    </li>
-                    <li>Unordered list element 2</li>
-                    <li>Unordered list element 3</li>
-                </ul>
-
-                <ol>
-                    <li>Ordered list element 1
-                        <ol><li>Ordered list subelement 1</li></ol>
-                    </li>
-                    <li>Ordered list element 2</li>
-                    <li>Ordered list element 3</li>
-                </ol>
-
-                <dl>
-                    <dt>Definition list term</dt>
-                    <dd>Definition List description, Lorem ipsum dolor sit
-                    amet, consectetuer adipiscing elit. Quisque odio sem,
-                    aliquam ut, suscipit at, aliquet non, justo. </dd>
-                    <dt>Another Definition list term</dt>
-                    <dd>Another Definition List description, Lorem ipsum dolor
-                    sit amet, consectetuer adipiscing elit. Quisque odio sem,
-                    aliquam ut, suscipit at, aliquet non, justo. </dd>
-                </dl>
-            </section>
-
-            <section>
-                <h2>Tables</h2>
-
-                <table class="listing" id="someid" summary="">
-                    <thead>
-                        <tr>
-                            <th>Table heading</th>
-                            <th>Another heading</th>
-                            <th>Another heading</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="odd">
-                            <td>Odd table item</td>
-                            <td>Item 1</td>
-                            <td>Another item</td>
-                        </tr>
-                        <tr class="even">
-                            <td>Even table item</td>
-                            <td>Item 2</td>
-                            <td>Yet another item</td>
-                        </tr>
-                        <tr class="odd">
-                            <td>Odd table item</td>
-                            <td>Item 3</td>
-                            <td>And one more item</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section>
-                <h2>A form</h2>
-
-                <form>
-                    <fieldset>
-                        <legend>Fieldset legend</legend>
-
-                        <div class="clearfix">
-                            <label for="onefield">Text field</label>
-                            <div class="input">
-                                <input type="text" id="onefield" required="required" placeholder="Some content">
-                                <span class="help-block">
-                                    This is the help for this form field. And <a href="#">links are also possible</a>.
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="clearfix">
-                            <label for="anotherfield">Text area</label>
-                            <div class="input">
-                                <textarea name="anotherfield"
-                                id="anotherfield"></textarea>
-                            </div>
-                        </div>
-                        <div class="actions">
-                            <input type="submit" value="Submit" class="btn primary" />
-                            <input type="reset" value="Cancel" class="btn" />
-                            <button type="submit" class="btn primary">Submit button</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </section>
-        </div>
-        <footer>
-            <ul class="keywords">
-                <li><a href="#"><span class="keyword">flyers</span> <span class="keywordCounter">2</span></a></li>
-                <li><a href="#"><span class="keyword">park</span> <span class="keywordCounter">2</span></a></li>
-                <li><a href="#"><span class="keyword">volunteer</span> <span class="keywordCounter">2</span></a></li>
-            </ul>
-            <form action="#" class="addKeyword">
+    <header>
+        <h1>Baltimore Office</h1>
+        ${panel('popper.actions_menu')}
+    </header>
+    <div class="contentText">
+        <div class="filter">
+            <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
+            <ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">B</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=C">C</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=D">D</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=E">E</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=F">F</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">G</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
+                    class="notcurrent"><a href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li></ul>
+            <form action="#" class="searchForm">
                 <fieldset>
-                    <input type="text" name="keyword" placeholder="A keyword to add" />
-                    <button type="submit">New keyword</button>
+                    <div class="searchInputWrapper">
+                        <input class="search-site-box"
+                               type="search" name="body" title=""
+                               accesskey="4" size="15" placeholder="">
+                        <button class="searchButton ir" type="submit">Search</button>
+                    </div>
                 </fieldset>
             </form>
-        </footer>
+        </div>
+    </div>
+
+
+            <!-- IMPORTANT! The following is just a copy of existing site. Never rely on the following markup -->
+          <div class="peopledir-report-description"><div class="peopledir-hcard">
+                    <div class="vcard clearfix">
+                        <div class="span-half alpha">
+                            <h3 class="fn org url" href="http://www.soros.org">OSI-Baltimore</h3>
+                            <div class="adr">
+                                <div class="street-address">201 North Charles Street, Suite 1300</div>
+                                <span class="locality">Baltimore</span>
+                                <abbr class="region">Maryland</abbr>
+                                <span class="postal-code">21201</span>
+                                <div class="country-name">United States</div>
+                            </div>
+                        </div>
+                        <div class="span-half omega">
+                            <div class="tel"><span class="type">Tel</span>: 410-234-1091</div>
+                            <div class="tel"><span class="type">Fax</span>: 410-234-2816 </div>
+                            Website: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
+                            <div class="note"> </div>
+                        </div>
+                    </div>
+                                        <p class="note">If you are calling from the New York, Washington, DC or Budapest offices, dial directly by extension.  If you are calling from the London office, dial #9, wait for a dial tone, then the extension.</p>
+                </div></div>
+
     </metal:content>
 </metal:block>
