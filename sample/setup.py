@@ -8,7 +8,8 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
     'pyramid>=1.1b3',
-    'pyramid_debugtoolbar'
+    'pyramid_debugtoolbar',
+    'pyramid_exclog',
     ]
 
 setup(name='sample',
