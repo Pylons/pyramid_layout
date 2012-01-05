@@ -17,8 +17,8 @@ def main(global_config, **settings):
                       'alternative')
     popper_template = 'bottlecap.layouts.popper:templates/popper_layout.pt'
     config.add_layout(CustomLayout, popper_template)
-
-    config.scan('.panels')
-    config.scan('.views')
+    config.add_static_view('static', 'sample:static')
+    config.scan('sample.panels')
+    config.scan('sample.views')
     return config.make_wsgi_app()
 

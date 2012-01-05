@@ -17,7 +17,7 @@ from sys import version
 
 from setuptools import setup, find_packages
 
-VERSION = '0.2a1'
+VERSION = '0.3dev'
 
 here = os.path.abspath(os.path.dirname(__file__))
 try:
@@ -28,7 +28,7 @@ except IOError:
 
 install_requires = [
     'pyramid>=1.1b3', # requires static_view with use_subpath
-    'sphinx'
+    'Sphinx'
     ]
 tests_require = install_requires + ['coverage', 'nose', 'mock',
                                     'webtest']
