@@ -671,7 +671,7 @@ h2#navigation-toggle, h2#search-toggle {
   font-weight: bold;
   background-color: #fff;
 }
-nav.search form {
+form.searchForm {
   padding: 0.422em 10%;
   background: #bac3cc;
   width: auto;
@@ -681,7 +681,7 @@ nav.search form {
   border-top: 1px solid #d7dce2;
   border-bottom: 1px solid #9da9b6;
 }
-nav.search fieldset {
+form.searchForm fieldset {
   position: relative;
   display: block;
   z-index: 2;
@@ -726,7 +726,7 @@ input#search-site-box:focus, input#search-site-box:active {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-nav.search button.searchButton {
+form.searchForm button.searchButton {
   background: transparent url('img/search_icon_dark.png') 50% 50% no-repeat;
   border: none;
   width: 35px;
@@ -761,7 +761,7 @@ nav.search button.searchButton {
   color: #8f806f;
   text-shadow: none;
 }
-.sectionContainer .container section, nav.search label, nav.search select {
+.sectionContainer .container section, form.searchForm label, form.searchForm select {
   display: none;
 }
 /* @end */
@@ -2010,17 +2010,17 @@ body > footer {
     padding: 0 0.6665em;
     border-bottom: none;
   }
-  nav.search form {
+  form.searchForm {
     border-top: none;
   }
-  #global-nav, nav.search form {
+  #global-nav, form.searchForm {
     position: relative;
     overflow: hidden;
     background-image: url('img/vertical_stripes.png');
     background-position: top left;
     background-repeat: repeat;
   }
-  #global-nav:before, nav.search form:before {
+  #global-nav:before, form.searchForm:before {
     content: "";
     font-size: 0;
     position: absolute;
@@ -2244,7 +2244,7 @@ body > footer {
   #global-nav:before {
     display: none;
   }
-  nav.search form {
+  form.searchForm {
     top: 0;
     z-index: 0;
     -webkit-box-shadow: none;
@@ -2487,17 +2487,17 @@ body > footer {
   .contentWrapper {
     padding: 1.33em 4%;
   }
-  /* @group Section Container */.sectionContainer .container section, nav.search select {
+  /* @group Section Container */.sectionContainer .container section, form.searchForm select {
     display: block;
   }
-  nav.search select {
+  form.searchForm select {
     display: inline;
     margin: 0 0.5em 0 0;
   }
   .searchInputWrapper {
     clear: left;
   }
-  nav.search label {
+  form.searchForm label {
     display: inline;
     width: auto;
     padding: 0;
@@ -2513,7 +2513,7 @@ body > footer {
     font-size: 0.75em;
     font-family: Verdana, sans-serif;
   }
-  nav.search span.fieldCoverage {
+  form.searchForm span.fieldCoverage {
     display: inline-block;
     padding: 0 25px 0 .7em;
     margin: 0;
@@ -2530,7 +2530,7 @@ body > footer {
     pointer-events: none;
     border: 1px solid #fff;
   }
-  nav.search span.fieldCoverage:after {
+  form.searchForm span.fieldCoverage:after {
     content: "";
     display: block;
     position: absolute;
@@ -2548,7 +2548,7 @@ body > footer {
     background-clip: padding-box;
     *line-height: 0;
   }
-  nav.search span.fieldCoverage:before {
+  form.searchForm span.fieldCoverage:before {
     content: "";
     display: block;
     position: absolute;
@@ -2563,7 +2563,7 @@ body > footer {
     border-top: 4px solid #ffffff;
     *line-height: 0;
   }
-  nav.search select {
+  form.searchForm select {
     display: block;
     opacity: 0;
     margin: 0;
@@ -2575,14 +2575,14 @@ body > footer {
     width: auto;
     padding: 0;
   }
-  .oldie nav.search select {
+  .oldie form.searchForm select {
     position: static;
     width: auto;
     height: auto;
     display: inline;
     opacity: 1;
   }
-  nav.search fieldset {
+  form.searchForm fieldset {
     margin-top: 0.2em;
   }
   .sectionContainer {
@@ -2933,7 +2933,7 @@ body > footer {
     right: 0;
     top: 0;
   }
-  nav.search form {
+  form.searchForm {
     display: block;
     background: transparent;
     border: none;
@@ -2947,10 +2947,10 @@ body > footer {
     padding-top: .3em;
     padding-bottom: .3em;
   }
-  nav.search form:before {
+  form.searchForm:before {
     display: none;
   }
-  nav.search span.fieldCoverage {
+  form.searchForm span.fieldCoverage {
     display: inline-block;
     padding: 0 25px 0 .7em;
     margin: 0;
@@ -2967,7 +2967,7 @@ body > footer {
     pointer-events: none;
     border: 1px solid #97B9C7;
   }
-  nav.search span.fieldCoverage:after {
+  form.searchForm span.fieldCoverage:after {
     content: "";
     display: block;
     position: absolute;
@@ -2985,7 +2985,7 @@ body > footer {
     background-clip: padding-box;
     *line-height: 0;
   }
-  nav.search span.fieldCoverage:before {
+  form.searchForm span.fieldCoverage:before {
     content: "";
     display: block;
     position: absolute;
@@ -3000,7 +3000,7 @@ body > footer {
     border-top: 4px solid #b8cfd9;
     *line-height: 0;
   }
-  nav.search label {
+  form.searchForm label {
     color: #eadecc;
     font-size: 0.667em;
   }
@@ -3188,18 +3188,18 @@ body > footer {
   .ie7 .contentWrapper > aside.column .portlet {
     width: 48.218403671348156%;
   }
-  nav.search form {
+  form.searchForm {
     text-align: right;
     padding-top: 1.333em;
   }
-  nav.search fieldset {
+  form.searchForm fieldset {
     display: inline;
   }
-  .searchInputWrapper, nav.search span.fieldCoverage {
+  .searchInputWrapper, form.searchForm span.fieldCoverage {
     padding-top: .2em;
     padding-bottom: .3em;
   }
-  nav.search span.fieldCoverage:after {
+  form.searchForm span.fieldCoverage:after {
     height: 1.9em;
   }
 }
