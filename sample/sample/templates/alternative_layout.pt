@@ -31,12 +31,15 @@
     <metal:headslot metal:define-slot="head_slot"/>
 </head>
 <body>
+
 <div id="top-bar">
     <div class="container">
-        <tal:actions_menu
-                tal:content="panel('popper.global_nav')">
+        ${panel('popper.global_logo')}
+        ${panel('popper.global_nav')}
+        ${panel('popper.personal_tools')}
     </div>
 </div>
+
 
 
 <div class="contentWrapper">
