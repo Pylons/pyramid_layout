@@ -1,0 +1,7 @@
+<h1 id="bcpanel-global-logo" class="sitetitle">
+    <a id="radar"
+       href="${logo_href}"
+       title="${logo_title} home page">
+        ${logo_title}
+    </a>
+</h1>

@@ -30,6 +30,7 @@
     <body>
     <div id="top-bar">
         <div class="container">
+            ${panel('popper.global_logo')}
             ${panel('popper.global_nav')}
             ${panel('popper.personal_tools')}
 	    </div>

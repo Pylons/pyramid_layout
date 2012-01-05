@@ -1,10 +1,4 @@
 <nav>
-    <h1 class="sitetitle">
-        <a id="radar" href="${request.registry.settings['bottlecap.site_title_link']}" title="${request.registry.settings['bottlecap.site_title']} home page">
-            ${request.registry.settings['bottlecap.site_title']}
-        </a>
-        <small>(3)</small>
-    </h1>
     <div data-quickpanel="quickpanel" class="topNavIconWrapper">
         <h2 id="navigation-toggle" class="quickpanel-toggle ir">Navigation</h2>
         <ul id="global-nav" class="quickpanel">

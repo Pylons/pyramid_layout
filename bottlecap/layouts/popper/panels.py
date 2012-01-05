@@ -1,10 +1,15 @@
 from bottlecap.panel import panel_config
 
-
-@panel_config(name='popper.personal_tools',
-        renderer='templates/personal_tools.pt')
-def personal_tools(context, request):
-    return dict(profile_name="John Doe")
+@panel_config(name='popper.global_logo',
+              renderer='templates/global_logo.pt')
+def global_logo(context, request, x):
+    logo_href = request.registry.settings['bottlecap.site_title_link']
+    logo_title = request.registry.settings['bottlecap.site_title']
+    return dict(
+        logo_href=logo_href,
+        logo_title=logo_title,
+        x=x,
+    )
 
 @panel_config(name='popper.global_nav',
         renderer='templates/global_nav.pt')
@@ -16,6 +21,11 @@ def global_nav(context, request):
         dict(title="Item 4", url='#', selected=None),
         dict(title="Item 5", url='#', selected=None)]
     return {'nav_menu': nav_menu}
+
+@panel_config(name='popper.personal_tools',
+              renderer='templates/personal_tools.pt')
+def personal_tools(context, request):
+    return dict(profile_name="John Doe")
 
 @panel_config(name='popper.search', renderer='templates/search.pt')
 @panel_config(name='popper.context_tools',
