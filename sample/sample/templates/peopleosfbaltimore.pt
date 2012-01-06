@@ -24,16 +24,6 @@
                     class="notcurrent"><a
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
                     class="notcurrent"><a href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li></ul>
-            <form action="#" class="searchForm">
-                <fieldset>
-                    <div class="searchInputWrapper">
-                        <input class="search-site-box"
-                               type="search" name="body" title=""
-                               accesskey="4" size="15" placeholder="">
-                        <button class="searchButton ir" type="submit">Search</button>
-                    </div>
-                </fieldset>
-            </form>
         </div>
     </div>
 
