@@ -13,6 +13,7 @@ class SampleViews(object):
         return {
             "project": "People Reports for OSF",
             "section_style": "compact",
+            "show_sidebar": False,
         }
 
     @view_config(name="peopleosfbaltimore",
@@ -21,6 +22,7 @@ class SampleViews(object):
         return {
             "project": "Some Project",
             "section_style": "compact",
+            "show_sidebar": False,
             }
 
     @view_config(name="communities",
@@ -35,12 +37,16 @@ class SampleViews(object):
     @view_config(name="communitiesblog",
                  renderer="templates/communitiesblog.pt")
     def communitiesblog_view(self):
-        return {"project": "Africa Community"}
+        return {
+            "project": "Africa Community",
+        }
 
     ####
 
     @view_config('test', renderer="templates/testpage_view.pt")
     def testpage_view(self):
         self.request.layout_manager.use_layout('alternative')
-        return {"project": "Some Project"}
+        return {
+            "project": "Some Project",
+        }
 
