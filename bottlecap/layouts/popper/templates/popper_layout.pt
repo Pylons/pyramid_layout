@@ -54,12 +54,12 @@
 	    </div>
     </div>
 
-    <div class="${show_sidebar and 'contentWrapper' or 'contentWrapper singleColumn'}">
+    <div class="contentWrapper ${'' if layout.show_sidebar else 'singleColumn'}">
         <section class="main">
             <metal:content define-slot="content"/>
         </section>
 
-        <aside class="column" tal:condition="show_sidebar|True">
+        <aside class="column" tal:condition="layout.show_sidebar">
             ${panel('popper.column_one')}
 	    </aside>
     </div>

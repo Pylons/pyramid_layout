@@ -10,19 +10,22 @@ class SampleViews(object):
                  renderer="templates/peopleosf.pt")
     def peopleosf_view(self):
         """ The equivalent of /people/ """
+
+        self.request.layout_manager.layout.show_sidebar = False
         return {
             "project": "People Reports for OSF",
             "section_style": "compact",
-            "show_sidebar": False,
         }
 
     @view_config(name="peopleosfbaltimore",
                  renderer="templates/peopleosfbaltimore.pt")
     def peopleosfbaltimore_view(self):
+
+        self.request.layout_manager.layout.show_sidebar = False
+
         return {
             "project": "Some Project",
             "section_style": "compact",
-            "show_sidebar": False,
             }
 
     @view_config(name="communities",
@@ -31,7 +34,6 @@ class SampleViews(object):
         return {
             "project": "Some Project",
             "section_style": "none",
-            "show_sidebar": True,
             }
 
     @view_config(renderer="templates/communitiesblog.pt")
@@ -40,7 +42,6 @@ class SampleViews(object):
     def communitiesblog_view(self):
         return {
             "project": "Africa Community",
-            "show_sidebar": True,
         }
 
     ####

@@ -7,6 +7,9 @@ from bottlecap.layout import layout_config
 @layout_config(template='templates/popper_layout.pt')
 class PopperLayout(object):
 
+    # Some configurable options that can be overriden in a view
+    show_sidebar = True
+
     def __init__(self, context, request):
         self.context = context
         self.request = request

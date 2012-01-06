@@ -12,24 +12,30 @@ class BottlecapFunctionalTests(TestCase):
         # own test. Run them all here.
 
         res = self.testapp.get('/', status=200)
-        self.failUnless('Some' in res.body)
+        self.assertTrue('Some' in res.body)
+        self.assertTrue('This is a portlet' in res.body)
 
         # Default "tab" in People section
         res = self.testapp.get('/peopleosf', status=200)
-        self.failUnless('OSF Offices' in res.body)
+        self.assertTrue('OSF Offices' in res.body)
+        self.assertTrue('This is a portlet' not in res.body)
 
         # A report in that tab
         res = self.testapp.get('/peopleosfbaltimore', status=200)
-        self.failUnless('Baltimore Office' in res.body)
+        self.assertTrue('Baltimore Office' in res.body)
+        self.assertTrue('This is a portlet' not in res.body)
 
         # The /communities screen
         res = self.testapp.get('/communities', status=200)
-        self.failUnless('All Communities' in res.body)
+        self.assertTrue('All Communities' in res.body)
+        self.assertTrue('This is a portlet' in res.body)
 
         # The blog in a community
         res = self.testapp.get('/communitiesblog', status=200)
-        self.failUnless('Some Blog Page' in res.body)
+        self.assertTrue('Some Blog Page' in res.body)
+        self.assertTrue('This is a portlet' in res.body)
 
         # The test on the alternative layout, make sure it works
         res = self.testapp.get('/test', status=200)
-        self.failUnless('Some' in res.body)
+        self.assertTrue('Some' in res.body)
+        self.assertTrue('This is a portlet' not in res.body)
