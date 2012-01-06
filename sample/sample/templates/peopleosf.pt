@@ -4,7 +4,7 @@
         ${panel('popper.actions_menu')}
 
         <div class="transparentGrid clearfix">
-            <secton class="span-half">
+            <secton>
                 <h3>OSF Offices</h3>
                 <ul class="noBullets">
                     <li><a href="/peopleosfbaltimore" class="general">Baltimore</a></li>
@@ -16,7 +16,7 @@
                     <li><a href="https://karl.soros.org/people/osi/c1/r1/washington-dc-office/" class="general">Washington DC</a></li>
                 </ul>
             </secton>
-            <section class="span-half">
+            <section>
                 <h3>Executive Offices</h3>
                 <ul class="noBullets">
                     <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-chairman/" class="general">Office of the Chairman</a></li>
@@ -24,7 +24,7 @@
                     <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-executive-vice-president/" class="general">Office of the Executive Vice President</a></li>
                 </ul>
             </section>
-            <section class="span-half">
+            <section>
                 <h3>Administrative Offices</h3>
                 <ul class="noBullets">
                     <li><a href="https://karl.soros.org/people/osi/c1/r3/communications/" class="general">Communications</a></li>
@@ -38,7 +38,7 @@
                     <li><a href="https://karl.soros.org/people/osi/c1/r3/network-finance-and-systems-support/" class="general">Network Finance and Systems Support</a></li>
                 </ul>
             </section>
-            <section class="span-half">
+            <section>
                 <h3>US Programs</h3>
                 <ul class="noBullets">
                     <li><a href="https://karl.soros.org/people/osi/c1/r4/us-programs-director-s-office/" class="priority">US Programs Director's Office</a></li>
@@ -52,7 +52,7 @@
                     <li><a href="https://karl.soros.org/people/osi/c1/r4/transparency-and-integrity-fund/" class="general">Transparency and Integrity Fund</a></li>
                 </ul>
             </section>
-            <section class="span-half">
+            <section>
                 <h3>Advocacy</h3>
                 <ul class="noBullets">
                     <li><a href="https://karl.soros.org/people/osi/c1/r5/office-of-the-international-advocacy-director/" class="general">Office of the International Advocacy Director</a></li>
