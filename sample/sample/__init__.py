@@ -18,6 +18,10 @@ def main(global_config, **settings):
     popper_template = 'bottlecap.layouts.popper:templates/popper_layout.pt'
     config.add_layout(CustomLayout, popper_template)
     config.add_static_view('static', 'sample:static')
+    # favicon override
+    config.override_asset(
+             to_override='bottlecap.layouts.popper:static/img/favicon.ico',
+             override_with='sample:static/img/favicon.ico')
     config.scan('sample.panels')
     config.scan('sample.views')
     return config.make_wsgi_app()

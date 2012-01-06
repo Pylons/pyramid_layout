@@ -23,10 +23,13 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1">
 
+	<link rel="icon" href="${request.static_url('sample:static/img/favicon.ico')}" type="image/x-icon"/> 
+	<link rel="shortcut icon" href="${request.static_url('sample:static/img/favicon.ico')}" type="image/x-icon"/>
+
     <link rel="stylesheet" href="${layout.static_url}main.css"/>
 	<link rel="stylesheet" href="${request.static_url('sample:static/sample.css')}"/>
 
-    <script src="${layout.static_url}modernizr-2.0.6.min.js"></script>
+    <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
 
     <metal:headslot metal:define-slot="head_slot"/>
 </head>
@@ -56,12 +59,12 @@
     </div>
 </footer>
 
-<script src="${layout.static_url}/jquery-1.6.3.min.js"></script>
+<script src="${layout.static_url}js/jquery-1.6.3.min.js"></script>
 
 <script type="text/javascript" defer
-        src="${layout.static_url}popper.js"></script>
+        src="${layout.static_url}js/popper.js"></script>
 <script type="text/javascript"
-        src="${layout.static_url}dropdown.js"></script>
+        src="${layout.static_url}js/dropdown.js"></script>
 
 <metal:tailslot metal:define-slot="tail_slot"/>
 
