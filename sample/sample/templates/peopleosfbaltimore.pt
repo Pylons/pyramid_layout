@@ -4,8 +4,6 @@
     <header>
         <h1>Baltimore Office</h1>
         ${panel('popper.actions_menu')}
-    </header>
-    <div class="contentText">
         <div class="filter">
             <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
             <ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
@@ -25,24 +23,133 @@
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
                     class="notcurrent"><a href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li></ul>
         </div>
-    </div>
-    <aside class="vcard clearfix">
-        <h3 class="fn org url" href="http://www.soros.org">OSI-Baltimore</h3>
-        <div class="tel"><span class="type">Tel</span>: 410-234-1091</div>
-        <div class="tel"><span class="type">Fax</span>: 410-234-2816 </div>
-        Website: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
-        <div class="adr">
-            <div class="street-address">201 North Charles Street, Suite 1300</div>
-            <span class="locality">Baltimore</span>
-            <abbr class="region">Maryland</abbr>
-            <span class="postal-code">21201</span>
-            <div class="country-name">United States</div>
+    </header>
+    <div class="contentText">
+        <aside class="note">If you are calling from the New York,
+        Washington, DC or Budapest offices, dial directly by
+        extension. If you are calling from the London office, dial
+        #9, wait for a dial tone, then the extension.</aside>
+        <div class="vcard clearfix">
+            <h3 class="fn org url" href="http://www.soros.org">OSI-Baltimore</h3>
+            <div class="tel"><span class="type">Tel</span>: 410-234-1091</div>
+            <div class="tel"><span class="type">Fax</span>: 410-234-2816 </div>
+            Website: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
+            <div class="adr">
+                <div class="street-address">201 North Charles Street, Suite 1300</div>
+                <span class="locality">Baltimore</span>
+                <abbr class="region">Maryland</abbr>
+                <span class="postal-code">21201</span>
+                <div class="country-name">United States</div>
+            </div>
         </div>
-    </aside>
-    <p class="note">If you are calling from the New York,
-    Washington, DC or Budapest offices, dial directly by
-    extension. If you are calling from the London office, dial
-    #9, wait for a dial tone, then the extension.</p>
 
+        <ul class="viewSwitcher">
+            <li class="selected"><a hred="#">Tabular view</a></li>
+            <li><a hred="#">Picture view</a></li>
+        </ul>
+
+        <table class="listing" id="someid" summary="">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            Jeffrey Burch<a href="https://karl.soros.org/profiles/jburch/" style="display: none;"></a>
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            US Programs
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Senior Development Associate
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            443-909-7383 x 7383
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ui-grid-row even">
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            Tania Cordes<a href="https://karl.soros.org/profiles/tcordes/" style="display: none;"></a>
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            US Programs
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Program Associate - Strategic Communications
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            443-909-7378 x 7378
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ui-grid-row odd ui-grid-row-hover">
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            Monique Dixon<a href="https://karl.soros.org/profiles/mdixon/" style="display: none;"></a>
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            Criminal Justice Fund
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Deputy Director - OSI-Baltimore/ Director - Criminal and Juvenile Justice Program
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            443-909-7369 x 7369
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ui-grid-row even">
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            Kiera Edwards<a href="https://karl.soros.org/profiles/kedwards/" style="display: none;"></a>
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            US Programs
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Program Associate - Criminal and Juvenile Justice Program and Education and Youth Development Program
+                        </div>
+                    </td>
+                    <td class="ui-grid-column ui-state-active" style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            4439097376 x 7376
+                        </div>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
     </metal:content>
 </metal:block>
