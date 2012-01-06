@@ -1024,14 +1024,11 @@ body > footer {
 	h4 {
 	    font-size: 1.185em;
 	}
-	.span-half {
-	    .column(6);
-	    &:nth-child(odd){
-	        clear: left;
-	    }
+	.transparentGrid {
+	    .css3_content-columns(2, @space * 1em);
 	}
-	.span-one-third {
-	    .column(4);
+	.singleColumn .transparentGrid {
+	    .css3_content-columns(3, @space * 1em);	    
 	}
 	ul.alphabet {
 	    .horList();

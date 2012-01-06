@@ -30,6 +30,16 @@
     background-image: linear-gradient(top, @begin, @end);    
 }
 
+// CSS3 Content Columns
+.css3_content-columns(@columnCount, @columnGap: 20px) {
+  -webkit-column-count: @columnCount;
+     -moz-column-count: @columnCount;
+          column-count: @columnCount;
+  -webkit-column-gap: @columnGap;
+     -moz-column-gap: @columnGap;
+          column-gap: @columnGap;
+}
+
 // Gradient Bar Colors for buttons and allerts
 .gradientBar(@primaryColor, @secondaryColor) {
     #css3_gradient > .vertical(@primaryColor, @secondaryColor);

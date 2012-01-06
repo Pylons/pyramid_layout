@@ -1,9 +1,14 @@
 /*jslint browser: true */
-/*global jQuery: false, console: false, window: false, Modernizr:false */
+/*global jQuery: false, console: false, window: false, Modernizr:false, yepnope: false, radarlink: true */
 
 /* Gumball javascript */
 
 (function ($) {
+
+    yepnope({
+        test: Modernizr.csscolumns,
+        nope: ['css3-multi-column-min.js']
+    });
 
     if(Modernizr.prefixed('boxSizing')) {
         $('html').addClass('boxsizing');
