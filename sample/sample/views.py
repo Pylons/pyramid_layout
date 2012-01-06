@@ -31,6 +31,7 @@ class SampleViews(object):
         return {
             "project": "Some Project",
             "section_style": "none",
+            "show_sidebar": True,
             }
 
     @view_config(renderer="templates/communitiesblog.pt")
@@ -39,6 +40,7 @@ class SampleViews(object):
     def communitiesblog_view(self):
         return {
             "project": "Africa Community",
+            "show_sidebar": True,
         }
 
     ####
@@ -48,5 +50,6 @@ class SampleViews(object):
         self.request.layout_manager.use_layout('alternative')
         return {
             "project": "Some Project",
+            "show_sidebar": True,
         }
 
