@@ -1,0 +1,12 @@
+<metal:block use-macro="main_template">
+    <metal:content fill-slot="content">
+
+        <header>
+            <h1>Hello World, In Popper</h1>
+        </header>
+        <div class="contentText">
+            Just some styling.
+        </div>
+
+    </metal:content>
+</metal:block>
