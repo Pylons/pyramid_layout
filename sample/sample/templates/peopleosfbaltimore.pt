@@ -44,8 +44,8 @@
         </div>
 
         <ul class="viewSwitcher">
-            <li class="selected"><a hred="#">Tabular view</a></li>
-            <li><a hred="#">Picture view</a></li>
+            <li class="ir selected tabular-view"><a href="#" title="Tabular view">Tabular view</a></li>
+            <li class="ir picture-view"><a href="#" title="Picture view">Picture view</a></li>
         </ul>
 
         <table class="listing" id="someid" summary="">
@@ -146,10 +146,20 @@
                         </div>
                     </td>
                 </tr>
-
-
             </tbody>
         </table>
+
+        <div class="paginationBar">
+            <span class="res">Result 1-12 of 19</span>
+            <div class="pagination">
+                <a href="#" class="prev">&lt;</a>
+                <a href="#1">1</a>
+                <a href="#2">2</a>
+                <span class="current">3</span>
+                <a href="#4">4</a>
+                <a href="#" class="next">&gt;</a>
+            </div>
+        </div>
     </div>
     </metal:content>
 </metal:block>
