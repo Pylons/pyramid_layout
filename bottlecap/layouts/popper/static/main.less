@@ -719,7 +719,7 @@ form.addKeyword {
 }
 
 .filter {
-    .css3_linear_gradient(#444, #222);
+    .gradientBar(#444, #222);
     .css3_border_radius(.5em);
     color: #999;
     padding: @space/3 * 1em;
@@ -759,10 +759,109 @@ form.addKeyword {
 .viewSwitcher {
     .horList();
     text-align: right;
-    margin: @space * 1em 0 0;
-    li.selected a {
-        color: darken(@baseColor2, 27%);
+    margin: @space * 1em 0 @space/2em;
+}
+.tabular-view a,
+.picture-view a {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    background-image: url('img/table_photo_view.png');
+    background-repeat: no-repeat;
+    border: 1px solid #EADECC;
+    .css3_border_radius(.3em);    
+    &:hover {
+        border-color: darken(#EADECC, 20%);
     }
+}
+.tabular-view a {
+    background-position: 0% 0%;
+}
+.picture-view a {
+    background-position: -24px 0%;
+}
+.viewSwitcher .selected a {
+    background-color: #CEBEAA;
+    border: 1px solid #ab9779;
+    cursor: default; 
+}
+
+.paginationBar {
+    .gradientBar(#c5ae8b,#ab9779);
+    .css3_border_radius(0 0 .5em .5em);
+    color: #fff;
+    padding: 0 (@space * 1em);
+    margin-top: 0;
+    margin-bottom: @space * 1em;
+    .smaller();
+    .clearfix();
+    line-height: 3em;
+    a {
+        color: #fff;
+    }
+}
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 0 0.375em;
+}
+.pagination span.current {
+    background: @bodyBg;
+    color: #000;
+    font-weight: bold;
+    text-shadow: none;
+}
+.next, .prev {
+    font-weight: bold;
+    display: inline-block;
+    background: darken(#ab9779, 20%);
+    padding: 0 !important;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    .css3_border_radius(50%);
+    .generatedcontent & {
+        text-indent: -999em;
+        overflow: hidden;
+        position: relative;
+    }
+}
+.generatedcontent .next,
+.generatedcontent .prev {
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        height: 0;
+        width: 0;
+        margin-left: -.25em;
+        margin-top: -.5em;        
+        border-top: .5em solid transparent;
+        border-bottom: .5em solid transparent;
+    }
+}
+.prev {
+    margin: 0 .5em 0 0;
+    .generatedcontent &:after {
+        border-right: .5em solid #eee;
+        border-left: 0;
+    }
+}
+.next {
+    margin: 0 0  0 .5em;
+    .generatedcontent &:after {
+        margin-left: -.2em;
+        border-left: .5em solid #eee;
+        border-right: 0;
+    }    
+}
+.res {
+    float: left;
+}
+.pagination {
+    float:  right;
 }
 
 /* @end */
