@@ -52,11 +52,11 @@
     
     // Add nice-looking spans to cover the standard <select> elements in the search
     if(!$('html').hasClass('oldie')) {
-        $('nav.search select').each(function () {
+        $('nav.search').find('select').each(function () {
             var $that = $(this);
-            $(this).after('<span class="fieldCoverage">' + this[0].text + '</span>');
-            $(this).change(function () {
-                $(this).prev().text($('option:selected', $(this)).text());
+            $that.after('<span class="fieldCoverage">' + this[0].text + '</span>');
+            $that.change(function () {
+                $that.prev().text($('option:selected', $that).text());
             });
             
         });    
