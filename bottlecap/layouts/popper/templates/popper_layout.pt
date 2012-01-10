@@ -42,7 +42,7 @@
     <div class="sectionContainer">
         <div class="container">
             ${panel('popper.search')}
-            <tal:section_style switch="section_style|'full'">
+            <tal:section_style switch="layout.section_style|'full'">
                 <tal:no_section case="'none'"></tal:no_section>
                 <section tal:case="'compact'">
                     ${panel('popper.context_tools')}
@@ -62,7 +62,8 @@
             <metal:content define-slot="content"/>
         </section>
 
-        <aside class="column ${'shiftMe' if section_style == 'none' else ''}"
+        <aside
+                class="column ${'shiftMe' if layout.section_style == 'none' else ''}"
                tal:condition="layout.show_sidebar">
             ${panel('popper.column_one')}
 	    </aside>
