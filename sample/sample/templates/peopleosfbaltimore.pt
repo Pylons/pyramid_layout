@@ -4,6 +4,26 @@
     <header>
         <h1>Baltimore Office</h1>
         ${panel('popper.actions_menu')}
+    </header>
+    <div class="contentText">
+        <aside class="note">If you are calling from the New York,
+        Washington, DC or Budapest offices, dial directly by
+        extension. If you are calling from the London office, dial
+        #9, wait for a dial tone, then the extension.</aside>
+        <div class="vcard clearfix">
+            <h3 class="fn org url hidden" href="http://www.soros.org">OSI-Baltimore</h3>
+            <div class="tel"><span class="type">Tel</span>: 410-234-1091</div>
+            <div class="tel"><span class="type">Fax</span>: 410-234-2816 </div>
+            Website: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
+            <div class="adr">
+                <div class="street-address">201 North Charles Street, Suite 1300</div>
+                <span class="locality">Baltimore</span>
+                <abbr class="region">Maryland</abbr>
+                <span class="postal-code">21201</span>
+                <div class="country-name">United States</div>
+            </div>
+        </div>
+
         <div class="filter">
             <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
             <ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
@@ -22,31 +42,12 @@
                     class="notcurrent"><a
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
                     class="notcurrent"><a href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li></ul>
-        </div>
-    </header>
-    <div class="contentText">
-        <aside class="note">If you are calling from the New York,
-        Washington, DC or Budapest offices, dial directly by
-        extension. If you are calling from the London office, dial
-        #9, wait for a dial tone, then the extension.</aside>
-        <div class="vcard clearfix">
-            <h3 class="fn org url" href="http://www.soros.org">OSI-Baltimore</h3>
-            <div class="tel"><span class="type">Tel</span>: 410-234-1091</div>
-            <div class="tel"><span class="type">Fax</span>: 410-234-2816 </div>
-            Website: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
-            <div class="adr">
-                <div class="street-address">201 North Charles Street, Suite 1300</div>
-                <span class="locality">Baltimore</span>
-                <abbr class="region">Maryland</abbr>
-                <span class="postal-code">21201</span>
-                <div class="country-name">United States</div>
-            </div>
-        </div>
 
-        <ul class="viewSwitcher">
-            <li class="ir selected tabular-view"><a href="#" title="Tabular view">Tabular view</a></li>
-            <li class="ir picture-view"><a href="#" title="Picture view">Picture view</a></li>
-        </ul>
+            <ul class="viewSwitcher">
+                <li class="ir selected tabular-view"><a href="#" title="Tabular view">Tabular view</a></li>
+                <li class="ir picture-view"><a href="#" title="Picture view">Picture view</a></li>
+            </ul>
+        </div>
 
         <table class="listing" id="someid" summary="">
             <thead>
