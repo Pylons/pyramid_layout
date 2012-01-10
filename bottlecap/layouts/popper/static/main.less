@@ -551,6 +551,7 @@ ul.dropdown {
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
     @shadow: inset 0 1px 0 rgba(255,255,255,.25); 
     .css3_box_shadow(@shadow);
+    line-height: 1.333;
     a {
         border: none;
     }
@@ -581,6 +582,9 @@ table {
     background: lighten(@bodyBg, 10%);
     .css3_border_radius(.3em);
     overflow: hidden;
+}
+table.filtered {
+    .css3_border_radius(0);
 }
 th {
     background: darken(@baseColor2, 7%);
@@ -719,11 +723,13 @@ form.addKeyword {
 }
 
 .filter {
-    .gradientBar(#444, #222);
-    .css3_border_radius(.5em);
-    color: #999;
+/*    .gradientBar(#444, #222);*/
+    .gradientBar(#c5ae8b,#ab9779);
+    .css3_border_radius(.5em .5em 0 0);
+    color: #222;
     padding: @space/3 * 1em;
-    margin-bottom: @space * 1em;
+    margin-bottom: 1px;
+    .clearfix();
     a {
         color: #fff;
     }
@@ -738,6 +744,8 @@ form.addKeyword {
         margin: 0;
         padding: 0;
         .smaller();
+        float: left;
+        line-height: 26px;
         a, span {
             display: inline-block;
             padding: 0 .4em;
@@ -748,30 +756,32 @@ form.addKeyword {
         }
     }
 }
-.vcard h3,
-.transparentGrid h3 {
-    margin-top: 0;
-}
-.vcard h3 {
-    font-style: normal;
-}
 
+/* Tabular/photo View switcher */
 .viewSwitcher {
     .horList();
+    float: right;
     text-align: right;
-    margin: @space * 1em 0 @space/2em;
+    margin: 0;
+    clear: none;
+    li {
+        border: none;
+    }
 }
 .tabular-view a,
 .picture-view a {
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
+    width: 26px;
+    height: 26px;
+    background-color: #756349;
+    @shadow:0 1px 0 0 rgba(0,0,0,.4), 0 -1px 0 0 rgba(255,255,255,.5);
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow; 
+            box-shadow: @shadow;
     background-image: url('img/table_photo_view.png');
     background-repeat: no-repeat;
-    border: 1px solid #EADECC;
-    .css3_border_radius(.3em);    
+    .css3_border_radius(.3em);
     &:hover {
-        border-color: darken(#EADECC, 20%);
+        background-color: #ab9779;
     }
 }
 .tabular-view a {
@@ -781,9 +791,35 @@ form.addKeyword {
     background-position: -24px 0%;
 }
 .viewSwitcher .selected a {
-    background-color: #CEBEAA;
-    border: 1px solid #ab9779;
+    background-color: #ab9779;    
+    @shadow:0 -1px 0 0 rgba(0,0,0,.5), 0 1px 0 0 rgba(255,255,255,.5);
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow; 
+            box-shadow: @shadow;
     cursor: default; 
+    position: relative; /* to fix the optical illusion of the selected item being shifted 1px up */
+    bottom: -1px;
+}
+
+/* vcard */
+.vcard {
+    line-height: 1.3;
+    .clearfix();
+    margin-bottom: @space * 1em;
+    .adr {
+        font-family: @fancyFont;
+        font-weight: bold;
+    }
+}
+section.main .vcard aside {
+    background: transparent;
+    .css3_box_shadow(none);
+    padding: 0;
+    text-align: right;
+    font-style:  normal;
+}
+.transparentGrid h3 {
+    margin-top: 0;
 }
 
 .paginationBar {
@@ -1432,7 +1468,7 @@ body > footer {
     }
     section.main aside {
         float: right;
-        width: 15.741em;
+        width: 17.713em;
     	padding: (@space * 1em);
     	margin: 0 0 (@space * 1em) (@space * 1em);
     	font-size: 0.889em;
@@ -1952,6 +1988,9 @@ body > footer {
         margin: 0;
         width: auto;
         height: auto;
+    }
+    section.main aside {
+        width: 20.983em;
     }
     /* @end */
     
