@@ -28,9 +28,11 @@
 
     <link rel="stylesheet" href="${layout.static_url}main.css"/>
 	<link rel="stylesheet" href="${request.static_url('sample:static/sample.css')}"/>
+    <tal:block condition="layout.use_css_pie">
     <!--[if IE 7]>
     <link rel="stylesheet" href="${layout.static_url}ie.css" />
     <![endif]-->
+    </tal:block>
 
     <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
 
