@@ -1,6 +1,7 @@
 import json
 
 from pyramid.decorator import reify
+from pyramid.settings import asbool
 from bottlecap.layout import layout_config
 
 
@@ -25,6 +26,11 @@ class PopperLayout(object):
         sn = 'bottlecap.devmode'
         dm = self.request.registry.settings.get(sn, "false")
         return dm == "true"
+
+    @reify
+    def use_css_pie(self):
+        sn = 'bottlecap.use_css_pie'
+        return asbool(self.request.registry.settings.get(sn, False))
 
     # --
     # Head data and microtemplates management

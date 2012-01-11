@@ -24,6 +24,9 @@
 		<link rel="shortcut icon" href="${request.static_url('bottlecap.layouts.popper:static/img/favicon.ico')}" type="image/x-icon"/>
 		
         <link rel="stylesheet" href="${layout.static_url}main.css" />
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="${layout.static_url}ie.css" />
+        <![endif]-->
 
         <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
         <script src="${layout.static_url}js/respond.min.js"></script>
