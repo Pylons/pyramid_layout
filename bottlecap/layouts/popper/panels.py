@@ -3,11 +3,9 @@ from bottlecap.panel import panel_config
 @panel_config(name='popper.global_logo',
               renderer='templates/global_logo.pt')
 def global_logo(context, request):
-    logo_href = request.registry.settings['bottlecap.site_title_link']
-    logo_title = request.registry.settings['bottlecap.site_title']
     return dict(
-        logo_href=logo_href,
-        logo_title=logo_title,
+        logo_href=request.layout_manager.layout.site_title_link,
+        logo_title=request.layout_manager.layout.site_title,
     )
 
 @panel_config(name='popper.global_nav',
