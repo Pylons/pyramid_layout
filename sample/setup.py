@@ -7,9 +7,10 @@ README = open(os.path.join(here, 'README.txt')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
-    'pyramid>=1.3a1',
+    'pyramid>=1.3a5',
     'pyramid_debugtoolbar',
     'pyramid_exclog',
+    'waitress'
     ]
 
 setup(name='sample',
