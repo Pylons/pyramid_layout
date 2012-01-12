@@ -668,11 +668,11 @@ section.main .vcard aside {
     font-weight: bold;
     text-shadow: none;
 }
-.next, .prev {
+a.next, a.prev {
     font-weight: bold;
     display: inline-block;
     background: darken(#ab9779, 20%);
-    padding: 0 !important;
+    padding: 0;
     width: 2em;
     line-height: 2em;
     text-align: center;
@@ -681,10 +681,13 @@ section.main .vcard aside {
         text-indent: -999em;
         overflow: hidden;
         position: relative;
+        /* Fancy vertical positioning of the buttons due to Firefox  */
+        vertical-align: bottom;
+        margin-bottom: .5em;
     }
 }
-.generatedcontent .next:after,
-.generatedcontent .prev:after {
+.generatedcontent a.next:after,
+.generatedcontent a.prev:after {
     content: "";
     position: absolute;
     top: 50%;
@@ -697,14 +700,14 @@ section.main .vcard aside {
     border-top: .5em solid transparent;
     border-bottom: .5em solid transparent;
 }
-.prev {
+a.prev {
     margin: 0 .5em 0 0;
     .generatedcontent &:after {
         border-right: .5em solid #eee;
         border-left: 0;
     }
 }
-.next {
+a.next {
     margin: 0 0  0 .5em;
     .generatedcontent &:after {
         margin-left: -.2em;
