@@ -775,6 +775,8 @@ form.addKeyword {
         margin: 0;
     }
     .alphabet {
+        .horList();
+        clear: none;
         margin: 0;
         padding: 0;
         .smaller();
@@ -852,7 +854,6 @@ form.addKeyword {
     float: right;
     text-align: right;
     margin: 0;
-    clear: none;
 }
 #view-switcher .selected a {
     background-color: #ab9779;    
@@ -879,7 +880,6 @@ section.main .vcard aside {
     background: transparent;
     .css3_box_shadow(none);
     padding: 0;
-    text-align: right;
     font-style:  normal;
 }
 .transparentGrid h3 {
@@ -1591,6 +1591,12 @@ body > footer {
     }
     .actions {
         padding: (@space * 1em - 1) 20px @space * 1em 25%;
+    }
+    section.main .vcard .adr {
+        float: left;
+    }
+    section.main .vcard aside {
+        text-align: right;
     }
 }
 /* @end */

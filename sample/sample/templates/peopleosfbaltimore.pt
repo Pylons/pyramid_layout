@@ -7,12 +7,6 @@
     </header>
     <div class="contentText">
         <div class="vcard clearfix">
-            <aside>
-                <h3 class="fn org url hidden" href="http://www.soros.org">OSI-Baltimore</h3>
-                <div class="tel"><b class="type">Tel</b>: 410-234-1091</div>
-                <div class="tel"><b class="type">Fax</b>: 410-234-2816 </div>
-                <b>Website</b>: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
-            </aside>
             <div class="adr">
                 <div class="street-address">201 North Charles Street, Suite 1300</div>
                 <span class="locality">Baltimore</span>
@@ -20,6 +14,12 @@
                 <span class="postal-code">21201</span>
                 <div class="country-name">United States</div>
             </div>
+            <aside>
+                <h3 class="fn org url hidden" href="http://www.soros.org">OSI-Baltimore</h3>
+                <div class="tel"><b class="type">Tel</b>: 410-234-1091</div>
+                <div class="tel"><b class="type">Fax</b>: 410-234-2816 </div>
+                <b>Website</b>: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
+            </aside>
         </div>
 
         <div class="notification info">If you are calling from the New York,
@@ -33,6 +33,11 @@
         </ul>
 
         <div class="filter">
+            <ul class="contentActions" id="view-switcher">
+                <li class="selected"><a id="tabular-view" href="#" title="Tabular view">Tabular view</a></li>
+                <li><a id="picture-view" href="#" title="Picture view">Picture view</a></li>
+            </ul>
+
             <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
             <ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
                     class="notcurrent"><a
@@ -49,12 +54,39 @@
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">G</a></li><li
                     class="notcurrent"><a
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">B</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=C">C</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=D">D</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=E">E</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=F">F</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">G</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">B</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=C">C</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=D">D</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=E">E</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=F">F</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">G</a></li><li
+                    class="notcurrent"><a
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
                     class="notcurrent"><a href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li></ul>
-
-            <ul class="contentActions" id="view-switcher">
-                <li class="selected"><a id="tabular-view" href="#" title="Tabular view">Tabular view</a></li>
-                <li><a id="picture-view" href="#" title="Picture view">Picture view</a></li>
-            </ul>
         </div>
 
         <table class="listing filtered" id="someid" summary="">
