@@ -60,7 +60,7 @@ On each rendering, Bottlecap does some more work:
 
 - As is the template itself
 
-- An callable ``panel`` is available, which gives access to panels you
+- A callable, ``panel``, is made available, which gives access to panels you
   might want to use in your template
 
 So in summary:
