@@ -27,6 +27,11 @@
         extension. If you are calling from the London office, dial
         #9, wait for a dial tone, then the extension.</div>
 
+        <ul class="contentActions" id="report-actions">
+            <li><a href="print.html" title="Print" id="print-action">Print</a></li>
+            <li><a href="csv" title="Export as CSV" id="csv-action">Export as CSV</a></li>
+        </ul>
+
         <div class="filter">
             <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
             <ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
@@ -46,9 +51,9 @@
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
                     class="notcurrent"><a href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li></ul>
 
-            <ul class="viewSwitcher">
-                <li class="ir selected tabular-view"><a href="#" title="Tabular view">Tabular view</a></li>
-                <li class="ir picture-view"><a href="#" title="Picture view">Picture view</a></li>
+            <ul class="contentActions" id="view-switcher">
+                <li class="selected"><a id="tabular-view" href="#" title="Tabular view">Tabular view</a></li>
+                <li><a id="picture-view" href="#" title="Picture view">Picture view</a></li>
             </ul>
         </div>
 

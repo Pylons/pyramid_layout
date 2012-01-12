@@ -763,6 +763,7 @@ form.addKeyword {
     padding: @space/3 * 1em;
     margin-bottom: 1px;
     .clearfix();
+    clear: both;
     a {
         color: #fff;
     }
@@ -790,40 +791,70 @@ form.addKeyword {
     }
 }
 
-/* Tabular/photo View switcher */
-.viewSwitcher {
+/* Content actions */
+.contentActions {
     .horList();
-    float: right;
-    text-align: right;
-    margin: 0;
-    clear: none;
+    margin-left: 0;
+    padding-left: 0;
     li {
         border: none;
     }
+    a {
+        .ir();
+        width: 26px;
+        height: 26px;
+        background-color: transparent;
+        background-image: url('img/icons.png');
+        background-repeat: no-repeat;
+        border: 1px solid darken(@bodyBg, 10%);
+        .css3_border_radius(.3em);
+        &:hover {
+            border-color: @baseColor1;
+            background-color: lighten(@bodyBg, 5%);
+        }
+    }
 }
-.tabular-view a,
-.picture-view a {
-    width: 26px;
-    height: 26px;
+#print-action {
+    background-position: -52px 0%;
+}
+#csv-action {
+    background-position: -78px 0%;
+}
+#tabular-view,
+#picture-view {
     background-color: #756349;
+    border: none;
     @shadow:0 1px 0 0 rgba(0,0,0,.4), 0 -1px 0 0 rgba(255,255,255,.5);
     -webkit-box-shadow: @shadow;
        -moz-box-shadow: @shadow; 
             box-shadow: @shadow;
-    background-image: url('img/table_photo_view.png');
-    background-repeat: no-repeat;
-    .css3_border_radius(.3em);
     &:hover {
         background-color: #ab9779;
     }
 }
-.tabular-view a {
+#tabular-view {
     background-position: 0% 0%;
 }
-.picture-view a {
-    background-position: -24px 0%;
+#picture-view {
+    background-position: -26px 0%;
 }
-.viewSwitcher .selected a {
+
+
+/* Report actions */
+#report-actions {
+    margin-bottom: @space/3 * 1em;
+    float: right;
+}
+
+
+/* Tabular/photo View switcher */
+#view-switcher {
+    float: right;
+    text-align: right;
+    margin: 0;
+    clear: none;
+}
+#view-switcher .selected a {
     background-color: #ab9779;    
     @shadow:0 -1px 0 0 rgba(0,0,0,.5), 0 1px 0 0 rgba(255,255,255,.5);
     -webkit-box-shadow: @shadow;
