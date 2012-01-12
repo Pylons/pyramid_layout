@@ -545,6 +545,7 @@ ul.dropdown {
     border: 1px solid darken(#f1cd71, 15%);
     font-family: @fancyFont;
     text-shadow: 0 1px 0 #f1d693;
+    .clearfix();
     
     .css3_border_radius(.3em);
     .gradientBar(#f1d693, #e6c36c);
@@ -572,11 +573,10 @@ ul.dropdown {
 	text-align: center;
 	border-style: solid;
 	border-width: 1px;
-	border-color: rgba(0,0,0,.2);
-	border-radius: 50%;
+	.css3_border_radius(50%);
 	color: rgba(0,0,0,.8);
 	font-weight: bold;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	font-family: Geneva, "Times New Roman", serif;
 	text-shadow: 0 .05em 0 rgba(255,255,255,.7);
 	box-shadow: inset 0 .05em .3em rgba(255,255,255,.7), 0 .05em 0 rgba(255,255,255,.8);
@@ -585,9 +585,13 @@ ul.dropdown {
 .alert:before {
 	color: #fff;
 	text-shadow: 0 -1px 0 rgba(0,0,0,.4);
-	box-shadow: inset 0 .05em .3em rgba(255,255,255,.7), 0 .05em 0 rgba(255,255,255,.5);	
+	box-shadow: inset 0 .05em .2em rgba(255,255,255,.6), 0 .05em 0 rgba(255,255,255,.3);	
 	background: #e36143;
+	border-color: darken(#e36143, 15%);
     background-image: radial-gradient(50% 30%, rgb(255, 111, 112), rgb(255, 0, 0));
+}
+.info:before {
+	border-color: darken(#e6c36c, 15%);
 }
 
 /* Images in the text */
