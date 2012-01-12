@@ -1,0 +1,48 @@
+@media only screen and (min-width: 2024px) {
+    body {
+    	font-size: (@baseFontSize + 3)/@baseFontSize * 1em;
+    }
+    .contentWrapper {
+        padding: 1.33em 10%;
+    }
+    .contentWrapper section.main,
+    .sectionContainer section {
+        .column(7);
+    }
+    .contentWrapper > aside.column,
+    .sectionContainer nav.search {
+        .column(5);
+    }
+    .contentWrapper > aside.column .portlet {
+        @x: 6;
+        display: inline;
+        float: left;
+        width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width) + (@total-width*((@gutter-width*.5)/@_gridsystem-width));
+        margin-left: 0;
+        margin-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	        
+        &:nth-child(even) {
+            margin-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
+            margin-right: 0;	        
+        }        
+    }
+    .ie7 .contentWrapper > aside.column .portlet {
+        @x: 6;
+        width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width) + (@total-width*((@gutter-width*.5)/@_gridsystem-width)) - 0.5%;
+    }
+    
+    form.searchForm {
+        text-align: right;
+        padding-top: 1.333em;
+    }
+    form.searchForm fieldset {
+        display: inline;
+    }
+    .searchInputWrapper,
+    form.searchForm span.fieldCoverage {
+        padding-top: .2em;
+        padding-bottom: .3em;
+    }
+    form.searchForm span.fieldCoverage:after {
+        height: 1.9em;
+    }
+}

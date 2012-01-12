@@ -1,0 +1,326 @@
+@media only screen and (min-width: 768px) {
+    body {
+    	font-size: (@baseFontSize + 1)/@baseFontSize * 1em;
+    }
+    .contentWrapper {
+        padding: 1.33em 4%;
+    }
+
+    /* @group Section Container */    
+    .sectionContainer .container section, form.searchForm select {
+        display: block;
+    }
+    form.searchForm select {
+        display: inline;
+        margin: 0 0.5em 0 0;
+    }
+    .searchInputWrapper {
+        clear: left;
+    }
+    form.searchForm label {
+        display: inline;
+        width: auto;
+        padding: 0;
+        float: none;
+        font-weight: normal;
+        font-family: @fancyFont;
+        margin: 0 0.5em 0 0;
+        color: #444;
+        position: relative;
+        overflow: hidden; /* to not let <select> to 'stretch' longer than it's needed */
+        .smaller();
+    }   
+    form.searchForm span.fieldCoverage {
+        .quickpanelToggle(#fff, #204A5D, @baseFontColor);
+        border: 1px solid #fff;
+    }
+    form.searchForm select {
+        display: block;
+        opacity: 0;
+        margin: 0;
+        height: 2em;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        position: absolute;
+        width: auto;
+        padding: 0;
+    }
+    .oldie form.searchForm select {
+        position: static;
+        width: auto;
+        height: auto;
+        display: inline;
+        opacity: 1;
+    }
+    form.searchForm fieldset {
+        margin-top: 0.2em;
+    }
+    .sectionContainer {
+        .gradientBar(@baseColor3, #82adbf);
+        text-shadow: none;
+    	a {
+/*    	    color: #204A5D;
+    	    text-shadow: 0 1px 0 rgba(255,255,255,.1);*/
+    	    text-decoration: none;
+    	    &:hover {
+    		    color: #fff;
+    		    text-decoration: underline;
+    		}
+    	}
+    	section {
+    	    position: relative;
+    	}
+    	h2 {
+    	    color: @baseFontColor;
+    	    font-weight: bold;
+    	    padding-top: 0.3em;
+    	    padding-bottom: 0;
+    	    font-size: 1.185em;
+    	    padding-left: (@space * 1em)/1.33em;
+    	    margin-top: 0;
+    	    margin-bottom: 0;
+    	}
+    	header {
+    	    margin: 0;
+    	    float: left;
+    	}
+    }
+    ul.sectionTools {
+        margin: 0;	
+        .horList();
+        float: left;
+        clear: none;
+        width: auto;
+    	padding:0 0 0 (@space * 1em)/2;
+    	font-family: @fancyFont;
+    	font-size: 0.889em;
+        > li {
+            position: relative;
+    	    float:left;
+    	    > a {
+    	        display: block;
+    	        border-bottom: none;
+    	        padding-top: .3em;
+    	        margin-top: .3em;
+                color: #204A5D;
+                text-shadow: 0 1px 0 rgba(255,255,255,.1);    	        
+    	        &:hover {
+    	            text-decoration: none;
+    	        }
+    	    }
+    	}
+    	> li[data-quickpanel='dropdown']:hover > a {
+    	    color: #fff;
+    	}
+    	> li[data-quickpanel='dropdown']:hover > a:after {
+            border-top-color: #fff;
+    	}
+    	.dropdown ul,
+    	.quickpanel ul {
+    	    margin-left: 0;
+    	    padding-left: 0;
+    	    list-style-position: inside;
+    	}
+    	.dropdown li,
+    	.quickpanel li {
+    	    display: list-item;
+    	    float: none;
+            a {
+                text-decoration: underline;       
+            }    	    
+    	}
+    	.quickpanel li a {
+    	    padding: 0;
+            line-height: 1.3;
+            display: inline;
+    	}
+        .dropdown li {
+            list-style: none;
+            a {
+                padding-top: 0.422em;
+                padding-bottom: 0.422em;  
+                text-decoration: none;          
+            }
+        }    	
+    	li[data-quickpanel="quickpanel"] {
+    	    position: static;
+    	}
+    	a {
+        	padding: (@space * 1em)/2;
+    	    background-position: 50% .685294118em;
+    	    background-repeat: no-repeat;
+    	}
+        .selected a,
+        .selected a:hover {
+    	    color: #fff;
+    	    text-decoration: none;
+    	    border-bottom: none;
+    	    margin-bottom: 0;
+    	}
+    	.selected a:hover {
+    	    cursor: text;
+    	}
+    	.selected a:after {
+    		content: "";
+    		font-size: 0;
+    	    display: block;
+    	    position: absolute;
+    	    bottom: 0px;
+    	    left: 50%;
+    	    margin-left: -10px;
+    	    width:0; 
+    	    height:0; 
+    	    border-left: 10px solid transparent; 
+    	    border-right: 10px solid transparent;
+    	    border-bottom: 10px solid @bodyBg;
+    	    border-top: 0;
+    	}
+    }
+    .no-cssgradients .sectionContainer {
+        background: @baseColor3;
+    }    
+    /* @end */
+
+    /* @group Top Bar with the global naviagtion */
+    #top-bar nav {
+        position: relative;
+    }
+/*    #top-bar nav a.quickpanel-toggle:after {
+    	margin-top: 1.1em;
+    }*/
+    #top-bar ul#global-nav a {
+        font-size: 0.82em;
+    }
+    #top-bar ul#global-nav div.quickpanel a {
+        font-size: 1em;
+    }
+    h2#search-toggle {
+    	height: 2.2em;
+    	width: 2.2em;		    
+    }
+    .no-generatedcontent #top-bar nav .selected {
+    	background-position: 50% 100%;
+    	background-color: transparent;
+    	background-repeat: no-repeat;
+    	background-image: url('img/selected_item.png');
+    	padding-bottom: 12px;
+    	margin-bottom: -12px;
+    }
+    #top-bar h1.selected {
+    	background-position: 50% 100%;
+    	background-color: transparent;
+    	background-repeat: no-repeat;
+    	background-image: url('img/selected_item.png');
+    	padding-bottom: 12px;
+    	margin-bottom: -12px;
+    }
+
+    #top-bar ul#global-nav .selected a:after, #top-bar ul#members-info .selected a:after {
+        font-size: 0; /* hello IE! Since we change the font-size for #top-bar ul#global-nav a, we need to reset the font-size here again. */
+        border-bottom-color: @baseColor3;
+    }		    
+    /* @end */
+    .dropdown {
+        width: 300px;    
+        padding: (@space * 1em)/2 0;
+        a {
+    	    display: block !important;
+    	}
+        a:hover {
+    		color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+    	}
+    }
+    ul.dropdown li a {
+        padding: 0 (@space * 1em);
+        font-weight: normal;
+        &:hover {
+            background: #777;
+        } 
+    }
+    ul.actionsMenu {
+        display: block;
+    	.horList();
+        padding: 0;
+        margin: -1em 0 0;
+        width: auto;
+        height: auto;
+    	margin-top: 0.134em;
+    	margin-bottom: 0.677em;
+    	font-size: 0.9em;
+        > li > a {
+            width: auto;
+            position: relative;
+            background-image: none;
+            display: inline-block;
+            text-decoration: none;
+            padding: .1em 1em;
+        	.gradientBar(#c5ae8b, #ab9779);            
+            color:#fff;
+            margin-right: 1px;
+            .smaller();
+            &:hover {
+                border-color: #000;
+            }
+    	}
+    	> li:nth-child(1) > a {
+            .css3_border_radius(.3em 0 0 .3em);
+    	}
+    	> li:nth-child(1) > adropdown-toggle:hover {
+            .css3_border_radius(.3em 0 0 0);   	    
+    	}
+        > li:last-child > a {
+            .css3_border_radius(0 .3em .3em 0);
+        }    	
+        > li:last-child > adropdown-toggle:hover {
+            .css3_border_radius(0 .3em 0 0);    	    
+        }        
+    	.dropdown {
+    	    top: 1.823076923em;
+    	    width: 200px;
+    	    li a {
+    	        font-size: 1em;
+    	        border: none;
+                padding: 0.422em (@space * 1em);
+    	    }
+    	}
+    }
+    li[data-quickpanel="dropdown"] a {
+        padding-right: 1.199833333em;
+    }
+    ul.actionsMenu li[data-quickpanel="dropdown"] a.dropdown-toggle:after {
+        display: none;
+    }
+    .sectionTools .dropdown,
+    .sectionTools .quickpanel {
+        top: 3.30987em;
+    }
+    #top-bar .quickpanel .quickpanel {
+        top: 2.846153846em;
+    }    
+    .sectionContainer section .quickpanel {
+        top: auto;
+    }
+    .touch {
+        .dropdown a {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            line-height: 35px !important;
+            font-size: 1em !important;
+        }
+        ul.actionsMenu {
+        	margin-top: 0.134em;
+        	margin-bottom: 0.677em;
+        	a {
+        	    line-height: 35px;
+        	    padding: 0 (@space * 1em);
+        	    margin-right: 8px;
+        	}
+        }        
+    } 
+    .description {
+        margin-bottom: 2.2661em;
+    }
+}
