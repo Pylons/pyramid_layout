@@ -36,6 +36,20 @@ h2 {
 h3, h4 {
 	font-size: 1.185em;
 }
+table {
+    margin: @space @space;
+    width: 100%;
+    th, td {
+        padding: 0.375em 1em;
+        font-size: 0.889em;
+    }
+    table {
+        margin: 0;
+        th, td {
+            padding: 3px;
+        }
+    }
+}
 .container:before, 
 .container:after,
 #top-bar:before, 
@@ -142,7 +156,7 @@ h2#search-toggle {
 	    display: block;
 	    color: @baseFontColor;
 	    position: relative;
-	    background: transparent url('img/right_arrow_icon.png') 100% 50% no-repeat;
+	    background: transparent url('../img/right_arrow_icon.png') 100% 50% no-repeat;
 	    background-origin: content-box;
 	}
 	.selected {
@@ -203,7 +217,7 @@ input.search-site-box {
 }
 
 form.searchForm button.searchButton {
-    background: transparent url('img/search_icon_dark.png') 50% 50% no-repeat;
+    background: transparent url('../img/search_icon_dark.png') 50% 50% no-repeat;
     border: none;
     width: 35px;
     height: 2em;
@@ -546,7 +560,7 @@ form.addKeyword {
         width: 26px;
         height: 26px;
         background-color: transparent;
-        background-image: url('img/icons.png');
+        background-image: url('../img/icons.png');
         background-repeat: no-repeat;
         border: 1px solid darken(@bodyBg, 10%);
         .css3_border_radius(.3em);
