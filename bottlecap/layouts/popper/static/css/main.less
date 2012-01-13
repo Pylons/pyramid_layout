@@ -5,7 +5,7 @@
 @import "variables.less";
 
 
-/* @group BASIC STYLES */
+/* @group GENERIC LAYOUT-WIDE ELEMENTS' STYLES */
 
 body {
     .css3_linear_gradient(@bodyBg, darken(@bodyBg, 3%));
@@ -16,15 +16,9 @@ a:visited {
     color: saturate(@baseColor3, 30%);
     text-decoration: none;
 }
-.contenttext a, .contentText a:visited {
-    border-bottom: 1px solid @baseColor4;    
-}
 a:hover {
     color: darken(saturate(@baseColor4, 30%), 20%);
     text-decoration: none;
-    border-bottom: none;
-}
-.contenttext a:hover {
     border-bottom: none;
 }
 h1 {
@@ -41,8 +35,11 @@ th, td {
     font-size: 0.889em;
 }
 table {
-    margin: @space @space;
+    margin: @space;
     width: 100%;
+    background: lighten(@bodyBg, 10%);
+    .css3_border_radius(.3em);
+    overflow: hidden;
     table {
         margin: 0;
         th, td {
@@ -50,27 +47,23 @@ table {
         }
     }
 }
-.container:before, 
-.container:after,
-#top-bar:before, 
-#top-bar:after,
-.contentWrapper:before, 
-.contentWrapper:after { content: ""; display: table; }
-
-.container:after,
-#top-bar:after,
-.contentWrapper:after { clear: both; }
-
-.container,
-#top-bar,
-.contentWrapper { *zoom: 1; }
-
+th {
+    background: darken(@baseColor2, 7%);
+    font-family: @fancyFont;
+    text-align: left;
+}
+tr.even {
+    background: lighten(@bodyBg, 5%);
+}
+td {
+    border-top: 1px solid #fff;
+}
+dt {
+    font-family: @fancyFont;
+    margin-top: .3em;
+}
 img {
     max-width: 100%;
-}
-.discreet {
-    .smaller();
-    color: lighten(@baseFontColor, 20%);
 }
 figure {
     margin: 0 0 ((@space * 1em) * 1em);
@@ -92,13 +85,23 @@ figure {
         font-family: @baseFont;
 	}
 }
+.discreet {
+    .smaller();
+    color: lighten(@baseFontColor, 20%);
+}
+.container { 
+    .clearfix();
+}
+
 /* @end */
+
 
 /* @group TOP CHROME BAR */
 
 #top-bar {
 	color: #fff;
-    background: #333;	
+    background: #333;
+    .clearfix();
 	a {
     	border-bottom: none;
 		color: #fff;
@@ -251,23 +254,11 @@ form.searchForm select {
 
 /* @group CONTENT */
 .contentWrapper {
+    .clearfix();
     padding: (@space * 1em)/2;
 }
 section.main {
     padding-bottom: (@space * 1em);
-}
-.description {
-    font-style: italic;
-}
-section.main aside {
-    @shadow: 0 0 0 2px @bodyBg, 0 0 0 3px darken(@bodyBg, 10%);
-	font-style: italic;
-	background: darken(@bodyBg, 13%);
-	padding: (@space * 1em)/2;
-	margin: (@space * 1em)/2 0;
-	-webkit-box-shadow: @shadow;
-	   -moz-box-shadow: @shadow; 
-	        box-shadow: @shadow;
 }
 section.main header {
     position: relative;
@@ -287,12 +278,31 @@ section.main header {
         text-decoration: none;
     }
 }
+.description {
+    font-style: italic;
+}
+section.main aside {
+    @shadow: 0 0 0 2px @bodyBg, 0 0 0 3px darken(@bodyBg, 10%);
+	font-style: italic;
+	background: darken(@bodyBg, 13%);
+	padding: (@space * 1em)/2;
+	margin: (@space * 1em)/2 0;
+	-webkit-box-shadow: @shadow;
+	   -moz-box-shadow: @shadow; 
+	        box-shadow: @shadow;
+}
 ul.actionsMenu,
 ul.dropdown {
 	display: none;  
 }
+.contentWrapper footer {
+    .clearfix();
+}
+.transparentGrid h3 {
+    margin-top: 0;
+}
 
-/* Notifications */
+// NOTIFICATIONS
 .notification {
     padding: @space/2 * 1em @space * 1em;
     margin: 0 0 @space * 1em;
@@ -348,7 +358,7 @@ ul.dropdown {
 	border-color: darken(#e6c36c, 15%);
 }
 
-/* Images in the text */
+// IMAGES IN THE TEXT
 .image-left {
     float: left;
     margin: 0 (@space * 1em) (@space * 1em) 0;
@@ -358,51 +368,18 @@ ul.dropdown {
     margin: 0  0 (@space * 1em) (@space * 1em);
 }
 
-/* Styling generic elements */
-dt {
-    font-family: @fancyFont;
-    margin-top: .3em;
-}
-
-/* Tables */
-table {
-    background: lighten(@bodyBg, 10%);
-    .css3_border_radius(.3em);
-    overflow: hidden;
-}
+// SPECIFIC STYLES FOR GENERIC ELEMENTS
 table.filtered {
     .css3_border_radius(0);
-}
-th {
-    background: darken(@baseColor2, 7%);
-    font-family: @fancyFont;
-    text-align: left;
 }
 tr.even {
     background: lighten(@bodyBg, 5%);
 }
-td {
-    border-top: 1px solid #fff;
-}
 
-/* Forms */
-
+// FORMS
 @import "forms.less";
 
-/* Column */
-.column {
-    border-top: 1px solid @baseColor2;
-    padding-top: (@space * 1em);
-    h3 {
-	    font-size: 1.333em;
-	}
-}
-
-/* Keywords */
-
-.contentWrapper footer {
-    .clearfix();
-}
+// KEYWORDS
 .keywords {
     .horList();
     float: left;
@@ -469,7 +446,6 @@ td {
 }
 form.addKeyword {
     float: left;
-/*    clear: left;*/
     fieldset {
         background: lighten(#f3e4ce, 5%);
         .css3_border_radius(.3em);
@@ -509,8 +485,9 @@ form.addKeyword {
     }
 }
 
+
+// FILTER
 .filter {
-/*    .gradientBar(#444, #222);*/
     .gradientBar(#c5ae8b,#ab9779);
     .css3_border_radius(.5em .5em 0 0);
     color: #222;
@@ -547,7 +524,7 @@ form.addKeyword {
     }
 }
 
-/* Content actions */
+// CONTENT ACTIONS (BUTTONS)
 .contentActions {
     .horList();
     margin-left: 0;
@@ -594,16 +571,12 @@ form.addKeyword {
 #picture-view {
     background-position: -26px 0%;
 }
-
-
 /* Report actions */
 #report-actions {
     margin-bottom: @space/3 * 1em;
     margin-right: .3em;
     float: right;
 }
-
-
 /* Tabular/photo View switcher */
 #view-switcher {
     float: right;
@@ -621,7 +594,7 @@ form.addKeyword {
     bottom: -1px;
 }
 
-/* vcard */
+// VCARD
 .vcard {
     line-height: 1.3;
     .clearfix();
@@ -637,10 +610,8 @@ section.main .vcard aside {
     padding: 0;
     font-style:  normal;
 }
-.transparentGrid h3 {
-    margin-top: 0;
-}
 
+// PAGINATION BAR
 .paginationBar {
     #css3_gradient > .vertical(#c5ae8b,#ab9779);
     text-shadow: 0 1px 0 rgba(255,255,255,.25);
@@ -721,11 +692,21 @@ a.next {
 .pagination {
     float:  right;
 }
-
 /* @end */
 
-/* @group FOOTER */
 
+/* @group COLUMN */
+.column {
+    border-top: 1px solid @baseColor2;
+    padding-top: (@space * 1em);
+    h3 {
+	    font-size: 1.333em;
+	}
+}
+/* @end */
+
+
+/* @group FOOTER */
 body > footer {
     border-top: 2px solid lighten(@baseColor1, 20%);
     background-color:@baseColor1;
@@ -734,7 +715,6 @@ body > footer {
     text-align: center;
     .smaller();
 }
-
 /* @end */
 
 /* @group RADAR PANEL */
