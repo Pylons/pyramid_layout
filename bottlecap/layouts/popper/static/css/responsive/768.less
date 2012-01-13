@@ -31,7 +31,25 @@
         .smaller();
     }   
     form.searchForm span.fieldCoverage {
-        .quickpanelToggle(#fff, #204A5D, @baseFontColor);
+        .quickpanelToggle(#fff, @baseFontColor);
+        padding-right: 1.9em;
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            height: 1.5em;
+            width: 1.25em;
+            background: #204A5D;
+            .css3_border_radius(0 .3em .3em 0);
+            *line-height: 0;
+        }
+        &:before {
+            border-top-color: #fff;
+            right: .4em;
+        }
         border: 1px solid #fff;
     }
     form.searchForm select {

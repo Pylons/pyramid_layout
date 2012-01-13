@@ -155,42 +155,29 @@
   }
 }
 
-.quickpanelToggle(@bg:#777, @dropColor: #555, @color:#fff) {
+.quickpanelToggle(@bg:#777, @textColor:#fff) {
     display: inline-block;
-    padding: 0 25px 0 .7em;
+    padding: 0 1.3em 0 .7em;
     margin: 0;
     position: relative;
     line-height: 1.5em;
     background: @bg;
-    color: @color;
+    color: @textColor;
     .css3_border_radius(.3em);
     pointer-events: none;
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        height: 1.5em;
-        width: 16px;
-        background: @dropColor;
-        .css3_border_radius(0 .3em .3em 0);
-        *line-height: 0;
-    }
     &:before {
         content: "";            
         display: block;
         position: absolute;
         z-index: 2;
         top: 50%;
-        margin-top: -2px;
-        right: 4px;
+        margin-top: -0.1em;
+        right: .266666667em;
         width: 0;
         height: 0;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 4px solid lighten(@bg, 10%);
+        border-left: .266666667em solid transparent;
+        border-right: .266666667em solid transparent;
+        border-top: .266666667em solid @textColor;
         *line-height: 0;        
     }
 }

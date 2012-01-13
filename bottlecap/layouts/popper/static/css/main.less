@@ -13,11 +13,11 @@ body {
 }
 a,
 a:visited {
-    color: saturate(@baseColor3, 30%);
+    color: @linkColor;
     text-decoration: none;
 }
 a:hover {
-    color: darken(saturate(@baseColor4, 30%), 20%);
+    color: lighten(@linkColor, 20%);
     text-decoration: none;
     border-bottom: none;
 }
@@ -48,9 +48,14 @@ table {
     }
 }
 th {
-    background: darken(@baseColor2, 7%);
+    background: @baseColor1;
     font-family: @fancyFont;
     text-align: left;
+    color: @baseColor2;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.4);
+    a {
+        color: @baseColor2;
+    }
 }
 tr.even {
     background: lighten(@bodyBg, 5%);
@@ -368,12 +373,15 @@ ul.dropdown {
     margin: 0  0 (@space * 1em) (@space * 1em);
 }
 
-// SPECIFIC STYLES FOR GENERIC ELEMENTS
+// CONTENT TABLES
 table.filtered {
     .css3_border_radius(0);
 }
 tr.even {
     background: lighten(@bodyBg, 5%);
+}
+th a.selected {
+    .quickpanelToggle(transparent, @bodyBg);
 }
 
 // FORMS
@@ -555,7 +563,7 @@ form.addKeyword {
 }
 #tabular-view,
 #picture-view {
-    background-color: #756349;
+    background-color: @baseColor1;
     border: none;
     @shadow:0 1px 0 0 rgba(0,0,0,.4), 0 -1px 0 0 rgba(255,255,255,.5);
     -webkit-box-shadow: @shadow;
@@ -614,10 +622,10 @@ section.main .vcard aside {
 // PAGINATION BAR
 .paginationBar {
     #css3_gradient > .vertical(#c5ae8b,#ab9779);
-    text-shadow: 0 1px 0 rgba(255,255,255,.25);
     border-color: #ab9779 #ab9779 darken(#ab9779, 15%);
     .css3_border_radius(0 0 .5em .5em);
-    color: darken(#756349, 10%);
+    color: @bodyBg;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25); 
     padding: 0 (@space * 1em);
     margin-top: 0;
     margin-bottom: @space * 1em;
@@ -625,7 +633,7 @@ section.main .vcard aside {
     .clearfix();
     line-height: 3em;
     a {
-        color: darken(#756349, 10%);
+        color: @bodyBg;
     }
 }
 .pagination a,
@@ -633,7 +641,7 @@ section.main .vcard aside {
     display: inline-block;
     padding: 0 .5em;
 }
-.pagination span.current {
+.pagination span.selected {
     background: @bodyBg;
     color: #000;
     font-weight: bold;
@@ -642,7 +650,7 @@ section.main .vcard aside {
 a.next, a.prev {
     font-weight: bold;
     display: inline-block;
-    background: darken(#ab9779, 20%);
+    background: darken(@baseColor1, 5%);
     padding: 0;
     width: 2em;
     line-height: 2em;
@@ -674,7 +682,7 @@ a.next, a.prev {
 a.prev {
     margin: 0 .5em 0 0;
     .generatedcontent &:after {
-        border-right: .5em solid #eee;
+        border-right: .5em solid @bodyBg;
         border-left: 0;
     }
 }
@@ -682,7 +690,7 @@ a.next {
     margin: 0 0  0 .5em;
     .generatedcontent &:after {
         margin-left: -.2em;
-        border-left: .5em solid #eee;
+        border-left: .5em solid @bodyBg;
         border-right: 0;
     }    
 }

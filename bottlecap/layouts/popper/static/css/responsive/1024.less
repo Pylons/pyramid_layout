@@ -41,8 +41,12 @@
         display: none;
     }   
     form.searchForm span.fieldCoverage {
-        .quickpanelToggle(#97B9C7, #204A5D, #444);
-        border: 1px solid #97B9C7;
+        @bg: darken(@baseColor4, 10%);
+        background: @bg;
+        border: 1px solid @bg;
+        &:before {
+            border-top-color: @bg;
+        }
     }
     form.searchForm label {
         color: @bodyBg;
