@@ -13,7 +13,7 @@
     .sectionContainer nav.search {
         .column(5);
     }
-    .contentWrapper > aside.column .portlet {
+    .portlet {
         @x: 6;
         display: inline;
         float: left;
@@ -25,7 +25,7 @@
             margin-right: 0;	        
         }        
     }
-    .ie7 .contentWrapper > aside.column .portlet {
+    .ie7 .portlet {
         @x: 6;
         width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width) + (@total-width*((@gutter-width*.5)/@_gridsystem-width)) - 0.5%;
     }

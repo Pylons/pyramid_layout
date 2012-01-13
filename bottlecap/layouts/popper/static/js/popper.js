@@ -67,7 +67,7 @@
     });
     
     $('form.addKeyword').bind('submit', function (e) {
-        var keywordsList = $(this).prev('ul.keywords');
+        var keywordsList = $(this).prev('#keywords ul');
         keywordsList.append('<li><a href="#"><span class="keyword">'+ $('input[type="text"]', $(this)).val() +'</span><span class="keywordCounter">1</span></a></li>');
         return false;
     });

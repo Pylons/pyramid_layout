@@ -309,20 +309,20 @@ li[data-quickpanel="quickpanel"].open > a.quickpanel-toggle,
 .touch .actionsMenu li[data-quickpanel="dropdown"]:last-child > a.open {
     .css3_border_radius(0 .3em 0 0);
 }    
-.contentWrapper > aside.column {
+aside.column {
     padding: (@space * 1em) 0;
     .clearfix();
-    .portlet {
-		float:left;
-	    width: 48%;
-	    margin-right: 4%;
-	}
-	.portlet:nth-child(2) {
-	    margin-right: 0;
-	}
-	.portlet h3 {
-	    font-size: 1.333em;
-	}
+}
+.portlet {
+	float:left;
+    width: 48%;
+    margin-right: 4%;
+}
+.portlet:nth-of-type(even) {
+    margin-right: 0;
+}
+.portlet h3 {
+    font-size: 1.333em;
 }
 .res {
     display: block;
