@@ -1,3 +1,17 @@
+<section id="keywords">
+    <ul>
+        <li><a href="#"><span class="keyword">flyers</span> <span class="keywordCounter">2</span></a></li>
+        <li><a href="#"><span class="keyword">park</span> <span class="keywordCounter">2</span></a></li>
+        <li><a href="#"><span class="keyword">volunteer</span> <span class="keywordCounter">2</span></a></li>
+    </ul>
+    <form action="#" class="addKeyword">
+        <fieldset>
+            <input type="text" name="keyword" placeholder="A keyword to add" />
+            <button type="submit">New keyword</button>
+        </fieldset>
+    </form>
+</section>
+
 <section class="portlet">
     <h3>This is a portlet.</h3>
     <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
