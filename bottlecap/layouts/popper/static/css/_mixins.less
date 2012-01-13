@@ -155,16 +155,13 @@
   }
 }
 
-.quickpanelToggle(@bg:#777, @textColor:#fff) {
+.quickpanelToggle(@textColor:#fff) {
     display: inline-block;
     padding: 0 1.3em 0 .7em;
     margin: 0;
     position: relative;
     line-height: 1.5em;
-    background: @bg;
     color: @textColor;
-    .css3_border_radius(.3em);
-    pointer-events: none;
     &:before {
         content: "";            
         display: block;

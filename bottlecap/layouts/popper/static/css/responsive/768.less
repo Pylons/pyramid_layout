@@ -31,8 +31,11 @@
         .smaller();
     }   
     form.searchForm span.fieldCoverage {
-        .quickpanelToggle(#fff, @baseFontColor);
+        .quickpanelToggle(@baseFontColor);
+        .css3_border_radius(.3em);
         padding-right: 1.9em;
+        pointer-events: none;
+        background: #fff;
         &:after {
             content: "";
             display: block;

@@ -53,9 +53,12 @@ th {
     text-align: left;
     color: @baseColor2;
     text-shadow: 0 -1px 0 rgba(0,0,0,.4);
-    a {
+    a, a:visited {
         color: @baseColor2;
     }
+    a:hover {
+        color: #fff;
+    }    
 }
 tr.even {
     background: lighten(@bodyBg, 5%);
@@ -381,8 +384,16 @@ tr.even {
     background: lighten(@bodyBg, 5%);
 }
 th a.selected {
-    .quickpanelToggle(transparent, @bodyBg);
+    .quickpanelToggle(#fff);
+    color: #fff;
+    &.ascending {
+        &:before {
+            border-top: 0;
+            border-bottom: .266666667em solid #fff;
+        }
+    }
 }
+
 
 // FORMS
 @import "forms.less";

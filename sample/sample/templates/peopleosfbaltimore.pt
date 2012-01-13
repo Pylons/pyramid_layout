@@ -99,10 +99,11 @@
              -->
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                    <th>Phone</th>
+                    <!-- Anchors within TH are required in .sortable -->
+                    <th><a href="#" class="selected ascending">Name</a></th>
+                    <th><a href="#">Department</a></th>
+                    <th><a href="#">Position</a></th>
+                    <th><a href="#">Phone</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -203,7 +204,7 @@
                 <a href="#" class="prev">&lt;</a>
                 <a href="#1">1</a>
                 <a href="#2">2</a>
-                <span class="current">3</span>
+                <span class="selected">3</span>
                 <a href="#4">4</a>
                 <a href="#" class="next">&gt;</a>
             </div>
