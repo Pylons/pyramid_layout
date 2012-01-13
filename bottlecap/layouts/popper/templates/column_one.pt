@@ -1,8 +1,14 @@
 <section id="keywords">
     <ul>
-        <li><a href="#"><span class="keyword">flyers</span> <span class="keywordCounter">2</span></a></li>
-        <li><a href="#"><span class="keyword">park</span> <span class="keywordCounter">2</span></a></li>
-        <li><a href="#"><span class="keyword">volunteer</span> <span class="keywordCounter">2</span></a></li>
+        <li><a href="#" class="keyword">flyers</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#" class="keyword">park</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#" class="keyword">volunteer</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#" class="keyword personal">un</a><a href="#" class="keywordCounter">3</a></li>
+        <li><a href="#" class="keyword">foreign_policy</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#" class="keyword">usaid</a><a href="#" class="keywordCounter">1</a></li>
+        <li><a href="#" class="keyword personal">advocacy</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#" class="keyword">zimbabwe</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#" class="keyword">aryeh_neier</a><a href="#" class="keywordCounter">2</a></li>
     </ul>
     <form action="#" class="addKeyword">
         <fieldset>
