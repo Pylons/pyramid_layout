@@ -447,8 +447,32 @@ a.keyword {
         .css3_border_radius(50%);
     }        
 }
+a.removeKeyword {
+    .visuallyhidden();
+    font-family: @fancyFont;
+    z-index: 4;
+    content: "x";
+    display: block;
+    position: absolute;
+    line-height: 1em;
+    background: @baseFontColor;
+    color:  #fff;
+    top: -0.6em;
+    left: -0.6em;
+    text-align: center;
+    .css3_border_radius(50%);
+    font-size: .85em;
+}
 a.personal {
     background: @baseColor4;
+}
+a.personal:hover + a.removeKeyword,
+a.removeKeyword:hover {
+    border: 1px solid #fff;
+    clip: auto;
+    height: 1.3em;
+    margin: 0;
+    width: 1.3em;
 }
 a.keywordCounter {
     .personIcon();
@@ -472,7 +496,7 @@ a.keywordCounter {
     z-index: 4;
 /*    .css3_box_shadow(0 0 .5em rgba(0,0,0,.4));*/
 }
-.no-touch a.keyword:hover + a.keywordCounter,
+.no-touch a.keyword:hover ~ a.keywordCounter,
 .no-touch a.keywordCounter:hover {
     margin-left: 0em;
     z-index: 3;
