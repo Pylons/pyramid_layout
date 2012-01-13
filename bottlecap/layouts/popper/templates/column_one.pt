@@ -1,14 +1,14 @@
 <section id="keywords">
     <ul>
-        <li><a href="#" class="keyword">flyers</a><a href="#" class="keywordCounter">2</a></li>
-        <li><a href="#" class="keyword">park</a><a href="#" class="keywordCounter">2</a></li>
-        <li><a href="#" class="keyword">volunteer</a><a href="#" class="keywordCounter">2</a></li>
-        <li><a href="#" class="keyword personal">un</a><a href="#" class="keywordCounter">3</a></li>
-        <li><a href="#" class="keyword">foreign_policy</a><a href="#" class="keywordCounter">2</a></li>
-        <li><a href="#" class="keyword">usaid</a><a href="#" class="keywordCounter">1</a></li>
-        <li><a href="#" class="keyword personal">advocacy</a><a href="#" class="keywordCounter">2</a></li>
-        <li><a href="#" class="keyword">zimbabwe</a><a href="#" class="keywordCounter">2</a></li>
-        <li><a href="#" class="keyword">aryeh_neier</a><a href="#" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword">flyers</a><a href="#ppl" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword">park</a><a href="#ppl" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword">volunteer</a><a href="#ppl" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword personal">un</a><a href="#ppl" class="keywordCounter">3</a></li>
+        <li><a href="#kw" class="keyword">foreign_policy</a><a href="#ppl" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword">usaid</a><a href="#ppl" class="keywordCounter">1</a></li>
+        <li><a href="#kw" class="keyword">advocacy</a><a href="#ppl" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword personal">zimbabwe</a><a href="#ppl" class="keywordCounter">2</a></li>
+        <li><a href="#kw" class="keyword">aryeh_neier</a><a href="#ppl" class="keywordCounter">2</a></li>
     </ul>
     <form action="#" class="addKeyword">
         <fieldset>
