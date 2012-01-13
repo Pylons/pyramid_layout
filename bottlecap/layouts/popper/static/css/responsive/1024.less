@@ -41,8 +41,12 @@
         display: none;
     }   
     form.searchForm span.fieldCoverage {
-        .quickpanelToggle(#97B9C7, #204A5D, #444);
-        border: 1px solid #97B9C7;
+        @bg: darken(@baseColor4, 10%);
+        background: @bg;
+        border: 1px solid @bg;
+        &:before {
+            border-top-color: @bg;
+        }
     }
     form.searchForm label {
         color: @bodyBg;
@@ -91,17 +95,13 @@
     	    color: #fff;
     	}
     	li:nth-child(1) a {
-    		background-color: transparent;
-    		background-position: 0% 47%;
-    		background-repeat: no-repeat;
-    	    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIlJREFUeNpinDlzJgMS4AfiDUDsAOUfAOIAIP4IU8DEgAomIClmgLInICtA1xDAgAkS8Gl4gEXDA3waGrBoQHESC5rkRqizYM5YABXDqQHmBJipH9AlkTX4QxUqYDGgAGYTzA/zoeGvgMVGBajcfJgGf/SgwwFAavyZcIQMLtAA0mBAggYDgAADANJ8F7e9ZEZJAAAAAElFTkSuQmCC');
-    	    padding-left: 14px;
+    	    .personIcon();
     	}
     	.selected {
     	    background-position: 50% 100%;
     	    background-color: transparent;
     	    background-repeat: no-repeat;
-    	    background-image: url('img/selected_item.png');
+    	    background-image: url('../img/selected_item.png');
     	    padding-bottom: 12px;
     	    margin-bottom: -12px;
         }
@@ -141,7 +141,7 @@
     .contentWrapper aside.shiftMe {
         padding-top: 3.5em;
     }
-    .contentWrapper > aside.column .portlet {
+    .portlet {
         float: none;
         width: 100%;
         margin: 0;

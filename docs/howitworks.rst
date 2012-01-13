@@ -50,7 +50,9 @@ On each request, Bottlecap does some new work:
 - ``request.layout`` gets created, which points to the instance of the
   layout. This instance has all the helper methods and properties
   needed to drive the layout. If you wrote the layout,
-  then you wrote this class.
+  then you wrote this class.  XXX This is not true. There is no 
+  ``request.layout``.  The layout can be accessed via i
+  ``request.layout_manager.layout``.
 
 On each rendering, Bottlecap does some more work:
 
@@ -58,7 +60,7 @@ On each rendering, Bottlecap does some more work:
 
 - As is the template itself
 
-- An callable ``panel`` is available, which gives access to panels you
+- A callable, ``panel``, is made available, which gives access to panels you
   might want to use in your template
 
 So in summary:

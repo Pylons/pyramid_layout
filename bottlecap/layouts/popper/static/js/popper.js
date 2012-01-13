@@ -67,8 +67,10 @@
     });
     
     $('form.addKeyword').bind('submit', function (e) {
-        var keywordsList = $(this).prev('ul.keywords');
-        keywordsList.append('<li><a href="#"><span class="keyword">'+ $('input[type="text"]', $(this)).val() +'</span><span class="keywordCounter">1</span></a></li>');
+        var keywordsList = $(this).prev('#keywords ul'), tmp;
+        keywordsList.append('<li><a href="#kw" class="keyword personal">' + $('input[type="text"]', $(this)).val() + '</a>' +
+              '<a title="Remove the keyword" href="#" class="removeKeyword">x</a>' +
+              '<a href="#ppl" class="keywordCounter">1</a></li>');
         return false;
     });
 

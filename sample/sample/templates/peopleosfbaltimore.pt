@@ -92,13 +92,18 @@
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Z</a></li></ul>
         </div>
 
-        <table class="listing filtered" id="someid" summary="">
+        <table class="filtered sortable" id="someid" summary="">
+            <!-- 
+                .filtered means the table is filtered and has filter bar above (used for a specific styling for this case)
+                .sortable indicates that the table rows are sortable by clicking a column's header
+             -->
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Position</th>
-                    <th>Phone</th>
+                    <!-- Anchors within TH are required in .sortable -->
+                    <th><a href="#" class="selected ascending">Name</a></th>
+                    <th><a href="#">Department</a></th>
+                    <th><a href="#">Position</a></th>
+                    <th><a href="#">Phone</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -199,7 +204,7 @@
                 <a href="#" class="prev">&lt;</a>
                 <a href="#1">1</a>
                 <a href="#2">2</a>
-                <span class="current">3</span>
+                <span class="selected">3</span>
                 <a href="#4">4</a>
                 <a href="#" class="next">&gt;</a>
             </div>
