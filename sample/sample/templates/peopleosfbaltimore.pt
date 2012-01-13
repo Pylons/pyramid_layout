@@ -92,7 +92,11 @@
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Z</a></li></ul>
         </div>
 
-        <table class="listing filtered" id="someid" summary="">
+        <table class="filtered sortable" id="someid" summary="">
+            <!-- 
+                .filtered means the table is filtered and has filter bar above (used for a specific styling for this case)
+                .sortable indicates that the table rows are sortable by clicking a column's header
+             -->
             <thead>
                 <tr>
                     <th>Name</th>
