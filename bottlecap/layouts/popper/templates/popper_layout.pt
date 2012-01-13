@@ -20,9 +20,9 @@
         <meta name="viewport"
               content="width=device-width,initial-scale=1" />
 
-		<link rel="icon" href="${request.static_url('bottlecap.layouts.popper:static/img/favicon.ico')}" type="image/x-icon"/> 
-		<link rel="shortcut icon" href="${request.static_url('bottlecap.layouts.popper:static/img/favicon.ico')}" type="image/x-icon"/>
-		
+        <link rel="icon" href="${request.static_url('bottlecap.layouts.popper:static/img/favicon.ico')}" type="image/x-icon"/>
+        <link rel="shortcut icon" href="${request.static_url('bottlecap.layouts.popper:static/img/favicon.ico')}" type="image/x-icon"/>
+
         <link rel="stylesheet" href="${layout.static_url}css/main.css" />
         <tal:block condition="layout.use_css_pie">
         <!--[if IE 7]>
@@ -41,7 +41,7 @@
             ${panel('popper.global_logo')}
             ${panel('popper.global_nav')}
             ${panel('popper.personal_tools')}
-	    </div>
+        </div>
     </div>
 
     <div class="sectionContainer">
@@ -59,7 +59,7 @@
                     ${panel('popper.context_tools')}
                 </section>
             </tal:section_style>
-	    </div>
+        </div>
     </div>
 
     <div class="contentWrapper ${'' if layout.show_sidebar else 'singleColumn'}">
@@ -71,7 +71,7 @@
                 class="column ${'shiftMe' if layout.section_style == 'none' else ''}"
                tal:condition="layout.show_sidebar">
             ${panel('popper.column_one')}
-	    </aside>
+        </aside>
     </div>
 
     <footer>
