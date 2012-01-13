@@ -494,7 +494,6 @@ a.keywordCounter {
 }
 .no-touch a.keyword:hover {
     z-index: 4;
-/*    .css3_box_shadow(0 0 .5em rgba(0,0,0,.4));*/
 }
 .no-touch a.keyword:hover ~ a.keywordCounter,
 .no-touch a.keywordCounter:hover {
@@ -502,13 +501,13 @@ a.keywordCounter {
     z-index: 3;
 }
 form.addKeyword {
-    float: left;
+    width: 100%;
     clear: left;
     margin-top: @space/2 * 1em;
     fieldset {
-        background: lighten(#f3e4ce, 5%);
+        background: lighten(@bodyBg, 5%);
         .css3_border_radius(.3em);
-        border: 1px solid darken(#e1d4bf, 40%);
+        border: 1px solid @baseColor1;
         position: relative;
         padding-top: 0;
         margin-bottom: 0;
@@ -538,7 +537,7 @@ form.addKeyword {
         font-size: 1em;
         line-height: 1.5em;
         padding: .2em .666666667em;
-        #css3_gradient > .vertical(darken(#e1d4bf, 30%), darken(#e1d4bf, 40%));
+        #css3_gradient > .vertical(lighten(@baseColor1, 10%), @baseColor1);
         .css3_border_radius(0 .3em .3em 0);
         height: 100%;
     }
