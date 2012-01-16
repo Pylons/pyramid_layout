@@ -31,7 +31,7 @@ class SampleViews(object):
     @view_config(name="communities",
                  renderer="templates/communities.pt")
     def communities_view(self):
-        self.request.layout_manager.layout.section_style = "compact"
+        self.request.layout_manager.layout.section_style = "none"
         return {
             "project": "Some Project",
             }
