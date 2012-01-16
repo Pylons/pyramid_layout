@@ -1,4 +1,4 @@
-<nav id="bcpanel-global-nav" class="${'' if layout.show_sidebar == 'none' else 'noSectionMenu'}">
+<nav id="bcpanel-global-nav" class="${'noSectionMenu' if layout.section_style == 'none' else ''}">
     <tal:comment condition="layout.devmode">
     <!--
     This is the global-nav panel per
