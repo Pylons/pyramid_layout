@@ -39,6 +39,17 @@
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
     <body>
+
+    <!-- Site-wide notification -->
+    <section class="notification info globalNotification">
+        <a href="#" class="dismissNotification" title="Dismiss the notification">X</a>
+        <h1>The global dismissible notification</h1>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl
+        consectetur et. Sed posuere consectetur est at lobortis.
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+        venenatis vestibulum. <a href="#">Read more…</a></p>
+    </section>
+
     <div id="top-bar">
         <div class="container">
             ${panel('popper.global_logo')}
