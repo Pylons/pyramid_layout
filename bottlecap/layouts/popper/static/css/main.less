@@ -9,6 +9,7 @@
 
 body {
     .css3_linear_gradient(@bodyBg, darken(@bodyBg, 3%));
+    background-repeat: no-repeat;
 	position: relative;
 }
 a,
@@ -264,6 +265,9 @@ form.searchForm select {
 .contentWrapper {
     .clearfix();
     padding: (@space * 1em)/2;
+}
+.noSectionMenu .singleColumn {
+    padding-top: 4.209em;
 }
 section.main {
     padding-bottom: (@space * 1em);

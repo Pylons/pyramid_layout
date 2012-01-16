@@ -38,7 +38,7 @@
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
-    <body>
+    <body class="${'noSectionMenu' if layout.section_style == 'none' else ''}">
 
     <!-- Site-wide notification -->
     <section class="notification info globalNotification">
