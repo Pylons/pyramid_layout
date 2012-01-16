@@ -1,6 +1,14 @@
 /*jslint browser: true */
 /*global jQuery: false, console: false, window: false, Modernizr:false, yepnope: false, radarlink: true */
 
+$(function () {
+    // Slide down the global site-wide notification
+    setTimeout( 
+        function () {
+            $('.globalNotification').slideDown('medium');
+        }, 1000);
+}(jQuery));
+
 /* Gumball javascript */
 
 (function ($) {
@@ -73,8 +81,12 @@
               '<a href="#ppl" class="keywordCounter">1</a></li>');
         return false;
     });
-
-
+    
+    // Global notification sismissing
+    $('.dismissNotification').click(function () {
+        $(this).parent().slideUp('fast');
+    });
+    
 
     // --
     // Component for expanding panels
