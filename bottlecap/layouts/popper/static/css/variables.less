@@ -1,4 +1,4 @@
-/* Colors definition */
+// Colors
 /* Color schema http://kuler.adobe.com/#themeID/186890 */
 @baseFontColor: #222;
 @bodyBg: #eadecc;     /* Creamy. The main background color for the content */
@@ -7,4 +7,22 @@
 @baseColor3: #61818F; /* Dark blue */
 @baseColor4: #C1D3DB; /* Light blue */
 
+/* Helping colors */
+@sectionBlue: saturate(lighten(@baseColor3, 16%), 13%);
 @linkColor: saturate(@baseColor3, 30%);
+
+
+// Typography
+@baseFontSize: 15;
+@space: 1.333;
+@baseFont: Georgia, serif;
+@fancyFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@smallestbaseFont: Verdana, sans-serif;
+
+
+// Grid
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+@total-width: 100%;

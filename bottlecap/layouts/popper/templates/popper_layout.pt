@@ -38,7 +38,18 @@
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
-    <body>
+    <body class="${'noSectionMenu' if layout.section_style == 'none' else ''}">
+
+    <!-- Site-wide notification -->
+    <section class="notification info globalNotification">
+        <a href="#" class="dismissNotification" title="Dismiss the notification">X</a>
+        <h1>The global dismissible notification</h1>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl
+        consectetur et. Sed posuere consectetur est at lobortis.
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+        venenatis vestibulum. <a href="#">Read more…</a></p>
+    </section>
+
     <div id="top-bar">
         <div class="container">
             ${panel('popper.global_logo')}
@@ -57,7 +68,7 @@
                 </section>
                 <section tal:case="'full'">
                     <header>
-                        <h2>${project}</h2>
+                        <h2>${layout.project_name}</h2>
                     </header>
                     ${panel('popper.context_tools')}
                 </section>

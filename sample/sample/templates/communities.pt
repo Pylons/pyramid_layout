@@ -1,10 +1,8 @@
 <metal:block use-macro="main_template">
     <metal:content fill-slot="content">
 
-        <header>
-            <h1>All Communities</h1>
-            ${panel('popper.actions_menu')}
-        </header>
+        ${panel('popper.actions_menu')}
+
         <div class="contentText">
             <a href="/communitiesblog">Community Blog</a>
         </div>

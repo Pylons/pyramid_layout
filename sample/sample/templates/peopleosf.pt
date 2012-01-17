@@ -3,7 +3,7 @@
 
         ${panel('popper.actions_menu')}
 
-        <div class="transparentGrid clearfix">
+        <div class="column-half">
             <secton>
                 <h3>OSF Offices</h3>
                 <ul class="noBullets">
@@ -56,6 +56,22 @@
                 <h3>Advocacy</h3>
                 <ul class="noBullets">
                     <li><a href="https://karl.soros.org/people/osi/c1/r5/office-of-the-international-advocacy-director/" class="general">Office of the International Advocacy Director</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="column-half">
+            <section>
+                <h3>International Operations</h3>
+                <ul class="noBullets">
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/us-programs-director-s-office/" class="priority">US Programs Director's Office</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/campaign-for-black-male-achievement/" class="general">Campaign for Black Male Achievement</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/closing-the-addiction-treatment-gap/" class="general">Closing the Addiction Treatment Gap</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/criminal-justice-fund/" class="general">Criminal Justice Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/democracy-and-power-fund/" class="general">Democracy and Power Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/equality-and-opportunity-fund/" class="general">Equality and Opportunity Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/national-security-and-human-rights-campaign/" class="general">National Security and Human Rights Campaign</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/strategic-opportunities-fund/" class="general">Strategic Opportunities Fund</a></li>
+                    <li><a href="https://karl.soros.org/people/osi/c1/r4/transparency-and-integrity-fund/" class="general">Transparency and Integrity Fund</a></li>
                 </ul>
             </section>
         </div>

@@ -53,7 +53,7 @@
         font-size: 0.667em;
     }
     .sectionContainer section {
-        .column(8);
+        .col(8);
 	    .alpha();
 	    position: relative;
     }
@@ -64,7 +64,7 @@
     }
     .sectionContainer nav.search {
         /* The calculations are from _grid.less  */
-        .column(4);
+        .col(4);
         width: @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
         padding-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
         padding-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
@@ -109,7 +109,7 @@
     
     /* @group Content */
     .contentWrapper section.main {
-        .column(8);
+        .col(8);
         padding: 1.593137252em 0 ((@space * 1em) * 2);
     }
     .singleColumn section.main {
@@ -117,38 +117,19 @@
         margin-left: 0;
         margin-right: 0;
     }
-    ul.actionsMenu {
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	.horList();
-        padding: 0;
-        margin: 0;
-        width: auto;
-        height: auto;
-    }
     section.main aside {
         width: 20.983em;
     }
     /* @end */
     
     /* @group Column */
-    .contentWrapper > aside.column {
+    .column {
         border-top: none;
-        .column(4);
+        .col(4);
         padding: 1.593137252em 0 (@space * 2em);
     }
     .contentWrapper aside.shiftMe {
         padding-top: 3.5em;
-    }
-    .portlet {
-        float: none;
-        width: 100%;
-        margin: 0;
-    }
-    .portlet h3 {
-        margin-top: 0;
-        padding-top: .269230769em;
     }
     /* @end */
 }

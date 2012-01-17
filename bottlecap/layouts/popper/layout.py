@@ -11,6 +11,7 @@ class PopperLayout(object):
     # Some configurable options that can be overriden in a view
     show_sidebar = True
     section_style = 'full'
+    project_name = 'Popper Sample'
 
     def __init__(self, context, request):
         self.context = context

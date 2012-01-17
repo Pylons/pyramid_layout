@@ -3,14 +3,6 @@
  * ------------------------------------------------------------- */
 
 
-// Griditude
-// Modify the grid styles in mixins.less
-@gridColumns:       16;
-@gridColumnWidth:   40px;
-@gridGutterWidth:   20px;
-@extraSpace:        (@gridGutterWidth * 2); // For our grid calculations
-@siteWidth:         (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
-
 // FORM STYLES
 // -----------
 
@@ -264,7 +256,7 @@ textarea.xxlarge {
 .formColumns(@columnSpan: 1) {
   display: inline-block;
   float: none;
-  width: ((@gridColumnWidth) * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1)) - 10;
+  width: ((@column-width) * @columnSpan) + (@gutter-width * (@columnSpan - 1)) - 10;
   margin-left: 0;
 }
 input,
