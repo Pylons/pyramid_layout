@@ -260,59 +260,6 @@
             background: #777;
         } 
     }
-    ul.actionsMenu {
-        display: block;
-    	.horList();
-        padding: 0;
-        margin: -1em 0 0;
-        width: auto;
-        height: auto;
-    	margin-top: 0.134em;
-    	margin-bottom: 0.677em;
-    	font-size: 0.9em;
-        > li > a {
-            width: auto;
-            position: relative;
-            background-image: none;
-            display: inline-block;
-            text-decoration: none;
-            padding: .1em 1em;
-        	.gradientBar(#c5ae8b, #ab9779);            
-            color:#fff;
-            margin-right: 1px;
-            .smaller();
-            &:hover {
-                border-color: #000;
-            }
-    	}
-    	> li:nth-child(1) > a {
-            .css3_border_radius(.3em 0 0 .3em);
-    	}
-    	> li:nth-child(1) > adropdown-toggle:hover {
-            .css3_border_radius(.3em 0 0 0);   	    
-    	}
-        > li:last-child > a {
-            .css3_border_radius(0 .3em .3em 0);
-        }    	
-        > li:last-child > adropdown-toggle:hover {
-            .css3_border_radius(0 .3em 0 0);    	    
-        }        
-    	.dropdown {
-    	    top: 1.823076923em;
-    	    width: 200px;
-    	    li a {
-    	        font-size: 1em;
-    	        border: none;
-                padding: 0.422em (@space * 1em);
-    	    }
-    	}
-    }
-    li[data-quickpanel="dropdown"] a {
-        padding-right: 1.199833333em;
-    }
-    ul.actionsMenu li[data-quickpanel="dropdown"] a.dropdown-toggle:after {
-        display: none;
-    }
     .sectionTools .dropdown,
     .sectionTools .quickpanel {
         top: 3.30987em;
