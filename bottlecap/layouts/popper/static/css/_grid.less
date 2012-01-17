@@ -1,17 +1,7 @@
-@column-width: 60;
-@gutter-width: 26.653;
-@columns: 12;
-
-@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
-
-@total-width: 100%;
-
-
 .row(@columns:@columns) {
 	width: @total-width;
 	margin-left: auto;
 	margin-right: auto;	
-	/*margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);*/
 }
 
 .col(@x,@columns:@columns) {

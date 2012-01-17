@@ -7,6 +7,19 @@
 @baseColor3: #61818F; /* Dark blue */
 @baseColor4: #C1D3DB; /* Light blue */
 
-
 @sectionBlue: saturate(lighten(@baseColor3, 16%), 13%);
 @linkColor: saturate(@baseColor3, 30%);
+
+// Typography
+@baseFontSize: 15;
+@space: 1.333;
+@baseFont: Georgia, serif;
+@fancyFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@smallestbaseFont: Verdana, sans-serif;
+
+// Grid
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+@total-width: 100%;
