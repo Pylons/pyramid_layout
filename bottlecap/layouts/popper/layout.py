@@ -52,6 +52,8 @@ class PopperLayout(object):
     def head_data(self):
         if getattr(self, '_head_data', None) is None:
             self._head_data = {
+                'app_url': self.app_url,
+                'context_url': self.context_url,
                 'microtemplates': self.microtemplates,
                 # XXX this does not belong here, but for now
                 # we generate the data for chatterpanel here.
