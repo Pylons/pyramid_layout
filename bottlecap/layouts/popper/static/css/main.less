@@ -264,13 +264,13 @@ form.searchForm select {
 /* @group CONTENT */
 .contentWrapper {
     .clearfix();
-    padding: (@space * 1em)/2;
+    padding: (@space * 1em)/2 0;
 }
 .noSectionMenu .singleColumn {
     padding-top: 4.209em;
 }
 section.main {
-    padding-bottom: (@space * 1em);
+    padding: 0 (@space * 1em)/2 (@space * 1em);
 }
 section.main header {
     position: relative;
@@ -563,14 +563,24 @@ a.next {
 
 /* @group COLUMN */
 .column {
-    border-top: 1px solid @baseColor2;
-    padding-top: (@space * 1em);
-    h3 {
-	    font-size: 1.333em;
-	}
+    padding: 0;
 }
 .portlet {
     .clearfix();
+    margin-bottom: @space * 1em;
+    padding: (@space * 1em)/2;
+    background: @baseColor2;
+    h3 {
+        font-size: 1.333em;
+        margin-top: 0;
+    }
+}
+.contentRelated {
+    margin: 0 (@space * 1em)/2 (@space * 1em);
+}
+.sectionRelated {
+    .gradientBar(@baseColor3, @sectionBlue);
+    color: #fff;
 }
 /* @end */
 
@@ -629,13 +639,13 @@ body > footer {
             }
         }
         .stream1 {
-            .column(4);
+            .col(4);
         }
         .stream2 {
-            .column(4);
+            .col(4);
         }
         .stream3 {
-            .column(4);
+            .col(4);
         }
 
         .stream-item {
@@ -677,13 +687,13 @@ body > footer {
         padding: 10px 10%;
         .css3_border_radius(10px);
         .on-your-mind {
-            .column(5);
+            .col(5);
         }
         .your-stream {
-            .column(3.5);
+            .col(3.5);
         }
         .recent-friend {
-            .column(3.5);
+            .col(3.5);
         }
         .tips {
             font-size: 0.65em;

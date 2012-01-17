@@ -53,7 +53,7 @@
         font-size: 0.667em;
     }
     .sectionContainer section {
-        .column(8);
+        .col(8);
 	    .alpha();
 	    position: relative;
     }
@@ -64,7 +64,7 @@
     }
     .sectionContainer nav.search {
         /* The calculations are from _grid.less  */
-        .column(4);
+        .col(4);
         width: @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
         padding-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
         padding-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
@@ -109,7 +109,7 @@
     
     /* @group Content */
     .contentWrapper section.main {
-        .column(8);
+        .col(8);
         padding: 1.593137252em 0 ((@space * 1em) * 2);
     }
     .singleColumn section.main {
@@ -133,9 +133,9 @@
     /* @end */
     
     /* @group Column */
-    .contentWrapper > aside.column {
+    .column {
         border-top: none;
-        .column(4);
+        .col(4);
         padding: 1.593137252em 0 (@space * 2em);
     }
     .contentWrapper aside.shiftMe {
