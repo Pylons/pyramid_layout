@@ -1,10 +1,21 @@
 <ul class="actionsMenu">
-    <li data-quickpanel="dropdown"><a href="#" class="dropdown-toggle">Add</a><ul class="dropdown">
-            <li><a href="#">Page</a></li>
-            <li><a href="#">Folder</a></li>
-            <li><a href="#">File</a></li>
-            <li><a href="#">Blog entry</a></li>
-        </ul></li><li><a
-        href="#">Edit</a></li><li><a
-        href="#">Delete</a></li>
+    <tal:block tal:repeat="action actions">
+      <!-- Simple button action. -->
+      <li tal:condition="'subactions' not in action">
+        <a tal:condition="'confirm' not in action" 
+            href="${action['url']}">${action['title']}</a>
+        <a tal:condition="'confirm' in action"
+            onClick="return confirm('${action['confirm']}');"
+            href="${action['url']}">${action['title']}</a>
+       </li>
+
+      <!-- Dropdown action. -->
+      <li tal:condition="'subactions' in action" data-quickpanel="dropdown">
+        <a href="#" class="dropdown-toggle">${action['title']}</a>
+        <ul class="dropdown">
+          <li tal:repeat="subaction action['subactions']"><a 
+              href="${subaction['url']}">${subaction['title']}</a></li>
+        </ul>
+      </li>
+    </tal:block>
 </ul>
