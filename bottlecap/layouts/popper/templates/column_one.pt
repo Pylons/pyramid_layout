@@ -1,4 +1,4 @@
-<section id="keywords">
+<section id="keywords" class="contentRelated">
     <ul>
         <!-- For the personal keywords there has to be added a special anchor.
         Check the markup below. -->
@@ -24,7 +24,7 @@
     </form>
 </section>
 
-<section class="portlet">
+<section class="portlet contentRelated">
     <h3>This is a portlet.</h3>
     <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
     nibh, ut fermentum massa justo sit amet risus. Morbi leo risus,
@@ -35,7 +35,7 @@
     mollis ornare vel eu leo. Donec id elit non mi porta gravida at
     eget metus.</p>
 </section>
-<section class="portlet">
+<section class="portlet sectionRelated">
     <h3>This is another portlet.</h3>
     <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
     lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget

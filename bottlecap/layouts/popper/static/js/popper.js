@@ -87,6 +87,15 @@ $(function () {
         $(this).parent().slideUp('fast');
     });
     
+//    :hover for the people counter in keywords
+//    $('.keywordCounter')
+//        .mouseenter(function () {
+//            $(this).prev($('.keyword')).css('z-index', '10').css('z-index', '9');
+//        })
+//        .mouseout(function () {
+//            $(this).removeAttr('style').prev($('.keyword')).removeAttr('style');
+//        });
+    
 
     // --
     // Component for expanding panels
