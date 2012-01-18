@@ -39,58 +39,6 @@
             </ul>
 
             ${panel('popper.letter_box')}
-            <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
-            <!--ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">B</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=C">C</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=D">D</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=E">E</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=F">F</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">G</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">H</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">I</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">J</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=C">K</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=D">L</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=E">M</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=F">N</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">O</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">P</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Q</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">R</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=C">S</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=D">T</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=E">U</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=F">V</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=G">W</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=H">X</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Y</a></li><li
-                    class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Z</a></li></ul-->
         </div>
 
         <table class="filtered sortable" id="someid" summary="">
