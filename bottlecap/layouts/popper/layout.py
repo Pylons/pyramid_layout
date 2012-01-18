@@ -34,16 +34,6 @@ class PopperLayout(object):
         sn = 'bottlecap.use_css_pie'
         return asbool(self.request.registry.settings.get(sn, False))
 
-    @reify
-    def site_title(self):
-        sn = 'bottlecap.site_title'
-        return self.request.registry.settings[sn]
-
-    @reify
-    def site_title_link(self):
-        sn = 'bottlecap.site_title_link'
-        return self.request.registry.settings[sn]
-
     # --
     # Head data and microtemplates management
     # I've been told this is temporary.
