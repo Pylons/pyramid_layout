@@ -11,7 +11,7 @@
         <ul id="global-nav" class="quickpanel">
             <li tal:repeat="item nav_menu"
                     tal:attributes="class item.selected">
-                <a href="${layout.app_url}${item.url}">${item.title}</a>
+                <a href="${item.url}">${item.title}</a>
             </li>
             <li data-quickpanel="quickpanel">
                 <a href="#" class="quickpanel-toggle moreToggle">More</a>
