@@ -38,8 +38,9 @@
                 <li><a id="picture-view" href="#" title="Picture view">Picture view</a></li>
             </ul>
 
+            ${panel('popper.letter_box')}
             <!-- The formatting in the list should be exactly as it is shown — no spaces between elements -->
-            <ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
+            <!--ul class="alphabet"><li class="notcurrent"><span>A</span></li><li
                     class="notcurrent"><a
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=B">B</a></li><li
                     class="notcurrent"><a
@@ -89,7 +90,7 @@
                     class="notcurrent"><a
                     href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Y</a></li><li
                     class="notcurrent"><a
-                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Z</a></li></ul>
+                    href="https://karl.soros.org/people/osi/c1/r1/baltimore-office/?lastnamestartswith=I">Z</a></li></ul-->
         </div>
 
         <table class="filtered sortable" id="someid" summary="">
