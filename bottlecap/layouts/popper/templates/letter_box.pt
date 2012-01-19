@@ -5,7 +5,8 @@
         </li>
 
         <li tal:condition="not letter['is_current']" class="notcurrent">
-            <a href="${letter['href']}" tal:omit-tag="not letter['href']">${letter['name']}</a>
+            <a href="${letter['href']}" tal:condition="letter['href']">${letter['name']}</a>
+            <span tal:condition="not letter['href']">${letter['name']}</span>
         </li>
     </tal:block>
 </ul>
