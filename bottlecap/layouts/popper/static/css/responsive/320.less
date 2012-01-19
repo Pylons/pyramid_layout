@@ -2,34 +2,9 @@
     body {
     	font-size: (@baseFontSize - 3)/@baseFontSize*1em;
     }
-    
-    /* @group Quickpanels */
-    [data-quickpanel='quickpanel'] {
-        position: relative;
-    }
-    .quickpanel {
-        display: none;
-        width: 100%;
-        ul {
-            clear: none;
-            margin-bottom: (@space * 1em);
-            list-style: circle;
-            list-style-position: inside;            
-        }
-        a {
-        	display: block;
-            color: @baseColor2;
-            padding: (@space * 1em)/4 0;
-            line-height: 2.369em;
-        }
-    }
-    .open + .quickpanel {
-        display: block;
-    }
-    .topNavIconWrapper {
+    div.topNavIconWrapper {
         position: static;
     }
-    /* @end */
     
     /* @group Top Bar with the global navigation */
     h2#navigation-toggle,
@@ -45,9 +20,6 @@
         font-size: 1em;
     	border-left: 1px solid #aaa;
     }
-    .quickpanel-toggle:hover {
-        cursor: pointer;
-    }
     h2#navigation-toggle {
         right: 35px;
     	background: transparent url('../img/sections_icon.png') 50% 50% no-repeat;	    
@@ -62,11 +34,11 @@
     	    border-bottom: none;
     	}
     }
-    form.searchForm {
+    form#search-form {
         border-top: none;
     }
     #global-nav,
-    form.searchForm {
+    form#search-form {
         position: relative;
         overflow: hidden;
         background-image: url('../img/vertical_stripes.png');

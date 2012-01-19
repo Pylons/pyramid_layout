@@ -7,17 +7,17 @@
     }
 
     /* @group Section Container */    
-    .sectionContainer .container section, form.searchForm select {
+    .sectionContainer .container section, form#search-form select {
         display: block;
     }
-    form.searchForm select {
+    form#search-form select {
         display: inline;
         margin: 0 0.5em 0 0;
     }
     .searchInputWrapper {
         clear: left;
     }
-    form.searchForm label {
+    form#search-form label {
         display: inline;
         width: auto;
         padding: 0;
@@ -30,7 +30,7 @@
         overflow: hidden; /* to not let <select> to 'stretch' longer than it's needed */
         .smaller();
     }   
-    form.searchForm span.fieldCoverage {
+    form#search-form span.fieldCoverage {
         .quickpanelToggle(@baseFontColor);
         .css3_border_radius(.3em);
         padding-right: 1.9em;
@@ -55,7 +55,7 @@
         }
         border: 1px solid #fff;
     }
-    form.searchForm select {
+    form#search-form select {
         display: block;
         opacity: 0;
         margin: 0;
@@ -67,14 +67,14 @@
         width: auto;
         padding: 0;
     }
-    .oldie form.searchForm select {
+    .oldie form#search-form select {
         position: static;
         width: auto;
         height: auto;
         display: inline;
         opacity: 1;
     }
-    form.searchForm fieldset {
+    form#search-form fieldset {
         margin-top: 0.2em;
     }
     .sectionContainer {
@@ -205,9 +205,6 @@
     #bcpanel-global-nav {
         position: relative;
     }
-/*    #bcpanel-global-nav a.quickpanel-toggle:after {
-    	margin-top: 1.1em;
-    }*/
     #top-bar ul#global-nav a {
         font-size: 0.82em;
     }
@@ -241,7 +238,7 @@
         border-bottom-color: @baseColor3;
     }		    
     /* @end */
-    .dropdown {
+/*    .dropdown {
         width: 300px;    
         padding: (@space * 1em)/2 0;
         a {
@@ -263,6 +260,10 @@
     .sectionTools .dropdown,
     .sectionTools .quickpanel {
         top: 3.30987em;
+    }
+    ul.sectionTools .dropdown-toggle:after {
+        margin-top: -4px;
+        border-top-color: lighten(#204A5D, 10%);
     }
     #top-bar .quickpanel .quickpanel {
         top: 2.846153846em;
@@ -286,7 +287,7 @@
         	    margin-right: 8px;
         	}
         }        
-    } 
+    }*/ 
     .description {
         margin-bottom: 2.2661em;
     }

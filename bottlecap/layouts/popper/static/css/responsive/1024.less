@@ -3,12 +3,6 @@
     ul.sectionTools li[data-quickpanel="quickpanel"] {
         position: relative;
     }
-    div.quickpanel {
-        width: 400px;
-        a:hover {
-    	    text-decoration: underline;
-    	}
-    }
     
     /* @group Section Container */
     
@@ -23,7 +17,7 @@
         right: 0;
         top: 0;
     }
-    form.searchForm {
+    form#search-form {
         display: block;
         background: transparent;
         border: none;
@@ -37,10 +31,10 @@
         padding-top: .3em;
         padding-bottom: .3em;
     }
-    form.searchForm:before {
+    form#search-form:before {
         display: none;
     }   
-    form.searchForm span.fieldCoverage {
+    form#search-form span.fieldCoverage {
         @bg: darken(@baseColor4, 10%);
         background: @bg;
         border: 1px solid @bg;
@@ -48,7 +42,7 @@
             border-top-color: @bg;
         }
     }
-    form.searchForm label {
+    form#search-form label {
         color: @bodyBg;
         font-size: 0.667em;
     }

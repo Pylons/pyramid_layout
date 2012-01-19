@@ -42,7 +42,7 @@ select,
         behavior: url(PIE.htc);
     }
 }
-form.searchForm fieldset {
+form#search-form fieldset {
   behavior: url(PIE.htc);
 }
 .searchInputWrapper {
@@ -111,14 +111,14 @@ form.addKeyword {
 
 /* MEDIA QUERIES */
 @media only screen and (min-width: 640px) {
-  form.searchForm {
+  form#search-form {
   	behavior: url(PIE.htc);
   }
   .dropdown {
   	behavior: url(PIE.htc);
   }
   .no-touch li[data-quickpanel="dropdown"]:hover > a,
-    li[data-quickpanel="quickpanel"].open > a.quickpanel-toggle,
+    li[data-quickpanel="quickpanel"].open > a.dropdown-toggle,
     .touch li[data-quickpanel="dropdown"] > a.open {
       behavior: url(PIE.htc);
     }

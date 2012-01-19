@@ -3,6 +3,7 @@
 @import "typography.less";
 @import "_grid.less";
 @import "variables.less";
+@import "elements/dropdowns.less";
 
 
 /* @group GENERIC LAYOUT-WIDE ELEMENTS' STYLES */
@@ -113,7 +114,7 @@ figure {
     .clearfix();
 	a {
     	border-bottom: none;
-		color: #fff;
+        color: saturate(@baseColor3, 30%);
 	}
 }
 #bcpanel-global-nav,
@@ -124,8 +125,7 @@ figure {
     font-family: Verdana, Tahoma, Trebuchet MS, sans-serif;
     li a {
 	    padding: 0 0.75em;
-	    margin: 0;
-	    position: relative;	    
+	    margin: 0; 
 	}
 }
 #bcpanel-global-logo {
@@ -164,7 +164,7 @@ h2#search-toggle {
 	li:nth-child(1) {
 	    border-top: none;
 	}
-    a {
+    > li > a {
 	    display: block;
 	    color: @baseFontColor;
 	    position: relative;
@@ -183,7 +183,7 @@ h2#search-toggle {
 		background-color: #fff;
 	}
 }
-form.searchForm {
+form#search-form {
 	padding: 0.422em 10%;
     background: #bac3cc;   
     width: auto;
@@ -193,7 +193,7 @@ form.searchForm {
     border-top:  1px solid lighten(#bac3cc, 10%);
     border-bottom: 1px solid darken(#bac3cc, 10%);      
 }
-form.searchForm fieldset {
+form#search-form fieldset {
     position: relative;
     display: block;
     z-index: 2;
@@ -228,7 +228,7 @@ input.search-site-box {
     }
 }
 
-form.searchForm button.searchButton {
+form#search-form button.searchButton {
     background: transparent url('../img/search_icon_dark.png') 50% 50% no-repeat;
     border: none;
     width: 35px;
@@ -254,8 +254,8 @@ form.searchForm button.searchButton {
 	}
 }
 .sectionContainer .container section,
-form.searchForm label,
-form.searchForm select {
+form#search-form label,
+form#search-form select {
     display: none;
 }
 /* @end */
@@ -367,10 +367,6 @@ th a.selected {
     }
     li {
         border-left: 1px solid darken(@baseColor2, 10%);
-    }
-    form.searchForm {
-        padding: 0;
-        margin: 0;
     }
     .alphabet {
         .horList();

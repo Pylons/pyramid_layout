@@ -1,0 +1,123 @@
+// REMOVE ME
+.globalNotification {
+    display: none !important;
+}
+
+
+
+li[data-quickpanel='quickpanel'],
+div[data-quickpanel='quickpanel'] {
+    position: relative;
+}
+.dropdown-toggle {
+    padding-right: .533333333em + (@space * 1em)/2;
+}
+.dropdown {
+    display: none;
+    width: 100%;
+    ul {
+        clear: none;
+        margin-bottom: (@space * 1em);
+        list-style: circle;
+        list-style-position: inside;            
+    }
+    a {
+    	display: block;
+        color: @baseColor2;
+        padding: (@space * 1em)/4 0;
+        line-height: 2.369em;
+    }
+}
+.open .dropdown {
+    display: block;
+}
+.dropdown-toggle:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 640px) {
+    .dropdown-toggle {
+        position: relative;
+        .quickpanelToggle(#fff);
+    }
+    .ie8 .dropdown-toggle:after {
+        font-size: 0;
+    }
+    .dropdown {
+    	position: absolute;
+        left: 0;
+        top: 3.2em;
+        z-index: 10;
+        width: 100%;
+        .css3_box_sizing(border-box);
+        margin: 0;
+        padding: (@space * 1em);
+        .css3_linear_gradient(#000, #333);
+        border-width: 0 1px 1px;
+        color: #fff;
+        .smaller();
+        .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
+        .css3_border_radius(0 0 0.3em 0.3em);
+        ul {
+    	    clear: none;
+    	    background: transparent;
+    	    margin-bottom: (@space * 1em);
+    	}	
+    	li {
+    	    display: list-item;
+    	    float: none;
+    	}
+        a {
+            color: saturate(@baseColor3, 30%);
+    	    padding: 0;
+    	    line-height: normal;
+    	    font-size: 1em;
+    	    background: transparent;
+    	    text-decoration: none;
+    	}
+    	figure {
+    	    float: left;
+    	    margin: 0 (@space * 1em) (@space * 1em) 0;
+    	}
+    }
+    .dropdown-footer {
+        border-top: 1px solid #222;
+        padding: 0;
+        margin-top: (@space * 1em)/2;
+        padding-top: (@space * 1em)/2;
+        position: relative;
+        &:before {
+    	    content: "";
+    	    display: block;
+    	    position: absolute;
+    	    top: 0;
+    	    left: 0;
+    	    font-size: 0;    	    
+    	    height: 1px;
+    	    width: 100%;
+    	    background: #444;
+    	}
+    }
+    a.open,
+    #global-nav li a.open,
+    .touch #global-nav li a.open {
+    	border-color: #222;
+        background-color: #000;		
+    	border-bottom-color: #333;
+    }
+    .open .quickpanel,
+    .touch .open .dropdown,
+    .no-touch li[data-quickpanel='dropdown']:hover > .dropdown {
+        display: block !important;
+    }  
+     
+}
+
+@media only screen and (min-width: 1024px) {
+    .quickpanel {
+        width: 400px;
+        a:hover {
+    	    text-decoration: underline;
+    	}
+    }
+}
