@@ -356,16 +356,17 @@ th a.selected {
 .filter {
     .gradientBar(#c5ae8b,#ab9779);
     .css3_border_radius(.5em .5em 0 0);
-    color: #222;
+    color: darken(@baseColor2, 10%);
     padding: @space/3 * 1em;
     margin-bottom: 1px;
     .clearfix();
     clear: both;
+    text-shadow: none;
     a {
         color: #fff;
     }
     li {
-        border-left: 1px solid #777;
+        border-left: 1px solid darken(@baseColor2, 10%);
     }
     form.searchForm {
         padding: 0;
@@ -376,7 +377,6 @@ th a.selected {
         clear: none;
         margin: 0;
         padding: 0;
-        .smaller();
         float: left;
         line-height: 26px;
         li {
@@ -386,6 +386,25 @@ th a.selected {
             display: inline-block;
             padding: 0 .4em;
             line-height: 1em;
+            .smaller();
+        }
+        a {
+            text-shadow: 0 -1px 0 @baseColor1;
+        }
+        li.current {
+            color: @baseFontColor;
+            position: relative;
+            &:before, &:after {
+                position: absolute;
+                bottom: -1 * (@space/3 * 1em);
+                left: 50%;
+                margin-left: -0.5em;            
+                .trianglePointer(top, @bodyBg, .5em);
+            }
+            &:after {
+                border-bottom-color: @baseColor1;
+                margin-bottom: -1px;
+            }
         }
         li:first-child {
             border: none;

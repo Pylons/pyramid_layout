@@ -51,6 +51,6 @@ def action_menu(context, request):
 def letter_box(context, request):
     letters = [{'name': chr(ch),
                 'href': '#' if ch in (67, 69, 75) else None,
-                'is_current': True if ch == 65 else False}
+                'is_current': True if ch == 80 else False}
                for ch in xrange(ord('A'), ord('Z') + 1)]
     return {'letters': letters}
