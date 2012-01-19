@@ -54,3 +54,9 @@ def letter_box(context, request):
                 'is_current': True if ch == 80 else False}
                for ch in xrange(ord('A'), ord('Z') + 1)]
     return {'letters': letters}
+
+
+@panel_config(name='popper.tagbox',
+              renderer='templates/tagbox.pt')
+def tagbox(context, request):
+    return {}
