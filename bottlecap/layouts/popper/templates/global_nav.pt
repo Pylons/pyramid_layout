@@ -7,15 +7,15 @@
     -->
     </tal:comment>
     <div data-quickpanel="quickpanel" class="topNavIconWrapper">
-        <h2 id="navigation-toggle" class="quickpanel-toggle ir">Navigation</h2>
-        <ul id="global-nav" class="quickpanel">
+        <h2 id="navigation-toggle" class="dropdown-toggle ir">Navigation</h2>
+        <ul id="global-nav" class="dropdown">
             <li tal:repeat="item nav_menu"
                     tal:attributes="class item.selected">
                 <a href="${item.url}">${item.title}</a>
             </li>
             <li data-quickpanel="quickpanel">
-                <a href="#" class="quickpanel-toggle moreToggle">More</a>
-                <div class="quickpanel">
+                <a href="#" class="dropdown-toggle moreToggle">More</a>
+                <div class="dropdown">
                     <figure>
                         <img src="http://lorempixum.com/64/64/" alt="" />
                     </figure>
@@ -32,7 +32,7 @@
                     porttitor. Cras mattis consectetur purus sit amet
                     fermentum. Aenean lacinia bibendum nulla sed
                     consectetur.</p>
-                    <div class="quickpanel-footer">
+                    <div class="dropdown-footer">
                         The footer area of the dropdown.
                     </div>
                 </div>
