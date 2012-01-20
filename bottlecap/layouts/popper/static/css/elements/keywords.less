@@ -131,13 +131,14 @@ form.addKeyword {
     button {
         position: absolute;
         top: 0;
-        right: -1px;
-        color: #fff;
+        right: 0;
         .smaller();
         font-size: 1em;
         line-height: 1.5em;
         padding: .2em .666666667em;
-        #css3_gradient > .vertical(lighten(@baseColor1, 10%), @baseColor1);
+        text-shadow: 0 .1em 0 @baseColor4;
+        .css3_box_shadow(0 0 0 1px darken(@baseColor4, 20%));
+        #css3_gradient > .vertical(@baseColor4, darken(@baseColor4, 10%));
         .css3_border_radius(0 .3em .3em 0);
         height: 100%;
     }
