@@ -8,7 +8,7 @@
     $.fn.quickpanel = function (selector) {
         return this.each(function () {
             $(this).delegate(selector, 'click', function (e) {
-                var $par = $(this).parents('[data-quickpanel="quickpanel"]');
+                var $par = $(this).parent('[data-quickpanel="quickpanel"]');
                 $('[data-quickpanel]').not($par).removeClass('open');
                 $par.toggleClass('open');
                 if(e.currentTarget.id === 'search-toggle') {
