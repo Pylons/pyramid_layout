@@ -2,7 +2,7 @@
     .clearfix();
     margin: 0 (@space * 1em)/2 (@space * 1em);
     padding: (@space * 1em)/2;
-    .gradientBar(darken(@baseColor2, 10%), @baseColor2);
+    background: darken(@baseColor2, 10%);
     text-shadow: none;
     position: relative;
     z-index: 0;
@@ -21,7 +21,7 @@
     }
 }
 .sectionRelated {
-    .gradientBar(@baseColor3, @sectionBlue);
+    background: @sectionBlue;
     text-shadow: none;
 }
 
