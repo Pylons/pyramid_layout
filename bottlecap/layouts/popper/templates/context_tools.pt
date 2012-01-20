@@ -1,4 +1,4 @@
-<ul class="sectionTools">
+<ul class="sectionTools noBullets">
     <li><a href="#">Overview</a></li>
     <li class="selected"><a href="#">Blog</a></li>
     <li data-quickpanel="dropdown">

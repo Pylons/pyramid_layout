@@ -1,4 +1,4 @@
-<ul class="actionsMenu">
+<ul class="actionsMenu noBullets">
     <tal:block tal:repeat="action actions">
       <!-- Simple button action. -->
       <li tal:condition="'subactions' not in action">
