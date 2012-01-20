@@ -1,4 +1,4 @@
-<ul class="sectionTools">
+<ul class="sectionTools noBullets">
     <li><a href="#">Overview</a></li>
     <li class="selected"><a href="#">Blog</a></li>
     <li data-quickpanel="dropdown">
@@ -14,8 +14,8 @@
     <li><a href="#">Files</a></li>
     <li><a href="#">Members</a></li>
     <li data-quickpanel="quickpanel">
-        <a href="#" class="quickpanel-toggle moreToggle">More</a>
-        <div class="quickpanel">
+        <a href="#" class="dropdown-toggle moreToggle">More</a>
+        <div class="dropdown">
             <figure>
                 <img src="http://lorempixum.com/64/64/" alt="" />
             </figure>
@@ -32,7 +32,7 @@
             porttitor. Cras mattis consectetur purus sit amet
             fermentum. Aenean lacinia bibendum nulla sed
             consectetur.</p>
-            <div class="quickpanel-footer">
+            <div class="dropdown-footer">
                 The footer area of the dropdown.
             </div>
         </div>

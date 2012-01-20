@@ -15,19 +15,16 @@ h2#search-toggle {
 }
 #top-bar {
     .gradientBar(#444, #222);
-    text-shadow: 0 -1px 0 black;
-    nav {
-	    .horList();
-	    clear:none;
-	    margin: 0;
-	    padding: 0;
-	    li a {
-	        display: block;
-	    }
-	}
-    [data-quickpanel="quickpanel"] {
-        display: inline;
-    }    	
+    text-shadow: 0 -1px 0 black;    	
+}
+#bcpanel-global-nav {
+    .horList();
+    clear:none;
+    margin: 0;
+    padding: 0;
+    > li > a {
+        display: block;
+    }
 }
 #bcpanel-global-logo {
 	float: left;
@@ -38,8 +35,11 @@ h2#search-toggle {
 a#radar{
     margin-left: 0;
 }
-#top-bar .topNavIconWrapper {
+.topNavIconWrapper {
     float: left;
+}
+.search .topNavIconWrapper {
+    width: 100%;
 }
 h2#navigation-toggle {
     display: none;
@@ -56,7 +56,7 @@ h2#navigation-toggle {
     font-size: 1em;
     font-family: @baseFont;
     .css3_box_shadow(none);
-    li {
+    > li {
     	float:left;
         border-top: none;
         border-bottom: none;	
@@ -64,7 +64,6 @@ h2#navigation-toggle {
     }
     > li > a {
     	margin: 0 1px 0 0;
-    	position: relative;
     	z-index: 1;
     	display: block;
     	line-height: 2.6923em;
@@ -73,13 +72,10 @@ h2#navigation-toggle {
     	font-size: 0.889em;
     	color: #bbb;
     	background-image: none;
+    	text-decoration: none;
     	&:hover { 
     		color: #fff;
     	}		   
-    }
-    a.quickpanel-toggle {
-        background-image: url('../img/cog_section.png');
-        background-position: 50% 50%;
     }
     .selected a {
     	color: #fff;	
@@ -108,14 +104,28 @@ h2#navigation-toggle {
         border-top: 0;
     }                
 }
+#global-nav .dropdown li {
+    display: list-item;
+    float: none;
+    border: none;
+}
+#global-nav .dropdown a {
+    display: inline;
+    padding: 0;
+    line-height: normal;
+    font-size: 1em;
+    background: transparent;
+}
+.open {
+    background: #000;
+    .css3_border_radius(.5em .5em 0 0);
+}
 .noSectionMenu #global-nav .selected a:after {
     border-bottom-color: #eaddcb;
 }
-a.quickpanel-toggle, a.dropdown-toggle {
-    padding-right: .533333333em + (@space * 1em)/2;
-}
 a.moreToggle {
     background-image: url('../img/cog_section.png');
+    background-position: 50% 50%;
     /* don't ask *me* why this copy of .ir should be here explicitely, ask IE8 */
     display: block;
     border: 0;
@@ -126,31 +136,24 @@ a.moreToggle {
     text-align: left;
     direction: ltr;
     width: 19px;
+    &:before {
+        display: none;   
+    }
 }
 #global-nav a.moreToggle {
     background-image: url('../img/cog_globalnav.png');
 }
-.ie8 .quickpanel-toggle:after,
-.ie8 .dropdown-toggle:after {
-    font-size: 0;
-}
-a.moreToggle:after {
-    display: none;
-}
-a.moreToggle:hover,
-li.open > a {
+#global-nav a.moreToggle:hover,
+#global-nav .open > a.moreToggle {
     background-image: url('../img/cog.png');
 }
-#global-nav a.moreToggle:hover {
-    background-image: url('../img/cog.png');
-}        
 #global-nav li[data-quickpanel="quickpanel"] {
     display: block;
 }
 #global-nav:before {
     display: none;
 }
-form.searchForm {
+form#search-form {
     top: 0;
     z-index: 0;
     .css3_box_shadow(none);
@@ -160,122 +163,9 @@ form.searchForm {
     border-style: none none solid;
     background-color: #bac3cc; /* for IE to prevent overriding with .quickpanel's black background */        
 }
-h2#search-toggle:after {
+h2#search-toggle:before {
     display: none;
 }
-
-/* @group Quickpanels & Dropdowns */
-.quickpanel-toggle,
-.dropdown-toggle {
-    position: relative;
-}
-.quickpanel-toggle:after,
-.dropdown-toggle:after {
-    /* Triangle after the normal quickpanel/dropdown toggle */
-	width: 0;
-	height: 0;
-	display: block;
-	content: "";
-	text-indent: -99999px;
-	vertical-align: top;
-	position: absolute;
-	top: 50%;
-	right: .5em;
-	margin-top: -4px;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 4px solid #fff;
-}
-ul.sectionTools .dropdown-toggle:after {
-    margin-top: -4px;
-    border-top-color: lighten(#204A5D, 10%);
-}
-.quickpanel,
-.dropdown {
-	display: none;
-	position: absolute;
-    left: 0;
-    top: 3.2em;
-    z-index: 10;
-    width: 100%;
-    .css3_box_sizing(border-box);
-    margin: 0;
-    padding: (@space * 1em);
-    .css3_linear_gradient(#000, #333);
-    border-width: 0 1px 1px;
-    color: #fff;
-    .smaller();
-    .css3_box_shadow(1px 1px 10px rgba(50,50,50,.8));
-    .css3_border_radius(0 0 0.3em 0.3em);
-    ul {
-	    clear: none;
-	    background: transparent;
-	    margin-bottom: (@space * 1em);
-	}	
-	li {
-	    display: list-item;
-	    float: none;
-	}
-    a {
-        color: saturate(@baseColor3, 30%);
-	    padding: 0;
-	    line-height: normal;
-	    font-size: 1em;
-	    background: transparent;
-	    text-decoration: none;
-	}
-	figure {
-	    float: right;
-	    margin: 0 0 (@space * 1em)/2 (@space * 1em)/2;
-	    img {
-		    .css3_box_shadow(none);
-		}
-	}	
-}
-#global-nav .quickpanel li {
-    display: list-item;
-    float: none;
-}
-#global-nav .quickpanel a {
-    display: inline;    
-    color: saturate(@baseColor3, 30%);
-    padding: 0;
-    line-height: normal;
-    font-size: 1em;
-    background: transparent;
-    text-decoration: underline;
-}
-.quickpanel-footer {
-    border-top: 1px solid #222;
-    padding: 0;
-    margin-top: (@space * 1em)/2;
-    padding-top: (@space * 1em)/2;
-    position: relative;
-    &:before {
-	    content: "";
-	    display: block;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    font-size: 0;    	    
-	    height: 1px;
-	    width: 100%;
-	    background: #333;
-	}
-}
-a.open,
-#global-nav li a.open,
-.touch #global-nav li a.open {
-	border-color: #222;
-    background-color: #000;		
-	border-bottom-color: #333;
-}
-.open .quickpanel,
-.touch .open .dropdown,
-.no-touch li[data-quickpanel='dropdown']:hover > .dropdown {
-    display: block !important;
-}
-/* @end */
 
 /* @group Content */
 section.main {

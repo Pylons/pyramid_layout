@@ -146,9 +146,9 @@
     float: @float;
     clear: both;
     list-style: none;
-    li {
+    > li {
         display: inline;
-        a {
+        > a {
             display: inline-block;
         }
     }
@@ -195,18 +195,12 @@
     line-height: 1.5em;
     color: @textColor;
     &:before {
-        content: "";            
-        display: block;
+        .trianglePointer(bottom, @textColor, .266666667em);
         position: absolute;
         z-index: 2;
         top: 50%;
         margin-top: -0.1em;
         right: .266666667em;
-        width: 0;
-        height: 0;
-        border-left: .266666667em solid transparent;
-        border-right: .266666667em solid transparent;
-        border-top: .266666667em solid @textColor;
         *line-height: 0;        
     }
 }
