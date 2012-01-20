@@ -116,6 +116,10 @@ h2#navigation-toggle {
     font-size: 1em;
     background: transparent;
 }
+.open {
+    background: #000;
+    .css3_border_radius(.5em .5em 0 0);
+}
 .noSectionMenu #global-nav .selected a:after {
     border-bottom-color: #eaddcb;
 }
@@ -136,15 +140,12 @@ a.moreToggle {
         display: none;   
     }
 }
-a.moreToggle:hover,
-li.open > a {
-    background-image: url('../img/cog.png');
-}
 #global-nav a.moreToggle {
     background-image: url('../img/cog_globalnav.png');
-    &:hover {
-        background-image: url('../img/cog.png');
-    }
+}
+#global-nav a.moreToggle:hover,
+#global-nav .open > a.moreToggle {
+    background-image: url('../img/cog.png');
 }
 #global-nav li[data-quickpanel="quickpanel"] {
     display: block;
