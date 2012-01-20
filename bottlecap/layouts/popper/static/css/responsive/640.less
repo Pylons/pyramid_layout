@@ -15,19 +15,16 @@ h2#search-toggle {
 }
 #top-bar {
     .gradientBar(#444, #222);
-    text-shadow: 0 -1px 0 black;
-    nav {
-	    .horList();
-	    clear:none;
-	    margin: 0;
-	    padding: 0;
-	    li a {
-	        display: block;
-	    }
-	}
-    [data-quickpanel="quickpanel"] {
-        display: inline;
-    }    	
+    text-shadow: 0 -1px 0 black;    	
+}
+#bcpanel-global-nav {
+    .horList();
+    clear:none;
+    margin: 0;
+    padding: 0;
+    > li > a {
+        display: block;
+    }
 }
 #bcpanel-global-logo {
 	float: left;
@@ -118,7 +115,6 @@ h2#navigation-toggle {
     line-height: normal;
     font-size: 1em;
     background: transparent;
-    text-decoration: underline;
 }
 .noSectionMenu #global-nav .selected a:after {
     border-bottom-color: #eaddcb;

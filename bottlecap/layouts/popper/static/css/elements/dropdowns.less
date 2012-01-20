@@ -68,12 +68,17 @@ div[data-quickpanel='quickpanel'] {
     	    float: none;
     	}
         a {
-            color: saturate(@baseColor3, 30%);
+            display: inline;
+            color: lighten(@baseColor4, 10%);
     	    padding: 0;
     	    line-height: normal;
     	    font-size: 1em;
     	    background: transparent;
     	    text-decoration: underline;
+    	    &:hover {
+    	        text-decoration: none;
+    	        color: lighten(@baseColor2, 10%);
+    	    }
     	}
     	figure {
     	    float: left;
