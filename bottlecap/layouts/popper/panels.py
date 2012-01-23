@@ -46,17 +46,16 @@ def action_menu(context, request):
         {'title': 'Delete', 'url': '#', 'confirm': 'Are you sure?'}
     ]}
 
-
-@panel_config(name='popper.letter_box', renderer='templates/letter_box.pt')
-def letter_box(context, request):
-    letters = [{'name': chr(ch),
-                'href': '#' if ch in (67, 69, 75) else None,
-                'is_current': True if ch == 80 else False}
-               for ch in xrange(ord('A'), ord('Z') + 1)]
-    return {'letters': letters}
-
-
 @panel_config(name='popper.tagbox',
               renderer='templates/tagbox.pt')
 def tagbox(context, request):
     return {}
+
+@panel_config(name='popper.grid_header', renderer='templates/grid_header.pt')
+def grid_header(context, request, letters=None, filters=None, formats=None,
+                actions=None):
+    return {
+        'letters': letters,
+        'filters': filters,
+        'formats': formats,
+        'actions': actions}

@@ -23,10 +23,38 @@ class SampleViews(object):
 
         self.request.layout_manager.layout.show_sidebar = False
         self.request.layout_manager.layout.section_style = "compact"
+        letters = [{'name': chr(ch),
+                    'href': '#' if ch in (67, 69, 75) else None,
+                    'is_current': True if ch == 80 else False}
+                   for ch in xrange(ord('A'), ord('Z') + 1)]
+        actions = [
+            {'name': 'print', 'title': 'Print',
+             'description': 'Print this report',
+             'url': self.request.resource_url(self.context, 'print.html')},
+            {'name': 'csv', 'title': 'Export as CSV',
+             'description': 'Export this report as CSV',
+             'url': self.request.resource_url(self.context, 'csv')}]
+
+        formats = [
+            {'name': 'tabular', 'title': 'Tabular view', 'selected': True,
+             'description': 'View as a table',
+             'url': self.request.resource_url(self.context)},
+            {'name': 'picture', 'title': 'Picture view', 'selected': False,
+             'description': "View as portraits",
+             'url': self.request.resource_url(self.context, query={
+                 'format': 'picture'})}]
+
+        filters = [
+            {'name': 'attractive', 'title': 'Attractive', 'selected': False,
+             'description': 'Show only attractive people', 'url': '#'},
+            {'name': 'all', 'title': 'All', 'selected': True,
+             'description': 'Show all people', 'url': '#'}]
 
         return {
-            "project": "Some Project",
-            }
+            'letters': letters,
+            'actions': actions,
+            'formats': formats,
+            'filters': filters}
 
     @view_config(name="communities",
                  renderer="templates/communities.pt")
