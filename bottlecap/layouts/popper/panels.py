@@ -1,3 +1,5 @@
+from pyramid.encode import urlencode
+
 from bottlecap.panel import panel_config
 
 
@@ -59,3 +61,51 @@ def grid_header(context, request, letters=None, filters=None, formats=None,
         'filters': filters,
         'formats': formats,
         'actions': actions}
+
+
+@panel_config(name='popper.grid_footer', renderer='templates/grid_footer.pt')
+def grid_footer(context, request, batch):
+    # Pagination
+    batch_size = batch['batch_size']
+    n_pages = (batch['total'] - 1) / batch_size + 1
+    if n_pages <= 1:
+        batch['pagination'] = False
+        return batch
+
+    url = request.path_url
+    def page_url(page):
+        params = request.GET.copy()
+        params['batch_start'] = str(page * batch_size)
+        return '%s?%s' % (url, urlencode(params))
+
+    batch['pagination'] = True
+    current = batch['batch_start'] / batch['batch_size']
+    if current > 0:
+        batch['prev_url'] = page_url(current - 1)
+    else:
+        batch['prev_url'] = None
+    if current + 1 < n_pages:
+        batch['next_url'] = page_url(current + 1)
+    else:
+        batch['next_url'] = None
+    pages = []
+    for i in xrange(n_pages):
+        ellipsis = i != 0 and i != n_pages - 1 and abs(current - i) > 3
+        if ellipsis:
+            if pages[-1]['name'] != 'ellipsis':
+                pages.append({
+                    'name': 'ellipsis',
+                    'title': '...',
+                    'url': None,
+                    'selected': False})
+        else:
+            title = '%d' % (i + 1)
+            pages.append({
+                'name': title,
+                'title': title,
+                'url': page_url(i),
+                'selected': i == current})
+
+    batch['pages'] = pages
+    return batch
+

@@ -136,6 +136,8 @@
             </tbody>
         </table>
 
+        ${panel('popper.grid_footer', batch=batch)}
+
         <div class="paginationBar">
             <span class="res">Result 1-12 of 19</span>
             <div class="pagination">

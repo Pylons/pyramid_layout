@@ -50,11 +50,23 @@ class SampleViews(object):
             {'name': 'all', 'title': 'All', 'selected': True,
              'description': 'Show all people', 'url': '#'}]
 
+        total = 188
+        size = 10
+        begin = int(self.request.GET.get('batch_start', 0))
+        end = min(begin + size, total)
+        batch = {
+            'batch_start': begin,
+            'batch_end': end,
+            'total': total,
+            'batch_size': size,
+        }
+
         return {
             'letters': letters,
             'actions': actions,
             'formats': formats,
-            'filters': filters}
+            'filters': filters,
+            'batch': batch}
 
     @view_config(name="communities",
                  renderer="templates/communities.pt")
