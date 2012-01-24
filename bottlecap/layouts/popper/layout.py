@@ -12,6 +12,7 @@ class PopperLayout(object):
     show_sidebar = True
     section_style = 'full'
     project_name = 'Popper Sample'
+    extra_css = []
 
     def __init__(self, context, request):
         self.context = context
@@ -156,7 +157,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -166,7 +167,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -176,7 +177,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -190,7 +191,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#',
                                 'value': 2
-                            }        
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -200,7 +201,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -210,7 +211,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 1
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -220,7 +221,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -234,7 +235,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -244,7 +245,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }]
                     }
                 }
