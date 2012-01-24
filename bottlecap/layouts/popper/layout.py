@@ -146,6 +146,107 @@ class PopperLayout(object):
                         },
 
                     },
+                    'tagbox_data': {
+                        'items': [{
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'flyers'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 2
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'park'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 2
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'volunteer'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 2
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword personal',
+                                'name': 'un'
+                            },
+                            'remove': {
+                                'title': 'Remove the keyword',
+                                'href': '#',
+                            },
+                            'counter': {
+                                'href': '#',
+                                'value': 2
+                            }        
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'foreign_policy'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 2
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'unsaid'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 1
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'advocacy'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 2
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword personal',
+                                'name': 'zimbabwe'
+                            },
+                            'remove': {
+                                'title': 'Remove the keyword',
+                                'href': '#',
+                            },
+                            'counter': {
+                                'href': '#',
+                                'value': 2
+                            }      
+                        }, {
+                            'tag': {
+                                'href': '#kw',
+                                'class': 'keyword',
+                                'name': 'aryeh_neier'
+                            },
+                            'counter': {
+                                'href': '#ppl',
+                                'value': 2
+                            }      
+                        }]
+                    }
                 }
         return self._head_data
 
