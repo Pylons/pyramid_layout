@@ -27,8 +27,7 @@
         extension. If you are calling from the London office, dial
         #9, wait for a dial tone, then the extension.</div>
 
-        ${panel('popper.grid_header', letters=letters, actions=actions,
-                                      formats=formats, filters=filters)}
+        ${panel('popper.grid_header', letters=letters, actions=actions, formats=formats, filters=filters)}
 
         <table class="filtered sortable" id="someid" summary="">
             <!-- 
