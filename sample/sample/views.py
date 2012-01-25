@@ -81,6 +81,10 @@ class SampleViews(object):
     @view_config(name="communitiesblog",
                  renderer="templates/communitiesblog.pt")
     def communitiesblog_view(self):
+        layout = self.request.layout_manager.layout
+        layout.add_portlet('popper.tagbox')
+        layout.add_portlet('sample.content_portlet')
+        layout.add_portlet('sample.section_portlet')
         return {
             "project": "Africa Community",
         }
