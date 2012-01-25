@@ -12,6 +12,7 @@ class PopperLayout(object):
     show_sidebar = True
     section_style = 'full'
     project_name = 'Popper Sample'
+    extra_css = ()
 
     def __init__(self, context, request):
         self.context = context
@@ -20,6 +21,7 @@ class PopperLayout(object):
         self.context_url = request.resource_url(context)
         self.static_url = request.static_url('bottlecap.layouts.popper:static/')
         self.jslibs_static_url = request.static_url('jslibs:/')
+        self.portlets = []
 
     @reify
     def devmode(self):
@@ -33,6 +35,9 @@ class PopperLayout(object):
     def use_css_pie(self):
         sn = 'bottlecap.use_css_pie'
         return asbool(self.request.registry.settings.get(sn, False))
+
+    def add_portlet(self, name, *args, **kw):
+        self.portlets.append((name, args, kw))
 
     # --
     # Head data and microtemplates management
@@ -156,7 +161,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -166,7 +171,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -176,7 +181,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -190,7 +195,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#',
                                 'value': 2
-                            }        
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -200,7 +205,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -210,7 +215,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 1
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -220,7 +225,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -234,7 +239,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#',
                                 'value': 2
-                            }      
+                            }
                         }, {
                             'tag': {
                                 'href': '#kw',
@@ -244,7 +249,7 @@ class PopperLayout(object):
                             'counter': {
                                 'href': '#ppl',
                                 'value': 2
-                            }      
+                            }
                         }]
                     }
                 }

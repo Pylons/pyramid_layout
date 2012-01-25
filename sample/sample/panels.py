@@ -17,3 +17,11 @@ def global_nav(context, request):
         dict(title="Calendar", url='#', selected='selected'),
         dict(title="Feed", url='#', selected=None)]
     return {'nav_menu': nav_menu}
+
+
+@panel_config(name='sample.content_portlet',
+              renderer='templates/content_portlet.pt')
+@panel_config(name='sample.section_portlet',
+              renderer='templates/section_portlet.pt')
+def generic_portlet(context, request):
+    return {}

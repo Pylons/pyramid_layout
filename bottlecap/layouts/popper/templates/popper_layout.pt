@@ -36,6 +36,9 @@
         <script src="${layout.static_url}js/respond.min.js"></script>
         -->
 
+        <link rel="stylesheet" tal:repeat="css_url layout.extra_css" 
+              tal:attributes="href css_url"/>
+
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
     <body class="${'noSectionMenu' if layout.section_style == 'none' else ''}">

@@ -31,7 +31,6 @@ def personal_tools(context, request):
 @panel_config(name='popper.search', renderer='templates/search.pt')
 @panel_config(name='popper.context_tools',
               renderer='templates/context_tools.pt')
-@panel_config(name='popper.column_one', renderer='templates/column_one.pt')
 def generic_panel(context, request):
     return {}
 
@@ -48,8 +47,7 @@ def action_menu(context, request):
         {'title': 'Delete', 'url': '#', 'confirm': 'Are you sure?'}
     ]}
 
-@panel_config(name='popper.tagbox',
-              renderer='templates/tagbox.pt')
+@panel_config(name='popper.tagbox', renderer='templates/tagbox.pt')
 def tagbox(context, request):
     return {}
 
@@ -109,3 +107,14 @@ def grid_footer(context, request, batch):
     batch['pages'] = pages
     return batch
 
+
+@panel_config(name='popper.column_one', renderer='templates/column_one.pt')
+def column_one(context, request):
+    layout_manager = request.layout_manager
+    layout = layout_manager.layout
+    render = layout_manager.render_panel
+    if layout.portlets:
+        return '\n'.join(
+            [render(name, *args, **kw)
+             for name, args, kw in layout.portlets])
+    return ''
