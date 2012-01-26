@@ -4,7 +4,117 @@
         ${panel('popper.actions_menu')}
 
         <div class="contentText">
-            <a href="/communitiesblog">Community Blog</a>
-        </div>
+            ${panel('popper.grid_header', letters=letters, filters=filters)}
+
+            <table class="filtered sortable" id="someid" summary="">
+                <!--
+                   .filtered means the table is filtered and has filter bar above (used for a specific styling for this case)
+                   .sortable indicates that the table rows are sortable by clicking a column's header
+                -->
+                <thead>
+                <tr>
+                    <!-- Anchors within TH are required in .sortable -->
+                    <th><a href="#" class="selected ascending">Name</a></th>
+                    <th><a href="#">Department</a></th>
+                    <th><a href="#">Position</a></th>
+                    <th><a href="#">Phone</a></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            <a href="https://karl.some.org/profiles/billy/">Bill Budd</a>
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            UN Programs
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Senior Development Associate
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            444-444-4444 x 4444
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ui-grid-row even">
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            <a href="https://karl.some.org/profiles/tcordes/">Tommy Person</a>
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            UN Programs
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Program Associate - All Communications
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            444-444-4444 x 4444
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ui-grid-row odd ui-grid-row-hover">
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            <a
+                                    href="https://karl.some.org/profiles/mdixon/">Donna Dixon</a>
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            Criminal Investigation
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Deputy Director
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            444-444-4444 x 4444
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ui-grid-row even">
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            <a
+                                    href="https://karl.some.org/profiles/kedwards/">Karen Karr</a>
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
+                        <div>
+                            UN Programs
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            Program Associate - Some Really Long Job
+                            Title
+                        </div>
+                    </td>
+                    <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
+                        <div>
+                            444-444-4444 x 4444
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            ${panel('popper.grid_footer', batch=batch)}        </div>
     </metal:content>
 </metal:block>
