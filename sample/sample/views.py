@@ -44,12 +44,6 @@ class SampleViews(object):
              'url': self.request.resource_url(self.context, query={
                  'format': 'picture'})}]
 
-        filters = [
-            {'name': 'attractive', 'title': 'Attractive', 'selected': False,
-             'description': 'Show only attractive people', 'url': '#'},
-            {'name': 'all', 'title': 'All', 'selected': True,
-             'description': 'Show all people', 'url': '#'}]
-
         total = 188
         size = 10
         begin = int(self.request.GET.get('batch_start', 0))
@@ -65,7 +59,6 @@ class SampleViews(object):
             'letters': letters,
             'actions': actions,
             'formats': formats,
-            'filters': filters,
             'batch': batch}
 
     @view_config(name="communities",
@@ -73,9 +66,36 @@ class SampleViews(object):
     def communities_view(self):
         self.request.layout_manager.layout.show_sidebar = False
         self.request.layout_manager.layout.section_style = "none"
+
+        filters = [
+                {'name': 'attractive', 'title': 'Attractive',
+                 'selected': False,
+                 'description': 'Show only attractive people', 'url': '#'},
+                {'name': 'all', 'title': 'All', 'selected': True,
+                 'description': 'Show all people', 'url': '#'}]
+
+        letters = [{'name': chr(ch),
+                    'href': '#' if ch in (67, 69, 75) else None,
+                    'is_current': True if ch == 80 else False}
+        for ch in xrange(ord('A'), ord('Z') + 1)]
+
+        total = 188
+        size = 10
+        begin = int(self.request.GET.get('batch_start', 0))
+        end = min(begin + size, total)
+        batch = {
+            'batch_start': begin,
+            'batch_end': end,
+            'total': total,
+            'batch_size': size,
+            }
+
         return {
             "project": "Some Project",
-            }
+            'letters': letters,
+            'filters': filters,
+            'batch': batch
+        }
 
     @view_config(renderer="templates/communitiesblog.pt")
     @view_config(name="communitiesblog",
