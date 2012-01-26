@@ -7,55 +7,127 @@
             <secton>
                 <h3>OSF Offices</h3>
                 <ul class="noBullets">
-                    <li><a href="/peopleosfbaltimore" class="general">Baltimore</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r1/budapest-office/" class="general">Budapest</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r1/brussels-office/" class="general">Brussels</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r1/london-office/" class="general">London</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r1/new-york-office/" class="general">New York</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r1/paris-office/" class="general">Paris</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r1/washington-dc-office/" class="general">Washington DC</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Baltimore</a>
+                    </li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Lima</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Tokyo</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">London</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">New York</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Paris</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Washington DC</a></li>
                 </ul>
             </secton>
             <section>
                 <h3>Executive Offices</h3>
                 <ul class="noBullets">
-                    <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-chairman/" class="general">Office of the Chairman</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-president/" class="general">Office of the President</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r2/office-of-the-executive-vice-president/" class="general">Office of the Executive Vice President</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Office of the Office</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">President of the President</a>
+                    </li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Executive Office of the
+                             Vice President</a></li>
                 </ul>
             </section>
             <section>
                 <h3>Administrative Offices</h3>
                 <ul class="noBullets">
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/communications/" class="general">Communications</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/finance/" class="general">Finance</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/general-counsel/" class="general">General Counsel</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/grants-management/" class="general">Grants Management</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/human-resources-and-facilities-management-department/" class="general">Human Resources and Facilities Management</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/information-systems/" class="general">Information Systems</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/knowledge-management-initiative/" class="general">Knowledge Management Initiative</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/library/" class="general">Library</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r3/network-finance-and-systems-support/" class="general">Network Finance and Systems Support</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Communications</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Finance</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Counsel</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Management</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Human Resources and
+                            Longer Words Here</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Information Systems</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">All Management
+                            Initiative</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Library</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Network Systems
+                            Support</a></li>
                 </ul>
             </section>
             <section>
-                <h3>US Programs</h3>
+                <h3>UN Programs</h3>
                 <ul class="noBullets">
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/us-programs-director-s-office/" class="priority">US Programs Director's Office</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/campaign-for-black-male-achievement/" class="general">Campaign for Black Male Achievement</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/closing-the-addiction-treatment-gap/" class="general">Closing the Addiction Treatment Gap</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/criminal-justice-fund/" class="general">Criminal Justice Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/democracy-and-power-fund/" class="general">Democracy and Power Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/equality-and-opportunity-fund/" class="general">Equality and Opportunity Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/national-security-and-human-rights-campaign/" class="general">National Security and Human Rights Campaign</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/strategic-opportunities-fund/" class="general">Strategic Opportunities Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/transparency-and-integrity-fund/" class="general">Transparency and Integrity Fund</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="priority">UN Program One</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Closing the Campaign for UN Program
+                            Two</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Justice Program and Fund</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a>
+                    </li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Opportunity for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">National Campaign</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Coalition of the
+                            Willingly Unwilling</a></li>
                 </ul>
             </section>
             <section>
                 <h3>Advocacy</h3>
                 <ul class="noBullets">
-                    <li><a href="https://karl.soros.org/people/osi/c1/r5/office-of-the-international-advocacy-director/" class="general">Office of the International Advocacy Director</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Office of the International
+                             Director</a></li>
                 </ul>
             </section>
         </div>
@@ -63,15 +135,43 @@
             <section>
                 <h3>International Operations</h3>
                 <ul class="noBullets">
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/us-programs-director-s-office/" class="priority">US Programs Director's Office</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/campaign-for-black-male-achievement/" class="general">Campaign for Black Male Achievement</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/closing-the-addiction-treatment-gap/" class="general">Closing the Addiction Treatment Gap</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/criminal-justice-fund/" class="general">Criminal Justice Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/democracy-and-power-fund/" class="general">Democracy and Power Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/equality-and-opportunity-fund/" class="general">Equality and Opportunity Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/national-security-and-human-rights-campaign/" class="general">National Security and Human Rights Campaign</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/strategic-opportunities-fund/" class="general">Strategic Opportunities Fund</a></li>
-                    <li><a href="https://karl.soros.org/people/osi/c1/r4/transparency-and-integrity-fund/" class="general">Transparency and Integrity Fund</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="priority">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a>
+                    </li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
+                    <li>
+                        <a href="/peopleosfbaltimore"
+                           class="general">Campaign for UN Program
+                            Two Point 3</a></li>
                 </ul>
             </section>
         </div>
