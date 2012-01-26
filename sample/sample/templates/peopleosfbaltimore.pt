@@ -8,26 +8,28 @@
     <div class="contentText">
         <div class="vcard clearfix">
             <div class="adr">
-                <div class="street-address">201 North Charles Street, Suite 1300</div>
-                <span class="locality">Baltimore</span>
-                <abbr class="region">Maryland</abbr>
-                <span class="postal-code">21201</span>
+                <div class="street-address">10 North South Street,
+                    Suite 100</div>
+                <span class="locality">Anywhere</span>
+                <abbr class="region">Missouri</abbr>
+                <span class="postal-code">22222</span>
                 <div class="country-name">United States</div>
             </div>
             <aside>
-                <h3 class="fn org url hidden" href="http://www.soros.org">OSI-Baltimore</h3>
-                <div class="tel"><b class="type">Tel</b>: 410-234-1091</div>
-                <div class="tel"><b class="type">Fax</b>: 410-234-2816 </div>
-                <b>Website</b>: <a class="url" href="http://www.soros.org">http://www.soros.org</a>
+                <h3 class="fn org url hidden"
+                    href="http://www.some.org">Popper-Thing</h3>
+                <div class="tel"><b class="type">Tel</b>: 555-555-5555</div>
+                <div class="tel"><b class="type">Fax</b>: 444-444-4444 </div>
+                <b>Website</b>: <a class="url" href="http://www.some.org">http://www.some.org</a>
             </aside>
         </div>
 
-        <div class="notification info">If you are calling from the New York,
-        Washington, DC or Budapest offices, dial directly by
-        extension. If you are calling from the London office, dial
+        <div class="notification info">If you are calling from the Rome,
+        Milan or Venice offices, dial directly by
+        extension. If you are calling from the Miami office, dial
         #9, wait for a dial tone, then the extension.</div>
 
-        ${panel('popper.grid_header', letters=letters, actions=actions, formats=formats, filters=filters)}
+        ${panel('popper.grid_header', letters=letters, actions=actions, formats=formats)}
 
         <table class="filtered sortable" id="someid" summary="">
             <!-- 
@@ -47,12 +49,12 @@
                 <tr class="odd">
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            Jeffrey Burch<a href="https://karl.soros.org/profiles/jburch/" style="display: none;"></a>
+                            <a href="https://karl.some.org/profiles/billy/">Bill Budd</a>
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            US Programs
+                            UN Programs
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
@@ -62,73 +64,76 @@
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            443-909-7383 x 7383
+                            444-444-4444 x 4444
                         </div>
                     </td>
                 </tr>
                 <tr class="ui-grid-row even">
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            Tania Cordes<a href="https://karl.soros.org/profiles/tcordes/" style="display: none;"></a>
+                            <a href="https://karl.some.org/profiles/tcordes/">Tommy Person</a>
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            US Programs
+                            UN Programs
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            Program Associate - Strategic Communications
+                            Program Associate - All Communications
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            443-909-7378 x 7378
+                            444-444-4444 x 4444
                         </div>
                     </td>
                 </tr>
                 <tr class="ui-grid-row odd ui-grid-row-hover">
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            Monique Dixon<a href="https://karl.soros.org/profiles/mdixon/" style="display: none;"></a>
+                            <a
+                                    href="https://karl.some.org/profiles/mdixon/">Donna Dixon</a>
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            Criminal Justice Fund
+                            Criminal Investigation
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            Deputy Director - OSI-Baltimore/ Director - Criminal and Juvenile Justice Program
+                            Deputy Director
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            443-909-7369 x 7369
+                            444-444-4444 x 4444
                         </div>
                     </td>
                 </tr>
                 <tr class="ui-grid-row even">
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            Kiera Edwards<a href="https://karl.soros.org/profiles/kedwards/" style="display: none;"></a>
+                            <a
+                                    href="https://karl.some.org/profiles/kedwards/">Karen Karr</a>
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 211px;">
                         <div>
-                            US Programs
+                            UN Programs
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            Program Associate - Criminal and Juvenile Justice Program and Education and Youth Development Program
+                            Program Associate - Some Really Long Job
+                            Title
                         </div>
                     </td>
                     <td style="overflow-x: hidden; overflow-y: hidden; width: 212px;">
                         <div>
-                            4439097376 x 7376
+                            444-444-4444 x 4444
                         </div>
                     </td>
                 </tr>
@@ -137,17 +142,6 @@
 
         ${panel('popper.grid_footer', batch=batch)}
 
-        <div class="paginationBar">
-            <span class="res">Result 1-12 of 19</span>
-            <div class="pagination">
-                <a href="#" class="prev">&lt;</a>
-                <a href="#1">1</a>
-                <a href="#2">2</a>
-                <span class="selected">3</span>
-                <a href="#4">4</a>
-                <a href="#" class="next">&gt;</a>
-            </div>
-        </div>
     </div>
     </metal:content>
 </metal:block>
