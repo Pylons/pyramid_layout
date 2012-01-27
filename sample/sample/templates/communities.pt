@@ -2,6 +2,9 @@
     <metal:content fill-slot="content">
 
         ${panel('popper.actions_menu')}
+        <header>
+            <h1>Community Listing</h1>
+        </header>
 
         <div class="contentText">
             ${panel('popper.grid_header', letters=letters, filters=filters)}

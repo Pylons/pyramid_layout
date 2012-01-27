@@ -10,11 +10,11 @@ def global_nav(context, request):
              selected=None),
         dict(title="Communities",
              url=request.resource_url(context, 'communities'),
-             selected=None),
+             selected='selected'),
         dict(title="People",
              url=request.resource_url(context, 'peopleosf'),
              selected=None),
-        dict(title="Calendar", url='#', selected='selected'),
+        dict(title="Calendar", url='#', selected=None),
         dict(title="Feed", url='#', selected=None)]
     return {'nav_menu': nav_menu}
 

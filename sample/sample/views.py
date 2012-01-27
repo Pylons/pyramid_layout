@@ -66,7 +66,7 @@ class SampleViews(object):
     def communities_view(self):
         layout = self.request.layout_manager.layout
         #layout.show_sidebar = True
-        #layout.section_style = "none"
+        layout.section_style = "none"
         layout.add_portlet('sample.community_portlet')
 
         filters = [
