@@ -25,3 +25,10 @@ def global_nav(context, request):
               renderer='templates/section_portlet.pt')
 def generic_portlet(context, request):
     return {}
+
+@panel_config(
+    name='sample.community_portlet',
+    renderer='templates/community_portlet.pt'
+    )
+def community_portlet(context, request):
+  return {}
