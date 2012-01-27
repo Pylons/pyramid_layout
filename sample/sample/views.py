@@ -99,7 +99,10 @@ class SampleViews(object):
             'batch': batch
         }
 
-    @view_config(renderer="templates/communitiesblog.pt")
+    @view_config(renderer="templates/index.pt")
+    def index_view(self):
+        return {}
+
     @view_config(name="communitiesblog",
                  renderer="templates/communitiesblog.pt")
     def communitiesblog_view(self):
