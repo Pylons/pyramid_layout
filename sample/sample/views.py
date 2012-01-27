@@ -64,8 +64,10 @@ class SampleViews(object):
     @view_config(name="communities",
                  renderer="templates/communities.pt")
     def communities_view(self):
-        self.request.layout_manager.layout.show_sidebar = False
-        self.request.layout_manager.layout.section_style = "none"
+        layout = self.request.layout_manager.layout
+        #layout.show_sidebar = True
+        #layout.section_style = "none"
+        layout.add_portlet('sample.community_portlet')
 
         filters = [
                 {'name': 'attractive', 'title': 'Attractive',
