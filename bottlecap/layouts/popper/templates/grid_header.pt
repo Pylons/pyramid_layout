@@ -13,13 +13,19 @@
                 title="${format['description']}">${format['title']}</a></li>
     </ul>
 
-    <ul class="filterOptions" id="view-switcher" tal:condition="filters">
-        <li tal:repeat="filter filters"
-            tal:attributes="selected 'selected' if filter['selected'] else None">
-            <a id="${filter['name']}-view" href="${filter['url']}" 
-                title="${filter['description']}">${filter['title']}</a></li>
+    <ul class="contentActions filterOptions" id="filter-options" tal:condition="filters">
+        <li tal:repeat="filter filters">
+            <input
+            type="radio"
+            name="filter-options"
+            id="${filter['name']}-view"
+            value="${filter['name']}"
+            class="switch"
+            tal:attributes="checked 'checked' if filter['selected'] else None" />
+            <label for="${filter['name']}-view">
+                <span>${filter['title']}</span>
+            </label></li>
     </ul>
-
 
     <ul class="alphabet" tal:condition="letters">
         <tal:block repeat="letter letters">
