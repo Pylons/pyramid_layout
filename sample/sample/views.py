@@ -202,7 +202,7 @@ class SampleViews(object):
             "https://foo.bar/",
             "modified": "2007-06-07T15:22:03", "community": "Community 1", "type": "file", "icon":
             icon_url},
-            {"category": "file", "modified_by": "tmoroz", "title": "Title 10", "url":
+            {"category": "file", "modified_by": "user7", "title": "Title 10", "url":
             "https://foo.bar",
             "modified": "2010-04-05T04:52:52.260346", "community": "Community 4",
             "type": "file", "icon":

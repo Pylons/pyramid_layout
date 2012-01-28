@@ -10,7 +10,11 @@ var log = function() {
     }
 };
 
-$.widget("bottlecap.livesearch", {
+
+// XXX Don't use this widget directly, use popper.livesearch
+// that is defined below.
+
+$.widget("popper.livesearchcore", {
 
     options: {
         // function to call for ajax url request
@@ -29,7 +33,9 @@ $.widget("bottlecap.livesearch", {
         // called when an item is selected from the list
         selectedFn: null,
         // name of cookie to save context menu search under
-        cookieName: 'bottlecap.livesearch.searchType'
+        cookieName: 'popper.livesearch.searchType'
+        // positioning of the results. If omitted, current element used.
+        //position: null
     },
 
     _create: function () {
@@ -50,22 +56,14 @@ $.widget("bottlecap.livesearch", {
         this.cookieName = o.cookieName;
         this.cookieValue = $.cookie(o.cookieName);
 
-        // store references to elements
-        this.selectList = el.prev('ul').first();
-        this.selectButton = this.selectList.prev('button').first();
-        this.searchButton = el.next('button').first();
-
-        // set up select button behavior
-        this.selectButton.button({
-            icons: {secondary: "ui-icon-triangle-1-s"}
-        });
-        this.selectButtonText = this.selectButton.find('.ui-button-text');
-        this.selectList.menu({
-            select: $.proxy(this.menuSelected, this),
-            input: this.selectList
-        }).hide();
-        this.selectButton.click($.proxy(this.selectButtonClicked, this));
-        this.selectList.click($.proxy(this.selectButtonClicked, this));
+        // Default position option (not in default options
+        // but here, because it contains this.element)
+        this.options.position = this.options.position || {
+            my: 'right top',
+            at: 'right bottom',
+            of: this.element,
+            collision: 'none'
+        };
 
         // set up auto complete behavior
         el.autocomplete({
@@ -73,12 +71,7 @@ $.widget("bottlecap.livesearch", {
             minLength: 0,
             source: $.proxy(this.queryData, this),
             search: $.proxy(this.validateAndHandleError, this),
-            position: {
-                my: "right top",
-                at: "right bottom",
-                of: this.searchButton,
-                collision: "none"
-            },
+            position: this.options.position,
             select: $.proxy(this.completionSelected, this)
         });
         this.autoCompleteWidget = el.data('autocomplete');
@@ -97,69 +90,9 @@ $.widget("bottlecap.livesearch", {
         }
 
         // search handlers
-        // this one is if somebody clicks on the search icon
-        this.searchButton.click($.proxy(this.searchButtonClicked, this));
         // this one is if somebody hits the enter key on the keyboard
         el.bind('keydown.autocomplete', $.proxy(this.keyPressed, this));
 
-        // Initialize selected search type
-        var searchType = 'all_content';
-        if (this.cookieValue) {
-            // if the cookie exists, we need to select the appropriate
-            // category in the context menu
-            searchType = this.cookieValue;
-        }
-        var liNodes = this.selectList.find('li');
-        var liArray = $.makeArray(liNodes);
-        for (var i = 0; i < liArray.length; i++) {
-            var li = $(liArray[i]);
-            if (this.get_option_name(li) === searchType) {
-                var dontSaveCookie = true;
-                this.menuSelected(0, {item: li}, dontSaveCookie);
-                break;
-            }
-        }
-
-
-        //// Set the magnifying glass button on the right
-        //this.searchButton.button({
-        //    text: false,
-        //    icons: {primary: "ui-icon-search"}
-        //});
-
-        //// add in classes on appropriate elements
-        //el.addClass('bc-livesearch bc-livesearch-autocomplete');
-        //this.selectList.addClass('bc-livesearch bc-livesearch-menu');
-        //this.selectButton.addClass(
-        //    'bc-livesearch bc-livesearch-btn bc-livesearch-btn-select');
-        //this.searchButton.addClass(
-        //    'bc-livesearch bc-livesearch-btn bc-livesearch-btn-search');
-
-        //// dynamically set height to match
-        //var height = this.selectButton.outerHeight();
-        //var wrapper = $('<span></span>');
-        //wrapper
-        //    .css('display', 'inline-block')
-        //    .css('margin', '0')
-        //    .css('padding', '0')
-        //    .css('border', '0')
-        //    .css('height', height +'px')
-        //    .css('verticalAlign', 'top');
-        //el
-        //    .wrap(wrapper)
-        //    .css('margin', '0')
-        //    .css('padding', '0 3px')
-        //    .css('height', '' + (height - 2) + 'px')
-        //    .css('lineHeight', '' + (height - 2) + 'px');
-
-        //var marginTop = this.selectButton.css('marginTop');
-        //// this  is essential _sometimes_ on WebKit
-        //el.css('marginTop', marginTop);
-        //// hack IE7 that handles top margin differently
-        //if ($.browser.msie && parseInt($.browser.version) == 7) {
-        //    this.selectButton.css('marginTop', '1px');
-        //}
-        
     },
 
     // called when a particular category menu item is selected from the ul
@@ -196,23 +129,6 @@ $.widget("bottlecap.livesearch", {
         }
     },
 
-    selectButtonClicked: function() {
-        var menu = this.selectList;
-        if (menu.is(":visible")) {
-            menu.hide();
-            return false;
-        }
-        menu.menu("deactivate").show().css({top:0, left:0}).position({
-            my: "left top",
-            at: "left bottom",
-            of: this.selectButton
-        });
-        $(document).one("click", function() {
-            menu.hide();
-        });
-        return false;
-    },
-
     completionSelected: function(event, ui) {
         var item = ui.item;
         if (this._trigger('selectedFn', event, item) !== false) {
@@ -232,8 +148,7 @@ $.widget("bottlecap.livesearch", {
         }
         // if we are right after some whitespace, then we return -1
         // which signals that we don't want to add a glob
-        return (pos == 0 || query.charAt(pos-1) === " ")
-               ? -1
+        return (pos === 0 || query.charAt(pos-1) === " ") ? -1
                : pos;
     },
 
@@ -264,7 +179,7 @@ $.widget("bottlecap.livesearch", {
         if (pos < nChars) {
             return false;
         }
-        for (var i = 0; i < nChars; i++) {
+        for (i = 0; i < nChars; i++) {
             if (query.charAt(pos-1-i) === " ") {
                 return false;
             }
@@ -294,9 +209,11 @@ $.widget("bottlecap.livesearch", {
                     .addClass('bc-livesearch-autocomplete-message');
                 // A box, hidden initially, to show error messages such as
                 // "you didn't type enough characters"
-                ///var width = (self.element.outerWidth() +
-                ///             self.searchButton.outerWidth() - 2);
-                var width = self.element.outerWidth();
+                //
+                // ... hmmm, a bit shaky, but let's use the positioning
+                // element's width. If this causes a headache: then let's
+                // get rid of it, and just set the width from css?
+                var width = $(self.options.position.of).outerWidth() - 2;
 
                 var errorBox = $(
                     '<div><span class="bc-livesearch-autocomplete-msgicon ' +
@@ -308,12 +225,7 @@ $.widget("bottlecap.livesearch", {
                     ' ui-icon-notice')
                 .width(width)
                 .appendTo('body')
-                .position({
-                    my: "right top",
-                    at: "right bottom",
-                    //of: $('.bc-header-toolbox')
-                    of: self.element
-                });
+                .position(self.options.position);
                 // expose functions to show/hide the error box
                 return {
                     hide: function() { errorBox.hide(); },
@@ -356,7 +268,7 @@ $.widget("bottlecap.livesearch", {
                 // find the offending substring that failed validation
                 var nChars = 3,
                     startPos = 0;
-                for (var i = 0; i < nChars; i++) {
+                for (i = 0; i < nChars; i++) {
                     if (query.charAt(pos-1-i) === " ") {
                         startPos = pos-i;
                         break;
@@ -370,11 +282,10 @@ $.widget("bottlecap.livesearch", {
     },
 
     _ajaxErrorFn: function(xhr, status, exc) {
-        log('bc.livesearch', status);
+        log('popper.livesearch', status);
     },
 
     queryData: function(request, response) {
-        log('queryData', arguments);
         var query = this.transformQuery(request.term),
             url = this.urlFn.call(this, query),
             self = this;
@@ -387,9 +298,6 @@ $.widget("bottlecap.livesearch", {
              queue: 'clear',
              abortOld: true,
              success: function(data) {
-                 // ensure that the context menu isn't displayed when
-                 // showing completion results
-                 self.selectList.hide();
                  // always call response - on no data it cleans up properly
                  response(data);
                  if (!data || !data.length) {
@@ -457,6 +365,7 @@ $.widget("bottlecap.livesearch", {
             //    this.autoCompleteWidget._renderMenu = this._defaultRenderCompletions;
             //}
         }
+        $.Widget.prototype._setOption.apply(this, arguments);
     },
 
     get_option_name: function(item) {
@@ -472,20 +381,10 @@ $.widget("bottlecap.livesearch", {
 
 //
 // -- -- -- -- --
+// here comes the extension of the core widget
+// into a full blown KARL livesearch:
 //
 
-function createUrlFn(urlPrefix, kind) {
-    return function(query) {
-        return kind
-            ? urlPrefix + '?kind=' + escape($.trim(kind))
-                        + '&val='  + escape($.trim(query))
-            : urlPrefix + '?val='  + escape($.trim(query));
-    }
-}
-
-var appUrl = window.head_data.app_url;
-var livesearchUrl = appUrl + "/livesearch.json";
-var advancedSearchUrl = appUrl + "/searchresults.html";
 
 function lookup_type(name) {
     var types = {
@@ -506,26 +405,6 @@ function lookup_type(name) {
     */
 }
 
-// mapping from kind in live search to kind in advanced search
-var liveToAdvancedKind = {
-};
-
-function getSearchValue() {
-    return $('.bc-livesearch-autocomplete').val();
-}
-
-function advancedSearchResultsUrl(query, kind) {
-    if (!kind) {
-        // grab current filter and use that
-        kind = $.trim($('.bc-livesearch-btn-select').parent().attr('name'));
-    }
-    kind = escape(kind);
-    var typeQueryString = (kind === "all_content")
-                              ? ''
-                              : "&kind=" + (liveToAdvancedKind[kind] || kind);
-    var queryString = '?body=' + escape(query) + typeQueryString;
-    return advancedSearchUrl + queryString;
-}
 
 // while waiting for data to return, if a search is triggered, like if
 // the user presses return or clicks on the search button, the ajax
@@ -540,159 +419,14 @@ function ajaxError(xhr, status, exc) {
     }
 }
 
-$(function() {
-    $('#searchbox li').each(function(index) {
-        var item = $(this);
-        var to_advanced = item.attr('advanced_search');
-        if (to_advanced) {
-            liveToAdvancedKind[item.attr('name')] = to_advanced;
-        }
-    });
-
-    $('.search-site-box').livesearch({
-        urlFn: createUrlFn(livesearchUrl),
-        search: function(event, ui) {
-            var searchText = $.trim(getSearchValue());
-            // in ie, the globbed character can be in the wrong place
-            // we'll always just grab it from the field and put it on the end
-
-            // suppress error displaying when searching
-            // we don't have to worry about toggling it back
-            // because we are loading a new page
-            shouldDisplayError = false;
-            window.location = (
-                advancedSearchResultsUrl(searchText, ui.item['name']));
-        },
-        menu: function(event, ui) {
-            var kind = $.trim(ui.name);
-            var urlFn = kind === "all_content"
-                ? createUrlFn(livesearchUrl)
-                : createUrlFn(livesearchUrl, kind);
-            $('.bc-livesearch').livesearch('option', 'urlFn', urlFn);
-        },
-        validationFn: $.bottlecap.livesearch.prototype.numCharsValidate,
-        queryTransformFn: $.bottlecap.livesearch.prototype.globQueryTransform,
-        errorFn: $.bottlecap.livesearch.prototype.displayError,
-        ajaxErrorFn: ajaxError,
-        selectedFn: function(event, item) {
-            if (item.url) {
-                window.location = item.url;
-                return false;
-            }
-            return true;
-        },
-        renderCompletions: renderCompletions,
-        noresults: noResults
-    });
-    //if ($.browser.msie && parseInt($.browser.version) == 7) {
-    //    $('.bc-livesearch-btn-select').css('width', '120px');
-    //}
-});
-
 function renderDate(isoDateString) {
     return $.timeago(isoDateString);
 }
 
-function renderCompletions(ul, items) {
-    var self = this,
-        currentType = "";
-    $.each(items, function(index, item) {
-        // Change autocomplete behavior which overrides the
-        // searchterm
-        item.data_value = item.value;
-        item.value = self.term;
-         if (item.type !== currentType) {
-            var li = $('<li class="bc-livesearch-autocomplete-category"></li>');
-            li.append(
-                $('<span class="bc-livesearch-category-text"></span>')
-                    .text(lookup_type(item.type)['title'] || item.type || "Unknown")
-            );
-            li.append(
-                $('<span class="bc-livesearch-more"></span>')
-                    .attr('href', '/search/more')
-                    .text('more')
-                    .click((function(type) {
-                        return function() {
-                            var searchText = $.trim(getSearchValue());
-                            var searchType = lookup_type(type)['name'] || "all_content";
-                            window.location = (
-                                advancedSearchResultsUrl(searchText, searchType));
-                            return false;
-                        };
-                    })(item.type))
-            );
-            ul.append(li);
-            currentType = item.type;
-        }
-        renderItem(ul, item);
-    });
-    // Set a class on the first item, to remove a border on
-    // the first row
-    ul.find('li:first').addClass('bc-livesearch-autocomplete-first');
-
-    // groupings that have only one element need a little bit more spacing
-    // or the category label/more link on the left look cramped
-    var nElements = 0;
-    var prevElement = null;
-    ul.find('li').each(function() {
-        if ($(this).hasClass('bc-livesearch-autocomplete-category')) {
-            if (nElements === 1) {
-                prevElement.css('margin-bottom', '1em');
-            }
-            prevElement = null;
-            nElements = 0;
-        } else {
-            nElements += 1;
-            prevElement = $(this);
-        }
-    });
-}
-
-function noResults(event, item) {
-    var el = item.el;
-    var displayer = el.errorDisplayer();
-    var query  = item.query.replace('*', '');
-    var msg = $('<span />').text('No results found. ');
-    var selectButtonText = el.selectButtonText;
-    var curFilter = $.trim(selectButtonText.text());
-    if (curFilter !== 'All Content') {
-        msg
-            .append('Try searching in ')
-            .append($('<a />')
-                    .attr('href', '#')
-                    .attr('class', 'bc-livesearch-all-content')
-                    .text('All Content')
-                    .click(function () {
-                        displayer.hide();
-                        selectButtonText.text('All Content')
-                                        .attr('name', 'all_content');
-                        el.menuSelected(0, {item: selectButtonText});
-                        return false;
-                    }))
-            .append('.');
-    }
-    displayer.replaceWith(msg);
-}
-
-var renderDispatchTable = {
-    "profile":       renderPersonEntry,
-    "page":          renderPageEntry,
-    "reference":     renderPageEntry,
-    "blogentry":     renderBlogEntry,
-    "forum":         renderForumEntry,
-    "forumtopic":    renderForumTopicEntry,
-    "comment":       renderCommentEntry,
-    "file":          renderFileEntry,
-    "calendarevent": renderCalendarEventEntry,
-    "community":     renderCommunity,
-    "office":        renderOffice
-};
-
 function _normalized(val) {
     // the server can return None or null
     // treat these values as empty
-    return !val || val === "None" || val === "null"
-           ? ''
+    return !val || val === "None" || val === "null" ? ''
            : val;
 }
 
@@ -732,9 +466,8 @@ function renderGenericEntry(item) {
 
 function _meta_text(author, date) {
     // helper to generate the meta byline
-    var authorText = _normalized(author)
-                     ? ' - by ' + author + ' '
-                     : ' - ';
+    var authorText = _normalized(author) ?
+        ' - by ' + author + ' ' : ' - ';
     return authorText + renderDate(date);
 }
 
@@ -826,7 +559,7 @@ function renderCalendarEventEntry(item) {
     var titleDiv = $('<div />').text(item.title);
     if (_normalized(item.location)) {
         titleDiv.append($('<span class="discreet" />')
-                            .text(' - at ' + item.location))
+                            .text(' - at ' + item.location));
     }
     entry
         .append(titleDiv)
@@ -877,6 +610,221 @@ function renderItem(ul, item) {
         .appendTo(ul);
 }
 
+var renderDispatchTable = {
+    "profile":       renderPersonEntry,
+    "page":          renderPageEntry,
+    "reference":     renderPageEntry,
+    "blogentry":     renderBlogEntry,
+    "forum":         renderForumEntry,
+    "forumtopic":    renderForumTopicEntry,
+    "comment":       renderCommentEntry,
+    "file":          renderFileEntry,
+    "calendarevent": renderCalendarEventEntry,
+    "community":     renderCommunity,
+    "office":        renderOffice
+};
+
+
+// --
+// Create a component that wraps and hides all
+// the extension code above,
+// and only exposes the options that we really
+// want to set in any of our use cases.
+// It is really just a wrapper to allow a nicer,
+// cleaner usage of the livesearchcore component
+// and the complex KARL wrapping around it.
+// --
+
+// XXX this is the widget that you have to use:
+
+$.widget('popper.livesearch', {
+
+    options: {
+        //advancedSearchUrl: null,
+        //livesearchUrl: null,
+        //kind: null,
+        defaultKind: 'all_content'
+        //position: null    // positioning of the results. 
+                            // If omitted, current element used.
+    },
+
+    _create: function () {
+        var self = this;
+
+        $('.search-site-box').livesearchcore({
+            urlFn: self._createUrlFn(self.options.livesearchUrl),
+            search: function(event, ui) {
+                var searchText = $.trim(self.element.val());
+                // in ie, the globbed character can be in the wrong place
+                // we'll always just grab it from the field and put it on the end
+
+                // suppress error displaying when searching
+                // we don't have to worry about toggling it back
+                // because we are loading a new page
+                shouldDisplayError = false;
+                window.location = (
+                    self._advancedSearchResultsUrl(searchText, self._getKind()));
+            },
+            validationFn: $.popper.livesearchcore.prototype.numCharsValidate,
+            queryTransformFn: $.popper.livesearchcore.prototype.globQueryTransform,
+            errorFn: $.popper.livesearchcore.prototype.displayError,
+            ajaxErrorFn: ajaxError,
+            selectedFn: function(event, item) {
+                if (item.url) {
+                    window.location = item.url;
+                    return false;
+                }
+                return true;
+            },
+            renderCompletions: $.proxy(self._renderCompletions, self),
+            noresults: $.proxy(self._noResults, self),
+            position: self.options.position
+        });
+
+    },
+
+    _setOption: function(key, value) {
+        if (key === 'kind') {
+            this._setKind(value);
+        }
+        $.Widget.prototype._setOption.apply(this, arguments);
+    },
+
+    searchButtonClicked: function(evt) {
+        this.element.livesearchcore('searchButtonClicked');
+    },
+
+    // --
+    // private parts
+    //
+    // (it would be desirable to move all the class-less functions,
+    // from above, to here, as class methods. Still,
+    // we only move here what we must, in order to
+    // make them accept our wiring parameters.)
+    // --
+
+    _createUrlFn: function(urlPrefix, kind) {
+        return function(query) {
+            return kind ?
+                  urlPrefix + '?kind=' + escape($.trim(kind)) +
+                              '&val='  + escape($.trim(query))
+                : urlPrefix + '?val='  + escape($.trim(query));
+        };
+    },
+
+
+    _advancedSearchResultsUrl: function(query, kind) {
+        if (!kind) {
+            // grab current filter and use that
+            kind = this.getKind();
+        }
+        kind = escape(kind);
+        var typeQueryString = (kind === this.options.defaultKind) ?
+                                  '' : "&kind=" + kind;
+        var queryString = '?body=' + escape(query) + typeQueryString;
+        return this.options.advancedSearchUrl + queryString;
+    },
+
+    _getKind: function() {
+        return this.options.kind || this.options.defaultKind;
+    },
+
+    _setKind: function(kind) {
+        // Set the function that will factorize the ajax url
+        kind = $.trim(kind);
+        var urlFn = kind === this.options.defaultKind?
+              this._createUrlFn(this.options.livesearchUrl)
+            : this._createUrlFn(this.options.livesearchUrl, kind);
+        this.element.livesearchcore('option', 'urlFn', urlFn);
+        // XXX Remove all the cache!?
+        // XXX TODO
+    },
+
+    _noResults: function(event, item) {
+        var self = this;
+        var el = item.el;
+        var displayer = el.errorDisplayer();
+        var query  = item.query.replace('*', '');
+        var msg = $('<span />').text('No results found. ');
+        if (this._getKind() != this.options.defaultKind) {
+            msg
+                .append('Try searching in ')
+                .append($('<a />')
+                        .attr('href', '#')
+                        .attr('class', 'bc-livesearch-all-content')
+                        .text('All Content')
+                        .click(function () {
+                            displayer.hide();
+                            // Reset the "kind" filter.
+                            self._setOption('kind', self.options.defaultKind);
+                            // trigger an event, so the page can update the selector
+                            // to actually match the current filter visually
+                            self._trigger('resetKind');
+                            return false;
+                        }))
+                .append('.');
+        }
+        displayer.replaceWith(msg);
+    },
+
+
+    _renderCompletions: function(ul, items) {
+        var self = this,
+            currentType = "";
+        $.each(items, function(index, item) {
+            // Change autocomplete behavior which overrides the
+            // searchterm
+            item.data_value = item.value;
+            item.value = self.term;
+            if (item.type !== currentType) {
+                var li = $('<li class="bc-livesearch-autocomplete-category"></li>');
+                li.append(
+                    $('<span class="bc-livesearch-category-text"></span>')
+                        .text(lookup_type(item.type).title || item.type || "Unknown")
+                );
+                li.append(
+                    $('<span class="bc-livesearch-more"></span>')
+                        .attr('href', '/search/more')
+                        .text('more')
+                        .click((function(type) {
+                            return function() {
+                                var searchText = $.trim(self.element.val());
+                                var searchType = lookup_type(type).name || self.options.defaultKind;
+                                window.location = (
+                                    self._advancedSearchResultsUrl(searchText, searchType));
+                                return false;
+                            };
+                        })(item.type))
+                );
+                ul.append(li);
+                currentType = item.type;
+            }
+            renderItem(ul, item);
+        });
+        // Set a class on the first item, to remove a border on
+        // the first row
+        ul.find('li:first').addClass('bc-livesearch-autocomplete-first');
+
+        // groupings that have only one element need a little bit more spacing
+        // or the category label/more link on the left look cramped
+        var nElements = 0;
+        var prevElement = null;
+        ul.find('li').each(function() {
+            if ($(this).hasClass('bc-livesearch-autocomplete-category')) {
+                if (nElements === 1) {
+                    prevElement.css('margin-bottom', '1em');
+                }
+                prevElement = null;
+                nElements = 0;
+            } else {
+                nElements += 1;
+                prevElement = $(this);
+            }
+        });
+    }
+
+
+});
 
 
 })(jQuery);

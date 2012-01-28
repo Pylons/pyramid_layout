@@ -33,4 +33,57 @@
             </fieldset>
         </form>
     </div>
+    <script type="text/javascript" deferred>
+    //<![CDATA[
+        $(function() {
+            var appUrl = window.head_data.app_url;
+
+            var defaultOption = $('select#searchfor option').eq(0);
+            var defaultKind = defaultOption.attr('value');
+            var defaultLabel = defaultOption.text();
+            // let's start with the default 'all content', as kind.
+            var initialKind = defaultKind;
+            $('select#searchfor')
+                  .val(initialKind);
+                  //.next().text(initialKind);
+
+            // wire the livesearch component
+            $('#search-form .search-site-box').livesearch({
+                livesearchUrl: appUrl + '/livesearch.json',
+                advancedSearchUrl: appUrl + '/searchresults.html',
+                kind:  initialKind,
+                defaultKind: defaultKind,
+                resetKind: function(evt) {
+                    $('select#searchfor')
+                        .val(defaultKind)
+                        .next().text(defaultLabel);
+                },
+                position: {
+                    my: "right top",
+                    at: "right bottom",
+                    of: $('#search-form .searchInputWrapper'),
+                    collision: "none"
+                }
+            });
+
+            // ui interaction: the "kind" selector change notifies the component
+            $('select#searchfor').change(function(evt) {
+                  // This will not have an effect really on the result set,
+                  // (because the demo result set just ignores this parameter)
+                  // it's merely presented here for demonstration.
+                  var value = $(this).find('option:selected').attr('value');
+                  $('.search-site-box').livesearch('option', 'kind', value);
+            });
+
+            // ui interaction: search icon clicked: trigger a search.
+            $('#search-form .searchButton').click(function(evt) {
+                $('#search-form .search-site-box').livesearch('searchButtonClicked', evt);   
+                return false;
+            });
+
+        });
+
+    //]]>
+    </script>    
+
 </nav>
