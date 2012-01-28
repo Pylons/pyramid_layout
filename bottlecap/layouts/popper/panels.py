@@ -51,6 +51,25 @@ def action_menu(context, request):
 def tagbox(context, request):
     return {}
 
+@panel_config(name='popper.site_announcement',
+              renderer='templates/site_announcement.pt')
+def site_announcement(context, request):
+    if "show_announcement" not in request.params:
+        # We only want to show the site announcement in the sample
+        # app if we ask for it. We'll make a link on the sample page
+        # to make this obvious
+        return {}
+    announcement = """
+    Praesent commodo cursus magna, vel scelerisque nisl
+        consectetur et. Sed posuere consectetur est at lobortis.
+        Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+        venenatis vestibulum."""
+    return dict(
+        ann_headline="The dismissible site announcement",
+        ann_body=announcement,
+        ann_href="/",
+    )
+
 @panel_config(name='popper.grid_header', renderer='templates/grid_header.pt')
 def grid_header(context, request, letters=None, filters=None, formats=None,
                 actions=None):

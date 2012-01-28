@@ -64,8 +64,10 @@ class SampleViews(object):
     @view_config(name="communities",
                  renderer="templates/communities.pt")
     def communities_view(self):
-        self.request.layout_manager.layout.show_sidebar = False
-        self.request.layout_manager.layout.section_style = "none"
+        layout = self.request.layout_manager.layout
+        #layout.show_sidebar = True
+        #layout.section_style = "none"
+        layout.add_portlet('sample.community_portlet')
 
         filters = [
                 {'name': 'attractive', 'title': 'Attractive',
@@ -97,7 +99,10 @@ class SampleViews(object):
             'batch': batch
         }
 
-    @view_config(renderer="templates/communitiesblog.pt")
+    @view_config(renderer="templates/index.pt")
+    def index_view(self):
+        return {}
+
     @view_config(name="communitiesblog",
                  renderer="templates/communitiesblog.pt")
     def communitiesblog_view(self):
