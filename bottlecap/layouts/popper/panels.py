@@ -137,3 +137,8 @@ def column_one(context, request):
             [render(name, *args, **kw)
              for name, args, kw in layout.portlets])
     return ''
+
+
+@panel_config(name='popper.footer', renderer='templates/footer.pt')
+def footer(context, request):
+    return {}

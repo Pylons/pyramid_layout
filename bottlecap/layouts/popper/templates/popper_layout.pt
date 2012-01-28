@@ -84,10 +84,8 @@
         </aside>
     </div>
 
-    <footer>
-        <div class="container">Footer with some relevant information.
-        </div>
-    </footer>
+    <!-- Footer -->
+    ${panel('popper.footer')}
 
     <script src="${layout.jslibs_static_url}resources/bottlecap-tail-0.min.js" defer></script>
     <!--
