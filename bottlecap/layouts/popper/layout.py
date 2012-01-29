@@ -154,8 +154,8 @@ class PopperLayout(object):
                     'tagbox_data': {
                         'items': [{
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'flyers'
                             },
                             'counter': {
@@ -164,8 +164,8 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'park'
                             },
                             'counter': {
@@ -174,8 +174,8 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'volunteer'
                             },
                             'counter': {
@@ -184,12 +184,12 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword personal',
+                                'href': '#tag',
+                                'class': 'tag personal',
                                 'name': 'un'
                             },
                             'remove': {
-                                'title': 'Remove the keyword',
+                                'title': 'Remove Tag',
                                 'href': '#',
                             },
                             'counter': {
@@ -198,8 +198,8 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'foreign_policy'
                             },
                             'counter': {
@@ -208,8 +208,8 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'unsaid'
                             },
                             'counter': {
@@ -218,8 +218,8 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'advocacy'
                             },
                             'counter': {
@@ -228,12 +228,12 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword personal',
+                                'href': '#tag',
+                                'class': 'tag personal',
                                 'name': 'zimbabwe'
                             },
                             'remove': {
-                                'title': 'Remove the keyword',
+                                'title': 'Remove Tag',
                                 'href': '#',
                             },
                             'counter': {
@@ -242,8 +242,8 @@ class PopperLayout(object):
                             }
                         }, {
                             'tag': {
-                                'href': '#kw',
-                                'class': 'keyword',
+                                'href': '#tag',
+                                'class': 'tag',
                                 'name': 'aryeh_neier'
                             },
                             'counter': {

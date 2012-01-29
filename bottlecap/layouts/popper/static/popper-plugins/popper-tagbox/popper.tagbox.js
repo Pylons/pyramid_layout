@@ -35,14 +35,16 @@ $.widget('popper.tagbox', {
         //    'tagbox',
         //    {queue: true, cacheResponse: true}
         //);
-        el.addClass('keywords');
+        el.addClass('tags');
+        console.log('TAGS')
+        console.log(el)
         var tagbox_data = window.head_data.tagbox_data;
         el.append(this._renderTags(tagbox_data));
         el.append(this._renderForm());
 
-        this.keywordList = el.children('ul');
-        this.addKeywordForm = el.children('form.addKeyword').first();
-        this.addKeywordForm.bind('submit', this._addTag);
+        this.tagList = el.children('ul');
+        this.addTagForm = el.children('form.addTag').first();
+        this.addTagForm.bind('submit', this._addTag);
     },
 
     destroy: function() {
@@ -63,10 +65,10 @@ $.widget('popper.tagbox', {
     },
 
     _renderForm: function() {
-        form = '<form action="#" class="addKeyword">' +
+        form = '<form action="#" class="addTag">' +
                '<fieldset>' +
-               '<input id="newKeyword" type="text" name="keyword" placeholder="A keyword to add" />' +
-               '<button type="submit">New keyword</button>' +
+               '<input id="newTag" type="text" name="tag" placeholder="A tag to add" />' +
+               '<button type="submit">New Tag</button>' +
                '</fieldset>' +
                '</form>' 
         return form; 
@@ -77,9 +79,9 @@ $.widget('popper.tagbox', {
              item.tag.name+'</a>';
         if (item.remove) {
             li += '<a title="'+item.remove.title+'" href="'+item.remove.href+
-                  '" class="removeKeyword">x</a>';
+                  '" class="removeTag">x</a>';
         }
-        li += '<a href="'+item.counter.href+'" class="keywordCounter">'+
+        li += '<a href="'+item.counter.href+'" class="tagCounter">'+
               item.counter.value+'</a>';
         return li
     },
@@ -95,13 +97,13 @@ $.widget('popper.tagbox', {
     },
 
     _addTag: function(event) {
-        var keywordList = $(this).prev('ul').first();
-        var newKeyword = $(this).find('#newKeyword').first().val();
-        if (newKeyword) {
-            keywordList.append('<li><a href="#kw" class="keyword personal">' + 
-                newKeyword + '</a>' +
-                '<a title="Remove the keyword" href="#" class="removeKeyword">x</a>' +
-                '<a href="#ppl" class="keywordCounter">1</a></li>');
+        var tagList = $(this).prev('ul').first();
+        var newTag = $(this).find('#newTag').first().val();
+        if (newTag) {
+            tagList.append('<li><a href="#tag" class="tag personal">' + 
+                newTag + '</a>' +
+                '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
+                '<a href="#ppl" class="tagCounter">1</a></li>');
         }
         return false;
     },

@@ -7,6 +7,7 @@
         </header>
 
         <div class="contentText">
+
             ${panel('popper.grid_header', letters=letters, filters=filters)}
 
             <table class="filtered sortable" id="someid" summary="">
@@ -23,28 +24,28 @@
                 <tbody>
                 <tr class="ui-grid-row odd">
                     <td>
-                        <h3>Default Community</h3>
+                        <h3><a href="#">Default Community</a></h3>
 						<p>Working area for all members.</p>
 						<p class="footer-line">12 Member(s) | Last Activity: 1/25/2012</p>
                     </td>
                 </tr>
                 <tr class="ui-grid-row even">
                     <td>
-                        <h3>Default Community</h3>
+                        <h3><a href="#">Default Community</a></h3>
 						<p>Working area for all members.</p>
 						<p class="footer-line">12 Member(s) | Last Activity: 1/25/2012</p>
                     </td>
                 </tr>
                 <tr class="ui-grid-row odd ui-grid-row-hover">
                     <td>
-                        <h3>Default Community</h3>
+                        <h3><a href="#">Default Community</a></h3>
 						<p>Working area for all members.</p>
 						<p class="footer-line">12 Member(s) | Last Activity: 1/25/2012</p>
                     </td>
                 </tr>
                 <tr class="ui-grid-row even">
                     <td>
-                        <h3>Default Community</h3>
+                        <h3><a href="#">Default Community</a></h3>
 						<p>Working area for all members.</p>
 						<p class="footer-line">12 Member(s) | Last Activity: 1/25/2012</p>
                     </td>
@@ -52,6 +53,8 @@
                 </tbody>
             </table>
 
-            ${panel('popper.grid_footer', batch=batch)}        </div>
+            ${panel('popper.grid_footer', batch=batch)}
+        </div>
+
     </metal:content>
 </metal:block>

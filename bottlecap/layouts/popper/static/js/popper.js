@@ -74,7 +74,7 @@ $(function () {
         $(this).next().text($('option[value="' +this.value + '"]', this).text());
     });
     
-    $('#keywords').tagbox({});
+    $('#tags').tagbox({});
 
     // Global notification sismissing
     $('.dismissNotification').click(function () {
