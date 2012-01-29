@@ -4,6 +4,7 @@
         ${panel('popper.actions_menu')}
 
         <div class="contentText">
+
             ${panel('popper.grid_header', letters=letters, filters=filters)}
 
             <table class="filtered sortable" id="someid" summary="">
@@ -49,6 +50,8 @@
                 </tbody>
             </table>
 
-            ${panel('popper.grid_footer', batch=batch)}        </div>
+            ${panel('popper.grid_footer', batch=batch)}
+        </div>
+
     </metal:content>
 </metal:block>
