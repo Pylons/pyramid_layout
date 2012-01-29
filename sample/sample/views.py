@@ -101,6 +101,10 @@ class SampleViews(object):
 
     @view_config(renderer="templates/index.pt")
     def index_view(self):
+        layout = self.request.layout_manager.layout
+        layout.add_portlet('sample.content_portlet')
+        layout.add_portlet('sample.community_portlet')
+
         return {}
 
     @view_config(name="communitiesblog",
