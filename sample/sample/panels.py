@@ -4,18 +4,33 @@ from bottlecap.panel import panel_config
               renderer='bottlecap:layouts/popper/templates/global_nav' \
                        '.pt')
 def global_nav(context, request):
+    def is_selected(item):
+        if request.path == '/' and not item:
+            return 'selected'
+        elif request.path.startswith('/{0}'.format(item)) and item:
+            return 'selected'
+        return None
     nav_menu = [
         dict(title="Intranet",
              url=request.application_url,
-             selected=None),
+             selected=is_selected('')
+             ),
         dict(title="Communities",
              url=request.resource_url(context, 'communities'),
-             selected=None),
+             selected=is_selected('communities')
+             ),
         dict(title="People",
              url=request.resource_url(context, 'peopleosf'),
-             selected=None),
-        dict(title="Calendar", url='#', selected='selected'),
-        dict(title="Feed", url='#', selected=None)]
+             selected=is_selected('peopleosf')
+             ),
+        dict(title="Calendar",
+             url='#',
+             selected=is_selected('calendar')
+             ),
+        dict(title="Feed",
+             url='#',
+             selected=is_selected('feed')
+             )]
     return {'nav_menu': nav_menu}
 
 
