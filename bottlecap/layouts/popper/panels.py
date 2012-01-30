@@ -139,6 +139,6 @@ def column_one(context, request):
     return ''
 
 
-@panel_config(name='popper.footer', renderer='templates/footer.pt')
+@panel_config(name='popper.footer', renderer='templates/footer_panel.pt')
 def footer(context, request):
     return {}
