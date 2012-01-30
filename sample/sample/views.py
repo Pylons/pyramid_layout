@@ -66,7 +66,7 @@ class SampleViews(object):
     def communities_view(self):
         layout = self.request.layout_manager.layout
         #layout.show_sidebar = True
-        #layout.section_style = "none"
+        layout.section_style = "none"
         layout.add_portlet('sample.community_portlet')
 
         filters = [
@@ -101,6 +101,10 @@ class SampleViews(object):
 
     @view_config(renderer="templates/index.pt")
     def index_view(self):
+        layout = self.request.layout_manager.layout
+        layout.add_portlet('sample.content_portlet')
+        layout.add_portlet('sample.community_portlet')
+
         return {}
 
     @view_config(name="communitiesblog",
