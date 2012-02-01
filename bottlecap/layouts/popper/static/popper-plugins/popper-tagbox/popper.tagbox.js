@@ -36,9 +36,7 @@ $.widget('popper.tagbox', {
         //    {queue: true, cacheResponse: true}
         //);
         el.addClass('tags');
-        console.log('TAGS')
-        console.log(el)
-        var tagbox_data = window.head_data.tagbox_data;
+        var tagbox_data = window.head_data.tagbox;
         el.append(this._renderTags(tagbox_data));
         el.append(this._renderForm());
 
@@ -74,23 +72,24 @@ $.widget('popper.tagbox', {
         return form; 
     },
 
-    _renderTag: function(item) {
-        li = '<li><a href="'+item.tag.href+'" class="'+item.tag.class+'">'+
-             item.tag.name+'</a>';
-        if (item.remove) {
-            li += '<a title="'+item.remove.title+'" href="'+item.remove.href+
-                  '" class="removeTag">x</a>';
+    _renderTag: function(item, docid) {
+        var personal = (item.snippet != 'nondeleteable') ? 'personal' : '';
+        console.log(personal)
+        li = '<li><a href="/pg/showtag/' + item.tag + '" class="tag ' +
+            personal + '">' + item.tag + '</a>';
+        if (personal) {
+            li += '<a title="Remove Tag" href="#" class="removeTag">x</a>';
         }
-        li += '<a href="'+item.counter.href+'" class="tagCounter">'+
-              item.counter.value+'</a>';
+        li += '<a href="/pg/taguser.html?tag='+item.tag+'&docid=' +
+            docid + '" class="tagCounter">' + item.count + '</a>';
         return li
     },
 
     _renderTags: function(data) {
         var self = this
         var ul = $('<ul></ul>');
-        $.each(data.items, function(idx, item) {
-            li = self._renderTag(item);
+        $.each(data.records, function(idx, item) {
+            li = self._renderTag(item, data.docid);
             ul.append(li);    
         })
         return ul;
@@ -100,10 +99,11 @@ $.widget('popper.tagbox', {
         var tagList = $(this).prev('ul').first();
         var newTag = $(this).find('#newTag').first().val();
         if (newTag) {
-            tagList.append('<li><a href="#tag" class="tag personal">' + 
-                newTag + '</a>' +
+            tagList.append('<li><a href="/pg/showtag/' + newTag + 
+                '" class="tag personal">' + newTag + '</a>' +
                 '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
-                '<a href="#ppl" class="tagCounter">1</a></li>');
+                '<a href="/pg/taguser.html?tag=' + newTag + 
+                '" class="tagCounter">1</a></li>');
         }
         return false;
     },

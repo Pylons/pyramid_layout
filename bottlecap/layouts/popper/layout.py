@@ -151,106 +151,55 @@ class PopperLayout(object):
                         },
 
                     },
-                    'tagbox_data': {
-                        'items': [{
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'flyers'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'park'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'volunteer'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag personal',
-                                'name': 'un'
-                            },
-                            'remove': {
-                                'title': 'Remove Tag',
-                                'href': '#',
-                            },
-                            'counter': {
-                                'href': '#',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'foreign_policy'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'unsaid'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 1
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'advocacy'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag personal',
-                                'name': 'zimbabwe'
-                            },
-                            'remove': {
-                                'title': 'Remove Tag',
-                                'href': '#',
-                            },
-                            'counter': {
-                                'href': '#',
-                                'value': 2
-                            }
-                        }, {
-                            'tag': {
-                                'href': '#tag',
-                                'class': 'tag',
-                                'name': 'aryeh_neier'
-                            },
-                            'counter': {
-                                'href': '#ppl',
-                                'value': 2
-                            }
-                        }]
+                    'tagbox': {
+                        'records': [
+                            {
+                                'count': 2,
+                                'snippet': 'nondeleteable',
+                                'tag': 'flyers'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': 'nondeleteable',
+                                'tag': 'park'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': 'nondeleteable',
+                                'tag': 'volunteer'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': '',
+                                'tag': 'un'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': 'nondeleteable',
+                                'tag': 'foreign_policy'
+                                },
+                            {
+                                'count': 1,
+                                'snippet': 'nondeleteable',
+                                'tag': 'unsaid'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': 'nondeleteable',
+                                'tag': 'advocacy'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': '',
+                                'tag': 'zimbabwe'
+                                },
+                            {
+                                'count': 2,
+                                'snippet': 'nondeleteable',
+                                'tag': 'aryeh_neier'
+                                },
+                        ],
+                        'docid': -1352878729
                     }
                 }
         return self._head_data
