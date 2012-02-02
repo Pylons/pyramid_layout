@@ -1,5 +1,5 @@
 /*jslint browser: true */
-/*global jQuery: false, console: false, window: false, Modernizr:false, yepnope: false, radarlink: true */
+/*global jQuery: false, console: false, window: false, Modernizr:false, yepnope: false, radarlink: true, Mustache: false */
 
 $(function () {
     // Slide down the global site-wide notification
@@ -71,7 +71,7 @@ $(function () {
     }
        
     // bind community filter click event to location change
-    $('#filter-options input').click(function() {window.location=this.value;})
+    $('#filter-options input').click(function() {window.location=this.value;});
  
     $('nav.search select').change(function () {
         $(this).next().text($('option[value="' +this.value + '"]', this).text());
@@ -160,7 +160,7 @@ $(function () {
         },
 
         show: function(callback) {
-            var self = this;
+            var self = this, this_height;
             if (this.state != this._STATES.HIDDEN) {
                 // Ignore it if we are not showable.
                 if (callback) {
@@ -275,7 +275,8 @@ $(function () {
         }
 
 
-        var head_data = window.head_data || {};
+        var head_data = window.head_data || {},
+            chatterLink, radarLink;
 
         var microtemplateChatter = $('<div id="microtemplate-chatter" class="expanding-panel"></div>')
             .insertAfter('#top-bar')
@@ -295,7 +296,7 @@ $(function () {
         var chatterData = head_data.panel_data.chatter;
         log('preload data for chatter panel:', chatterData);
 
-        var chatterLink = $('a#chatter')
+        chatterLink = $('a#chatter')
             .click(function() {
                 closeAllPanels();
                 microtemplateChatter
@@ -347,7 +348,7 @@ $(function () {
         var radarData = head_data.panel_data.radar;
         log('preload data for radar panel:', radarData);
 
-        var radarLink = $('a#radar')
+        radarLink = $('a#radar')
             .click(function() {
                 closeAllPanels();
                 microtemplateRadar
