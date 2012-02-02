@@ -19,7 +19,7 @@
             type="radio"
             name="filter-options"
             id="${filter['name']}-view"
-            value="${filter['name']}"
+            value="${filter['url']}"
             class="switch"
             tal:attributes="checked 'checked' if filter['selected'] else None" />
             <label for="${filter['name']}-view">

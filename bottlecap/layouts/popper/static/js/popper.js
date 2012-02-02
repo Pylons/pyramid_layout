@@ -69,7 +69,10 @@ $(function () {
             
         });    
     }
-        
+       
+    // bind community filter click event to location change
+    $('#filter-options input').click(function() {window.location=this.value;})
+ 
     $('nav.search select').change(function () {
         $(this).next().text($('option[value="' +this.value + '"]', this).text());
     });
