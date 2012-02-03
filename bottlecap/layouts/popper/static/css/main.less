@@ -149,14 +149,14 @@ h2#search-toggle {
     display: none;
 }
 #global-nav {
-    background-color: #bac3cc;
+    background-color: @pushDownBg;
     position: relative;
     overflow: hidden;
 	li {
 	    position: relative;
 	    z-index: 2;
-		border-top: 1px solid lighten(#bac3cc, 10%);
-		border-bottom: 1px solid darken(#bac3cc, 10%);
+		border-top: 1px solid lighten(@pushDownBg, 10%);
+		border-bottom: 1px solid darken(@pushDownBg, 10%);
 	    margin: 0;
 	    padding: 0;		
 	}
@@ -173,24 +173,22 @@ h2#search-toggle {
 	.selected {
 		border-top: none;
 	}
-	.selected + li {
-	    border-top: none;
-	}
 	.selected a {
-		color: @baseFontColor;
+		color: #fff;
 		font-weight: bold;
-		background-color: #fff;
+	    text-shadow: 0 -1px 0 rgba(0,0,0,.4);		
 	}
 }
 form#search-form {
 	padding: 0.422em 10%;
-    background: #bac3cc;   
+	margin-bottom: 0;
+    background: @pushDownBg;   
     width: auto;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid lighten(#bac3cc, 10%);
-    border-bottom: 1px solid darken(#bac3cc, 10%);
+    border-top:  1px solid lighten(@pushDownBg, 10%);
+    border-bottom: 1px solid darken(@pushDownBg, 10%);
     text-shadow: none;
 }
 form#search-form fieldset {
