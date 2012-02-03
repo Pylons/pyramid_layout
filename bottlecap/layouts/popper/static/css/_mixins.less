@@ -217,7 +217,19 @@
     overflow: hidden;
     padding: .6845em;
     background-color: @pushDownBg;
-    background-image: url('../img/vertical_stripes.png');
+/*    background-image: url('../img/vertical_stripes.png');*/
     background-position: top left;
     background-repeat: repeat;
+    color: #fff;
+    &:before {
+        content: "";
+        font-size: 0;
+        position: absolute;
+        top: 0;
+        left: -25%;
+        width: 150%;
+        height: 100%;
+        .css3_box_shadow(inset 0 1px 10px rgba(0,0,0,0.6));
+        pointer-events: none;
+    }
 }
