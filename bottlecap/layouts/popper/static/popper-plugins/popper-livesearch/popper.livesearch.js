@@ -642,17 +642,20 @@ $.widget('popper.livesearch', {
     options: {
         //advancedSearchUrl: null,
         //livesearchUrl: null,
-        //kind: null,
-        defaultKind: 'all_content'
-        //position: null    // positioning of the results. 
-                            // If omitted, current element used.
+        kind: '',
+        scopePath: '', 
+        scopeLabel: 'all KARL'
+        //position: null,    // positioning of the results. 
+                             // If omitted, current element used.
+        //resetFilters: function(evt) {...}  // application must
+                             // reset the filter visuals
     },
 
     _create: function () {
         var self = this;
 
         $('.search-site-box').livesearchcore({
-            urlFn: self._createUrlFn(self.options.livesearchUrl),
+            urlFn: $.proxy(self.getLivesearchUrl, self),
             search: function(event, ui) {
                 var searchText = $.trim(self.element.val());
                 // in ie, the globbed character can be in the wrong place
@@ -662,8 +665,7 @@ $.widget('popper.livesearch', {
                 // we don't have to worry about toggling it back
                 // because we are loading a new page
                 shouldDisplayError = false;
-                window.location = (
-                    self._advancedSearchResultsUrl(searchText, self._getKind()));
+                window.location = self.getAdvancedSearchUrl(searchText);
             },
             validationFn: $.popper.livesearchcore.prototype.numCharsValidate,
             queryTransformFn: $.popper.livesearchcore.prototype.globQueryTransform,
@@ -683,16 +685,18 @@ $.widget('popper.livesearch', {
 
     },
 
+    searchButtonClicked: function(evt) {
+        this.element.livesearchcore('searchButtonClicked');
+    },
+
     _setOption: function(key, value) {
-        if (key === 'kind') {
-            this._setKind(value);
+        if (key == 'kind' || key == 'scopePath' || 
+                 key == 'scopeLabel') {
+            // XXX TODO Must reset all caches here!!!
         }
         $.Widget.prototype._setOption.apply(this, arguments);
     },
 
-    searchButtonClicked: function(evt) {
-        this.element.livesearchcore('searchButtonClicked');
-    },
 
     // --
     // private parts
@@ -703,41 +707,39 @@ $.widget('popper.livesearch', {
     // make them accept our wiring parameters.)
     // --
 
-    _createUrlFn: function(urlPrefix, kind) {
-        return function(query) {
-            return kind ?
-                  urlPrefix + '?kind=' + escape($.trim(kind)) +
-                              '&val='  + escape($.trim(query))
-                : urlPrefix + '?val='  + escape($.trim(query));
-        };
-    },
-
-
-    _advancedSearchResultsUrl: function(query, kind) {
-        if (!kind) {
-            // grab current filter and use that
-            kind = this.getKind();
+    getLivesearchUrl: function(query) {
+        var url = this.options.livesearchUrl;
+        var p = $.param({
+            val: $.trim(query),
+            kind: this.options.kind,
+            scopePath: this.options.scopePath
+        });
+        if (p) {
+            url += '?' + p;
         }
-        kind = escape(kind);
-        var typeQueryString = (kind === this.options.defaultKind) ?
-                                  '' : "&kind=" + kind;
-        var queryString = '?body=' + escape(query) + typeQueryString;
-        return this.options.advancedSearchUrl + queryString;
+        return url;
     },
 
-    _getKind: function() {
-        return this.options.kind || this.options.defaultKind;
-    },
-
-    _setKind: function(kind) {
-        // Set the function that will factorize the ajax url
-        kind = $.trim(kind);
-        var urlFn = kind === this.options.defaultKind?
-              this._createUrlFn(this.options.livesearchUrl)
-            : this._createUrlFn(this.options.livesearchUrl, kind);
-        this.element.livesearchcore('option', 'urlFn', urlFn);
-        // XXX Remove all the cache!?
-        // XXX TODO
+    getAdvancedSearchUrl: function(query, /*optional*/ kind) {
+        var url = this.options.advancedSearchUrl;
+        if (kind === undefined) {
+            // If the kind is not defined (we come through
+            // clicking search button), then we will use
+            // the current selection.
+            kind = this.options.kind;
+        }
+        var p = $.param({
+            body: $.trim(query),
+            kind: kind,
+            scopePath: this.options.scopePath,
+            // A verbose label is needed to display 
+            // in the advanced search results
+            scopeLabel: this.options.scopeLabel
+        });
+        if (p) {
+            url += '?' + p;
+        }
+        return url;
     },
 
     _noResults: function(event, item) {
@@ -746,7 +748,7 @@ $.widget('popper.livesearch', {
         var displayer = el.errorDisplayer();
         var query  = item.query.replace('*', '');
         var msg = $('<span />').text('No results found. ');
-        if (this._getKind() != this.options.defaultKind) {
+        if (this.options.kind) {   // the default value is the empty string.
             msg
                 .append('Try searching in ')
                 .append($('<a />')
@@ -756,10 +758,10 @@ $.widget('popper.livesearch', {
                         .click(function () {
                             displayer.hide();
                             // Reset the "kind" filter.
-                            self._setOption('kind', self.options.defaultKind);
+                            self.options.kind = '';
                             // trigger an event, so the page can update the selector
                             // to actually match the current filter visually
-                            self._trigger('resetKind');
+                            self._trigger('resetFilters');
                             return false;
                         }))
                 .append('.');
@@ -789,9 +791,8 @@ $.widget('popper.livesearch', {
                         .click((function(type) {
                             return function() {
                                 var searchText = $.trim(self.element.val());
-                                var searchType = lookup_type(type).name || self.options.defaultKind;
-                                window.location = (
-                                    self._advancedSearchResultsUrl(searchText, searchType));
+                                var searchType = lookup_type(type).name || '';
+                                window.location = self.getAdvancedSearchUrl(searchText, searchType);
                                 return false;
                             };
                         })(item.type))
