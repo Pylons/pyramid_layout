@@ -7,7 +7,7 @@
 
     $.fn.quickpanel = function (selector) {
         return this.each(function () {
-            $(this).delegate(selector, 'click', function (e) {
+            $(this).delegate(selector, 'click touchstart', function (e) {
                 var $par = $(this).parent('[data-quickpanel="quickpanel"]'),
                     dw = $(document).width(),
                     w = $par.width(),

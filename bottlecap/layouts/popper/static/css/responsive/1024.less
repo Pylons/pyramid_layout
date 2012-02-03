@@ -1,26 +1,32 @@
 @media only screen and (min-width: 1024px) {
+    // TOP BAR
     #global-nav li,
     ul.sectionTools li[data-quickpanel="quickpanel"] {
         position: relative;
     }
-    
-    /* @group Section Container */
-    
-    h2#search-toggle {
-        display: none;
-    }
-    .sectionContainer .container {
+    .container {
         position: relative;
     }
+    
+    // SEARCH
+    h2#search-toggle {
+        display: none;
+    }    
     nav.search {
         position: absolute;
         right: 0;
-        top: 0;
+        top: 2.352941176em;
+        .col(4);
+        width: @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
+        padding-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
+        padding-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);
+        margin: 0;
+        background: #222;
+        .css3_border_radius(0 0 .5em .5em);
     }
     form#search-form {
         display: block;
         background: transparent;
-        border: none;
         padding-left: 0;
         padding-right: 0;
         padding-top: 0;
@@ -46,6 +52,11 @@
         color: @bodyBg;
         font-size: 0.667em;
     }
+    
+    // SECTION CONTAINER
+    .sectionContainer .container {
+        position: static;
+    }
     .sectionContainer section {
         .col(8);
 	    .alpha();
@@ -56,24 +67,15 @@
         padding-left: .50112782em;
         font-size: 1.333em;
     }
-    .sectionContainer nav.search {
-        /* The calculations are from _grid.less  */
-        .col(4);
-        width: @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
-        padding-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
-        padding-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);	
-        margin: 0;
-        background: #222;
-        .css3_border_radius(0 0 .5em .5em);
-    }
+
     ul.sectionTools {
         clear: both;
         font-size: 1em;
         padding-left: 0;
     }
+
     
-    /* @end */
-    
+    // PERSONAL TOOLS
     #members-info {
         position: static;
         clear: none;
@@ -101,7 +103,7 @@
         }
     }
     
-    /* @group Content */
+    // CONTENT
     .contentWrapper section.main {
         .col(8);
         padding: 1.593137252em 0 ((@space * 1em) * 2);
@@ -114,9 +116,8 @@
     section.main aside {
         width: 20.983em;
     }
-    /* @end */
     
-    /* @group Column */
+    // COLUMN
     .column {
         border-top: none;
         .col(4);
@@ -125,5 +126,4 @@
     .contentWrapper aside.shiftMe {
         padding-top: 3.5em;
     }
-    /* @end */
 }

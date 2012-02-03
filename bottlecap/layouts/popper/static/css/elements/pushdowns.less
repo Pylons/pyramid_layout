@@ -1,0 +1,137 @@
+#chatter-panel,
+#radar-panel {
+    .pushDown();
+    font-family: @fancyFont;
+}
+.pushdownContent {
+    a {
+        color: lightblue;
+    }
+    h3 {
+        margin-top: 0;
+        font-size: 1.3331em;
+        font-weight: bold;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+    }
+    .help-block {
+        color: #ccc;
+    }
+    #mywords:focus + .help-block {
+        color: #fff;
+    }
+    .chatter-options-panel {
+        font-size: 0.9em;
+        clear: both;
+        margin-top: 16px;
+        opacity: 0;
+    }
+    .stream-item {
+        display: block;
+        font-size: 0.889em;
+        margin-bottom: @space/2 * 1em;
+        a {
+            color: #fff;
+        }
+    }
+    .image-left{
+        margin-top: .25em;
+    }
+    .more {
+        float: left;
+        color: lightblue;
+    }
+    .timestamp {
+        float: right;
+        .smaller();
+    }
+}
+#on-your-mind {
+    .col(4);
+}
+#your-stream {
+    .col(4);
+}
+#recent-friend {
+    .col(4);
+}
+
+
+
+ul#sections {
+    padding: 10px 0;
+    margin: 0x;
+    list-style: none;
+    font-size: 0.9em;
+    float: left;
+    li {
+        background: #f1eade;
+        .css3_border_radius(10px);
+        margin: 0 5px;
+        padding: 5px 10px;
+        display: inline-block;
+    }
+    li:nth-child(1) {
+        margin-left: 0;
+    }
+    li:nth-last-child {
+        margin-right: 0;
+    }
+    li.selected {
+        background: #ffffff;
+    }
+}
+.stream1 {
+    .col(4);
+}
+.stream2 {
+    .col(4);
+}
+.stream3 {
+    .col(4);
+}
+
+
+#radar-panel {
+    .radar-content {
+        background-color: @bodyBg;
+        padding: 10px 10%;
+        .css3_border_radius(10px);
+        .radar-header {
+        position: relative;
+            h2 {
+                font-family: @baseFont;
+                width: 150px;
+                float: left;
+                margin: 0;
+                padding: 8px 0;
+            }
+
+        }
+
+        .stream-item {
+            font-family: @fancyFont;
+            font-size: 0.7em;
+            margin-bottom: 20px;
+            display: block;
+            .stream-image {
+                width: 42px;
+                height: 42px;
+                float: left;
+            }
+            .stream-content, .stream-footer {
+                margin-left: 42px;
+                padding-left: 10px;
+                display: block;
+            }
+            .stream-footer {
+                .more {
+                    float: left;
+                }
+                .timestamp {
+                    float: right;
+                }
+
+            }
+        }
+    }
+}

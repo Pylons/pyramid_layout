@@ -432,8 +432,13 @@ textarea[readonly] {
 
 // Stacked forms
 .form-stacked {
-  padding-left: 20px;
-  fieldset {
+    .input {
+        margin-left: 0;
+        input, textarea, select, .uneditable-input {
+            width: 95%;
+        }
+    }
+/*  fieldset {
     padding-top: @space * 1em / 2;
   }
   legend {
@@ -474,7 +479,7 @@ textarea[readonly] {
   .actions {
     margin-left: -20px;
     padding-left: 20px;
-  }
+  }*/
 }
 
 // BUTTON STYLES

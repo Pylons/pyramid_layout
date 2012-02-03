@@ -51,12 +51,12 @@
             ${panel('popper.global_logo')}
             ${panel('popper.global_nav')}
             ${panel('popper.personal_tools')}
+            ${panel('popper.search')}
         </div>
     </div>
 
     <div class="sectionContainer">
         <div class="container">
-            ${panel('popper.search')}
             <tal:section_style switch="layout.section_style|'full'">
                 <tal:no_section case="'none'"></tal:no_section>
                 <section tal:case="'compact'">

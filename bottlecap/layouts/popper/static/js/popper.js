@@ -13,11 +13,6 @@ $(function () {
 
 (function ($) {
 
-    yepnope({
-        test: Modernizr.csscolumns,
-        nope: ['css3-multi-column-min.js']
-    });
-
     if(Modernizr.prefixed('boxSizing')) {
         $('html').addClass('boxsizing');
     }
@@ -338,7 +333,6 @@ $(function () {
                 fullWindow: true,
                 beforeShow: function(evt) {
                     radarLink.parent().addClass('selected');
-                    $('.radar-content').css('height', ($(window).height()-50) - ($('#top-bar').height() * 2) - 35);
                 },
                 hide: function(evt) {
                     radarLink.parent().removeClass('selected');

@@ -149,19 +149,21 @@ h2#search-toggle {
     display: none;
 }
 #global-nav {
-    background-color: #bac3cc;
-    position: relative;
-    overflow: hidden;
+    .pushDown();
+    padding: 0;
 	li {
 	    position: relative;
 	    z-index: 2;
-		border-top: 1px solid lighten(#bac3cc, 10%);
-		border-bottom: 1px solid darken(#bac3cc, 10%);
+		border-top: 1px solid lighten(@pushDownBg, 10%);
+		border-bottom: 1px solid darken(@pushDownBg, 10%);
 	    margin: 0;
 	    padding: 0;		
 	}
 	li:nth-child(1) {
 	    border-top: none;
+	}
+	li:nth-last-child {
+	    border-bottom: none;
 	}
     > li > a {
 	    display: block;
@@ -173,24 +175,19 @@ h2#search-toggle {
 	.selected {
 		border-top: none;
 	}
-	.selected + li {
-	    border-top: none;
-	}
 	.selected a {
-		color: @baseFontColor;
+		color: #fff;
 		font-weight: bold;
-		background-color: #fff;
+	    text-shadow: 0 -1px 0 rgba(0,0,0,.4);		
 	}
 }
 form#search-form {
-	padding: 0.422em 10%;
-    background: #bac3cc;   
+    .pushDown();
+	padding: 1em 10%;
+	margin-bottom: 0;
     width: auto;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-top:  1px solid lighten(#bac3cc, 10%);
-    border-bottom: 1px solid darken(#bac3cc, 10%);      
+    text-shadow: none;
 }
 form#search-form fieldset {
     position: relative;
@@ -667,140 +664,7 @@ body > footer {
 /* @end */
 
 /* @group RADAR PANEL */
-#radar-panel {
-    font-family: @fancyFont;
-    background-color: @baseColor3;
-    padding: 15px;
-    .radar-content {
-        background-color: @bodyBg;
-        padding: 10px 10%;
-        .css3_border_radius(10px);
-        .radar-header {
-        position: relative;
-            h2 {
-                font-family: @baseFont;
-                width: 150px;
-                float: left;
-                margin: 0;
-                padding: 8px 0;
-            }
-            ul#sections {
-                padding: 10px 0;
-                margin: 0x;
-                list-style: none;
-                font-size: 0.9em;
-                float: left;
-                li {
-                    background: #f1eade;
-                    .css3_border_radius(10px);
-                    margin: 0 5px;
-                    padding: 5px 10px;
-                    display: inline-block;
-                }
-                li:nth-child(1) {
-                    margin-left: 0;
-                }
-                li:nth-last-child {
-                    margin-right: 0;
-                }
-                li.selected {
-                    background: #ffffff;
-                }
-            }
-        }
-        .stream1 {
-            .col(4);
-        }
-        .stream2 {
-            .col(4);
-        }
-        .stream3 {
-            .col(4);
-        }
-
-        .stream-item {
-            font-family: @fancyFont;
-            font-size: 0.7em;
-            margin-bottom: 20px;
-            display: block;
-            .stream-image {
-                width: 42px;
-                height: 42px;
-                float: left;
-            }
-            .stream-content, .stream-footer {
-                margin-left: 42px;
-                padding-left: 10px;
-                display: block;
-            }
-            .stream-footer {
-                .more {
-                    float: left;
-                }
-                .timestamp {
-                    float: right;
-                }
-
-            }
-        }
-    }
-}
-/* @end */
-
-/* @group CHATTER PANEL */
-#chatter-panel {
-    background-color: @baseColor3;
-    padding: 15px;
-    .chatter-content {
-        font-family: @fancyFont;
-        background-color: @bodyBg;
-        padding: 10px 10%;
-        .css3_border_radius(10px);
-        .on-your-mind {
-            .col(5);
-        }
-        .your-stream {
-            .col(3.5);
-        }
-        .recent-friend {
-            .col(3.5);
-        }
-        .tips {
-            font-size: 0.65em;
-            font-style: italic;
-        }
-        .chatter-options-panel {
-            font-size: 0.9em;
-            clear: both;
-            margin-top: 16px;
-            opacity: 0;
-        }
-        .stream-item {
-            font-family: @fancyFont;
-            font-size: 0.7em;
-            margin-bottom: 20px;
-            display: block;
-            .stream-image {
-                width: 42px;
-                height: 42px;
-                float: left;
-            }
-            .stream-content, .stream-footer {
-                margin-left: 42px;
-                padding-left: 10px;
-                display: block;
-            }
-            .stream-footer {
-                .more {
-                    float: left;
-                }
-                .timestamp {
-                    float: right;
-                }
-            }
-        }
-    }
-}
+@import "elements/pushdowns.less";
 /* @end */
 
 

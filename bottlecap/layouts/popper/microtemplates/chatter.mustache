@@ -1,6 +1,6 @@
 <div id="chatter-panel">
-    <div class="chatter-content clearfix">
-        <div class="on-your-mind">
+    <div class="pushdownContent clearfix">
+        <div id="on-your-mind">
             <h3>On your mind...</h3>
             <form class="form-stacked" href="#">
                 <div class="clearfix">
@@ -30,21 +30,23 @@
             </form>
         </div>
         {{#streams}}
-        <div class="{{class}}">
+        <div id="{{class}}">
             <h3>{{title}}</h3>
             <div class="stream-items">
                 {{#items}}
                 <div class="stream-item clearfix">
-                    <div class="stream-image">
-                        <img src="{{image_url}}">
-                    </div>
-                    <div class="stream-content">
-                        {{text}}
-                    </div>
-                    <div class="stream-footer">
-                        <span class="more">more</span>
-                        <span class="timestamp">{{info}}</span>
-                    </div>
+                    <a href="#">
+                        <figure class="image-left">
+                            <img src="{{image_url}}" />
+                        </figure>
+                        <div class="stream-content">
+                            {{text}}
+                        </div>
+                        <div class="stream-footer">
+                            <span href="#" class="more">more</span>
+                            <span class="timestamp">{{info}}</span>
+                        </div>
+                    </a>
                 </div>
                 {{/items}}
             </div>
