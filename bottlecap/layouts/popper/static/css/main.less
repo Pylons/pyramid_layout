@@ -190,7 +190,8 @@ form#search-form {
     position: relative;
     overflow: hidden;
     border-top:  1px solid lighten(#bac3cc, 10%);
-    border-bottom: 1px solid darken(#bac3cc, 10%);      
+    border-bottom: 1px solid darken(#bac3cc, 10%);
+    text-shadow: none;
 }
 form#search-form fieldset {
     position: relative;
@@ -741,62 +742,6 @@ body > footer {
                     float: right;
                 }
 
-            }
-        }
-    }
-}
-/* @end */
-
-/* @group CHATTER PANEL */
-#chatter-panel {
-    background-color: @baseColor3;
-    padding: 15px;
-    .chatter-content {
-        font-family: @fancyFont;
-        background-color: @bodyBg;
-        padding: 10px 10%;
-        .css3_border_radius(10px);
-        .on-your-mind {
-            .col(5);
-        }
-        .your-stream {
-            .col(3.5);
-        }
-        .recent-friend {
-            .col(3.5);
-        }
-        .tips {
-            font-size: 0.65em;
-            font-style: italic;
-        }
-        .chatter-options-panel {
-            font-size: 0.9em;
-            clear: both;
-            margin-top: 16px;
-            opacity: 0;
-        }
-        .stream-item {
-            font-family: @fancyFont;
-            font-size: 0.7em;
-            margin-bottom: 20px;
-            display: block;
-            .stream-image {
-                width: 42px;
-                height: 42px;
-                float: left;
-            }
-            .stream-content, .stream-footer {
-                margin-left: 42px;
-                padding-left: 10px;
-                display: block;
-            }
-            .stream-footer {
-                .more {
-                    float: left;
-                }
-                .timestamp {
-                    float: right;
-                }
             }
         }
     }
