@@ -3,16 +3,68 @@
     .pushDown();
     font-family: @fancyFont;
 }
+.selectedPushDown {
+    background-color: darken(@pushDownBg, 14%);
+    color: #fff !important;
+    text-shadow: none !important;
+}
 .pushdownContent {
     a {
-        color: lightblue;
+        color: @baseFontColor;
     }
     h3 {
         margin-top: 0;
-        font-size: 1.3331em;
+        font-size: 1.18em;
         font-weight: bold;
-        text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+        text-shadow: 0 1px 0 rgba(255,255,255,.3);
     }
+    .stream-item {
+        display: block;
+        position: relative;
+        font-size: 0.889em;
+        margin-bottom: 1px;
+        .gradientBar(lighten(@pushDownBg, 15%), lighten(@pushDownBg, 7%));
+        text-shadow: none;
+        .css3_border_radius(.3em);
+        padding: .5em .73em;
+        a {
+            color: @baseFontColor;
+        }
+    }
+    .stream-content {
+        margin-left: 48px;
+        padding-left: .73em;
+        min-height: 48px;
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .avatar {
+        position: absolute;
+        left: .73em;
+        top: .73em;
+    }
+    .messagetext {
+        display: block;
+        line-height: normal;
+    }
+    .stream-footer {
+        margin-top: .73em;
+        margin-left: 48px;
+        padding-left: .73em;
+    }
+    a.more {
+        .smaller();
+        float: left;
+        color: #fff;
+    }
+    .timestamp {
+        float: right;
+        .smaller();
+        color: fadeOut(@baseFontColor, 40%);
+    }
+}
+form#send-message {
     .help-block {
         color: #ccc;
     }
@@ -25,24 +77,8 @@
         margin-top: 16px;
         opacity: 0;
     }
-    .stream-item {
-        display: block;
-        font-size: 0.889em;
-        margin-bottom: @space/2 * 1em;
-        a {
-            color: #fff;
-        }
-    }
-    .image-left{
-        margin-top: .25em;
-    }
-    .more {
-        float: left;
-        color: lightblue;
-    }
-    .timestamp {
-        float: right;
-        .smaller();
+    .actions {
+        padding: 0;
     }
 }
 #on-your-mind {
@@ -54,8 +90,6 @@
 #recent-friend {
     .col(4);
 }
-
-
 
 ul#sections {
     padding: 10px 0;
@@ -89,7 +123,6 @@ ul#sections {
 .stream3 {
     .col(4);
 }
-
 
 #radar-panel {
     .radar-content {

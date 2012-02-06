@@ -296,10 +296,10 @@ $(function () {
                 })
             .expandpanel({
                 beforeShow: function(evt) {
-                    chatterLink.parent().addClass('selected');
+                    chatterLink.addClass('selectedPushDown');
                 },
                 hide: function(evt) {
-                    chatterLink.parent().removeClass('selected');
+                    chatterLink.removeClass('selectedPushDown');
                 }
         });
         
