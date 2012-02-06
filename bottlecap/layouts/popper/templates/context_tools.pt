@@ -1,9 +1,10 @@
 <ul class="sectionTools noBullets">
     <li><a href="#">Overview</a></li>
     <li class="selected"><a href="#">Blog</a></li>
-    <li data-quickpanel="dropdown">
-        <a href="#" class="dropdown-toggle">Wiki</a>
-        <ul class="dropdown">
+    <li class="btn-group">
+        <a href="#">Wiki</a>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
             <li><a href="#">Front Page</a></li>
             <li><a href="#">Index</a></li>
             <li><a href="#">Contents</a></li>
@@ -13,9 +14,9 @@
     <li><a href="#">Calendar</a></li>
     <li><a href="#">Files</a></li>
     <li><a href="#">Members</a></li>
-    <li data-quickpanel="quickpanel">
-        <a href="#" class="dropdown-toggle moreToggle">More</a>
-        <div class="dropdown">
+    <li class="btn-group">
+        <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
+        <div class="dropdown-menu">
             <figure>
                 <img src="http://lorempixum.com/64/64/" alt="" />
             </figure>

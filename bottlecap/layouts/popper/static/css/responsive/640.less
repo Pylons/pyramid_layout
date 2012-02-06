@@ -140,6 +140,9 @@ a.moreToggle {
         display: none;   
     }
 }
+.btn-group a.moreToggle {
+    .css3_box_shadow(none);    
+}
 #global-nav a.moreToggle {
     background-image: url('../img/cog_globalnav.png');
 }
@@ -194,17 +197,29 @@ fieldset legend {
     padding-left: 25%;
     width: 75%;
     *padding: 0 0 5px 23%;
+    line-height: @baseLineHeight * 2;    
 }
-label {
-    width: 20%;
-    float: left;
+// Float the labels left
+.form-horizontal {
+    .control-group > label {
+      float: left;
+      width: 20%;
+      padding-top: 5px;
+      text-align: right;
+    }
+    // Move over all input controls and content
+    .controls {
+      margin-left: 25%;
+    }
+    // Move over buttons in .form-actions to align with .controls
+    .form-actions {
+      padding-left: 25%;
+    }    
 }
-form .input {
-    margin-left: 25%;
+.form-actions {
+    padding: (@baseLineHeight - 1) 20px @baseLineHeight;    
 }
-.actions {
-    padding: (@space * 1em - 1) 20px @space * 1em 25%;
-}
+
 section.main .vcard .adr {
     float: left;
 }

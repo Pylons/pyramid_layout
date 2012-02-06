@@ -25,7 +25,6 @@ legend {
   margin-bottom: @baseLineHeight * 1.5;
   font-family: @fancyFont;
   font-size: 1.185em;
-  line-height: @baseLineHeight * 2;
   color: @grayDark;
   border: 0;
 }
@@ -320,7 +319,7 @@ select:focus:required:invalid {
 // ------------
 
 .form-actions {
-  padding: (@baseLineHeight - 1) 20px @baseLineHeight;
+  padding: (@baseLineHeight - 1) 0px @baseLineHeight;
   margin-top: @baseLineHeight;
   margin-bottom: @baseLineHeight;
   border-top: 1px solid #ddd;
@@ -502,20 +501,5 @@ select:focus:required:invalid {
   .control-group {
     margin-bottom: @baseLineHeight;
     .clearfix();
-  }
-  // Float the labels left
-  .control-group > label {
-    float: left;
-    width: 140px;
-    padding-top: 5px;
-    text-align: right;
-  }
-  // Move over all input controls and content
-  .controls {
-    margin-left: 160px;
-  }
-  // Move over buttons in .form-actions to align with .controls
-  .form-actions {
-    padding-left: 160px;
   }
 }

@@ -13,9 +13,9 @@
                     tal:attributes="class item.selected">
                 <a href="${item.url}">${item.title}</a>
             </li>
-            <li data-quickpanel="quickpanel">
-                <a href="#" class="dropdown-toggle moreToggle">More</a>
-                <div class="dropdown">
+            <li class="btn-group">
+                <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
                     <figure>
                         <img src="http://lorempixum.com/64/64/" alt="" />
                     </figure>

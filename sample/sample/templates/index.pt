@@ -158,31 +158,42 @@
             <section>
                 <h2>A form</h2>
 
-                <form>
+                <form class="form-horizontal">
                     <fieldset>
                         <legend>Fieldset legend</legend>
 
-                        <div class="clearfix">
+                        <div class="control-group">
                             <label for="onefield">Text field</label>
-                            <div class="input">
-                                <input type="text" id="onefield" required="required" placeholder="Some content">
-                                <span class="help-block">
+                            <div class="controls">
+                                <input type="text" id="onefield" required="required" placeholder="Some content" />
+                                <p class="help-block">
                                     This is the help for this form field. And <a href="#">links are also possible</a>.
-                                </span>
+                                </p>
                             </div>
                         </div>
 
-                        <div class="clearfix">
+                        <div class="control-group">
                             <label for="anotherfield">Text area</label>
-                            <div class="input">
+                            <div class="controls">
                                 <textarea name="anotherfield"
                                 id="anotherfield"></textarea>
                             </div>
                         </div>
-                        <div class="actions">
-                            <input type="submit" value="Submit" class="btn primary" />
-                            <input type="reset" value="Cancel" class="btn" />
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn">Cancel</button>
                             <button type="submit" class="btn primary">Submit button</button>
+                            <div class="btn-group">
+                              <a class="btn btn-primary" href="#"><i class="icon white user"></i> Look, ma!</a>
+                              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class="i"></i> Make admin</a></li>
+                              </ul>
+                            </div>
                         </div>
                     </fieldset>
                 </form>

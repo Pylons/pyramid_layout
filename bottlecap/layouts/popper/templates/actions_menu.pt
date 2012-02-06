@@ -2,20 +2,23 @@
     <tal:block tal:repeat="action actions">
       <!-- Simple button action. -->
       <li tal:condition="'subactions' not in action">
-        <a tal:condition="'confirm' not in action" 
+        <a tal:condition="'confirm' not in action" class="btn"
             href="${action['url']}">${action['title']}</a>
-        <a tal:condition="'confirm' in action"
+        <a tal:condition="'confirm' in action" class="btn"
             onClick="return confirm('${action['confirm']}');"
             href="${action['url']}">${action['title']}</a>
        </li>
 
       <!-- Dropdown action. -->
-      <li tal:condition="'subactions' in action" data-quickpanel="dropdown">
-        <a href="#" class="dropdown-toggle">${action['title']}</a>
-        <ul class="dropdown">
-          <li tal:repeat="subaction action['subactions']"><a 
-              href="${subaction['url']}">${subaction['title']}</a></li>
-        </ul>
+      <li tal:condition="'subactions' in action">
+          <div class="btn-group">
+              <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">${action['title']}</a>
+              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li tal:repeat="subaction action['subactions']"><a 
+                    href="${subaction['url']}">${subaction['title']}</a></li>
+              </ul>
+          </div>
       </li>
     </tal:block>
 </ul>
