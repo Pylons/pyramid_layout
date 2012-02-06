@@ -36,19 +36,19 @@
                 {{#items}}
                 <div class="stream-item clearfix">
                     <div class="stream-content">
-                        <a href="#">
+                        <a href="{{author_profile_url}}">
                             <img alt="{{author}}" src="{{image_url}}"
                                  class="avatar" />
                             <strong class="fullname">{{author}}</strong>
                         </a>
                         <div>
-                            <a href="#" class="messagetext">
+                            <a href="{{message_url}}" class="messagetext">
                                 {{text}}
                             </a>
                         </div>
                     </div>
                     <div class="stream-footer clearfix">
-                        <a href="#" class="more">More&hellip;</a>
+                        <a href="{{message_url}}" class="more">More&hellip;</a>
                         <small class="timestamp">{{info}}</small>
                     </div>
                 </div>
