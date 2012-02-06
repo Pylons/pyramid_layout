@@ -74,20 +74,36 @@ $(function () {
     
     $('#tags').tagbox({});
 
-    // Global notification sismissing
+    // Global notification dismissing
     $('.dismissNotification').click(function () {
         $(this).parent().slideUp('fast');
     });
     
-//    :hover for the people counter in keywords
-//    $('.keywordCounter')
-//        .mouseenter(function () {
-//            $(this).prev($('.keyword')).css('z-index', '10').css('z-index', '9');
-//        })
-//        .mouseout(function () {
-//            $(this).removeAttr('style').prev($('.keyword')).removeAttr('style');
-//        });
-    
+    // Reveal the search options on :focus
+    if(Modernizr.mq('screen and (min-width: 1024px) and (max-width: 2024px)')) {
+        var $fst = $('form#search-form fieldset');
+        $fst.find('.search-site-box')
+            .focusin(function () {
+                if (Modernizr.csstransitions) {
+                    $fst.toggleClass('opened');
+                }
+                else {
+                    $fst.animate({
+                        marginTop: '.2em'
+                    }, 4000);            
+                }
+            })
+            .focusout(function () {
+                if (Modernizr.csstransitions) {
+                    $fst.toggleClass('opened');
+                }
+                else {
+                    $fst.animate({
+                        marginTop: '-1.5em'
+                    }, 2000);            
+                }
+            });
+    }    
 
     // --
     // Component for expanding panels
@@ -280,10 +296,10 @@ $(function () {
                 })
             .expandpanel({
                 beforeShow: function(evt) {
-                    chatterLink.parent().addClass('selected');
+                    chatterLink.addClass('selectedPushDown');
                 },
                 hide: function(evt) {
-                    chatterLink.parent().removeClass('selected');
+                    chatterLink.removeClass('selectedPushDown');
                 }
         });
         
@@ -314,7 +330,7 @@ $(function () {
         //    });
 
         var chatterOptionsPanel = $('.chatter-options-link')
-            .live('click', function() {
+            .live('click', function(e) {
                 var el = $(this);
                 var panel = el.parent().find('.chatter-options-panel');
                 if (panel.css('opacity') != '1') {
@@ -322,6 +338,7 @@ $(function () {
                 } else {
                     panel.css('opacity', '0');
                 }
+                e.preventDefault();
             });
 
         var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')

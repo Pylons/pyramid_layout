@@ -2,7 +2,7 @@
     <div class="pushdownContent clearfix">
         <div id="on-your-mind">
             <h3>On your mind...</h3>
-            <form class="form-stacked" href="#">
+            <form class="form-stacked" href="#" id="send-message">
                 <div class="clearfix">
                     <div class="input">
                         <textarea id="mywords" name="mywords"></textarea>
@@ -35,18 +35,22 @@
             <div class="stream-items">
                 {{#items}}
                 <div class="stream-item clearfix">
-                    <a href="#">
-                        <figure class="image-left">
-                            <img src="{{image_url}}" />
-                        </figure>
-                        <div class="stream-content">
-                            {{text}}
+                    <div class="stream-content">
+                        <a href="{{author_profile_url}}">
+                            <img alt="{{author}}" src="{{image_url}}"
+                                 class="avatar" />
+                            <strong class="fullname">{{author}}</strong>
+                        </a>
+                        <div>
+                            <a href="{{message_url}}" class="messagetext">
+                                {{text}}
+                            </a>
                         </div>
-                        <div class="stream-footer">
-                            <span href="#" class="more">more</span>
-                            <span class="timestamp">{{info}}</span>
-                        </div>
-                    </a>
+                    </div>
+                    <div class="stream-footer clearfix">
+                        <a href="{{message_url}}" class="more">More&hellip;</a>
+                        <small class="timestamp">{{info}}</small>
+                    </div>
                 </div>
                 {{/items}}
             </div>
