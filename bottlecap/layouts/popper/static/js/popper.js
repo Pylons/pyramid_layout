@@ -330,7 +330,7 @@ $(function () {
         //    });
 
         var chatterOptionsPanel = $('.chatter-options-link')
-            .live('click', function() {
+            .live('click', function(e) {
                 var el = $(this);
                 var panel = el.parent().find('.chatter-options-panel');
                 if (panel.css('opacity') != '1') {
@@ -338,6 +338,7 @@ $(function () {
                 } else {
                     panel.css('opacity', '0');
                 }
+                e.preventDefault();
             });
 
         var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')
