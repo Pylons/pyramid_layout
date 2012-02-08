@@ -114,7 +114,8 @@
     <link rel="stylesheet" href="${layout.static_url}popper-plugins/popper-livesearch/popper.livesearch.css" type="text/css" />
     <script src="${layout.static_url}popper-plugins/popper-tagbox/popper.tagbox.js" type="text/javascript" defer></script>
 
-    <script src="${layout.static_url}js/bootstrap-dropdown.js"
+    <!-- pushdown-min.js concatenates pushdown.js and bootstrap-dropdown.js -->
+    <script src="${layout.static_url}js/pushdown-min.js"
             type="text/javascript" defer></script>
     <script src="${layout.static_url}js/popper.js"
             type="text/javascript" defer></script>

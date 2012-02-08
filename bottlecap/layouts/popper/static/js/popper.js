@@ -18,11 +18,12 @@ $(function () {
     }
 
     var log = function () {
-        if (window.console && console.log) {
-            // log for FireBug or WebKit console
-            console.log(Array.prototype.slice.call(arguments));
-        }
-    };
+            if (window.console && console.log) {
+                // log for FireBug or WebKit console
+                console.log(Array.prototype.slice.call(arguments));
+            }
+        },
+        initWidth = document.documentElement.clientWidth;
 
     // polyfill for the borwsers not supporting the 'placeholder' attribute
     if (!Modernizr.input.placeholder) {
@@ -80,27 +81,16 @@ $(function () {
     });
     
     // Reveal the search options on :focus
-    if(Modernizr.mq('screen and (min-width: 1024px) and (max-width: 2024px)')) {
+    if((initWidth >= 1024) && (initWidth <= 2024)) {
         var $fst = $('form#search-form fieldset');
         $fst.find('.search-site-box')
             .focusin(function () {
-                if (Modernizr.csstransitions) {
-                    $fst.toggleClass('opened');
-                }
-                else {
+                if (Modernizr.csstransitions && !$fst.hasClass('opened')) {
+                    $fst.addClass('opened');
+                } else if (!Modernizr.csstransitions && !$fst.hasClass('opened')){
                     $fst.animate({
                         marginTop: '.2em'
                     }, 4000);            
-                }
-            })
-            .focusout(function () {
-                if (Modernizr.csstransitions) {
-                    $fst.toggleClass('opened');
-                }
-                else {
-                    $fst.animate({
-                        marginTop: '-1.5em'
-                    }, 2000);            
                 }
             });
     }    

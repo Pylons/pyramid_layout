@@ -6,9 +6,9 @@
     Filename is bottlecap/layouts/popper/templates/global_nav.pt
     -->
     </tal:comment>
-    <div data-quickpanel="quickpanel" class="topNavIconWrapper">
-        <h2 id="navigation-toggle" class="dropdown-toggle ir">Navigation</h2>
-        <ul id="global-nav" class="dropdown">
+    <div data-quickpanel="pushdown" class="topNavIconWrapper">
+        <h2 id="navigation-toggle" class="pushdown-toggle ir" data-toggle="pushdown">Navigation</h2>
+        <ul id="global-nav" class="pushdown">
             <li tal:repeat="item nav_menu"
                     tal:attributes="class item.selected">
                 <a href="${item.url}">${item.title}</a>

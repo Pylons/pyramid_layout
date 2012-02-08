@@ -149,7 +149,6 @@ h2#search-toggle {
     display: none;
 }
 #global-nav {
-    .pushDown();
     padding: 0;
 	li {
 	    position: relative;
@@ -171,6 +170,7 @@ h2#search-toggle {
 	    position: relative;
 	    background: transparent url('../img/right_arrow_icon.png') 100% 50% no-repeat;
 	    background-origin: content-box;
+        line-height: 2.369em;
 	}
 	.selected {
 		border-top: none;
@@ -182,12 +182,13 @@ h2#search-toggle {
 	}
 }
 form#search-form {
-    .pushDown();
 	padding: 1em 10%;
 	margin-bottom: 0;
-    width: auto;
+    width: 80%;
+    min-width: 80%;
     text-align: center;
     text-shadow: none;
+    border: none;
 }
 form#search-form fieldset {
     position: relative;
@@ -216,6 +217,7 @@ input.search-site-box {
     margin: 0;
     padding: 0;
     line-height: 1em;
+    .css3_box_shadow(none);
     &:focus,
     &:active {
         outline: none;
