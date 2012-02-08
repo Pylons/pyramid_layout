@@ -503,3 +503,15 @@ select:focus:required:invalid {
     .clearfix();
   }
 }
+
+/* @group CUSTOM STYLES */
+
+input[required]:after,
+textarea[required]:after,
+select[required]:after {
+    content: "*";
+    display: inline-block;
+    color: Red;
+}
+
+/* @end */

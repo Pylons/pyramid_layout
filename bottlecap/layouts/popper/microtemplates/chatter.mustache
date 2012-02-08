@@ -3,16 +3,31 @@
         <div id="on-your-mind">
             <h3>On your mind...</h3>
             <form class="form-stacked" href="#" id="send-message">
-                <div class="clearfix">
-                    <div class="input">
+                <div class="control-group clearfix">
+                    <div class="controls">
                         <textarea id="mywords" name="mywords"></textarea>
-                        <span class="help-block tips">Tips: Use @username, #tag, and #this for this page</span>
+                        <p class="help-block tips">Tips: Use @username, #tag, and #this for this page</p>
                     </div>
                 </div>
                 <div class="actions">
-                    <input type="submit" value="speak" class="btn primary">
-                    <a class="chatter-options-link" href="#" style="float: right; margin-right: 60px; margin-top: 4px;">Options</a>
-                    <div class="chatter-options-panel">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-large btn-primary">Speak</button>
+                        <a class="btn btn-primary btn-large dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <div class="dropdown-menu">
+                            <span style="margin-right: 16px">To:</span>
+                            <input name="chatter-option-to" type="radio" value="allkarl" checked="checked"/>
+                            <span style="margin-right: 8px;">All KARL</span>
+                            <input name="chatter-option-to" type="radio" value="staff" />
+                            <span style="margin-right: 8px;">Staff</span>
+                            <input name="chatter-option-to" type="radio" value="users" />
+                            <span style="border: 1px solid; padding: 0 4px; margin-right: 8px;">users</span>
+                            <div>
+                                Attachments:
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <a class="chatter-options-link" href="#" style="float: right; margin-right: 60px; margin-top: 4px;">Options</a> -->
+                    <!-- <div class="chatter-options-panel">
                         <div>
                             <span style="margin-right: 16px">To:</span>
                             <input name="chatter-option-to" type="radio" value="allkarl" checked="checked"/>
@@ -25,7 +40,7 @@
                         <div style="margin-top: 8px;">
                             Attachments:
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </form>
         </div>
