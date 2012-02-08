@@ -252,9 +252,8 @@ div[data-quickpanel='quickpanel'] {
   .border-radius(4px);
 }
 
+/* @group CUSTOM STYLES */
 
-
-/* Custom dropdown styles */
 .open .dropdown-menu {
     display: block;
 }
@@ -389,9 +388,10 @@ div[data-quickpanel='quickpanel'] {
 }
 
 @media only screen and (min-width: 1024px) {
-    #top-bar .dropdown-menu,
-    .sectionContainer .dropdown-menu {
+    .moreToggle + .dropdown-menu {
         width: 400px;
         min-width: 400px;
     }
 }
+
+/* @end */
