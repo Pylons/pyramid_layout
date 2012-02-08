@@ -14,7 +14,7 @@
     <li><a href="#">Calendar</a></li>
     <li><a href="#">Files</a></li>
     <li><a href="#">Members</a></li>
-    <li class="btn-group">
+    <li>
         <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
         <div class="dropdown-menu">
             <figure>

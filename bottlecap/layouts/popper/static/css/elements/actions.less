@@ -17,56 +17,13 @@ ul.actionsMenu {
     	margin: 0;
     	width: auto;
     	height: auto;
-    	
+	    .smaller();    	
     	> li {
     	    float: left;
     	}
-        > li > a {
-            width: auto;
-            position: relative;
-            background-image: none;
-            display: inline-block;
-            text-decoration: none;
-            padding: .1em 1em;
-        	.gradientBar(darken(@baseColor2, 10%), darken(@baseColor2, 20%));
-            color:#fff;
-            margin-right: 1px;
-            .smaller();
-            &:hover {
-                background:@baseColor1;
-            }
+    	> li > a {
+    	    margin-right: 1px;
+	        color: @grayDark;
     	}
-    	> li:nth-child(1) > a {
-            .css3_border_radius(.3em 0 0 .3em);
-    	}
-    	> li:nth-child(1):hover .dropdown-toggle,
-    	> li:nth-child(1) .dropdown-toggle:hover {
-    	    z-index: 11;
-            background:@baseColor1;
-            .css3_border_radius(.3em 0 0 0);   	    
-    	}
-        > li:last-child > a {
-            .css3_border_radius(0 .3em .3em 0);
-        }
-        > li:last-child:hover .dropdown-toggle,    	
-        > li:last-child .dropdown-toggle:hover {
-            z-index: 11;
-            .css3_border_radius(0 .3em 0 0);    
-        }        
-        .dropdown-toggle {
-            line-height: 1.5;
-            padding-right: 1.5em;
-            &:before {
-                right: .466666667em;
-            }
-        }
-        .dropdown {
-            top: 1.9em;
-            background: @baseColor1;
-            width: 100%;
-            a {
-                color: #fff;
-            }
-        }
     } 
 }

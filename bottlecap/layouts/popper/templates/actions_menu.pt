@@ -10,15 +10,13 @@
        </li>
 
       <!-- Dropdown action. -->
-      <li tal:condition="'subactions' in action">
-          <div class="btn-group">
-              <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">${action['title']}</a>
-              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li tal:repeat="subaction action['subactions']"><a 
-                    href="${subaction['url']}">${subaction['title']}</a></li>
-              </ul>
-          </div>
+      <li tal:condition="'subactions' in action" class="btn-group">
+          <a href="#" class="btn">${action['title']}</a>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li tal:repeat="subaction action['subactions']"><a 
+                href="${subaction['url']}">${subaction['title']}</a></li>
+          </ul>
       </li>
     </tal:block>
 </ul>

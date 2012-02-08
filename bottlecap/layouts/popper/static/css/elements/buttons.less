@@ -177,3 +177,35 @@ input[type="submit"].btn {
     *padding-bottom: 3px;
   }
 }
+
+/* @group CUSTOM STYLES */
+
+.btn {
+    @color: darken(@white, 10%);
+    border-width: 1px solid #ccc;
+    border-style: solid;
+    border-color: @color @color darken(@color, 15%);
+    .border-radius(.3em);    
+}
+.btn-primary {
+    @color: spin(@primaryButtonBackground, 20);
+    border-color: @color @color darken(@color, 15%);    
+}
+.btn-warning {
+    @color: @orange;
+    border-color: @color @color darken(@color, 15%);    
+}
+.btn-danger {
+    @color: @alertColor;
+    .buttonBackground(@alertColor, darken(@alertColor, 26%));
+/*    border-color: @color @color darken(@color, 15%);*/
+}
+.btn-success {
+    @color: #51a351;
+    border-color: @color @color darken(@color, 15%);    
+}
+.btn-info {
+    @color: @infoColor;
+    .buttonBackground(@infoColor, darken(@infoColor, 13%));
+}
+/* @end */

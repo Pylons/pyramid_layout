@@ -116,8 +116,6 @@
 
     <script src="${layout.static_url}js/bootstrap-dropdown.js"
             type="text/javascript" defer></script>
-    <!-- <script src="${layout.static_url}js/dropdown.js"
-            type="text/javascript" defer></script> -->
     <script src="${layout.static_url}js/popper.js"
             type="text/javascript" defer></script>
     

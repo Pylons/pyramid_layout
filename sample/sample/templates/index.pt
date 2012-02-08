@@ -182,7 +182,7 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn">Cancel</button>
-                            <button type="submit" class="btn primary">Submit button</button>
+                            <button type="submit" class="btn btn-danger">Don't submit this button!</button>
                             <div class="btn-group">
                               <a class="btn btn-primary" href="#"><i class="icon white user"></i> Look, ma!</a>
                               <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
