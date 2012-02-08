@@ -182,17 +182,15 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn">Cancel</button>
-                            <button type="submit" class="btn btn-danger">Don't submit this button!</button>
                             <div class="btn-group">
-                              <a class="btn btn-primary" href="#"><i class="icon white user"></i> Look, ma!</a>
-                              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-                                <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-                                <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><i class="i"></i> Make admin</a></li>
-                              </ul>
+                                <button type="submit" class="btn btn-danger">Don't submit this button!</button>
+                                <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="icon-pencil"></i> Whatever</a></li>
+                                    <li><a href="#"><i class="icon-trash"></i> Oh, yeah?</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="i"></i> Surprise me</a></li>
+                                  </ul>
                             </div>
                         </div>
                     </fieldset>
