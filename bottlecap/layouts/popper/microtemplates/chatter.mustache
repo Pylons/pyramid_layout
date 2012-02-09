@@ -48,7 +48,7 @@
             <h3>{{title}}</h3>
             <div class="stream-items">
                 {{#items}}
-                <div class="stream-item clearfix">
+                <div class="stream-item clearfix {{#new}}newMessage{{/new}}">
                     <div class="stream-content">
                         <a href="{{author_profile_url}}">
                             <img alt="{{author}}" src="{{image_url}}"
@@ -66,12 +66,19 @@
                     </div>
                 </div>
                 {{/items}}
-                <span class="thereIsMore">&hellip;</span>
+                <a href="#fullsize-chatter" class="thereIsMore" title="Go to Chatter">
+                    {{#has_more_news}}
+                        <span class="newMessages">1 more new item</span>
+                    {{/has_more_news}}
+                    {{^has_more_news}}
+                        <span class="noNewMessages">&hellip;</span>
+                    {{/has_more_news}}
+                </a>
             </div>
         </div>
         {{/streams}}
 
-        <a class="btn btn-large btn-primary goto" href="#">Go to Chatter</a>
+        <a class="btn btn-large btn-primary goto" href="#" title="Go to Chatter">Go to Chatter</a>
 
     </div>
 </div>
