@@ -352,11 +352,18 @@ th a.selected {
 @import "elements/forms_new.less";
 @import "elements/buttons.less";
 @import "elements/button-groups.less";
-#chatter-panel .actions .contentPadding {
-    .smaller();
-    input {
-        display: inline;
-    }   
+#chatter-panel {
+    .controls textarea {
+        border: none;
+        width: 95%;
+        padding: 2.5%;
+    }
+    .actions .contentPadding {
+        .smaller();
+        input {
+            display: inline;
+        }   
+    }    
 }
 
 // TAGS
