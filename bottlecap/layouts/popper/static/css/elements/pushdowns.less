@@ -18,6 +18,9 @@
         .css3_box_shadow(@shadow);
         pointer-events: none;
     }
+    .thereIsMore {
+        text-shadow: 0 1px 0 rgba(255,255,255,.4);
+    }
 }
 .pushdown {
     .pushContainer();
@@ -34,14 +37,29 @@
     .pushContainer();
     font-family: @fancyFont;
 }
+.selectedPushDown,
+.selectedPushDown a {
+    background-color: @pushDownBg;
+    background-image: url('../img/vertical_stripes.png');
+    background-position: top left;
+    background-repeat: repeat;
+    position: relative;   
+    z-index: 1; 
+}
 .selectedPushDown {
-    background-color: darken(@pushDownBg, 14%);
+    bottom: -2.25em;
+}
+.selectedPushDown a {
+    top: -2.25em;
     color: #fff !important;
     text-shadow: none !important;
 }
 .pushdownContent {
     a {
         color: @baseFontColor;
+    }
+    a.goto {
+        color: @white;
     }
     h3 {
         margin-top: 0;

@@ -284,10 +284,10 @@ $(function () {
                 })
             .expandpanel({
                 beforeShow: function(evt) {
-                    chatterLink.addClass('selectedPushDown');
+                    chatterLink.parent().addClass('selectedPushDown');
                 },
                 hide: function(evt) {
-                    chatterLink.removeClass('selectedPushDown');
+                    chatterLink.parent().removeClass('selectedPushDown');
                 }
         });
         
