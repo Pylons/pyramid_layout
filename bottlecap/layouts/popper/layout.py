@@ -91,14 +91,6 @@ class PopperLayout(object):
                                     'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
                                     'info': '4 min ago',
                                     'new': False,
-                                }, {
-                                    'author': 'John Doe',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volu',
-                                    'info': '5 min ago',
-                                    'new': False,
                                 }],
                             }, {
                             'class': 'recent-friend',
@@ -127,14 +119,6 @@ class PopperLayout(object):
                                     'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
                                     'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
                                     'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'John Doe',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volu',
-                                    'info': '5 min ago',
                                     'new': True,
                                 }, {
                                     'author': 'John Doe',
