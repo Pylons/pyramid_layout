@@ -301,6 +301,9 @@ section.main aside {
 	   -moz-box-shadow: @shadow; 
 	        box-shadow: @shadow;
 }
+.contentPadding {
+    padding: @space * 0.5em;
+}
 
 // CONTENT ACTIONS MENU
 @import "elements/actions.less";
@@ -349,6 +352,12 @@ th a.selected {
 @import "elements/forms_new.less";
 @import "elements/buttons.less";
 @import "elements/button-groups.less";
+#chatter-panel .actions .contentPadding {
+    .smaller();
+    input {
+        display: inline;
+    }   
+}
 
 // TAGS
 @import "elements/tags.less";
