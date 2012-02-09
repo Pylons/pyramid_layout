@@ -352,19 +352,6 @@ th a.selected {
 @import "elements/forms_new.less";
 @import "elements/buttons.less";
 @import "elements/button-groups.less";
-#chatter-panel {
-    .controls textarea {
-        border: none;
-        width: 95%;
-        padding: 2.5%;
-    }
-    .actions .contentPadding {
-        .smaller();
-        input {
-            display: inline;
-        }   
-    }    
-}
 .thereIsMore {
     display: block;
     font-weight: bold;
@@ -372,12 +359,50 @@ th a.selected {
     text-align: center;
     font-family: serif;
     color: rgba(0,0,0,.5);
+    line-height: .5em;
+    margin-bottom: 1em;
 }
 .goto {
     clear: both;
     display: block;
     margin: 0 auto;
 }
+form#send-message {
+    .help-block {
+        color: #ccc;
+    }
+    #mywords {
+        border: none;
+        width: 95%;
+        padding: 2.5%;
+        font-size: .9em;
+    }
+    #mywords:focus + .help-block {
+        color: #fff;
+    }
+    .chatter-options-panel {
+        font-size: 0.9em;
+        clear: both;
+        margin-top: 16px;
+        opacity: 0;
+    }
+    .actions .contentPadding {
+        .smaller();
+        input {
+            display: inline;
+        }   
+    }
+}
+#on-your-mind {
+    .col(4);
+}
+#your-stream {
+    .col(4);
+}
+#recent-friend {
+    .col(4);
+}
+
 
 // TAGS
 @import "elements/tags.less";

@@ -71,7 +71,7 @@
         display: block;
         position: relative;
         font-size: 0.889em;
-        margin-bottom: 1px;
+        margin-bottom: .2em;
         .gradientBar(lighten(@pushDownBg, 15%), lighten(@pushDownBg, 7%));
         text-shadow: none;
         .css3_border_radius(.3em);
@@ -96,16 +96,15 @@
     .messagetext {
         display: block;
         line-height: normal;
+        font-size: 0.9em;
     }
     .stream-footer {
-        margin-top: .73em;
+/*        margin-top: .73em;
         margin-left: 48px;
-        padding-left: .73em;
-    }
-    a.more {
-        .smaller();
-        float: left;
-        color: #fff;
+        padding-left: .73em;*/
+        position: absolute;
+        top: .5em;
+        right: .73em;
     }
     .timestamp {
         float: right;
@@ -113,33 +112,6 @@
         color: fadeOut(@baseFontColor, 40%);
     }
 }
-form#send-message {
-    .help-block {
-        color: #ccc;
-    }
-    #mywords:focus + .help-block {
-        color: #fff;
-    }
-    .chatter-options-panel {
-        font-size: 0.9em;
-        clear: both;
-        margin-top: 16px;
-        opacity: 0;
-    }
-    .actions {
-        padding: 0;
-    }
-}
-#on-your-mind {
-    .col(4);
-}
-#your-stream {
-    .col(4);
-}
-#recent-friend {
-    .col(4);
-}
-
 ul#sections {
     padding: 10px 0;
     margin: 0x;
