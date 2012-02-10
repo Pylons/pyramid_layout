@@ -191,7 +191,7 @@ $(function () {
             } else {
                 // Hide it.
                 this.state = this._STATES.TO_HIDDEN;
-                this._trigger('beforeShow', null);
+                this._trigger('beforeHide', null);
                 this.element.slideUp('150', function() {
                     self.state = self._STATES.HIDDEN;
                     self.element.hide();
