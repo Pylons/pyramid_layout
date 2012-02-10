@@ -169,22 +169,13 @@ $(function () {
                 // Show it.
                 this.state = this._STATES.TO_VISIBLE;
                 this._trigger('beforeShow', null);
-                this.element.show();
-                this_height = (this.options.fullWindow) ? ($(window).height()-50) - ($('#top-bar').height() * 2) : '100%';
-                this.element.css('height', this_height);
-                var height = this.element.height();
-                this.element.height(0);
-                this.element
-                    .animate({
-                        height: height
-                    }, 350, function() {
-                        self.state = self._STATES.VISIBLE;
-                        if (callback) {
-                            callback();
-                        }
-                        self._trigger('show', null);
-                    });
-                
+                this.element.slideDown('350', function() {
+                    self.state = self._STATES.VISIBLE;
+                    if (callback) {
+                        callback();
+                    }
+                    self._trigger('show', null);
+                });
             }
             // allow chaining
             return this;
@@ -201,17 +192,14 @@ $(function () {
                 // Hide it.
                 this.state = this._STATES.TO_HIDDEN;
                 this._trigger('beforeShow', null);
-                this.element
-                    .animate({
-                        height: 0
-                    }, 150, function() {
-                        self.state = self._STATES.HIDDEN;
-                        self.element.hide();
-                        if (callback) {
-                            callback();
-                        }
-                        self._trigger('hide', null);
-                    });
+                this.element.slideUp('150', function() {
+                    self.state = self._STATES.HIDDEN;
+                    self.element.hide();
+                    if (callback) {
+                        callback();
+                    }
+                    self._trigger('hide', null);
+                });
             }
             // allow chaining
             return this;
