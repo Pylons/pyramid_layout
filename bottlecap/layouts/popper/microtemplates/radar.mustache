@@ -1,7 +1,7 @@
 <div id="radar-panel">
     <div class="pushdownContent clearfix">
         <!-- <h2>Radar</h2> -->
-        
+
         <ul id="sections" class="nav nav-pills">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#">Timeslice</a></li>
@@ -10,31 +10,29 @@
             <li><a href="#">Apps</a></li>
             <li><a href="#">Configure</a></li>
         </ul>
-        
-        <div class="panel">
-            {{#streams}}
-            <div class="{{class}}">
-                <h3>{{title}}</h3>
-                <div class="stream-items">
-                    {{#items}}
-                    <div class="stream-item clearfix">
-                        <div class="stream-image">
-                            <img src="{{image_url}}">
-                        </div>
-                        <div class="stream-content">
-                            {{text}}
-                        </div>
-                        <div class="stream-footer">
-                            <span class="more">more</span>
-                            <span class="timestamp">{{info}}</span>
-                        </div>
+
+        {{#streams}}
+        <div id="{{class}}" class="panel">
+            <h3>{{title}}</h3>
+            <div class="stream-items">
+                {{#items}}
+                <div class="stream-item clearfix">
+                    <div class="stream-image">
+                        <img src="{{image_url}}">
                     </div>
-                    {{/items}}
+                    <div class="stream-content">
+                        {{text}}
+                    </div>
+                    <div class="stream-footer">
+                        <span class="more">more</span>
+                        <span class="timestamp">{{info}}</span>
+                    </div>
                 </div>
+                {{/items}}
             </div>
-            {{/streams}}
         </div>
-        
+        {{/streams}}
+
         <div class="panel" style="display: none">
             <h2>Vote for the Office Christmas Menu</h2>
             <form href="#">
@@ -64,7 +62,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="clearfix">
                     <label id="options">How about desert ?</label>
                     <div class="input">
@@ -91,7 +89,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="actions">
                     <input type="submit" value="Vote" class="btn primary" style="margin-left: 40px;">
                 </div>

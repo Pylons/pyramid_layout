@@ -427,7 +427,7 @@ form#send-message {
         }   
     }
 }
-.stream-item {
+.panel-item {
     display: block;
     position: relative;
     font-size: 0.889em;
@@ -440,11 +440,11 @@ form#send-message {
         color: @baseFontColor;
     }
 }
-.stream-item.newMessage {
+.panel-item.newMessage {
     .gradientBar(desaturate(@infoColor, 20%), desaturate(darken(@infoColor, 8%), 20%));
     text-shadow: none;
 }
-.stream-content {
+.panel-item-content {
     margin-left: 48px;
     padding-left: .73em;
     min-height: 48px;
@@ -452,17 +452,6 @@ form#send-message {
         margin-bottom: 0;
     }
 }
-
-#on-your-mind {
-    .col(4);
-}
-#your-stream {
-    .col(4);
-}
-#recent-friend {
-    .col(4);
-}
-
 
 // TAGS
 @import "elements/tags.less";
