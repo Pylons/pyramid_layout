@@ -179,6 +179,14 @@
                                 id="anotherfield"></textarea>
                             </div>
                         </div>
+
+                        <div class="control-group">
+                            <div class="controls stacked">
+                                <textarea name="anotherfield2"
+                                id="anotherfield2" class="full-width"></textarea>
+                            </div>
+                        </div>
+
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn">Cancel</button>
