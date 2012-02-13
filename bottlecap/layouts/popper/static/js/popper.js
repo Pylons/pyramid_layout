@@ -265,32 +265,48 @@ $(function () {
         var head_data = window.head_data || {},
             chatterLink, radarLink;
 
-        var microtemplateChatter = $('<div id="microtemplate-chatter" class="expanding-panel"></div>')
-            .insertAfter('#top-bar')
-            .microtemplate({
-                name: 'chatter'
-                })
-            .expandpanel({
-                beforeShow: function(evt) {
-                    chatterLink.parent().addClass('selectedPushDown');
-                },
-                hide: function(evt) {
-                    chatterLink.parent().removeClass('selectedPushDown');
-                }
-        });
+        //var microtemplateChatter = $('<div id="microtemplate-chatter" class="expanding-panel"></div>')
+        //    .insertAfter('#top-bar')
+        //    .microtemplate({
+        //        name: 'chatter'
+        //        })
+        //    .expandpanel({
+        //        beforeShow: function(evt) {
+        //            chatterLink.parent().addClass('selectedPushDown');
+        //        },
+        //        hide: function(evt) {
+        //            chatterLink.parent().removeClass('selectedPushDown');
+        //        }
+        //});
         
 
         var chatterData = head_data.panel_data.chatter;
         log('preload data for chatter panel:', chatterData);
 
         chatterLink = $('a#chatter')
-            .click(function() {
-                closeAllPanels();
-                microtemplateChatter
-                    .microtemplate('render', chatterData)
-                    .expandpanel('toggle');
-                return false;
+            .pushdowntab({
+                name: 'chatter',
+                selectTopBar: '#top-bar',
+                findCounterLabel: '.messageCounter'
             });
+
+
+        // Start the central polling for notifications.
+        var appUrl = window.head_data.app_url;
+
+        $(document).notifier({
+            url: appUrl + '/notifier.json',
+            polling: 15
+        });
+
+
+        //    .click(function() {
+        //        closeAllPanels();
+        //        microtemplateChatter
+        //            .microtemplate('render', chatterData)
+        //            .expandpanel('toggle');
+        //        return false;
+        //    });
 
 
         // chatter options toggling

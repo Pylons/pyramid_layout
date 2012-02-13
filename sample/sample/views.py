@@ -1,3 +1,7 @@
+
+import datetime
+import random
+
 from pyramid.view import view_config
 
 class SampleViews(object):
@@ -251,4 +255,26 @@ class SampleViews(object):
             "category": "community", "num_members": 6, "type": "community",
             "title": "Title 20"}]
         return result
+
+
+    @view_config(name='notifier.json', renderer="json", xhr=True)
+    def notifier_ajax_view(self):
+        # Example result set, for demonstrating without
+        # a real server database.
+        
+        # XXX This method should dispatch a call to each catalog
+        # search that needs to be notified.
+        # It only needs to provide the recent counters in the resulting payload.
+
+        now = datetime.datetime.now().isoformat()
+        # Only those pushdowns are notified, who are in the dictionary.
+        notifications = {}
+        for name in ['chatter']:
+            notifications[name] = dict(
+                cnt = random.choice([0, random.randrange(1, 5)]),
+                ts = now, 
+                )
+
+        return notifications
+
 
