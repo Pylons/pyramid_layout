@@ -24,6 +24,19 @@
 
     
     $.widget('popper.pushdowntab', {
+        // This component is responsible for managing the tab of
+        // the pushdown. Clicking on the tab opens and closes the
+        // pushdown, the click event will be bound here.
+        //
+        // The pushdown panel component is encapsulated
+        // and created by pushdowntab, so it needs not to be touched
+        // directly.
+        //
+        // Another responsibility of this widget is to handle the
+        // update of the "recent items counter", in cooperation
+        // with the popper.notifier component that broadcasts the
+        // notifications streamed from the server, as well as remembers
+        // the last update timestamp for each notification source.
 
         options: {
             name: null,  // a unique name that identifies this pushdown
@@ -39,7 +52,16 @@
             //hide: function(evt) {}    // onHide event handler
         },
 
-        updateCounter: function (cnt) {
+        getCounter: function () {
+            var cnt = this.counterlabel.text();
+            cnt = Math.floor(Number(cnt) || 0);
+            if (cnt < 0) {
+                cnt = 0;
+            }
+            return cnt;
+        },
+
+        setCounter: function (cnt) {
             this.counterlabel.text('' + cnt);
             if (cnt > 0) {
                 this.counterlabel.show();
@@ -75,13 +97,12 @@
             // Listen for counter updates
             $(document).bind('notifierUpdate',
                 $.proxy(this._onNotifierUpdate, this));
-            this.counter = 0;
         },
 
         _destroy: function () {
             this.panel.pushdownpanel('destroy');
             this.element.unbind('click');
-            $(document).ubind('notifierUpdate',
+            $(document).unbind('notifierUpdate',
                 $.proxy(this._onNotifierUpdate, this));
         },
 
@@ -113,10 +134,9 @@
             // Reset the counter.
             // We also have to remember to ask the next update
             // starting from this moment.
-            this.counter = 0;
-            this.updateCounter(0);
+            this.setCounter(0);
             var now = new Date();
-            $(document).notifier('updateTs', this.options.name, now);
+            $(document).trigger('notifierSetTs', [this.options.name, now]);
         },
 
         // handle panel event
@@ -140,17 +160,18 @@
             // Is there an update that belongs to me?
             if (info !== undefined) {
                 log('pushdown ' + this.options.name +
-                    ' updating with:', info.cnt);
+                    ' updating with: ' + info.cnt);
                 // What is the state currently?
                 var panel = this.panel.data('pushdownpanel');
                 if (panel.state == panel._STATES.HIDDEN ||
                         panel.state == panel._STATES.TO_HIDDEN) {
                     // Hidden state: add the counter, and update.
-                    this.counter += info.cnt;
-                    this.updateCounter(this.counter);
-                } else {
-                    // XXX XXX
+                    var counter = this.getCounter();
+                    counter += info.cnt;
+                    this.setCounter(counter);
                 }
+                // (Visible state. Nothing to do. In this case:
+                // we will reset when we go to hidden.)
             }
         }
 
@@ -259,7 +280,6 @@
         },
 
 
-
         // --
         // private parts
         // --
@@ -304,16 +324,12 @@
     $.widget('popper.notifier', {
         // A singleton component that ought to be bound to the document.
         // It fetches all notifications from the server, and broadcasts
-        // it by means of an event.
+        // the notifications streamed from the server. It also remembers
+        // the last update timestamp for each notification source.
 
         options: {
             url: null,    // url for ajax
             polling: 120  // polling time in seconds (!!)
-        },
-
-        updateTs: function (name, d) {
-            // Update the timestamp for a given date.
-            this.updates[name] = isoDate(d);
         },
 
 
@@ -332,6 +348,9 @@
             this.xhr = null;
             // the recent updates
             this.updates = {};
+            // listen to an event to set the timestamp
+            $(document).bind('notifierSetTs',
+                $.proxy(this._onSetTs, this));
         },
 
         _destroy: function () {
@@ -340,8 +359,11 @@
                 this.xhr.abort();
             }
             this.xhr = null;
+            $(document).unbind('notifierSetTs',
+                $.proxy(this._onSetTs, this));
         },
 
+        // timed handler
         _poll: function () {
             if (this.xhr) {
                 this.xhr.abort();
@@ -356,13 +378,24 @@
                 .error($.proxy(this._ajaxError, this));
         },
 
+        // Allows the pushdown to set their ts if they want
+        // this means a pushdown is up-to-date till this moment.
+        _onSetTs: function (evt, name, d) {
+            log('setTs', name, d);
+            // Update the timestamp for a given date.
+            this.updates[name] = isoDate(d);
+        },
+
+
         // handle ajax response
         _ajaxDone: function (result) {
             var self = this;
             if (! result || result.error) {
                 // Allow IE to return no payload as success,
-                // as well as, our view can return error='xxx' to
-                // signify an error condition manually.
+                // (to prepare for foul outcomes such as aborts on the
+                // non standard browsers),
+                // as well as, our view can return {error='Display me!'} to
+                // signify an express error condition inside a 200 response.
                 return this._ajaxError(this.xhr, result.error || 'FATAL');
             }
             // Remember our recent updates.
@@ -375,7 +408,7 @@
 
         // handle ajax response
         _ajaxError: function (xhr, textStatus) {
-            log('Notifier ajax: We will do something with this, ', textStatus);
+            log('Notifier ajax: We will do something with this, ' + textStatus);
         }
 
     });

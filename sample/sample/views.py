@@ -266,13 +266,27 @@ class SampleViews(object):
         # search that needs to be notified.
         # It only needs to provide the recent counters in the resulting payload.
 
-        now = datetime.datetime.now().isoformat()
+        # The request contains parameters for each notification source, keyed
+        # by their name. The value is a date which contains the end of the last
+        # succesful query.
+
+        updates = {}
+        for name, value in self.request.params.iteritems():
+            # value is in isodate format, let's convert it to a real datetime.
+            d = datetime.datetime.strptime(value.split('.')[0], '%Y-%m-%dT%H:%M:%S')
+            updates[name] = d
+        # ... for example update['chatter'] now contains the start-date that the
+        # chatter query will need.
+        
+        now = datetime.datetime.now()
+        now_iso = now.isoformat()
         # Only those pushdowns are notified, who are in the dictionary.
         notifications = {}
         for name in ['chatter']:
+            # XXX do a real query from here, using updates[name] for start date.
             notifications[name] = dict(
                 cnt = random.choice([0, random.randrange(1, 5)]),
-                ts = now, 
+                ts = now_iso, 
                 )
 
         return notifications

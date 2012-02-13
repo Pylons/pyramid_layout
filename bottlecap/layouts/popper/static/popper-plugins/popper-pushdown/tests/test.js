@@ -119,7 +119,7 @@ test("close it", function () {
 });
 
 
-test("trigger events", function () {
+test("trigger events beforeShow, show, beforeHide, hide", function () {
     stop();
     expect(9);
 
@@ -169,6 +169,172 @@ test("trigger events", function () {
 
 });
 
+
+test("getCounter method", function () {
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter'
+    });
+
+    equal($('#the-link').pushdowntab('getCounter'), 11);
+
+    $('#the-link .the-counter').text('');
+    equal($('#the-link').pushdowntab('getCounter'), 0);
+
+    $('#the-link .the-counter').text('NOTNUMBER');
+    equal($('#the-link').pushdowntab('getCounter'), 0);
+
+    $('#the-link .the-counter').text('12.12');
+    equal($('#the-link').pushdowntab('getCounter'), 12);
+
+    $('#the-link .the-counter').text('-12');
+    equal($('#the-link').pushdowntab('getCounter'), 0);
+});
+
+
+test("setCounter method", function () {
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter'
+    });
+
+    // we are closed now
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    $('#the-link').pushdowntab('setCounter', 3);
+    equal($('#the-link .the-counter').text(), '3');
+    equal($('#the-link .the-counter').is(':visible'), true);
+
+    $('#the-link').pushdowntab('setCounter', 44);
+    equal($('#the-link .the-counter').text(), '44');
+    equal($('#the-link .the-counter').is(':visible'), true);
+
+    $('#the-link').pushdowntab('setCounter', 0);
+    equal($('#the-link .the-counter').text(), '0');
+    equal($('#the-link .the-counter').is(':visible'), false,
+            'if counter is zero, it is hidden');
+
+    $('#the-link').pushdowntab('setCounter', 2);
+    equal($('#the-link .the-counter').text(), '2');
+    equal($('#the-link .the-counter').is(':visible'), true);
+
+});
+
+
+test("listens to notifierUpdate event when panel is closed", function () {
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter'
+    });
+
+    // we are closed now
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    // initially we are on 11
+    equal($('#the-link').pushdowntab('getCounter'), 11);
+
+    // notifier will trigger this events on document, so this
+    // is the same what we test here.
+
+    $(document).trigger('notifierUpdate', [{
+        mypushdown: {cnt: 2, ts: '2012-02-13T20:40:24.771787'},
+        // foo is, of course, ignored altogether.
+        foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+    }]);
+    equal($('#the-link').pushdowntab('getCounter'), 13);
+
+    $(document).trigger('notifierUpdate', [{
+        // different isodate format is also ok.
+        mypushdown: {cnt: 3, ts: '2012-2-13T20:40:24'}, 
+        foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+    }]);
+    equal($('#the-link').pushdowntab('getCounter'), 16);
+
+    $(document).trigger('notifierUpdate', [{
+        // cnt = 0
+        mypushdown: {cnt: 0, ts: '2012-02-13T20:40:24.771787'},
+        foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+    }]);
+    equal($('#the-link').pushdowntab('getCounter'), 16);
+
+    $(document).trigger('notifierUpdate', [{
+        // no section for this pushdown
+        foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+    }]);
+    equal($('#the-link').pushdowntab('getCounter'), 16);
+
+});
+
+
+test("listens to notifierUpdate event when panel open", function () {
+    stop();
+    expect(11);
+    
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter'
+    });
+
+    // we are closed now
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    // initially we are on 11
+    equal($('#the-link').pushdowntab('getCounter'), 11);
+
+    // open it 
+    $('#the-link').simulate('click');
+
+    // wait for animation finished
+    setTimeout(function () {
+        equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+        // label is zero and hidden now, since we are opened
+        equal($('#the-link').pushdowntab('getCounter'), 0);
+        equal($('#the-link .the-counter').is(':visible'), false);
+
+        // notifier will trigger this events on document, so this
+        // is the same what we test here.
+
+        $(document).trigger('notifierUpdate', [{
+            mypushdown: {cnt: 22, ts: '2012-02-13T20:40:24.771787'},
+            // foo is, of course, ignored altogether.
+            foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+        }]);
+
+        // however in open state, the counter will always remain intact
+        equal($('#the-link').pushdowntab('getCounter'), 0);
+        equal($('#the-link .the-counter').is(':visible'), false);
+        
+        // click again to close it
+        $('#the-link').simulate('click');
+
+        setTimeout(function () {
+            equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+            $(document).trigger('notifierUpdate', [{
+                mypushdown: {cnt: 33, ts: '2012-02-13T20:40:24.771787'},
+                // foo is, of course, ignored altogether.
+                foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+            }]);
+
+            // counter re-appeared, but we only have the recent items
+            // since the panel has been closed.
+            equal($('#the-link').pushdowntab('getCounter'), 33);
+            equal($('#the-link .the-counter').is(':visible'), true);
+
+            $('#the-link').pushdowntab('destroy');
+            start();
+        }, 200);
+
+    }, 400);
+});
 
 
 
@@ -431,7 +597,7 @@ test("hide and hide again", function () {
 });
 
 
-test("trigger events", function () {
+test("trigger events beforeShow, show, beforeHide, hide", function () {
     stop();
     expect(8);
 
