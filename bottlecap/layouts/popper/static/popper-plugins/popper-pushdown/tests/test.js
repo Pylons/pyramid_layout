@@ -3,6 +3,7 @@
 /*jslint sub: true */
 /*globals window navigator document console setTimeout jQuery module test $ */
 /*globals module test start stop expect equal same ok raises */
+/*globals MockHttpServer JSON */
 
 
 var log = function () {
@@ -684,6 +685,192 @@ test("showing a pushdown hides all the others", function () {
         }, 400);
 
     }, 400);
+
+});
+
+
+module('popper-notifier', {
+
+    setup: function () {
+        var self = this;
+        
+        // mock the ajax
+        this.server = new MockHttpServer();
+        this.server.handle = $.proxy(this.handle_ajax, this);
+        this.server.start();
+        this.collectParams = [];
+        this.ajaxSerial = 1;
+    },
+
+    teardown: function () {
+        this.server.stop();
+        $('#main').empty();
+        this.collectParams = [];
+    },
+ 
+    handle_ajax: function (request) {
+
+        if (request.urlParts.file == 'notifier.json') {
+            // Remember the parameters.
+            this.collectParams.push(request.urlParts.queryKey);
+            var result;
+
+            // We use a serial number to allow the tests have a sequence
+            // of predefined response. Normally we get the first result.
+            // If the test sets the serial to a value of 50 then it gets
+            // some other responses.
+
+            if (this.ajaxSerial > 50) {
+                result = {
+                    "name1": {"cnt": 2, "ts": "2012-01-01T12:08:54.460119"},
+                    "name3": {"cnt": 3, "ts": "2012-01-01T12:08:54.460119"}
+                };
+            } else {
+                result = {
+                    "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
+                    "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
+                };
+            }
+            this.ajaxSerial += 1;
+
+            request.setResponseHeader('Content-Type',
+                'application/json; charset=UTF-8');
+            request.receive(200, JSON.stringify(result));
+        }
+
+    }
+
+});
+
+
+test("Create / destroy", function () {
+    
+    $(document).notifier({
+            url: 'notifier.json',
+            polling: 15
+        });
+
+    $(document).notifier('destroy');
+    ok(true);
+});
+
+
+test("Timing the polls, first one", function () {
+    var self = this;
+    stop();
+    expect(3);
+    
+    $(document).notifier({
+            url: 'notifier.json',
+            polling: 1
+        });
+
+    var events = [];
+    function onNotifierUpdate(evt, updates) {
+        events.push(updates);
+    }
+    $(document).bind('notifierUpdate', onNotifierUpdate); 
+    same(events, []);
+
+    // wait for timer
+    setTimeout(function () {
+        // Check what parameters were passed to the request.
+        same(self.collectParams, [{}]);
+
+        // Check the events triggered.
+        same(events, [{
+            "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
+            "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
+        }]);
+
+        $(document).unbind('notifierUpdate', onNotifierUpdate); 
+        $(document).notifier('destroy');
+        start();
+    }, 1500);
+
+});
+
+
+test("Timing the polls, is repeating", function () {
+    var self = this;
+    stop();
+    expect(3);
+    
+    $(document).notifier({
+            url: 'notifier.json',
+            polling: 1
+        });
+
+    var events = [];
+    function onNotifierUpdate(evt, updates) {
+        events.push(updates);
+    }
+    $(document).bind('notifierUpdate', onNotifierUpdate); 
+    same(events, []);
+
+    // wait for timer (now, we wait enough to let it trigger twice.)
+    setTimeout(function () {
+        // Check what parameters were passed to the request.
+        same(self.collectParams, [
+            // the first request: no "from" timestamps, yet
+            {},
+            // next request: what ts the server returned, is passed back
+            {
+                "name1": "2012-02-14T12%3A08%3A54.460119",
+                "name2": "2012-02-14T12%3A08%3A54.460119"
+            }
+        ]);
+        // Also check the events triggered.
+        // Two had to come in already.
+        equal(events.length, 2);
+
+        $(document).unbind('notifierUpdate', onNotifierUpdate); 
+        $(document).notifier('destroy');
+        start();
+    }, 2500);
+
+});
+
+
+test("Timing the polls, remember timestamps", function () {
+    var self = this;
+    stop();
+    expect(2);
+    
+    $(document).notifier({
+            url: 'notifier.json',
+            polling: 1
+        });
+    same(self.collectParams, []);
+
+
+    // wait for timer (now, we wait enough to let it trigger 3 times.)
+    // and we also start from ajax serial 50 which will give us
+    // the first request different from the following requests.
+    this.ajaxSerial = 50;
+    setTimeout(function () {
+        // Check what parameters were passed to the request.
+        same(self.collectParams, [
+            // the first request: no "from" timestamps, yet
+            {},
+            // next request: what ts the server returned, is passed back
+            {
+                "name1": "2012-02-14T12%3A08%3A54.460119",
+                "name2": "2012-02-14T12%3A08%3A54.460119"
+            },
+            // Next: the timestamps are properly updated,
+            // and those items that did not have a key in the
+            // new result, are left intact.
+            {
+                "name1": "2012-01-01T12%3A08%3A54.460119",
+                "name2": "2012-02-14T12%3A08%3A54.460119",
+                "name3": "2012-01-01T12%3A08%3A54.460119"
+            }            
+        ]);
+
+        $(document).notifier('destroy');
+        start();
+    }, 3500);
 
 });
 
