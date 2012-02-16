@@ -347,10 +347,10 @@ $(function () {
             .expandpanel({
                 fullWindow: true,
                 beforeShow: function(evt) {
-                    radarLink.parent().addClass('selected');
+                    radarLink.parent().addClass('selectedPushDown');
                 },
                 hide: function(evt) {
-                    radarLink.parent().removeClass('selected');
+                    radarLink.parent().removeClass('selectedPushDown');
                 }
         });
 

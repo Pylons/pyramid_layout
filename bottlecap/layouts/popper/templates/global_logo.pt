@@ -6,8 +6,7 @@
     Filename is bottlecap/layouts/popper/templates/global_logo.pt
     -->
     </tal:comment>
-    <a id="radar"
-       href="${logo_href}"
+    <a id="global-logo" href="${logo_href}"
        title="${logo_title} home page">
         ${logo_title}
     </a>
