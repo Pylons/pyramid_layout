@@ -66,6 +66,7 @@
         font-size: 1.18em;
         font-weight: bold;
         text-shadow: 0 1px 0 rgba(255,255,255,.3);
+        position: relative;
     }
     .avatar {
         position: absolute;
@@ -96,4 +97,20 @@
 }
 .panel {
     .col(4);
+}
+.updating {
+    opacity: 0;
+    display: inline-block;
+    font-weight: normal;
+    width: 16px;
+    height: 16px;
+    margin-left: .5em;
+    text-indent: -999em;
+    overflow: hidden;
+    vertical-align: middle;
+    background: transparent url('../img/loader.gif') 50% 50% no-repeat;
+}
+.houstonWeHaveAProblem {
+    display: none;
+    .smaller();
 }
