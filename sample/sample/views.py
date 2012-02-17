@@ -27,6 +27,10 @@ class SampleViews(object):
                     'href': '#' if ch in (67, 69, 75) else None,
                     'is_current': True if ch == 80 else False}
                    for ch in xrange(ord('A'), ord('Z') + 1)]
+        tools = [
+            {'title': 'All', 'url': '#', 'selected': 'selected'},
+            {'title': 'Staff', 'url': '#', 'selected': False},]
+            
         actions = [
             {'name': 'print', 'title': 'Print',
              'description': 'Print this report',
@@ -56,6 +60,7 @@ class SampleViews(object):
         }
 
         return {
+            'context_tools': tools,
             'letters': letters,
             'actions': actions,
             'formats': formats,
@@ -114,8 +119,22 @@ class SampleViews(object):
         layout.add_portlet('popper.tagbox')
         layout.add_portlet('sample.content_portlet')
         layout.add_portlet('sample.section_portlet')
+        tools = [
+            {'title': 'Overview', 'url': '#', 'selected': False},
+            {'title': 'Blog', 'url': '#', 'selected': 'selected'},
+            {'title': 'Wiki', 'url': '#', 'selected': False,
+             'dropdown': [
+                {'title': 'Front Page', 'url': '#', 'selected': False},
+                {'title': 'Index', 'url': '#', 'selected': False},
+                {'title': 'Contents', 'url': '#', 'selected': False},
+                {'title': 'Feed', 'url': '#', 'selected': False}]},
+            {'title': 'Calendar', 'url': '#', 'selected': False},
+            {'title': 'Files', 'url': '#', 'selected': False},
+            {'title': 'Members', 'url': '#', 'selected': False},]
+            
         return {
             "project": "Africa Community",
+            "context_tools": tools,
         }
 
     ####
