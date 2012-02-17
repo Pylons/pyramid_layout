@@ -259,6 +259,7 @@ form#search-form select {
 
 .messageCounter {
     display: inline-block;
+    text-align: center;
     padding: 0;
     line-height: 1.5em;
     width: 1.5em;
@@ -270,6 +271,25 @@ form#search-form select {
     .css3_border_radius(.5em);
     border: 1px solid rgba(0,0,0,.2);
     text-shadow: none;
+}
+#sections .messageCounter {
+    float: right;
+    font-size: .9em;
+    border-color: transparent;
+}
+#sections > li > a {
+    .css3_border_radius(.5em);
+    position: relative;
+    padding: .3em 15px;
+} 
+#sections .active a {
+    .css3_border_radius(.5em 0 0 .5em);
+    &:after {
+        position: absolute;
+        right: -1em;
+        top: 0;
+        .trianglePointer(right, @linkColor, 1em);
+    }
 }
 /* @end */
 

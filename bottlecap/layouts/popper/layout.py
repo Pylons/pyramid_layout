@@ -143,7 +143,7 @@ class PopperLayout(object):
                                     'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
                                     'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
                                     'info': '4 min ago',
-                                    'new': False,
+                                    'new': True,
                                 }, {
                                     'author': 'Tester Testerson',
                                     'author_profile_url': '#author_profile',
@@ -151,7 +151,7 @@ class PopperLayout(object):
                                     'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
                                     'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
                                     'info': '4 min ago',
-                                    'new': False,
+                                    'new': True,
                                 }, {
                                     'author': 'Tester Testerson',
                                     'author_profile_url': '#author_profile',
@@ -159,7 +159,7 @@ class PopperLayout(object):
                                     'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
                                     'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
                                     'info': '4 min ago',
-                                    'new': False,
+                                    'new': True,
                                 }, {
                                     'author': 'Tester Testerson',
                                     'author_profile_url': '#author_profile',
@@ -187,7 +187,7 @@ class PopperLayout(object):
                                     'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
                                     'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
                                     'info': '4 min ago',
-                                    'new': False,
+                                    'new': True,
                                 }, {
                                     'author': 'Tester Testerson',
                                     'author_profile_url': '#author_profile',
