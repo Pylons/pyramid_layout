@@ -34,8 +34,7 @@
         <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
         <script src="${layout.static_url}js/respond.min.js"></script>
 
-        <link rel="stylesheet" tal:repeat="css_url layout.extra_css" 
-              tal:attributes="href css_url"/>
+        ${panel('popper.extra_css')}
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>

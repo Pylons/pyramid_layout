@@ -142,3 +142,14 @@ def column_one(context, request):
 @panel_config(name='popper.footer', renderer='templates/footer_panel.pt')
 def footer(context, request):
     return {}
+
+
+@panel_config(name='popper.extra_css')
+def extra_css(context, request):
+    layout = request.layout_manager.layout
+    static_url = request.static_url
+    css = []
+    for spec in layout.extra_css:
+        css.append('\t\t<link rel="stylesheet" href="%s" />' % static_url(spec))
+    return '\n'.join(css)
+
