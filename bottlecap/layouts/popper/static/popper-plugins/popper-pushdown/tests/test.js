@@ -2,7 +2,7 @@
 /*jslint plusplus: false, bitwise: true, maxerr: 50, maxlen: 80, indent: 4 */
 /*jslint sub: true */
 /*globals window navigator document console setTimeout jQuery module test $ */
-/*globals module test start stop expect equal same ok raises */
+/*globals module test start stop expect equal deepEqual ok raises */
 /*globals MockHttpServer JSON */
 
 
@@ -140,27 +140,27 @@ test("trigger events beforeShow, show, beforeHide, hide", function () {
     });
     ok($('#popper-pushdown-mypushdown').length > 0);
     equal($('#popper-pushdown-mypushdown').is(':visible'), false);
-    same(events, []);
+    deepEqual(events, []);
 
     // click to open it
     $('#the-link').simulate('click');
-    same(events, ['pushdowntabbeforeshow']);
+    deepEqual(events, ['pushdowntabbeforeshow']);
 
     // wait for animation finished
     setTimeout(function () {
         equal($('#popper-pushdown-mypushdown').is(':visible'), true);
-        same(events, 
+        deepEqual(events, 
             ['pushdowntabbeforeshow', 'pushdowntabshow']);
 
         // click again to close it
         $('#the-link').simulate('click');
-        same(events,
+        deepEqual(events,
             ['pushdowntabbeforeshow', 'pushdowntabshow',
             'pushdowntabbeforehide']);
 
         setTimeout(function () {
             equal($('#popper-pushdown-mypushdown').is(':visible'), false);
-            same(events,
+            deepEqual(events,
                 ['pushdowntabbeforeshow', 'pushdowntabshow',
                 'pushdowntabbeforehide', 'pushdowntabhide']);
             $('#the-link').pushdowntab('destroy');
@@ -240,7 +240,7 @@ test("listens to notifierUpdate event when panel is closed", function () {
     equal($('#the-link').pushdowntab('getCounter'), 11);
 
     // notifier will trigger this events on document, so this
-    // is the same what we test here.
+    // is the deepEqual what we test here.
 
     $(document).trigger('notifierUpdate', [{
         mypushdown: {cnt: 2, ts: '2012-02-13T20:40:24.771787'},
@@ -301,7 +301,7 @@ test("listens to notifierUpdate event when panel open", function () {
         equal($('#the-link .the-counter').is(':visible'), false);
 
         // notifier will trigger this events on document, so this
-        // is the same what we test here.
+        // is the deepEqual what we test here.
 
         $(document).trigger('notifierUpdate', [{
             mypushdown: {cnt: 22, ts: '2012-02-13T20:40:24.771787'},
@@ -615,27 +615,27 @@ test("trigger events beforeShow, show, beforeHide, hide", function () {
         hide: markEvent
     });
     equal($('#the-node').is(':visible'), false);
-    same(events, []);
+    deepEqual(events, []);
 
     // show it
     $('#the-node').pushdownpanel('show');
-    same(events, ['pushdownpanelbeforeshow']);
+    deepEqual(events, ['pushdownpanelbeforeshow']);
 
     // wait for animation finished
     setTimeout(function () {
         equal($('#the-node').is(':visible'), true);
-        same(events, 
+        deepEqual(events, 
             ['pushdownpanelbeforeshow', 'pushdownpanelshow']);
 
         // hide it
         $('#the-node').pushdownpanel('hide');
-        same(events,
+        deepEqual(events,
             ['pushdownpanelbeforeshow', 'pushdownpanelshow',
             'pushdownpanelbeforehide']);
 
         setTimeout(function () {
             equal($('#the-node').is(':visible'), false);
-            same(events,
+            deepEqual(events,
                 ['pushdownpanelbeforeshow', 'pushdownpanelshow',
                 'pushdownpanelbeforehide', 'pushdownpanelhide']);
             $('#the-node').pushdownpanel('destroy');
@@ -770,15 +770,15 @@ test("Timing the polls, first one", function () {
         events.push(updates);
     }
     $(document).bind('notifierUpdate', onNotifierUpdate); 
-    same(events, []);
+    deepEqual(events, []);
 
     // wait for timer
     setTimeout(function () {
         // Check what parameters were passed to the request.
-        same(self.collectParams, [{}]);
+        deepEqual(self.collectParams, [{}]);
 
         // Check the events triggered.
-        same(events, [{
+        deepEqual(events, [{
             "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
             "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
         }]);
@@ -806,12 +806,12 @@ test("Timing the polls, is repeating", function () {
         events.push(updates);
     }
     $(document).bind('notifierUpdate', onNotifierUpdate); 
-    same(events, []);
+    deepEqual(events, []);
 
     // wait for timer (now, we wait enough to let it trigger twice.)
     setTimeout(function () {
         // Check what parameters were passed to the request.
-        same(self.collectParams, [
+        deepEqual(self.collectParams, [
             // the first request: no "from" timestamps, yet
             {},
             // next request: what ts the server returned, is passed back
@@ -841,7 +841,7 @@ test("Timing the polls, remember timestamps", function () {
             url: 'notifier.json',
             polling: 1
         });
-    same(self.collectParams, []);
+    deepEqual(self.collectParams, []);
 
 
     // wait for timer (now, we wait enough to let it trigger 3 times.)
@@ -850,7 +850,7 @@ test("Timing the polls, remember timestamps", function () {
     this.ajaxSerial = 50;
     setTimeout(function () {
         // Check what parameters were passed to the request.
-        same(self.collectParams, [
+        deepEqual(self.collectParams, [
             // the first request: no "from" timestamps, yet
             {},
             // next request: what ts the server returned, is passed back
