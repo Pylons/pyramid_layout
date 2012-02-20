@@ -64,7 +64,7 @@
                 </section>
                 <section tal:case="'full'">
                     <header>
-                        <h2>${layout.project_name}</h2>
+                        <h2>${layout.section_title}</h2>
                     </header>
                     ${panel('popper.context_tools', context_tools)}
                 </section>

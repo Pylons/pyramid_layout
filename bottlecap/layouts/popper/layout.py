@@ -9,9 +9,10 @@ from bottlecap.layout import layout_config
 class PopperLayout(object):
 
     # Some configurable options that can be overriden in a view
+    project_name = 'Popper Sample'
+    section_title = 'Section Title'
     show_sidebar = True
     section_style = 'full'
-    project_name = 'Popper Sample'
     extra_css = ()
     extra_js = ()
 
