@@ -33,6 +33,8 @@
         <script src="${layout.static_url}js/jquery-1.7.1.min.js"></script>
         <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
         <script src="${layout.static_url}js/respond.min.js"></script>
+        <script src="${layout.static_url}js/ios-orientationchange-fix.js"></script>
+        
 
         ${panel('popper.extra_css')}
 
@@ -118,7 +120,7 @@
             type="text/javascript" defer></script>
     <script src="${layout.static_url}js/popper.js"
             type="text/javascript" defer></script>
-    
+
     <metal:tailslot metal:define-slot="tail_slot"/>
 
     </body>
