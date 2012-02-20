@@ -32,7 +32,7 @@ def personal_tools(context, request):
               renderer='templates/context_tools.pt')
 def context_tools(context, request, tools=None):
     """The context tools are a list of dicts with the keys:
-       title, url and selected (None or 'selected'). 
+       title, url and selected (None or 'selected').
        There's an additional optional key, dropdown, that
        can contain a list with more dicts in the same format
        to allow for one level of submenus."""
@@ -160,4 +160,13 @@ def extra_css(context, request):
     for spec in layout.extra_css:
         css.append('\t\t<link rel="stylesheet" href="%s" />' % static_url(spec))
     return '\n'.join(css)
+
+@panel_config(name='popper.extra_js')
+def extra_js(context, request):
+    layout = request.layout_manager.layout
+    static_url = request.static_url
+    js = []
+    for spec in layout.extra_js:
+        js.append('\t\t<script src="%s"></script>' % static_url(spec))
+    return '\n'.join(js)
 

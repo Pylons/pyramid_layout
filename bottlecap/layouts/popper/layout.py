@@ -13,6 +13,7 @@ class PopperLayout(object):
     section_style = 'full'
     project_name = 'Popper Sample'
     extra_css = ()
+    extra_js = ()
 
     def __init__(self, context, request):
         self.context = context

@@ -37,6 +37,7 @@
         
 
         ${panel('popper.extra_css')}
+        ${panel('popper.extra_js')}
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
