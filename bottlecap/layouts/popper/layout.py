@@ -20,8 +20,6 @@ class PopperLayout(object):
         self.request = request
         self.app_url = request.application_url
         self.context_url = request.resource_url(context)
-        self.static_url = request.static_url('bottlecap.layouts.popper:static/')
-        self.jslibs_static_url = request.static_url('jslibs:/')
         self.portlets = []
 
     @reify
@@ -44,6 +42,13 @@ class PopperLayout(object):
     # Head data and microtemplates management
     # I've been told this is temporary.
     # --
+
+    def popper_static(self, fname):
+        return self.request.static_url(
+            'bottlecap.layouts.popper:static/%s' % fname)
+
+    def js_static(self, fname):
+        return self.request.static_url('jslibs:/%s' % fname)
 
     @property
     def head_data(self):

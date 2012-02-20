@@ -161,6 +161,7 @@ def extra_css(context, request):
         css.append('\t\t<link rel="stylesheet" href="%s" />' % static_url(spec))
     return '\n'.join(css)
 
+
 @panel_config(name='popper.extra_js')
 def extra_js(context, request):
     layout = request.layout_manager.layout
