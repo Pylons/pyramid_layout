@@ -25,7 +25,7 @@ function parseQuery(url) {
         result[pair[0]] = pair[1];
     });
     return result;
-};
+}
 
  
 module('popper-pushdowntab', {
@@ -49,18 +49,21 @@ module('popper-pushdowntab', {
 
         this.clock = sinon.useFakeTimers();
 
-        // XXX XXX
-        window.head_data = {
-            microtemplates: {mypushdown: 'THIS IS A PUSHDOWN'},
-            panel_data: {mypushdown: {}}
+        this.xhr = sinon.useFakeXMLHttpRequest();
+        var requests = this.requests = [];
+        this.xhr.onCreate = function (xhr) {
+            requests.push(xhr);
         };
-
+        // Make sure to deplete microtemplate cache in the head data
+        window.head_data = {
+        };
     },
 
     teardown: function () {
         window.Mustache = this.Mustache_orig;
         this.Mustache_orig = null;
         this.clock.restore();
+        this.xhr.restore();
         $('#main').empty();
     }
 
@@ -93,6 +96,19 @@ test("open it", function () {
     
     $('#the-link').simulate('click');
 
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
+
     // bump the time
     this.clock.tick(400);
 
@@ -114,6 +130,19 @@ test("close it", function () {
     
     // click to open it
     $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
 
     // bump the time
     this.clock.tick(400);
@@ -154,6 +183,20 @@ test("trigger events beforeShow, show, beforeHide, hide", function () {
 
     // click to open it
     $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
+
     deepEqual(events, ['pushdowntabbeforeshow']);
 
     // bump the time
@@ -300,6 +343,19 @@ test("listens to notifierUpdate event when panel open", function () {
     // open it 
     $('#the-link').simulate('click');
 
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
+
     // bump the time
     this.clock.tick(400);
 
@@ -343,7 +399,6 @@ test("listens to notifierUpdate event when panel open", function () {
 
     $('#the-link').pushdowntab('destroy');
 });
-
 
 
 module('popper-pushdownpanel', {
@@ -406,10 +461,10 @@ test("hide", function () {
     // bump the time
     this.clock.tick(400);
 
-        equal($('#the-node').is(':visible'), true);
+    equal($('#the-node').is(':visible'), true);
 
-        // hide it
-        $('#the-node').pushdownpanel('hide');
+    // hide it
+    $('#the-node').pushdownpanel('hide');
 
     // bump the time
     this.clock.tick(200);
@@ -687,40 +742,8 @@ module('popper-notifier', {
         this.xhr.restore();
         this.clock.restore();
         $('#main').empty();
-    },
- 
-    handle_ajax: function (request) {
-
-        if (request.urlParts.file == 'notifier.json') {
-            // Remember the parameters.
-            this.collectParams.push(request.urlParts.queryKey);
-            var result;
-
-            // We use a serial number to allow the tests have a sequence
-            // of predefined response. Normally we get the first result.
-            // If the test sets the serial to a value of 50 then it gets
-            // some other responses.
-
-            if (this.ajaxSerial > 50) {
-                result = {
-                    "name1": {"cnt": 2, "ts": "2012-01-01T12:08:54.460119"},
-                    "name3": {"cnt": 3, "ts": "2012-01-01T12:08:54.460119"}
-                };
-            } else {
-                result = {
-                    "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
-                    "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
-                };
-            }
-            this.ajaxSerial += 1;
-
-            request.setResponseHeader('Content-Type',
-                'application/json; charset=UTF-8');
-            request.receive(200, JSON.stringify(result));
-        }
-
     }
-
+ 
 });
 
 

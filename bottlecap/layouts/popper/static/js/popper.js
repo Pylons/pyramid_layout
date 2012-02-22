@@ -280,47 +280,28 @@ $(function () {
         //});
         
 
-        var chatterData = head_data.panel_data.chatter;
-        log('preload data for chatter panel:', chatterData);
+        // need urls
+        var appUrl = window.head_data.app_url;
 
+
+        // bind the chatter pushdown
         chatterLink = $('a#chatter')
             .pushdowntab({
                 name: 'chatter',
+                dataUrl: appUrl + '/chatter.json',
                 selectTopBar: '#top-bar',
                 findCounterLabel: '.messageCounter'
             });
 
 
         // Start the central polling for notifications.
-        var appUrl = window.head_data.app_url;
-
         $(document).notifier({
             url: appUrl + '/notifier.json',
             polling: 15
         });
 
-
-        //    .click(function() {
-        //        closeAllPanels();
-        //        microtemplateChatter
-        //            .microtemplate('render', chatterData)
-        //            .expandpanel('toggle');
-        //        return false;
-        //    });
-
-
         // chatter options toggling
         //
-        //var chatterOptionsPanel = $('#chatter-options-panel')
-        //    .expandpanel({
-        //    });
-        //var chatterOptionsLink = $('#chatter-options-link')
-        //    .click(function() {
-        //        log('XXX')
-        //        chatterOptionsPanel.expandpanel('toggle');
-        //        return false;
-        //    });
-
         var chatterOptionsPanel = $('.chatter-options-link')
             .live('click', function(e) {
                 var el = $(this);
@@ -332,6 +313,7 @@ $(function () {
                 }
                 e.preventDefault();
             });
+
 
         var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')
             .insertAfter('#top-bar')

@@ -17,6 +17,9 @@
     };
 
     function isoDate(d) {
+        // XXX note, this is not completely correct, one would need
+        // to pad out numbers to 2 digits such as 3 -> 03
+        // ... but it server our purposes well in the current form.
         return d.getUTCFullYear() + '-' + (d.getUTCMonth() + 1) +
             '-' + d.getUTCDate() + 'T' + d.getUTCHours() + ':' +
             d.getUTCMinutes() + ':' + d.getUTCSeconds();
@@ -40,6 +43,8 @@
 
         options: {
             name: null,  // a unique name that identifies this pushdown
+            dataUrl: null, // url for ajax. It takes a parameter which tells
+                                 // if we need the template.
             selectTopBar: null,  // selector for the top bar.
                                  // The panel will be inserted after this.
             findCounterLabel: null,   // find the label for the recent items
@@ -97,9 +102,16 @@
             // Listen for counter updates
             $(document).bind('notifierUpdate',
                 $.proxy(this._onNotifierUpdate, this));
+            // Empty request
+            this.xhr = null;
+            this.polling = false;
         },
 
         _destroy: function () {
+            if (this.xhr) {
+                this.xhr.abort();
+            }
+            this.xhr = null;
             this.panel.pushdownpanel('destroy');
             this.element.unbind('click');
             $(document).unbind('notifierUpdate',
@@ -108,35 +120,101 @@
 
         // handle click on tab link
         _onClick: function (evt) {
-            this.panel.pushdownpanel('toggle');
+            // Only act if we are hidden, and not polling.
+            // If we are polling: ignore the click gracefully
+            // If we are visible: do the show, but ignore the ajax
+            // If we are transitioning: do the toggle as it will be ignored
+            var isHidden = this.panel.pushdownpanel('isHidden');
+            if (isHidden && ! this.polling) {
+                this.polling = true;
+
+                // Do we need the template? Only, if it's not yet
+                // available for us.
+                var needsTemplate = (this._getTemplate() === undefined);
+
+                if (this.xhr) {
+                    this.xhr.abort();
+                }
+                this.xhr = $.ajax({
+                    url: this.options.dataUrl,
+                    data: {needsTemplate: needsTemplate},
+                    type: 'GET'
+                });
+                this.xhr
+                    .done($.proxy(this._ajaxDone, this))
+                    .error($.proxy(this._ajaxError, this));
+
+            } else {
+                // Just toggle it.
+                this.panel.pushdownpanel('toggle');
+            }
             return false;
+        },
+
+        _getTemplate: function () {
+            var head_data = window.head_data || {};
+            var microtemplates = head_data.microtemplates || {};
+            var template = microtemplates[this.options.name];
+            return template;
+        },
+
+        _setTemplate: function (template) {
+            var head_data = window.head_data = window.head_data || {};
+            var microtemplates = head_data.microtemplates = 
+                    head_data.microtemplates || {};
+            microtemplates[this.options.name] = template;
         },
 
         // handle panel event
         _onBeforeShow: function (evt) {
             this._trigger('beforeShow', evt);
+        },
 
-            // XXX XXX Will want proper ajax here.
-            // Currently just use the fake data.
-            var head_data = window.head_data || {};
-            var microtemplates = head_data.microtemplates || {};
-            var panel_data = head_data.panel_data || {};
-            var template = microtemplates[this.options.name];
-            var data = panel_data[this.options.name];
+        // handle ajax response
+        _ajaxDone: function (result) {
+            var self = this;
+            if (! result || result.error) {
+                // Allow IE to return no payload as success,
+                // (to prepare for foul outcomes such as aborts on the
+                // non standard browsers),
+                // as well as, our view can return {error='Display me!'} to
+                // signify an express error condition inside a 200 response.
+                return this._ajaxError(this.xhr, result.error || 'FATAL');
+            }
+
+            var template = result.microtemplate;
+            if (template !== undefined) {
+                // We were sent a template. So, use it, and cache it too.
+                this._setTemplate(template);
+            } else {
+                template = this._getTemplate();
+            }
+            // Make sure we have it
             if (template === undefined) {
-                throw new Error('bc.microtemplate: "' + this.options.name +
+                throw new Error('popper.pushdown: "' + this.options.name +
                     '" template does not exist in head_data.microtemplates.');
             }
 
             // Render the template.
-            var html = Mustache.to_html(template, data);
+            var html = Mustache.to_html(template, result.data);
             this.panel.html(html);
+
             // Reset the counter.
             // We also have to remember to ask the next update
             // starting from this moment.
             this.setCounter(0);
             var now = new Date();
             $(document).trigger('notifierSetTs', [this.options.name, now]);
+            
+            // Open the pushdown
+            this.panel.pushdownpanel('show');
+
+            this.polling = false;
+        },
+
+        // handle ajax response
+        _ajaxError: function (xhr, textStatus) {
+            log('Pushdown ajax: We will do something with this, ' + textStatus);
         },
 
         // handle panel event
@@ -265,9 +343,9 @@
         },
 
         toggle: function (callback) {
-            if (this.state == this._STATES.VISIBLE) {
+            if (this.isVisible()) {
                 this.hide(callback);
-            } else if (this.state == this._STATES.HIDDEN) {
+            } else if (this.isHidden()) {
                 this.show(callback);
             } else {
                 // Ignore it if we are transitioning.
@@ -277,6 +355,14 @@
             }
             // allow chaining
             return this;
+        },
+
+        isHidden: function () {
+            return (this.state == this._STATES.HIDDEN);
+        },
+
+        isVisible: function () {
+            return (this.state == this._STATES.VISIBLE);
         },
 
 
