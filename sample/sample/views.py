@@ -390,8 +390,8 @@ class SampleViews(object):
         if self.request.params.get('needsTemplate', 'false') in ('true', 'True'):
             # We need the template. So, let's fetch it.
             layout = self.request.layout_manager.layout
-            results['template'] = layout.templates['radar']
-
+            results['microtemplate'] = layout.microtemplates['radar']
+        # Fetch the data
         results['data'] = {
             'streams': [{
                 'class': 'stream1',
@@ -528,4 +528,3 @@ class SampleViews(object):
                 }],
             }
         return results
-
