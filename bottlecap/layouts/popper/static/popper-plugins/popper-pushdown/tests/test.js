@@ -3,7 +3,7 @@
 /*jslint sub: true */
 /*globals window navigator document console setTimeout jQuery module test $ */
 /*globals module test start stop expect equal deepEqual ok raises */
-/*globals MockHttpServer JSON */
+/*globals MockHttpServer JSON sinon */
 
 
 var log = function () {
@@ -11,6 +11,20 @@ var log = function () {
         // log for FireBug or WebKit console
         console.log(Array.prototype.slice.call(arguments));
     }
+};
+
+
+// as sinon does not provide an api for this,
+// we are obliged to throw this in ourselves.
+function parseQuery(url) {
+    var result = {};
+    var qs = url.split('?', 2)[1];
+    var items = qs === undefined ? [] : qs.split('&');
+    $.each(items, function (i, v) {
+        var pair = v.split('=');
+        result[pair[0]] = pair[1];
+    });
+    return result;
 };
 
  
@@ -33,6 +47,8 @@ module('popper-pushdowntab', {
             }
         };
 
+        this.clock = sinon.useFakeTimers();
+
         // XXX XXX
         window.head_data = {
             microtemplates: {mypushdown: 'THIS IS A PUSHDOWN'},
@@ -44,6 +60,7 @@ module('popper-pushdowntab', {
     teardown: function () {
         window.Mustache = this.Mustache_orig;
         this.Mustache_orig = null;
+        this.clock.restore();
         $('#main').empty();
     }
 
@@ -65,8 +82,6 @@ test("Create / destroy", function () {
 
 
 test("open it", function () {
-    stop();
-    expect(3);
 
     $('#the-link').pushdowntab({
         name: 'mypushdown',
@@ -78,19 +93,16 @@ test("open it", function () {
     
     $('#the-link').simulate('click');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#popper-pushdown-mypushdown').is(':visible'), true);
-        $('#the-link').pushdowntab('destroy');
-        start();
-    }, 400);
+    // bump the time
+    this.clock.tick(400);
 
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+    $('#the-link').pushdowntab('destroy');
 });
 
 
 test("close it", function () {
-    stop();
-    expect(4);
 
     $('#the-link').pushdowntab({
         name: 'mypushdown',
@@ -103,26 +115,24 @@ test("close it", function () {
     // click to open it
     $('#the-link').simulate('click');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#popper-pushdown-mypushdown').is(':visible'), true);
-        
-        // click again to close it
-        $('#the-link').simulate('click');
+    // bump the time
+    this.clock.tick(400);
 
-        setTimeout(function () {
-            equal($('#popper-pushdown-mypushdown').is(':visible'), false);
-            $('#the-link').pushdowntab('destroy');
-            start();
-        }, 200);
-    }, 400);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+    
+    // click again to close it
+    $('#the-link').simulate('click');
 
+    // bump the time
+    this.clock.tick(200);
+
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    $('#the-link').pushdowntab('destroy');
 });
 
 
 test("trigger events beforeShow, show, beforeHide, hide", function () {
-    stop();
-    expect(9);
 
     var events = [];
     function markEvent(evt) {
@@ -146,28 +156,28 @@ test("trigger events beforeShow, show, beforeHide, hide", function () {
     $('#the-link').simulate('click');
     deepEqual(events, ['pushdowntabbeforeshow']);
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#popper-pushdown-mypushdown').is(':visible'), true);
-        deepEqual(events, 
-            ['pushdowntabbeforeshow', 'pushdowntabshow']);
+    // bump the time
+    this.clock.tick(400);
 
-        // click again to close it
-        $('#the-link').simulate('click');
-        deepEqual(events,
-            ['pushdowntabbeforeshow', 'pushdowntabshow',
-            'pushdowntabbeforehide']);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+    deepEqual(events, 
+        ['pushdowntabbeforeshow', 'pushdowntabshow']);
 
-        setTimeout(function () {
-            equal($('#popper-pushdown-mypushdown').is(':visible'), false);
-            deepEqual(events,
-                ['pushdowntabbeforeshow', 'pushdowntabshow',
-                'pushdowntabbeforehide', 'pushdowntabhide']);
-            $('#the-link').pushdowntab('destroy');
-            start();
-        }, 200);
-    }, 400);
+    // click again to close it
+    $('#the-link').simulate('click');
+    deepEqual(events,
+        ['pushdowntabbeforeshow', 'pushdowntabshow',
+        'pushdowntabbeforehide']);
 
+    // bump the time
+    this.clock.tick(200);
+
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+    deepEqual(events,
+        ['pushdowntabbeforeshow', 'pushdowntabshow',
+        'pushdowntabbeforehide', 'pushdowntabhide']);
+
+    $('#the-link').pushdowntab('destroy');
 });
 
 
@@ -273,8 +283,6 @@ test("listens to notifierUpdate event when panel is closed", function () {
 
 
 test("listens to notifierUpdate event when panel open", function () {
-    stop();
-    expect(11);
     
     $('#the-link').pushdowntab({
         name: 'mypushdown',
@@ -292,49 +300,48 @@ test("listens to notifierUpdate event when panel open", function () {
     // open it 
     $('#the-link').simulate('click');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+    // bump the time
+    this.clock.tick(400);
 
-        // label is zero and hidden now, since we are opened
-        equal($('#the-link').pushdowntab('getCounter'), 0);
-        equal($('#the-link .the-counter').is(':visible'), false);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
 
-        // notifier will trigger this events on document, so this
-        // is the deepEqual what we test here.
+    // label is zero and hidden now, since we are opened
+    equal($('#the-link').pushdowntab('getCounter'), 0);
+    equal($('#the-link .the-counter').is(':visible'), false);
 
-        $(document).trigger('notifierUpdate', [{
-            mypushdown: {cnt: 22, ts: '2012-02-13T20:40:24.771787'},
-            // foo is, of course, ignored altogether.
-            foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
-        }]);
+    // notifier will trigger this events on document, so this
+    // is the deepEqual what we test here.
 
-        // however in open state, the counter will always remain intact
-        equal($('#the-link').pushdowntab('getCounter'), 0);
-        equal($('#the-link .the-counter').is(':visible'), false);
-        
-        // click again to close it
-        $('#the-link').simulate('click');
+    $(document).trigger('notifierUpdate', [{
+        mypushdown: {cnt: 22, ts: '2012-02-13T20:40:24.771787'},
+        // foo is, of course, ignored altogether.
+        foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+    }]);
 
-        setTimeout(function () {
-            equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+    // however in open state, the counter will always remain intact
+    equal($('#the-link').pushdowntab('getCounter'), 0);
+    equal($('#the-link .the-counter').is(':visible'), false);
+    
+    // click again to close it
+    $('#the-link').simulate('click');
 
-            $(document).trigger('notifierUpdate', [{
-                mypushdown: {cnt: 33, ts: '2012-02-13T20:40:24.771787'},
-                // foo is, of course, ignored altogether.
-                foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
-            }]);
+    // bump the time
+    this.clock.tick(200);
 
-            // counter re-appeared, but we only have the recent items
-            // since the panel has been closed.
-            equal($('#the-link').pushdowntab('getCounter'), 33);
-            equal($('#the-link .the-counter').is(':visible'), true);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
 
-            $('#the-link').pushdowntab('destroy');
-            start();
-        }, 200);
+    $(document).trigger('notifierUpdate', [{
+        mypushdown: {cnt: 33, ts: '2012-02-13T20:40:24.771787'},
+        // foo is, of course, ignored altogether.
+        foo: {cnt: 99, ts: '2012-02-13T20:40:24.771787'}
+    }]);
 
-    }, 400);
+    // counter re-appeared, but we only have the recent items
+    // since the panel has been closed.
+    equal($('#the-link').pushdowntab('getCounter'), 33);
+    equal($('#the-link .the-counter').is(':visible'), true);
+
+    $('#the-link').pushdowntab('destroy');
 });
 
 
@@ -346,9 +353,11 @@ module('popper-pushdownpanel', {
         $('#main').append(
             '<div id="the-node">The Pushdown Text</div>'
         );
+        this.clock = sinon.useFakeTimers();
     },
 
     teardown: function () {
+        this.clock.restore();
         $('#main').empty();
     }
 
@@ -367,8 +376,6 @@ test("Create / destroy", function () {
 
 
 test("show", function () {
-    stop();
-    expect(2);
 
     $('#the-node').pushdownpanel({
     });
@@ -377,19 +384,16 @@ test("show", function () {
     
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
-        $('#the-node').pushdownpanel('destroy');
-        start();
-    }, 400);
+    // bump the time
+    this.clock.tick(400);
 
+    equal($('#the-node').is(':visible'), true);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("hide", function () {
-    stop();
-    expect(3);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -399,26 +403,24 @@ test("hide", function () {
     // show it
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
+    // bump the time
+    this.clock.tick(400);
+
         equal($('#the-node').is(':visible'), true);
 
         // hide it
         $('#the-node').pushdownpanel('hide');
 
-        setTimeout(function () {
-            equal($('#the-node').is(':visible'), false);
-            $('#the-node').pushdownpanel('destroy');
-            start();
-        }, 200);
-    }, 400);
+    // bump the time
+    this.clock.tick(200);
 
+    equal($('#the-node').is(':visible'), false);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("show while showing", function () {
-    stop();
-    expect(2);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -431,19 +433,16 @@ test("show while showing", function () {
     // show it again
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
-        $('#the-node').pushdownpanel('destroy');
-        start();
-    }, 400);
+    // bump the time
+    this.clock.tick(400);
 
+    equal($('#the-node').is(':visible'), true);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("show and show again", function () {
-    stop();
-    expect(3);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -453,25 +452,21 @@ test("show and show again", function () {
     // show it
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
+    // bump the time
+    this.clock.tick(400);
 
-        // show it again (nothing happens)
-        $('#the-node').pushdownpanel('show');
+    equal($('#the-node').is(':visible'), true);
 
-        equal($('#the-node').is(':visible'), true);
+    // show it again (nothing happens)
+    $('#the-node').pushdownpanel('show');
 
-        $('#the-node').pushdownpanel('destroy');
-        start();
-    }, 400);
+    equal($('#the-node').is(':visible'), true);
 
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("hide while showing", function () {
-    stop();
-    expect(2);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -485,19 +480,16 @@ test("hide while showing", function () {
     // during a state change.)
     $('#the-node').pushdownpanel('hide');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
-        $('#the-node').pushdownpanel('destroy');
-        start();
-    }, 400);
+    // bump the time
+    this.clock.tick(400);
 
+    equal($('#the-node').is(':visible'), true);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("show while hiding", function () {
-    stop();
-    expect(3);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -507,30 +499,27 @@ test("show while hiding", function () {
     // show it
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
+    // bump the time
+    this.clock.tick(400);
 
-        // hide it
-        $('#the-node').pushdownpanel('hide');
+    equal($('#the-node').is(':visible'), true);
 
-        // show it (ignored, as we are in state change)
-        $('#the-node').pushdownpanel('show');
+    // hide it
+    $('#the-node').pushdownpanel('hide');
 
-        setTimeout(function () {
-            equal($('#the-node').is(':visible'), false);
-            $('#the-node').pushdownpanel('destroy');
-            start();
-        }, 400);
+    // show it (ignored, as we are in state change)
+    $('#the-node').pushdownpanel('show');
 
-    }, 400);
+    // bump the time
+    this.clock.tick(400);
 
+    equal($('#the-node').is(':visible'), false);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("hide while hiding", function () {
-    stop();
-    expect(3);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -540,30 +529,27 @@ test("hide while hiding", function () {
     // show it
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
+    // bump the time
+    this.clock.tick(400);
 
-        // hide it
-        $('#the-node').pushdownpanel('hide');
+    equal($('#the-node').is(':visible'), true);
 
-        // hide it again
-        $('#the-node').pushdownpanel('hide');
+    // hide it
+    $('#the-node').pushdownpanel('hide');
 
-        setTimeout(function () {
-            equal($('#the-node').is(':visible'), false);
-            $('#the-node').pushdownpanel('destroy');
-            start();
-        }, 200);
+    // hide it again
+    $('#the-node').pushdownpanel('hide');
 
-    }, 400);
+    // bump the time
+    this.clock.tick(200);
 
+    equal($('#the-node').is(':visible'), false);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("hide and hide again", function () {
-    stop();
-    expect(4);
 
     // create, and see that is is not visible
     $('#the-node').pushdownpanel({
@@ -573,34 +559,32 @@ test("hide and hide again", function () {
     // show it
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
+    // bump the time
+    this.clock.tick(400);
 
-        // hide it
-        $('#the-node').pushdownpanel('hide');
+    equal($('#the-node').is(':visible'), true);
 
-        setTimeout(function () {
-            equal($('#the-node').is(':visible'), false);
+    // hide it
+    $('#the-node').pushdownpanel('hide');
 
-            // hide it again
-            $('#the-node').pushdownpanel('hide');
+    // bump the time
+    this.clock.tick(200);
 
-            setTimeout(function () {
-                equal($('#the-node').is(':visible'), false);
-                $('#the-node').pushdownpanel('destroy');
-                start();
-            }, 200);
-        }, 200);
+    equal($('#the-node').is(':visible'), false);
 
-    }, 400);
+    // hide it again
+    $('#the-node').pushdownpanel('hide');
 
+    // bump the time
+    this.clock.tick(400);
+
+    equal($('#the-node').is(':visible'), false);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("trigger events beforeShow, show, beforeHide, hide", function () {
-    stop();
-    expect(8);
 
     var events = [];
     function markEvent(evt) {
@@ -621,34 +605,32 @@ test("trigger events beforeShow, show, beforeHide, hide", function () {
     $('#the-node').pushdownpanel('show');
     deepEqual(events, ['pushdownpanelbeforeshow']);
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
-        deepEqual(events, 
-            ['pushdownpanelbeforeshow', 'pushdownpanelshow']);
+    // bump the time
+    this.clock.tick(400);
 
-        // hide it
-        $('#the-node').pushdownpanel('hide');
-        deepEqual(events,
-            ['pushdownpanelbeforeshow', 'pushdownpanelshow',
-            'pushdownpanelbeforehide']);
+    equal($('#the-node').is(':visible'), true);
+    deepEqual(events, 
+        ['pushdownpanelbeforeshow', 'pushdownpanelshow']);
 
-        setTimeout(function () {
-            equal($('#the-node').is(':visible'), false);
-            deepEqual(events,
-                ['pushdownpanelbeforeshow', 'pushdownpanelshow',
-                'pushdownpanelbeforehide', 'pushdownpanelhide']);
-            $('#the-node').pushdownpanel('destroy');
-            start();
-        }, 200);
-    }, 400);
+    // hide it
+    $('#the-node').pushdownpanel('hide');
+    deepEqual(events,
+        ['pushdownpanelbeforeshow', 'pushdownpanelshow',
+        'pushdownpanelbeforehide']);
 
+    // bump the time
+    this.clock.tick(200);
+
+    equal($('#the-node').is(':visible'), false);
+    deepEqual(events,
+        ['pushdownpanelbeforeshow', 'pushdownpanelshow',
+        'pushdownpanelbeforehide', 'pushdownpanelhide']);
+
+    $('#the-node').pushdownpanel('destroy');
 });
 
 
 test("showing a pushdown hides all the others", function () {
-    stop();
-    expect(5);
 
     // need some more
     $('#main').append(
@@ -666,26 +648,24 @@ test("showing a pushdown hides all the others", function () {
     // show it
     $('#the-node').pushdownpanel('show');
 
-    // wait for animation finished
-    setTimeout(function () {
-        equal($('#the-node').is(':visible'), true);
+    // bump the time
+    this.clock.tick(400);
 
-        // Show the second one
-        $('#second-node').pushdownpanel('show');
+    equal($('#the-node').is(':visible'), true);
 
-        setTimeout(function () {
-            // second is shown
-            equal($('#second-node').is(':visible'), true);
-            // first is hidden
-            equal($('#the-node').is(':visible'), false);
+    // Show the second one
+    $('#second-node').pushdownpanel('show');
 
-            $('#the-node').pushdownpanel('destroy');
-            $('#second-node').pushdownpanel('destroy');
-            start();
-        }, 400);
+    // bump the time
+    this.clock.tick(400);
 
-    }, 400);
+    // second is shown
+    equal($('#second-node').is(':visible'), true);
+    // first is hidden
+    equal($('#the-node').is(':visible'), false);
 
+    $('#the-node').pushdownpanel('destroy');
+    $('#second-node').pushdownpanel('destroy');
 });
 
 
@@ -694,18 +674,19 @@ module('popper-notifier', {
     setup: function () {
         var self = this;
         
-        // mock the ajax
-        this.server = new MockHttpServer();
-        this.server.handle = $.proxy(this.handle_ajax, this);
-        this.server.start();
-        this.collectParams = [];
-        this.ajaxSerial = 1;
+        this.xhr = sinon.useFakeXMLHttpRequest();
+        var requests = this.requests = [];
+        this.xhr.onCreate = function (xhr) {
+            requests.push(xhr);
+        };
+
+        this.clock = sinon.useFakeTimers();
     },
 
     teardown: function () {
-        this.server.stop();
+        this.xhr.restore();
+        this.clock.restore();
         $('#main').empty();
-        this.collectParams = [];
     },
  
     handle_ajax: function (request) {
@@ -757,9 +738,8 @@ test("Create / destroy", function () {
 
 test("Timing the polls, first one", function () {
     var self = this;
-    stop();
-    expect(3);
     
+    // set up the notifier
     $(document).notifier({
             url: 'notifier.json',
             polling: 1
@@ -773,29 +753,35 @@ test("Timing the polls, first one", function () {
     deepEqual(events, []);
 
     // wait for timer
-    setTimeout(function () {
-        // Check what parameters were passed to the request.
-        deepEqual(self.collectParams, [{}]);
+    this.clock.tick(1500);
 
-        // Check the events triggered.
-        deepEqual(events, [{
+    // Check what parameters were passed to the request.
+    equal(self.requests.length, 1);
+    deepEqual(parseQuery(self.requests[0].url), {});
+
+    self.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
             "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
             "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
-        }]);
+        })
+    );
 
-        $(document).unbind('notifierUpdate', onNotifierUpdate); 
-        $(document).notifier('destroy');
-        start();
-    }, 1500);
+    // Check the events triggered.
+    deepEqual(events, [{
+        "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
+        "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
+    }]);
 
+    $(document).unbind('notifierUpdate', onNotifierUpdate); 
+    $(document).notifier('destroy');
 });
 
 
 test("Timing the polls, is repeating", function () {
     var self = this;
-    stop();
-    expect(3);
     
+    // set up the notifier
     $(document).notifier({
             url: 'notifier.json',
             polling: 1
@@ -808,69 +794,108 @@ test("Timing the polls, is repeating", function () {
     $(document).bind('notifierUpdate', onNotifierUpdate); 
     deepEqual(events, []);
 
-    // wait for timer (now, we wait enough to let it trigger twice.)
-    setTimeout(function () {
-        // Check what parameters were passed to the request.
-        deepEqual(self.collectParams, [
-            // the first request: no "from" timestamps, yet
-            {},
-            // next request: what ts the server returned, is passed back
-            {
-                "name1": "2012-02-14T12%3A08%3A54.460119",
-                "name2": "2012-02-14T12%3A08%3A54.460119"
-            }
-        ]);
-        // Also check the events triggered.
-        // Two had to come in already.
-        equal(events.length, 2);
+    // wait for timer
+    this.clock.tick(1500);
 
-        $(document).unbind('notifierUpdate', onNotifierUpdate); 
-        $(document).notifier('destroy');
-        start();
-    }, 2500);
+    // Check what parameters were passed to the request.
+    equal(self.requests.length, 1);
+    deepEqual(parseQuery(self.requests[0].url), {});
+
+    // Receive the response
+    self.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
+            "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
+        })
+    );
+
+    // Check the events triggered.
+    equal(events.length, 1);
+
+    // wait for next timer
+    this.clock.tick(1000);
+
+    // next request: what ts the server returned, is passed back
+    equal(self.requests.length, 2);
+    deepEqual(parseQuery(self.requests[1].url), {
+        "name1": "2012-02-14T12%3A08%3A54.460119",
+        "name2": "2012-02-14T12%3A08%3A54.460119"
+    });
+
+    // Receive the response
+    self.requests[1].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
+            "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
+        })
+    );
+
+    // Check the events triggered.
+    equal(events.length, 2);
+
+    $(document).unbind('notifierUpdate', onNotifierUpdate); 
+    $(document).notifier('destroy');
 
 });
 
 
 test("Timing the polls, remember timestamps", function () {
     var self = this;
-    stop();
-    expect(2);
     
+    // set up the notifier
     $(document).notifier({
             url: 'notifier.json',
             polling: 1
         });
-    deepEqual(self.collectParams, []);
 
+    // wait for timer
+    this.clock.tick(1500);
 
-    // wait for timer (now, we wait enough to let it trigger 3 times.)
-    // and we also start from ajax serial 50 which will give us
-    // the first request different from the following requests.
-    this.ajaxSerial = 50;
-    setTimeout(function () {
-        // Check what parameters were passed to the request.
-        deepEqual(self.collectParams, [
-            // the first request: no "from" timestamps, yet
-            {},
-            // next request: what ts the server returned, is passed back
-            {
-                "name1": "2012-02-14T12%3A08%3A54.460119",
-                "name2": "2012-02-14T12%3A08%3A54.460119"
-            },
-            // Next: the timestamps are properly updated,
-            // and those items that did not have a key in the
-            // new result, are left intact.
-            {
-                "name1": "2012-01-01T12%3A08%3A54.460119",
-                "name2": "2012-02-14T12%3A08%3A54.460119",
-                "name3": "2012-01-01T12%3A08%3A54.460119"
-            }            
-        ]);
+    // the first request: no "from" timestamps, yet
+    deepEqual(parseQuery(self.requests[0].url), {});
 
-        $(document).notifier('destroy');
-        start();
-    }, 3500);
+    // Receive the response
+    self.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            "name1": {"cnt": 2, "ts": "2012-02-14T12:08:54.460119"},
+            "name2": {"cnt": 3, "ts": "2012-02-14T12:08:54.460119"}
+        })
+    );
+
+    // wait for next timer
+    this.clock.tick(1000);
+
+    // next request: what ts the server returned, is passed back
+    equal(self.requests.length, 2);
+    deepEqual(parseQuery(self.requests[1].url), {
+        "name1": "2012-02-14T12%3A08%3A54.460119",
+        "name2": "2012-02-14T12%3A08%3A54.460119"
+    });
+
+    // Receive the response
+    self.requests[1].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({     // Different key set, different dates
+            "name1": {"cnt": 2, "ts": "2012-02-01T12:08:54.460119"},
+            "name3": {"cnt": 3, "ts": "2012-02-01T12:08:54.460119"}
+        })
+    );
+
+    // wait for next timer
+    this.clock.tick(1000);
+
+    // See the timestamps updated properly.
+    equal(self.requests.length, 3);
+    deepEqual(parseQuery(self.requests[2].url), {
+        "name1": "2012-02-01T12%3A08%3A54.460119",
+        "name2": "2012-02-14T12%3A08%3A54.460119",
+        "name3": "2012-02-01T12%3A08%3A54.460119"
+    });
+
+    $(document).notifier('destroy');
 
 });
 

@@ -348,6 +348,7 @@
             this.xhr = null;
             // the recent updates
             this.updates = {};
+
             // listen to an event to set the timestamp
             $(document).bind('notifierSetTs',
                 $.proxy(this._onSetTs, this));
