@@ -13,6 +13,8 @@
                     tal:attributes="class item.selected">
                 <a href="${item.url}">${item.title}</a>
             </li>
+            <li><a id="chatter" href="#">Chatter <span class="messageCounter">6</span></a></li>
+            <li><a id="radar" href="#">Radar <span class="messageCounter">7</span></a></li>
             <li>
                 <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
                 <div class="dropdown-menu">
