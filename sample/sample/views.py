@@ -30,7 +30,7 @@ class SampleViews(object):
         tools = [
             {'title': 'All', 'url': '#', 'selected': 'selected'},
             {'title': 'Staff', 'url': '#', 'selected': False},]
-            
+
         actions = [
             {'name': 'print', 'title': 'Print',
              'description': 'Print this report',
@@ -132,7 +132,7 @@ class SampleViews(object):
             {'title': 'Calendar', 'url': '#', 'selected': False},
             {'title': 'Files', 'url': '#', 'selected': False},
             {'title': 'Members', 'url': '#', 'selected': False},]
-            
+
         return {
             "project": "Africa Community",
             "context_tools": tools,
