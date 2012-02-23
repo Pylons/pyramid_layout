@@ -34,7 +34,7 @@
         <script src="${layout.popper_static('js/modernizr-2.0.6.min.js')}"></script>
         <script src="${layout.popper_static('js/respond.min.js')}"></script>
         <script src="${layout.popper_static('js/ios-orientationchange-fix.js')}"></script>
-        
+
 
         ${panel('popper.extra_css')}
         ${panel('popper.extra_js')}
