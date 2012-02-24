@@ -1,15 +1,16 @@
 <div id="radar-panel">
     <div class="pushdownContent clearfix">
-        <!-- <h2>Radar</h2> -->
-
-        <ul id="sections" class="nav nav-pills">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Timeslice</a></li>
-            <li><a href="#">Topics</a></li>
-            <li><a href="#">Featured</a></li>
-            <li><a href="#">Apps</a></li>
-            <li><a href="#">Configure</a></li>
-        </ul>
+        <div id="{{class}}" class="panel">
+            <h3>Radar</h3>
+            <ul id="sections" class="nav nav-list">
+                <li class="active"><a href="#">Home <span class="messageCounter">3</span></a></li>
+                <li><a href="#">Timeslice</a></li>
+                <li><a href="#">Topics <span class="messageCounter">4</span></a></li>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#">Apps</a></li>
+                <li><a href="#">Configure</a></li>
+            </ul>
+        </div>
 
         {{#streams}}
         <div id="{{class}}" class="panel">

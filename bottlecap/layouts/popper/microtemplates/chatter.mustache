@@ -12,7 +12,7 @@
                 <div class="actions">
                     <div class="btn-group">
                         <button type="submit" class="btn btn-large">Speak</button>
-                        <a class="btn btn-large dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <!-- <a class="btn btn-large dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                         <div class="dropdown-menu">
                             <div class="contentPadding">
                                 <fieldset>
@@ -38,14 +38,19 @@
                                     <b>Attachments:</b>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </form>
+            <div class="houstonWeHaveAProblem notification info">
+                <strong>Something went wrong.</strong>
+                <p>We could not update the messages for you. But don't you
+                worry, we'll try again as soon as possible.</p>
+            </div>
         </div>
         {{#streams}}
         <div id="{{class}}" class="panel">
-            <h3>{{title}}</h3>
+            <h3>{{title}}<span class="updating">Updating&hellip;</span></h3>
             {{#items}}
             <div class="panel-item clearfix {{#new}}newMessage{{/new}}">
                 <div class="panel-item-content">

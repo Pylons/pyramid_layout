@@ -8,6 +8,7 @@
     </tal:comment>
     <li><a href="#">${profile_name}</a></li>
     <li><a id="chatter" href="#">Chatter <span class="messageCounter">6</span></a></li>
+    <li><a id="radar" href="#">Radar <span class="messageCounter">7</span></a></li>
     <li><a href="#">Logout</a></li>
     <li><a href="#">Help</a></li>
 </ul>

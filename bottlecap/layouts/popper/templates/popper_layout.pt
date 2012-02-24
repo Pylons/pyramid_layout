@@ -34,8 +34,7 @@
         <script src="${layout.static_url}js/modernizr-2.0.6.min.js"></script>
         <script src="${layout.static_url}js/respond.min.js"></script>
 
-        <link rel="stylesheet" tal:repeat="css_url layout.extra_css" 
-              tal:attributes="href css_url"/>
+        ${panel('popper.extra_css')}
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
@@ -53,18 +52,18 @@
         </div>
     </div>
 
-    <div class="sectionContainer">
+    <div class="sectionContainer" tal:condition="exists:context_tools">
         <div class="container">
             <tal:section_style switch="layout.section_style|'full'">
                 <tal:no_section case="'none'"></tal:no_section>
                 <section tal:case="'compact'">
-                    ${panel('popper.context_tools')}
+                    ${panel('popper.context_tools', context_tools)}
                 </section>
                 <section tal:case="'full'">
                     <header>
                         <h2>${layout.project_name}</h2>
                     </header>
-                    ${panel('popper.context_tools')}
+                    ${panel('popper.context_tools', context_tools)}
                 </section>
             </tal:section_style>
         </div>

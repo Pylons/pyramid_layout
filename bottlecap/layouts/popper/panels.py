@@ -28,9 +28,17 @@ def personal_tools(context, request):
     return dict(profile_name="John Doe")
 
 
-@panel_config(name='popper.search', renderer='templates/search.pt')
 @panel_config(name='popper.context_tools',
               renderer='templates/context_tools.pt')
+def context_tools(context, request, tools=None):
+    """The context tools are a list of dicts with the keys:
+       title, url and selected (None or 'selected'). 
+       There's an additional optional key, dropdown, that
+       can contain a list with more dicts in the same format
+       to allow for one level of submenus."""
+    return {'tools': tools}
+
+@panel_config(name='popper.search', renderer='templates/search.pt')
 def generic_panel(context, request):
     return {}
 
@@ -142,3 +150,14 @@ def column_one(context, request):
 @panel_config(name='popper.footer', renderer='templates/footer_panel.pt')
 def footer(context, request):
     return {}
+
+
+@panel_config(name='popper.extra_css')
+def extra_css(context, request):
+    layout = request.layout_manager.layout
+    static_url = request.static_url
+    css = []
+    for spec in layout.extra_css:
+        css.append('\t\t<link rel="stylesheet" href="%s" />' % static_url(spec))
+    return '\n'.join(css)
+

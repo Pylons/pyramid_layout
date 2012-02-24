@@ -1,41 +1,21 @@
 <ul class="sectionTools noBullets">
-    <li><a href="#">Overview</a></li>
-    <li class="selected"><a href="#">Blog</a></li>
-    <li class="btn-group">
-        <a href="#">Wiki</a>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="#">Front Page</a></li>
-            <li><a href="#">Index</a></li>
-            <li><a href="#">Contents</a></li>
-            <li><a href="#">Feed</a></li>
-        </ul>
-    </li>
-    <li><a href="#">Calendar</a></li>
-    <li><a href="#">Files</a></li>
-    <li><a href="#">Members</a></li>
-    <li>
-        <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
-        <div class="dropdown-menu">
-            <figure>
-                <img src="http://lorempixum.com/64/64/" alt="" />
-            </figure>
-            <p>The dropdowns can contain any information you
-            want, including images, lists and plain text.</p>
-            <ul>
-                <li><a href="#">Cursus Ridiculus Nibh</a></li>
-                <li><a href="#">Pellentesque Ligula</a></li>
-                <li><a href="#">Dapibus Etiam Sollicitudin Tristique</a></li>
-                <li><a href="#">Cursus</a></li>
+    <tal:block repeat="tool tools">
+        <li tal:attributes="class tool['selected']"
+            tal:condition="'dropdown' not in tool">
+            <a
+               href="${tool['url']}">${tool['title']}</a>
+        </li>
+        <li tal:condition="'dropdown' in tool"
+            class="btn-group ${tool['selected']}">
+            <a href="${tool['url']}">${tool['title']}</a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li tal:attributes="class dtool['selected']"
+                    tal:repeat="dtool tool['dropdown']">
+                    <a href="${dtool['url']}">${dtool['title']}</a>
+                </li>
             </ul>
-            <p>Morbi leo risus, porta ac consectetur ac,
-            vestibulum at eros. Curabitur blandit tempus
-            porttitor. Cras mattis consectetur purus sit amet
-            fermentum. Aenean lacinia bibendum nulla sed
-            consectetur.</p>
-            <div class="dropdown-footer">
-                The footer area of the dropdown.
-            </div>
-        </div>
-    </li>
+        </li>
+    </tal:block>
 </ul>
