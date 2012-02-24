@@ -116,8 +116,8 @@
     <link rel="stylesheet" href="${layout.popper_static('popper-plugins/popper-livesearch/popper.livesearch.css')}" type="text/css" />
     <script src="${layout.popper_static('popper-plugins/popper-tagbox/popper.tagbox.js')}" type="text/javascript" defer></script>
 
-    <link rel="stylesheet" href="${layout.static_url}popper-plugins/popper-pushdown/popper.pushdown.css" type="text/css" />
-    <script src="${layout.static_url}popper-plugins/popper-pushdown/popper.pushdown.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="${layout.popper_static('popper-plugins/popper-pushdown/popper.pushdown.css')}" type="text/css" />
+    <script src="${layout.popper_static('popper-plugins/popper-pushdown/popper.pushdown.js')}" type="text/javascript" defer></script>
 
     <!-- pushdown-min.js concatenates pushdown.js and bootstrap-dropdown.js -->
     <script src="${layout.popper_static('js/pushdown-min.js')}"
