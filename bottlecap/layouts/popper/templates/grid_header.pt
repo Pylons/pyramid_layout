@@ -38,8 +38,5 @@
                 <span tal:condition="not letter['href']">${letter['name']}</span>
             </li>
         </tal:block>
-        <li>
-            <a href="#">Any</a>
-        </li>
     </ul>
 </div>
