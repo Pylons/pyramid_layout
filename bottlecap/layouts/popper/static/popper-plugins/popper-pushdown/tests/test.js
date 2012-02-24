@@ -27,6 +27,13 @@ function parseQuery(url) {
     return result;
 }
 
+// we need something here, else we can't mock it
+if (window.Mustache === undefined) {
+    window.Mustache = {
+        to_html: function () {}
+    };
+}
+
  
 module('popper-pushdowntab', {
 
@@ -40,12 +47,12 @@ module('popper-pushdowntab', {
             '</div>'
         );
         // Mock stub for Mustache, which we assume to be tested by itself.
-        this.Mustache_orig = window.Mustache;
-        window.Mustache = {
-            to_html: function (template, data) {
+
+        this.mockMustache = sinon.mock(window.Mustache, "to_html", 
+            function (template, data) {
                 return template;
             }
-        };
+        );
 
         this.clock = sinon.useFakeTimers();
 
@@ -60,10 +67,9 @@ module('popper-pushdowntab', {
     },
 
     teardown: function () {
-        window.Mustache = this.Mustache_orig;
-        this.Mustache_orig = null;
         this.clock.restore();
         this.xhr.restore();
+        this.mockMustache.restore();
         $('#main').empty();
     }
 
@@ -94,6 +100,8 @@ test("open it", function () {
     ok($('#popper-pushdown-mypushdown').length > 0);
     equal($('#popper-pushdown-mypushdown').is(':visible'), false);
     
+    this.mockMustache.expects('to_html').once();
+
     $('#the-link').simulate('click');
 
     // Check what parameters were passed to the request.
@@ -111,6 +119,8 @@ test("open it", function () {
 
     // bump the time
     this.clock.tick(400);
+
+    this.mockMustache.verify();
 
     equal($('#popper-pushdown-mypushdown').is(':visible'), true);
 
