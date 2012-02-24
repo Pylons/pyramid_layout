@@ -102,17 +102,11 @@ $(function () {
     
     $(function() {
 
-        function closeAllPanels() {
-            // temporary solution here
-            $('.expanding-panel').expandpanel('hide');
-        }
-
 
         var head_data = window.head_data || {};
 
         // need urls
         var appUrl = window.head_data.app_url;
-
 
         // bind the chatter pushdown
         $('a#chatter')
@@ -173,7 +167,7 @@ $(function () {
                 name: 'radar',
                 dataUrl: appUrl + '/radar.json',
                 selectTopBar: '#top-bar',
-                findCounterLabel: '.messageCounter'    // XXX No such thing. We need it, right??
+                findCounterLabel: '.messageCounter'
             });
 
 
@@ -182,37 +176,6 @@ $(function () {
             url: appUrl + '/notifier.json',
             polling: 15
         });
-
-
-
-        /*
-        var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')
-            .insertAfter('#top-bar')
-            .microtemplate({
-                name: 'radar'
-                })
-            .expandpanel({
-                fullWindow: true,
-                beforeShow: function(evt) {
-                    radarLink.parent().addClass('selectedPushDown');
-                },
-                hide: function(evt) {
-                    radarLink.parent().removeClass('selectedPushDown');
-                }
-        });
-
-        var radarData = head_data.panel_data.radar;
-        log('preload data for radar panel:', radarData);
-
-        radarLink = $('a#radar')
-            .click(function() {
-                closeAllPanels();
-                microtemplateRadar
-                    .microtemplate('render', radarData)
-                    .expandpanel('toggle');
-                return false;
-            });
-        */
 
 
     });

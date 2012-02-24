@@ -302,7 +302,7 @@ class SampleViews(object):
         now_iso = now.isoformat()
         # Only those pushdowns are notified, who are in the dictionary.
         notifications = {}
-        for name in ['chatter']:
+        for name in ['chatter', 'radar']:
             # XXX do a real query from here, using updates[name] for start date.
             notifications[name] = dict(
                 cnt = random.choice([0, random.randrange(1, 5)]),
