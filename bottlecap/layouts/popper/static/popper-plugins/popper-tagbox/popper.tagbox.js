@@ -68,7 +68,7 @@
         },
 
         _initialDataSource: function () {
-            return window.head_data.tagbox;
+            return window.head_data.panel_data.tagbox;
         },
 
         _displayError: function () {

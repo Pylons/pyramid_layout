@@ -94,162 +94,7 @@ $(function () {
             }
         });
 
-    // --
-    // Component for expanding panels
-    // --
     
-
-    $.widget('bc.microtemplate', {
-
-        options: {
-            //name: ''           // name of the microtemplate
-        },
-
-        render: function(data) {
-            var rendered = this._rendered(data);
-            this.element.html(rendered);
-            // allow chaining
-            return this;
-        },
-
-
-        // --
-        // private parts
-        // --
-        
-
-        _create: function() {
-            var self = this;
-            if (! (this.options.name && this.options.name.length > 0)) {
-                throw new Error('bc.microtemplate: "name" option is mandatory.');
-            }
-        },
-
-
-        //destroy: function() {
-        //    // In jQuery UI 1.8, you must invoke the destroy method from the base widget
-        //    $.Widget.prototype.destroy.call( this );
-        //    // In jQuery UI 1.9 and above, you would define _destroy instead of destroy and not call the base method
-        //}
-        
-        _rendered: function(data) {
-            var head_data = window.head_data || {};
-            var microtemplates = head_data.microtemplates || {};
-            var template = microtemplates[this.options.name];
-            if (template === undefined) {
-                throw new Error('bc.microtemplate: "' + this.options.name + '" template does not exist in head_data.microtemplates.');
-            }
-
-            // Render the template.
-            var html = Mustache.to_html(template, data);
-
-            return html;
-        }
-
-    });
-
-
-    $.widget('bc.expandpanel', {
-
-        options: {
-            fullWindow: false
-            //beforeShow: function(evt) {},    // onBeforeShow event handler
-            //show: function(evt) {},    // onShow event handler
-            //beforeHide: function(evt) {},    // onBeforeHide event handler
-            //hide: function(evt) {}    // onHide event handler
-        },
-
-        show: function(callback) {
-            var self = this, this_height;
-            if (this.state != this._STATES.HIDDEN) {
-                // Ignore it if we are not showable.
-                if (callback) {
-                    callback();
-                }
-            } else {
-                // Show it.
-                this.state = this._STATES.TO_VISIBLE;
-                this._trigger('beforeShow', null);
-                this.element.slideDown('350', function() {
-                    self.state = self._STATES.VISIBLE;
-                    if (callback) {
-                        callback();
-                    }
-                    self._trigger('show', null);
-                });
-            }
-            // allow chaining
-            return this;
-        },
-
-        hide: function(callback) {
-            var self = this;
-            if (this.state != this._STATES.VISIBLE) {
-                // Ignore it if we are not hidable.
-                if (callback) {
-                    callback();
-                }
-            } else {
-                // Hide it.
-                this.state = this._STATES.TO_HIDDEN;
-                this._trigger('beforeHide', null);
-                this.element.slideUp('150', function() {
-                    self.state = self._STATES.HIDDEN;
-                    self.element.hide();
-                    if (callback) {
-                        callback();
-                    }
-                    self._trigger('hide', null);
-                });
-            }
-            // allow chaining
-            return this;
-        },
-
-        toggle: function(callback) {
-            if (this.state == this._STATES.VISIBLE) {
-                this.hide(callback);
-            } else if (this.state == this._STATES.HIDDEN) {
-                this.show(callback);
-            } else {
-                // Ignore it if we are transitioning.
-                if (callback) {
-                    callback();
-                }
-            }
-            // allow chaining
-            return this;
-        },
-
-
-        // --
-        // private parts
-        // --
-        
-
-        _STATES: {
-            HIDDEN: 0,
-            TO_VISIBLE: 1,
-            VISIBLE: 2,
-            TO_HIDDEN: 3
-        },
-
-        _create: function() {
-            var self = this;
-            // initialize the content to hidden
-            this.state = this._STATES.HIDDEN;
-            this.element.hide();
-        }
-
-        //destroy: function() {
-        //    // In jQuery UI 1.8, you must invoke the destroy method from the base widget
-        //    $.Widget.prototype.destroy.call( this );
-        //    // In jQuery UI 1.9 and above, you would define _destroy instead of destroy and not call the base method
-        //}
-
-
-    });
-
 
     // --
     // Wire chatterpanel in header
@@ -257,78 +102,51 @@ $(function () {
     
     $(function() {
 
-        function closeAllPanels() {
-            // temporary solution here
-            $('.expanding-panel').expandpanel('hide');
-        }
+
+        var head_data = window.head_data || {};
+
+        // need urls
+        var appUrl = window.head_data.app_url;
+
+        // bind the chatter pushdown
+        $('a#chatter')
+            .pushdowntab({
+                name: 'chatter',
+                dataUrl: appUrl + '/chatter.json',
+                selectTopBar: '#top-bar',
+                findCounterLabel: '.messageCounter'
+            });
 
 
-        var head_data = window.head_data || {},
-            chatterLink, radarLink;
-
-        var microtemplateChatter = $('<div id="microtemplate-chatter" class="expanding-panel"></div>')
-            .insertAfter('#top-bar')
-            .microtemplate({
-                name: 'chatter'
-                })
-            .expandpanel({
-                beforeShow: function(evt) {
-                    chatterLink.parent().addClass('selectedPushDown');
-                },
-                hide: function(evt) {
-                    chatterLink.parent().removeClass('selectedPushDown');
-                }
-        });
-        
-
-        var chatterData = head_data.panel_data.chatter;
-        log('preload data for chatter panel:', chatterData);
-
-        chatterLink = $('a#chatter')
-            .click(function() {
-                closeAllPanels();
-                microtemplateChatter
-                    .microtemplate('render', chatterData)
-                    .expandpanel('toggle');
-                    
-                    // just an emulation. In production this should be initialized by the start of the AJAX call to the server
-                    setTimeout(function() {
-                        // show the 'loading' icon
-                        // IMPORTANT! This needs to be updated to work with the real data instead of mocking it
-                        $('.updating')
-                            .animate({
-                                opacity: '1'
-                            },100)
-                            .delay(5000)
-                            .animate({
-                                opacity: '0'
-                            }, 100, function () {
-                                var houstonWeHaveAProblem = true;
-                                // Emulate the problem with connecting to the server
-                                if (houstonWeHaveAProblem) {
-                                    $('.houstonWeHaveAProblem')
-                                        .fadeIn(100)
-                                        .delay(3000);
-                                }
-                            });
-                    }, 3000);
-                    
-                return false;
+        // XXX This part needs to be going into popper.pushdown
+        $('a#chatter')
+            .click(function(evt) {
+                // just an emulation. In production this should be initialized by the start of the AJAX call to the server
+                setTimeout(function() {
+                    // show the 'loading' icon
+                    // IMPORTANT! This needs to be updated to work with the real data instead of mocking it
+                    log('UPDATING chatter');
+                    $('.updating')
+                        .animate({
+                            opacity: '1'
+                        },100)
+                        .delay(5000)
+                        .animate({
+                            opacity: '0'
+                        }, 100, function () {
+                            var houstonWeHaveAProblem = true;
+                            // Emulate the problem with connecting to the server
+                            if (houstonWeHaveAProblem) {
+                                $('.houstonWeHaveAProblem')
+                                    .fadeIn(100)
+                                    .delay(3000);
+                            }
+                        });
+                }, 3000);
             });
 
 
         // chatter options toggling
-        //
-        //var chatterOptionsPanel = $('#chatter-options-panel')
-        //    .expandpanel({
-        //    });
-        //var chatterOptionsLink = $('#chatter-options-link')
-        //    .click(function() {
-        //        log('XXX')
-        //        chatterOptionsPanel.expandpanel('toggle');
-        //        return false;
-        //    });
-
         var chatterOptionsPanel = $('.chatter-options-link')
             .live('click', function(e) {
                 var el = $(this);
@@ -341,32 +159,24 @@ $(function () {
                 e.preventDefault();
             });
 
-        var microtemplateRadar = $('<div id="microtemplate-radar" class="expanding-panel"></div>')
-            .insertAfter('#top-bar')
-            .microtemplate({
-                name: 'radar'
-                })
-            .expandpanel({
-                fullWindow: true,
-                beforeShow: function(evt) {
-                    radarLink.parent().addClass('selectedPushDown');
-                },
-                hide: function(evt) {
-                    radarLink.parent().removeClass('selectedPushDown');
-                }
+
+        // bind the radar pushdown
+        // XXX still have to clean up what exactly fullWindow=true is for, in this one
+        $('a#radar')
+            .pushdowntab({
+                name: 'radar',
+                dataUrl: appUrl + '/radar.json',
+                selectTopBar: '#top-bar',
+                findCounterLabel: '.messageCounter'
+            });
+
+
+        // Start the central polling for notifications.
+        $(document).notifier({
+            url: appUrl + '/notifier.json',
+            polling: 15
         });
 
-        var radarData = head_data.panel_data.radar;
-        log('preload data for radar panel:', radarData);
-
-        radarLink = $('a#radar')
-            .click(function() {
-                closeAllPanels();
-                microtemplateRadar
-                    .microtemplate('render', radarData)
-                    .expandpanel('toggle');
-                return false;
-            });
 
     });
 

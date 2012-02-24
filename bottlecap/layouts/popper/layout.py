@@ -40,8 +40,12 @@ class PopperLayout(object):
         self.portlets.append((name, args, kw))
 
     # --
-    # Head data and microtemplates management
-    # I've been told this is temporary.
+    # Head data for urls 
+    # and page globals for the client
+    # 
+    # The static panel data below is temporary.
+    # The microtemplates and the pushdown data handling
+    # has already been moved out from here, and not coming back.
     # --
 
     def popper_static(self, fname):
@@ -57,181 +61,11 @@ class PopperLayout(object):
             self._head_data = {
                 'app_url': self.app_url,
                 'context_url': self.context_url,
-                'microtemplates': self.microtemplates,
+
                 # XXX this does not belong here, but for now
-                # we generate the data for chatterpanel here.
+                # we generate the data for some panels here.
+                # The pushdowns are already moved out from this place.
                 'panel_data': {
-                    'chatter': {
-                        'streams': [{
-                            'class': 'your-stream',
-                            'title': 'Direct messages',
-                            'has_more_news': False,
-                            'items': [{
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '3 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }, {
-                                    'author': 'John Doe',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volu',
-                                    'info': '5 min ago',
-                                    'new': False,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }],
-                            }, {
-                            'class': 'recent-friend',
-                            'title': 'Friends activity',
-                            'has_more_news': True,
-                            'items': [{
-                                    'author': 'John Doe',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volu',
-                                    'info': '3 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volu',
-                                    'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'John Doe',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volu',
-                                    'info': '5 min ago',
-                                    'new': True,
-                                }],
-                            }],
-                        },
-
-                    'radar': {
-                        'streams': [{
-                            'class': 'stream2',
-                            'title': 'Private messages???',
-                            'items': [{
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }],
-                            }, {
-                            'class': 'stream3',
-                            'title': 'Private messages again???',
-                            'items': [{
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': True,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }, {
-                                    'author': 'Tester Testerson',
-                                    'author_profile_url': '#author_profile',
-                                    'message_url': '#message',
-                                    'image_url': 'http://twimg0-a.akamaihd.net/profile_images/413225762/python_normal.png',
-                                    'text': 'Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at ve.',
-                                    'info': '4 min ago',
-                                    'new': False,
-                                }],
-                            }],
-                        },
-
-                    },
                     'tagbox': {
                         'records': [
                             {
@@ -280,8 +114,9 @@ class PopperLayout(object):
                                 'tag': 'aryeh_neier'
                                 },
                         ],
-                        'docid': -1352878729
-                    }
+                        'docid': -1352878729,
+                        },
+                    },
                 }
         return self._head_data
 
