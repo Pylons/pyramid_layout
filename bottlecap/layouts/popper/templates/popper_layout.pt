@@ -35,10 +35,6 @@
         <script src="${layout.popper_static('js/respond.min.js')}"></script>
         <script src="${layout.popper_static('js/ios-orientationchange-fix.js')}"></script>
 
-
-        ${panel('popper.extra_css')}
-        ${panel('popper.extra_js')}
-
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
     <body class="${'noSectionMenu' if layout.section_style == 'none' else ''}">
@@ -121,6 +117,10 @@
             type="text/javascript" defer></script>
     <script src="${layout.popper_static('js/popper.js')}"
             type="text/javascript" defer></script>
+
+    <!-- extras from layout manager -->
+    ${panel('popper.extra_css')}
+    ${panel('popper.extra_js')}
 
     <metal:tailslot metal:define-slot="tail_slot"/>
 
