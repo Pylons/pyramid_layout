@@ -131,6 +131,7 @@ $(function () {
                 setTimeout(function() {
                     // show the 'loading' icon
                     // IMPORTANT! This needs to be updated to work with the real data instead of mocking it
+                    log('UPDATING chatter');
                     $('.updating')
                         .animate({
                             opacity: '1'
