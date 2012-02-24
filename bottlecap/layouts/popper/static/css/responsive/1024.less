@@ -1,11 +1,18 @@
 @media only screen and (min-width: 1024px) {
     // TOP BAR
+    #top-bar .container {
+        .col(12);
+    }
     #global-nav li,
     ul.sectionTools li[data-quickpanel="quickpanel"] {
         position: relative;
     }
     .container {
         position: relative;
+    }
+    #bcpanel-global-logo {
+        background-position: 0 50%;
+        padding-left: 0;
     }
     
     // SEARCH
@@ -15,12 +22,12 @@
     nav.search {
         position: absolute;
         right: 0;
-        top: 2.352941176em;
+        top: 2.4em;
         .col(4);
         width: @total-width*((((@gutter-width+@column-width)*4)-@gutter-width) / @_gridsystem-width);
         padding-left: @total-width*((@gutter-width*.5)/@_gridsystem-width);
         padding-right: @total-width*((@gutter-width*.5)/@_gridsystem-width);
-        margin: 0;
+        margin-right: 0;
         background: #222;
         .css3_border_radius(0 0 .5em .5em);
     }

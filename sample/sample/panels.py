@@ -11,10 +11,6 @@ def global_nav(context, request):
             return 'selected'
         return None
     nav_menu = [
-        dict(title="Intranet",
-             url=request.application_url,
-             selected=is_selected('')
-             ),
         dict(title="Communities",
              url=request.resource_url(context, 'communities'),
              selected=is_selected('communities')
@@ -26,10 +22,6 @@ def global_nav(context, request):
         dict(title="Calendar",
              url='#',
              selected=is_selected('calendar')
-             ),
-        dict(title="Feed",
-             url='#',
-             selected=is_selected('feed')
              )]
     return {'nav_menu': nav_menu}
 

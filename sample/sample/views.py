@@ -16,7 +16,7 @@ class SampleViews(object):
         """ The equivalent of /people/ """
 
         self.request.layout_manager.layout.show_sidebar = False
-        self.request.layout_manager.layout.section_style = "compact"
+        self.request.layout_manager.layout.section_style = "none"
         return {
             "project": "People Reports for OSF",
         }
@@ -34,7 +34,7 @@ class SampleViews(object):
         tools = [
             {'title': 'All', 'url': '#', 'selected': 'selected'},
             {'title': 'Staff', 'url': '#', 'selected': False},]
-            
+
         actions = [
             {'name': 'print', 'title': 'Print',
              'description': 'Print this report',
@@ -113,6 +113,7 @@ class SampleViews(object):
         layout = self.request.layout_manager.layout
         layout.add_portlet('sample.content_portlet')
         layout.add_portlet('sample.community_portlet')
+        self.request.layout_manager.layout.section_style = "none"
 
         return {}
 
@@ -135,7 +136,7 @@ class SampleViews(object):
             {'title': 'Calendar', 'url': '#', 'selected': False},
             {'title': 'Files', 'url': '#', 'selected': False},
             {'title': 'Members', 'url': '#', 'selected': False},]
-            
+
         return {
             "project": "Africa Community",
             "context_tools": tools,

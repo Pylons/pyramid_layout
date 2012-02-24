@@ -260,9 +260,9 @@ form#search-form select {
 .messageCounter {
     display: inline-block;
     text-align: center;
-    padding: 0;
+    padding: 0 .25em;
     line-height: 1.5em;
-    width: 1.5em;
+    min-width: 1em;
     height: 1.5em;
     position: relative;
     top: -0.1em;
@@ -486,6 +486,7 @@ form#send-message {
     .clearfix();
     clear: both;
     text-shadow: none;
+    position: relative;
     a {
         color: #fff;
     }
@@ -507,6 +508,9 @@ form#send-message {
             padding: 0 .4em;
             line-height: 1em;
             .smaller();
+        }
+        .notcurrent span {
+            display: none;
         }
         a {
             text-shadow: 0 -1px 0 @baseColor1;
@@ -606,7 +610,6 @@ form#send-message {
 /* Radio Group Switch */
 .filterOptions {
     display: block;
-    font-size: 0.9em;
     position: absolute;
     right: 0.5em;
     .clearfix();

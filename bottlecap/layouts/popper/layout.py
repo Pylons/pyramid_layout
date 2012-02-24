@@ -9,18 +9,18 @@ from bottlecap.layout import layout_config
 class PopperLayout(object):
 
     # Some configurable options that can be overriden in a view
+    project_name = 'Popper Sample'
+    section_title = 'Section Title'
     show_sidebar = True
     section_style = 'full'
-    project_name = 'Popper Sample'
     extra_css = ()
+    extra_js = ()
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
         self.app_url = request.application_url
         self.context_url = request.resource_url(context)
-        self.static_url = request.static_url('bottlecap.layouts.popper:static/')
-        self.jslibs_static_url = request.static_url('jslibs:/')
         self.portlets = []
 
     @reify
@@ -47,6 +47,13 @@ class PopperLayout(object):
     # The microtemplates and the pushdown data handling
     # has already been moved out from here, and not coming back.
     # --
+
+    def popper_static(self, fname):
+        return self.request.static_url(
+            'bottlecap.layouts.popper:static/%s' % fname)
+
+    def js_static(self, fname):
+        return self.request.static_url('jslibs:/%s' % fname)
 
     @property
     def head_data(self):
