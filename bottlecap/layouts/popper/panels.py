@@ -168,6 +168,9 @@ def extra_js(context, request):
     static_url = request.static_url
     js = []
     for spec in layout.extra_js:
-        js.append('\t\t<script src="%s"></script>' % static_url(spec))
+        # XXX We make it all defer. Revise and provide a parameter,
+        # XXX if it makes sense!
+        defer = True
+        js.append('\t\t<script src="%s" %s></script>' % (static_url(spec), 'defer' if defer else ''))
     return '\n'.join(js)
 
