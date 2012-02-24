@@ -1,5 +1,6 @@
 <div class="paginationBar">
-    <span class="res">Result ${batch_start+1}-${batch_end} of ${total}</span>
+    <span class="res" tal:condition="total">Result ${batch_start+1}-${batch_end} of ${total}</span>
+    <span class="res" tal:condition="not total">No results</span>
     <div class="pagination" tal:condition="pagination">
         <a href="${prev_url}" tal:condition="prev_url" class="prev">&lt;</a>
         <tal:page tal:repeat="page pages">
