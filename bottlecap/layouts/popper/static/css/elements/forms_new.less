@@ -51,7 +51,7 @@ textarea,
 select,
 .uneditable-input {
   display: inline-block;
-  width: 210px;
+  width: 270px;
   height: @baseLineHeight;
   padding: 4px;
   margin-bottom: 9px;
@@ -116,7 +116,7 @@ input[type="file"] {
 
 // Chrome on Linux and Mobile Safari need background-color
 select {
-  width: 220px; // default input width + 10px of padding that doesn't get applied
+  width: 270px; // default input width + 10px of padding that doesn't get applied
   background-color: @white;
 }
 
@@ -265,7 +265,8 @@ textarea[readonly] {
   > label,
   .help-block,
   .help-inline {
-      color: darken(@bodyBg, 30%);
+      //color: darken(@bodyBg, 30%);
+      color: @textColor;
   }
   // Style inputs accordingly
   input,
@@ -289,15 +290,18 @@ textarea[readonly] {
 
 // Warning
 .control-group.warning {
-  .formFieldState(#c09853, #ccae64, lighten(#CCAE64, 5%));
+  //.formFieldState(#c09853, #ccae64, lighten(#CCAE64, 5%));
+  .formFieldState(@warningText, @warningText, @warningBackground);
 }
 // Error
 .control-group.error {
-    .formFieldState(#b94a48, #ee5f5b, lighten(#ee5f5b, 30%));
+    //.formFieldState(#b94a48, #ee5f5b, lighten(#ee5f5b, 30%));
+    .formFieldState(@errorText, @errorText, @errorBackground);
 }
 // Success
 .control-group.success {
-  .formFieldState(#468847, #57a957, lighten(#57a957, 30%));
+  //.formFieldState(#468847, #57a957, lighten(#57a957, 30%));
+  .formFieldState(@successText, @successText, @successBackground);
 }
 
 // HTML5 invalid states
@@ -322,7 +326,7 @@ select:focus:required:invalid {
   padding: (@baseLineHeight - 1) 0px @baseLineHeight;
   margin-top: @baseLineHeight;
   margin-bottom: @baseLineHeight;
-  border-top: 1px solid #ddd;
+  //border-top: 1px solid @baseColor2;
 }
 
 // For text that needs to appear as an input but should not be an input
@@ -345,13 +349,14 @@ select:focus:required:invalid {
 .help-block,
 .help-inline {
     .smaller();
+    font-size: 0.889em;
     color: darken(@bodyBg, 30%);
 }
 
 .help-block {
   display: block;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .help-inline {
@@ -499,14 +504,8 @@ select:focus:required:invalid {
   }
   // Increase spacing between groups
   .control-group {
-    margin-bottom: @baseLineHeight;
+    margin-bottom: @baseLineHeight / 1.75;
     .clearfix();
-  }
-  .stacked {
-    margin-left: 0 !important;
-  }
-  .full-width {
-    width: 100%;
   }
 }
 
