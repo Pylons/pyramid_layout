@@ -45,6 +45,9 @@
             name: null,  // a unique name that identifies this pushdown
             dataUrl: null, // url for ajax. It takes a parameter which tells
                                  // if we need the template.
+                                 //
+            //polling: 120,  // polling time of data in seconds (!!)
+            polling: 10,  // polling time of data in seconds (!!)
             selectTopBar: null,  // selector for the top bar.
                                  // The panel will be inserted after this.
             findCounterLabel: null,   // find the label for the recent items
@@ -75,6 +78,49 @@
             }
         },
 
+        startAjax: function (callback) {
+            // Start the ajax, then if done, call the callback.
+            var self = this;
+
+            // Do we need the template? Only, if it's not yet
+            // available for us.
+            var needsTemplate = (this._getTemplate() === undefined);
+
+            if (this.xhr) {
+                this.xhr.abort();
+            }
+            this.xhr = $.ajax({
+                url: this.options.dataUrl,
+                data: {needsTemplate: needsTemplate},
+                type: 'GET'
+            });
+
+            this.panel.trigger('pushdowntabajaxstart');
+
+            this.xhr
+                .done(function (result) {
+                    self._ajaxDone(result, callback);
+                })
+                .error($.proxy(this._ajaxError, this));
+        },
+
+        openPanel: function () {
+            // Open the panel once ajax results are available
+
+            // Reset the counter.
+            // We also have to remember to ask the next update
+            // starting from this moment.
+            this.setCounter(0);
+            var now = new Date();
+            $(document).trigger('notifierSetTs', [this.options.name, now]);
+            
+            // Open the pushdown
+            this.panel.pushdownpanel('show');
+
+            this.isPolling = false;
+
+        },
+
 
         // --
         // private parts
@@ -93,6 +139,9 @@
                     show: $.proxy(this._onShow, this),
                     beforeHide: $.proxy(this._onBeforeHide, this),
                     hide: $.proxy(this._onHide, this)
+                })
+                .pushdownanimator({
+
                 });
             // make us clickable
             this.element.click($.proxy(this._onClick, this));
@@ -104,7 +153,8 @@
                 $.proxy(this._onNotifierUpdate, this));
             // Empty request
             this.xhr = null;
-            this.polling = false;
+            this.isPolling = false;
+            this.timer = null;
         },
 
         _destroy: function () {
@@ -112,7 +162,12 @@
                 this.xhr.abort();
             }
             this.xhr = null;
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
+            this.timer = null;
             this.panel.pushdownpanel('destroy');
+            this.panel.pushdownanimator('destroy');
             this.element.unbind('click');
             $(document).unbind('notifierUpdate',
                 $.proxy(this._onNotifierUpdate, this));
@@ -125,24 +180,11 @@
             // If we are visible: do the show, but ignore the ajax
             // If we are transitioning: do the toggle as it will be ignored
             var isHidden = this.panel.pushdownpanel('isHidden');
-            if (isHidden && ! this.polling) {
-                this.polling = true;
+            if (isHidden && ! this.isPolling) {
+                this.isPolling = true;
 
-                // Do we need the template? Only, if it's not yet
-                // available for us.
-                var needsTemplate = (this._getTemplate() === undefined);
-
-                if (this.xhr) {
-                    this.xhr.abort();
-                }
-                this.xhr = $.ajax({
-                    url: this.options.dataUrl,
-                    data: {needsTemplate: needsTemplate},
-                    type: 'GET'
-                });
-                this.xhr
-                    .done($.proxy(this._ajaxDone, this))
-                    .error($.proxy(this._ajaxError, this));
+                // Start the ajax, then when it's over , open the panel
+                this.startAjax($.proxy(this.openPanel, this));
 
             } else {
                 // Just toggle it.
@@ -165,13 +207,8 @@
             microtemplates[this.options.name] = template;
         },
 
-        // handle panel event
-        _onBeforeShow: function (evt) {
-            this._trigger('beforeShow', evt);
-        },
-
         // handle ajax response
-        _ajaxDone: function (result) {
+        _ajaxDone: function (result, callback) {
             var self = this;
             if (! result || result.error) {
                 // Allow IE to return no payload as success,
@@ -181,6 +218,8 @@
                 // signify an express error condition inside a 200 response.
                 return this._ajaxError(this.xhr, result.error || 'FATAL');
             }
+
+            this.panel.trigger('pushdowntabajaxdone');
 
             var template = result.microtemplate;
             if (template !== undefined) {
@@ -199,31 +238,45 @@
             var html = Mustache.to_html(template, result.data);
             this.panel.html(html);
 
-            // Reset the counter.
-            // We also have to remember to ask the next update
-            // starting from this moment.
-            this.setCounter(0);
-            var now = new Date();
-            $(document).trigger('notifierSetTs', [this.options.name, now]);
-            
-            // Open the pushdown
-            this.panel.pushdownpanel('show');
+            if (callback) {
+                callback();
+            }
 
-            this.polling = false;
         },
 
         // handle ajax response
         _ajaxError: function (xhr, textStatus) {
+            this.panel.trigger('pushdowntabajaxerror');
             log('Pushdown ajax: We will do something with this, ' + textStatus);
+        },
+
+        // handle panel event
+        _onBeforeShow: function (evt) {
+            this._trigger('beforeShow', evt);
         },
 
         // handle panel event
         _onShow: function (evt) {
             this._trigger('show', evt);
+            // Start polling for data update
+            this.timer = setInterval(
+                $.proxy(this._poll, this),
+                this.options.polling * 1000
+            );
+        },
+
+        // polling
+        _poll: function () {
+            // Start the ajax
+            log('polling pushdown data ' + this.options.name + '...');
+            this.startAjax(null);
         },
 
         // handle panel event
         _onBeforeHide: function (evt) {
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
             this._trigger('beforeHide', evt);
         },
 
@@ -499,6 +552,72 @@
         }
 
     });
+
+
+
+
+    $.widget('popper.pushdownanimator', {
+        // Pushdown animation for ajax
+        // This component is responsible for showing the ajax progress,
+        // and 
+        // animating it, and updating its content. 
+
+        options: {
+            selectUpdating: '.updating',
+            selectProblem: '.houstonWeHaveAProblem'
+        },
+
+        _create: function () {
+            this.element.bind('pushdowntabajaxstart',
+                $.proxy(this._onAjaxStart, this));
+            this.element.bind('pushdowntabajaxdone',
+                $.proxy(this._onAjaxDone, this));
+            this.element.bind('pushdowntabajaxerror',
+                $.proxy(this._onAjaxError, this));
+        },
+
+        _destroy: function () {
+            this.element.unbind('pushdowntabajaxstart',
+                $.proxy(this._onAjaxStart, this));
+            this.element.unbind('pushdowntabajaxdone',
+                $.proxy(this._onAjaxDone, this));
+            this.element.unbind('pushdowntabajaxerror',
+                $.proxy(this._onAjaxError, this));
+        },
+
+        _onAjaxStart: function (evt) {
+            log('ajaxStart');
+            this.element.find(this.options.selectUpdating)
+                .stop(true, true)
+                .animate({
+                    opacity: '1'
+                }, 100);
+        },
+
+        _onAjaxStop: function (evt) {
+            this.element.find(this.options.selectUpdating)
+                .stop(true, true)
+                .animate({
+                    opacity: '0'
+                }, 100);
+        },
+
+        _onAjaxDone: function (evt) {
+            log('ajaxDone');
+            this._onAjaxStop(evt);
+        },
+
+        _onAjaxError: function (evt) {
+            log('ajaxError');
+            this._onAjaxStop(evt);
+            this.element.find(this.options.selectProblem)
+                .fadeIn(100);
+        }
+
+    });
+
+
+
 
 
 })(jQuery);

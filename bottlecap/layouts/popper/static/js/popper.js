@@ -118,34 +118,6 @@ $(function () {
             });
 
 
-        // XXX This part needs to be going into popper.pushdown
-        $('a#chatter')
-            .click(function(evt) {
-                // just an emulation. In production this should be initialized by the start of the AJAX call to the server
-                setTimeout(function() {
-                    // show the 'loading' icon
-                    // IMPORTANT! This needs to be updated to work with the real data instead of mocking it
-                    log('UPDATING chatter');
-                    $('.updating')
-                        .animate({
-                            opacity: '1'
-                        },100)
-                        .delay(5000)
-                        .animate({
-                            opacity: '0'
-                        }, 100, function () {
-                            var houstonWeHaveAProblem = true;
-                            // Emulate the problem with connecting to the server
-                            if (houstonWeHaveAProblem) {
-                                $('.houstonWeHaveAProblem')
-                                    .fadeIn(100)
-                                    .delay(3000);
-                            }
-                        });
-                }, 3000);
-            });
-
-
         // chatter options toggling
         var chatterOptionsPanel = $('.chatter-options-link')
             .live('click', function(e) {
