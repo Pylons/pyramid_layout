@@ -47,7 +47,7 @@
                                  // if we need the template.
                                  //
             //polling: 120,  // polling time of data in seconds (!!)
-            polling: 10,  // polling time of data in seconds (!!)
+            polling: 25,  // polling time of data in seconds (!!)
             selectTopBar: null,  // selector for the top bar.
                                  // The panel will be inserted after this.
             findCounterLabel: null,   // find the label for the recent items
@@ -91,7 +91,10 @@
             }
             this.xhr = $.ajax({
                 url: this.options.dataUrl,
-                data: {needsTemplate: needsTemplate},
+                data: {
+                    needsTemplate: needsTemplate,
+                    ts: this.tsIso
+                },
                 type: 'GET'
             });
 
@@ -155,6 +158,7 @@
             this.xhr = null;
             this.isPolling = false;
             this.timer = null;
+            this.tsIso = '';    // iso timestamp of last data update
         },
 
         _destroy: function () {
@@ -228,16 +232,27 @@
             } else {
                 template = this._getTemplate();
             }
-            // Make sure we have it
-            if (template === undefined) {
-                throw new Error('popper.pushdown: "' + this.options.name +
-                    '" template does not exist in head_data.microtemplates.');
+
+            // The server can signal "no need for update at all",
+            // with sending data=null. We only act if data is not null.
+            if (result.data !== null) {
+                // Make sure we have the template
+                if (template === undefined) {
+                    throw new Error('popper.pushdown: "' + this.options.name +
+                        '" template does not exist in ' +
+                        'head_data.microtemplates.');
+                }
+                // Render the template.
+                log('Rendering pushdown ' + this.options.name);
+                var html = Mustache.to_html(template, result.data);
+                this.panel.html(html);
+                // Remember the time of the succesful update.
+                this.tsIso = result.ts || '';
             }
 
-            // Render the template.
-            var html = Mustache.to_html(template, result.data);
-            this.panel.html(html);
-
+            // Continuation. For example, if ajax is started when the user
+            // clicked to show the pushdown, then after the ajax has arrived,
+            // we actually want to open the panel with the new content.
             if (callback) {
                 callback();
             }

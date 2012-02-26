@@ -106,7 +106,10 @@ test("open it", function () {
 
     // Check what parameters were passed to the request.
     equal(this.requests.length, 1);
-    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
 
     // Receive the response
     this.requests[0].respond(200,
@@ -143,7 +146,10 @@ test("close it", function () {
 
     // Check what parameters were passed to the request.
     equal(this.requests.length, 1);
-    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
 
     // Receive the response
     this.requests[0].respond(200,
@@ -196,7 +202,10 @@ test("trigger events beforeShow, show, beforeHide, hide", function () {
 
     // Check what parameters were passed to the request.
     equal(this.requests.length, 1);
-    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        "ts": ""    
+    });
 
     // Receive the response
     this.requests[0].respond(200,
@@ -355,7 +364,10 @@ test("listens to notifierUpdate event when panel open", function () {
 
     // Check what parameters were passed to the request.
     equal(this.requests.length, 1);
-    deepEqual(parseQuery(this.requests[0].url), {"needsTemplate": "true"});
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        "ts": ""
+    });
 
     // Receive the response
     this.requests[0].respond(200,
