@@ -134,7 +134,7 @@ class PopperLayout(object):
     def microtemplates(self):
         """Render the whole microtemplates dictionary"""
         if getattr(self, '_microtemplates', None) is None:
-            self._microtemplates = get_microtemplates(
+            self._microtemplates = get_microtemplates(directory=_microtemplates,
                 names=getattr(self, '_used_microtemplate_names', ()))
         return self._microtemplates
 
@@ -146,15 +146,15 @@ _here = os.path.dirname(__file__)
 _microtemplates = os.path.join(_here, 'microtemplates')
 
 
-def get_microtemplates(names=None):
+def get_microtemplates(directory, names=None):
 
     templates = {}
 
     all_filenames = {}
-    for _fn in os.listdir(_microtemplates):
+    for _fn in os.listdir(directory):
         if _fn.endswith('.mustache'):
             name = _fn[:-9]
-            fname = os.path.join(_microtemplates, _fn)
+            fname = os.path.join(directory, _fn)
             all_filenames[name] = fname
 
     # XXX Names can be a list of templates that the page needs.
