@@ -18,18 +18,15 @@
     $.widget('popper.tagbox', {
 
         options: {
-            // set intial data source
-            initialDataSource: null,
-            // display an error to the user if validation fails
-            displayError: null,
-            // called when there is an ajax error
-            ajaxError: null,
-            // function to call to render items from ajax request
-            renderTags: null,
-            // called when an item is added from the list
-            addTag: null,
-            // called when an item is deleted from the list
-            deleteTag: null
+            prevals: null,
+            validateRegexp: null,
+            docid: null,
+            showtag_url: null,
+            tagusers_url: null,
+            name: null,
+            searchTagURL: null,
+            addTagURL: null,
+            delTagURL: null
         },
 
         _create: function () {
@@ -37,46 +34,33 @@
                 el = this.element,
                 o = this.options;
 
-            this.initialDataSource = o.initialDataSource ?
-                o.initialDataSource : this._initialDataSource();
-            this.displayError = o.displayError ?
-                o.displayError : this._displayError;
-            this.ajaxError = o.ajaxError ? o.ajaxError : this._ajaxError;
-            this.addTag = o.addTag ? o.addTag : this._addTag;
-            this.deleteTag = o.deleteTag ? o.deleteTag : this._deleteTag;
-            //this.ajaxManager = $.manageAjax.create(
-            //    'tagbox',
-            //    {queue: true, cacheResponse: true}
-            //);
+            this.prevals = o.prevals ? o.prevals : this._getPrevals();
             el.addClass('tagbox');
-            var tagbox_data = this.initialDataSource;
+            var tagbox_data = this.prevals;
             el.append(this._renderTags(tagbox_data));
             el.append(this._renderForm());
 
             this.tagList = el.children('ul');
             this.addTagForm = el.children('form.addTag').first();
-            this.addTagForm.bind('submit', this._addTag);
+            this.addTagForm.bind('submit',
+                $.proxy(this._addTag, this));
+            $('.removeTag').live('click', 
+                $.proxy(this._delTag, this));
         },
 
         destroy: function () {
-            this.element.text(this.oldText);
-            $.Widget.prototype.destroy.call(this);
+            this.addTagForm.unbind('submit',
+                $.proxy(this._addTag, this));
+            $('.removeTag').unbind('click', 
+                $.proxy(this._delTag, this));
         },
 
         _setOption: function (key, value) {
             console.log('Set Option');
         },
 
-        _initialDataSource: function () {
-            return window.head_data.panel_data.tagbox;
-        },
-
-        _displayError: function () {
-            console.log('Display Error');
-        },
-
-        _ajaxError: function () {
-            console.log('Ajax Error');
+        _getPrevals: function () {
+            return window.head_data.panel_data.tagbox || {};
         },
 
         _renderForm: function () {
@@ -112,21 +96,74 @@
             return ul;
         },
 
-        _addTag: function (event) {
-            var tagList = $(this).prev('ul').first();
-            var newTag = $(this).find('#newTag').first().val();
+        _addTag: function (e) {
+            e.preventDefault();
+            var self = this;
+            var tagInput = self.addTagForm.find('#newTag').first();
+            var newTag = tagInput.val();
             if (newTag) {
-                tagList.append('<li><a href="/pg/showtag/' + newTag +
-                    '" class="tag personal">' + newTag + '</a>' +
-                    '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
-                    '<a href="/pg/taguser.html?tag=' + newTag +
-                    '" class="tagCounter">1</a></li>');
+                if (!self._validateTag(newTag)) {
+                    return false;
+                };
+                $.ajax({
+                    url: self.options.addTagURL,
+                    data: {'val': newTag},
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data, textStatus, xhr) {
+                        self.tagList.append('<li><a href="/pg/showtag/' + newTag +
+                            '" class="tag personal">' + newTag + '</a>' +
+                            '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
+                            '<a href="/pg/taguser.html?tag=' + newTag +
+                            '" class="tagCounter">1</a></li>');
+                        self._ajaxSuccess(data, textStatus, xhr);
+                    },
+                    error: function (xhr, textStatus) {
+                        self._ajaxError(xhr, textStatus);
+                    }
+                });
             }
+            tagInput.val('');
             return false;
         },
 
-        _deleteTag: function () {
-            console.log('Delete Tag');
+        _validateTag: function(tag) {
+            if (this.options.validateRegexp) {
+                if (tag.match(this.options.validateRegexp) === null) {
+                    log('Value contains characters that are not allowed in a tag.');
+                    return false;
+                }
+            }
+            return true;
+        },
+
+        _delTag: function (e) {
+            var self = this;
+            var target = $(e.target);
+            var tag = target.siblings('.tag')[0].innerText || null;
+            if (tag) {
+                $.ajax({
+                    url: self.options.delTagURL,
+                    data: {'val': tag},
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data, textStatus, xhr) {
+                        target.closest('li').remove();
+                        self._ajaxSuccess(data, textStatus, xhr);
+                    },
+                    error: function (xhr, textStatus) {
+                        self._ajaxError(xhr, textStatus);
+                    }
+                })
+            }
+        },
+
+        _ajaxSuccess: function (data, textStatus, xhr) {
+            log(textStatus);
+        },
+
+        _ajaxError: function (xhr, textStatus) {
+            log(textStatus);
         }
 
     });
