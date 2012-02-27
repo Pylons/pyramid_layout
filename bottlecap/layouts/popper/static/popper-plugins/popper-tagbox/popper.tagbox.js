@@ -82,7 +82,8 @@
                 li += '<a title="Remove Tag" href="#" class="removeTag">x</a>';
             }
             li += '<a href="/pg/taguser.html?tag=' + item.tag + '&docid=' +
-                docid + '" class="tagCounter">' + item.count + '</a>';
+                docid + '" class="tagCounter">' + item.count + '</a>' +
+                '<input type="hidden" name="box" value="' + item.tag + '"></li>';
             return li;
         },
 
@@ -105,26 +106,37 @@
                 if (!self._validateTag(newTag)) {
                     return false;
                 };
-                $.ajax({
-                    url: self.options.addTagURL,
-                    data: {'val': newTag},
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function (data, textStatus, xhr) {
-                        self.tagList.append('<li><a href="/pg/showtag/' + newTag +
-                            '" class="tag personal">' + newTag + '</a>' +
-                            '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
-                            '<a href="/pg/taguser.html?tag=' + newTag +
-                            '" class="tagCounter">1</a></li>');
-                        self._ajaxSuccess(data, textStatus, xhr);
-                    },
-                    error: function (xhr, textStatus) {
-                        self._ajaxError(xhr, textStatus);
-                    }
-                });
+                if (self.options.addtagURL) {
+                    $.ajax({
+                        url: self.options.addTagURL,
+                        data: {'val': newTag},
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (data, textStatus, xhr) {
+                            self._addTagListItem(newTag);
+                            self._ajaxSuccess(data, textStatus, xhr);
+                        },
+                        error: function (xhr, textStatus) {
+                            self._ajaxError(xhr, textStatus);
+                        }
+                    });
+                } else {
+                    self._addTagListItem(newTag);
+                }
             }
             tagInput.val('');
             return false;
+        },
+
+        _addTagListItem: function (tag) {
+            var self = this;
+            self.tagList.append('<li><a href="/pg/showtag/' + tag +
+                '" class="tag personal">' + tag + '</a>' +
+                '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
+                '<a href="/pg/taguser.html?tag=' + tag +
+                '" class="tagCounter">1</a>' + 
+                '<input type="hidden" name="box" value="' + tag + '"></li>');
+            return;
         },
 
         _validateTag: function(tag) {
@@ -142,20 +154,28 @@
             var target = $(e.target);
             var tag = target.siblings('.tag')[0].innerText || null;
             if (tag) {
-                $.ajax({
-                    url: self.options.delTagURL,
-                    data: {'val': tag},
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function (data, textStatus, xhr) {
-                        target.closest('li').remove();
-                        self._ajaxSuccess(data, textStatus, xhr);
-                    },
-                    error: function (xhr, textStatus) {
-                        self._ajaxError(xhr, textStatus);
-                    }
-                })
+                if (self.options.delTagURL) {
+                    $.ajax({
+                        url: self.options.delTagURL,
+                        data: {'val': tag},
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (data, textStatus, xhr) {
+                            self._delTagListItem(target);
+                            self._ajaxSuccess(data, textStatus, xhr);
+                        },
+                        error: function (xhr, textStatus) {
+                            self._ajaxError(xhr, textStatus);
+                        }
+                    });
+                } else {
+                    self._delTagListItem(target);
+                }
             }
+        },
+
+        _delTagListItem: function (target) {
+            target.closest('li').remove();
         },
 
         _ajaxSuccess: function (data, textStatus, xhr) {
