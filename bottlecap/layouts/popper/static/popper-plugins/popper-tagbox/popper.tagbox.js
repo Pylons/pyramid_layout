@@ -38,7 +38,7 @@
                 o = this.options;
 
             this.initialDataSource = o.initialDataSource ?
-                o.initialDataSource : this._initialDataSource;
+                o.initialDataSource : this._initialDataSource();
             this.displayError = o.displayError ?
                 o.displayError : this._displayError;
             this.ajaxError = o.ajaxError ? o.ajaxError : this._ajaxError;
@@ -49,7 +49,7 @@
             //    {queue: true, cacheResponse: true}
             //);
             el.addClass('tags');
-            var tagbox_data = this.initialDataSource();
+            var tagbox_data = this.initialDataSource;
             el.append(this._renderTags(tagbox_data));
             el.append(this._renderForm());
 
