@@ -48,7 +48,7 @@
             //    'tagbox',
             //    {queue: true, cacheResponse: true}
             //);
-            el.addClass('tags');
+            el.addClass('tagbox');
             var tagbox_data = this.initialDataSource;
             el.append(this._renderTags(tagbox_data));
             el.append(this._renderForm());
