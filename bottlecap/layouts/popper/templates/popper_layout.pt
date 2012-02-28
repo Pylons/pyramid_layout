@@ -13,7 +13,7 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> -->
 
         <metal:titleslot metal:define-slot="title_slot">
-            <title>Sample Title</title>
+            <title tal:content="layout.page_title">Sample Title</title>
         </metal:titleslot>
 
         <!-- Mobile viewport optimized: j.mp/bplateviewport -->

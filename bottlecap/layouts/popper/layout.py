@@ -11,6 +11,7 @@ class PopperLayout(object):
     # Some configurable options that can be overriden in a view
     project_name = 'Popper Sample'
     section_title = 'Section Title'
+    page_title = 'Page Title'
     show_sidebar = True
     section_style = 'full'
     extra_css = ()
@@ -40,9 +41,9 @@ class PopperLayout(object):
         self.portlets.append((name, args, kw))
 
     # --
-    # Head data for urls 
+    # Head data for urls
     # and page globals for the client
-    # 
+    #
     # The static panel data below is temporary.
     # The microtemplates and the pushdown data handling
     # has already been moved out from here, and not coming back.
