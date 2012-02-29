@@ -12,7 +12,6 @@ class PopperLayout(object):
     project_name = 'Popper Sample'
     section_title = 'Section Title'
     page_title = 'Page Title'
-    show_sidebar = True
     section_style = 'full'
     extra_css = ()
     extra_js = ()
@@ -55,6 +54,15 @@ class PopperLayout(object):
 
     def js_static(self, fname):
         return self.request.static_url('jslibs:/%s' % fname)
+
+    @apply
+    def show_sidebar():
+        def getter(self):
+            return bool(self.portlets)
+        def setter(self, value):
+            # allow manual override
+            self.__dict__['show_sidebar'] = value
+        return property(getter, setter)
 
     @property
     def head_data(self):
