@@ -83,7 +83,8 @@
             }
             li += '<a href="/pg/taguser.html?tag=' + item.tag + '&docid=' +
                 docid + '" class="tagCounter">' + item.count + '</a>' +
-                '<input type="hidden" name="box" value="' + item.tag + '"></li>';
+                '<input type="hidden" name="box" value="' +
+                item.tag + '"></li>';
             return li;
         },
 
@@ -105,7 +106,7 @@
             if (newTag) {
                 if (!self._validateTag(newTag)) {
                     return false;
-                };
+                }
                 if (self.options.addtagURL) {
                     $.ajax({
                         url: self.options.addTagURL,
@@ -139,10 +140,11 @@
             return;
         },
 
-        _validateTag: function(tag) {
+        _validateTag: function (tag) {
             if (this.options.validateRegexp) {
                 if (tag.match(this.options.validateRegexp) === null) {
-                    log('Value contains characters that are not allowed in a tag.');
+                    log('Value contains characters that ' +
+                        'are not allowed in a tag.');
                     return false;
                 }
             }
