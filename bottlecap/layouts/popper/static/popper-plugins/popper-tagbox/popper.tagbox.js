@@ -60,7 +60,7 @@
         },
 
         _getPrevals: function () {
-            return window.head_data.panel_data.tagbox || {};
+            return window.head_data.panel_data.tagbox;
         },
 
         _renderForm: function () {

@@ -4,8 +4,18 @@ module('popper-tagbox', {
     setup: function() {
         var self = this;
         $('#main').append(
-            '<div id="the-node">The Node Text</div>'
+            '<div id="the-node"></div>'
         );
+        // XXX Instead of falling back on window.head_data, the widget should
+        // rely on options. TODO
+        window.head_data = {'panel_data': {'tagbox': {
+            "records": [
+                {"count": 2, "snippet": "nondeleteable", "tag": "flyers"},
+                {"count": 2, "snippet": "nondeleteable", "tag": "park"}
+            ],
+            "docid": -1352878729
+        }}};
+        
     },
 
     teardown: function() {
@@ -22,30 +32,9 @@ test("Create / destroy", function() {
 
     $('#the-node').tagbox('destroy');
 
-});
-
-
-test("Changes label", function() {
-
-    $('#the-node').tagbox({
-    });
-    equals($('#the-node').text(), 'Popper TagBox!');
-
-    $('#the-node').tagbox('destroy');
-    equals($('#the-node').text(), 'The Node Text');
+    ok(true);
 
 });
 
 
-test("Label option", function() {
-
-    $('#the-node').tagbox({
-        label: 'Bottlecap is awesome!'
-    });
-    equals($('#the-node').text(), 'Bottlecap is awesome!');
-
-    $('#the-node').tagbox('destroy');
-    equals($('#the-node').text(), 'The Node Text');
-
-});
 
