@@ -29,10 +29,10 @@ test("Changes label", function() {
 
     $('#the-node').example({
     });
-    equals($('#the-node').text(), 'Hello World!');
+    equal($('#the-node').text(), 'Hello World!');
 
     $('#the-node').example('destroy');
-    equals($('#the-node').text(), 'The Node Text');
+    equal($('#the-node').text(), 'The Node Text');
 
 });
 
@@ -42,10 +42,10 @@ test("Label option", function() {
     $('#the-node').example({
         label: 'Bottlecap is awesome!'
     });
-    equals($('#the-node').text(), 'Bottlecap is awesome!');
+    equal($('#the-node').text(), 'Bottlecap is awesome!');
 
     $('#the-node').example('destroy');
-    equals($('#the-node').text(), 'The Node Text');
+    equal($('#the-node').text(), 'The Node Text');
 
 });
 
