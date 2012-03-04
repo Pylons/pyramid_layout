@@ -27,11 +27,12 @@ function parseQuery(url) {
     return result;
 }
 
-// we need something here, else we can't mock it
+
+// We may have a Mustache library present or not.
+// We will patch the library in the tests with a mock,
+// which assumes that there is a library to patch.
 if (window.Mustache === undefined) {
-    window.Mustache = {
-        to_html: function () {}
-    };
+    window.Mustache = {to_html: function () {}};
 }
 
  
@@ -69,7 +70,7 @@ module('popper-pushdowntab', {
     teardown: function () {
         this.clock.restore();
         this.xhr.restore();
-        this.mockMustache.restore();
+        this.mockMustache.verify();
         $('#main').empty();
     }
 
@@ -122,8 +123,6 @@ test("open it", function () {
 
     // bump the time
     this.clock.tick(400);
-
-    this.mockMustache.verify();
 
     equal($('#popper-pushdown-mypushdown').is(':visible'), true);
 
@@ -421,6 +420,109 @@ test("listens to notifierUpdate event when panel open", function () {
 
     $('#the-link').pushdowntab('destroy');
 });
+
+
+
+test("ajax data fetch, error", function () {
+    ok(false, 'TODO implement me');
+});
+
+test("ajax data fetch, explicit error", function () {
+    ok(false, 'TODO implement me');
+});
+
+
+
+test("ajax data fetch, repeats polling", function () {
+
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter',
+        polling: 1   // poll every second
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+    
+    this.mockMustache.expects('to_html').once();
+
+    $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {},
+            ts: 'TS1'
+        })
+    );
+
+    // bump the time, to let animation have finished
+    this.clock.tick(500);
+
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+    // Now we wait another tick, this ought to trigger the next
+    // ajax refresh from the server.
+    this.mockMustache.expects('to_html').once();
+    this.clock.tick(1000);
+    
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 2);
+    deepEqual(parseQuery(this.requests[1].url), {
+        "needsTemplate": "false",
+        'ts': 'TS1'
+    });
+
+    // Receive the response
+    this.requests[1].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            data: {thenewvalue: 'something'},
+            ts: 'TS2'
+        })
+    );
+
+    // Now we wait _yet_ another tick,
+    // to make sure that this was not a one time show,
+    // and we are repeating properly.
+    this.mockMustache.expects('to_html').once();
+    this.clock.tick(1000);
+    
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 3);
+    deepEqual(parseQuery(this.requests[2].url), {
+        "needsTemplate": "false",
+        'ts': 'TS2'
+    });
+
+    // Receive the response
+    this.requests[2].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            data: {thenewvalue: 'and something'},
+            ts: 'TS3'
+        })
+    );
+
+    $('#the-link').pushdowntab('destroy');
+});
+
+
+
+test("ajax data fetch, server says up-to-date", function () {
+    ok(false, 'TODO implement me');
+});
+
+
 
 
 module('popper-pushdownpanel', {
