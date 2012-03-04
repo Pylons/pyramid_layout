@@ -604,7 +604,6 @@
         },
 
         _onAjaxStart: function (evt) {
-            log('ajaxStart');
             this.element.find(this.options.selectUpdating)
                 .stop(true, true)
                 .animate({
@@ -621,12 +620,10 @@
         },
 
         _onAjaxDone: function (evt) {
-            log('ajaxDone');
             this._onAjaxStop(evt);
         },
 
         _onAjaxError: function (evt) {
-            log('ajaxError');
             this._onAjaxStop(evt);
             this.element.find(this.options.selectProblem)
                 .fadeIn(100);

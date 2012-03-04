@@ -14,8 +14,8 @@ var log = function () {
 };
 
 
-// as sinon does not provide an api for this,
-// we are obliged to throw this in ourselves.
+// as sinon does not (yet) provide an api call for this,
+// we need to define this helper function ourselves.
 function parseQuery(url) {
     var result = {};
     var qs = url.split('?', 2)[1];
@@ -438,7 +438,6 @@ test("ajax data fetch, trigger events ajaxstart, " +
     function collectAjaxEvent() {
         var eventInfo = [arguments[0].type,
             Array.prototype.slice.call(arguments, 1)];
-        log('eventInfo:', eventInfo);
         ajaxEvents.push(eventInfo);
     }
     $('#popper-pushdown-mypushdown').bind({
@@ -501,7 +500,6 @@ test("ajax data fetch, error", function () {
     function collectAjaxEvent() {
         var eventInfo = [arguments[0].type,
             Array.prototype.slice.call(arguments, 1)];
-        log('eventInfo:', eventInfo);
         ajaxEvents.push(eventInfo);
     }
     $('#popper-pushdown-mypushdown').bind({
@@ -558,7 +556,6 @@ test("ajax data fetch, explicit error", function () {
     function collectAjaxEvent() {
         var eventInfo = [arguments[0].type,
             Array.prototype.slice.call(arguments, 1)];
-        log('eventInfo:', eventInfo);
         ajaxEvents.push(eventInfo);
     }
     $('#popper-pushdown-mypushdown').bind({
