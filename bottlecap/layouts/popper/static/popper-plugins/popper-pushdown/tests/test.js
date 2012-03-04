@@ -422,15 +422,182 @@ test("listens to notifierUpdate event when panel open", function () {
 });
 
 
+test("ajax data fetch, trigger events ajaxstart, " +
+     "ajaxdone, ajaxerror on the panel", function () {
+
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter'
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    // Hitch ajax events for checking
+    var ajaxEvents = [];
+    function collectAjaxEvent() {
+        var eventInfo = [arguments[0].type,
+            Array.prototype.slice.call(arguments, 1)];
+        log('eventInfo:', eventInfo);
+        ajaxEvents.push(eventInfo);
+    }
+    $('#popper-pushdown-mypushdown').bind({
+        'pushdowntabajaxstart': collectAjaxEvent, 
+        'pushdowntabajaxdone': collectAjaxEvent, 
+        'pushdowntabajaxerror': collectAjaxEvent
+    });
+    
+    $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
+
+    // we have a start event triggered
+    equal(ajaxEvents.length, 1);
+    deepEqual(ajaxEvents[0], ['pushdowntabajaxstart', []]);
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
+
+    // We have a done event triggered
+    equal(ajaxEvents.length, 2);
+    deepEqual(ajaxEvents[1], ['pushdowntabajaxdone', []]);
+
+    // bump the time
+    this.clock.tick(400);
+
+    // yes, succeeded to show it
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+    $('#the-link').pushdowntab('destroy');
+});
+
 
 test("ajax data fetch, error", function () {
-    ok(false, 'TODO implement me');
+
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter',
+        polling: 1   // poll every second
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+    
+    this.mockMustache.expects('to_html').never();
+
+    // Hitch ajax events for checking
+    var ajaxEvents = [];
+    function collectAjaxEvent() {
+        var eventInfo = [arguments[0].type,
+            Array.prototype.slice.call(arguments, 1)];
+        log('eventInfo:', eventInfo);
+        ajaxEvents.push(eventInfo);
+    }
+    $('#popper-pushdown-mypushdown').bind({
+        'pushdowntabajaxstart': collectAjaxEvent, 
+        'pushdowntabajaxdone': collectAjaxEvent, 
+        'pushdowntabajaxerror': collectAjaxEvent
+    }); 
+
+    $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
+
+    // we have a start event triggered
+    equal(ajaxEvents.length, 1);
+    deepEqual(ajaxEvents[0], ['pushdowntabajaxstart', []]);
+
+    // Receive the response
+    this.requests[0].respond(505,
+        {},
+        'ERROR'
+    );
+
+    // we have an error event triggered
+    equal(ajaxEvents.length, 2);
+    deepEqual(ajaxEvents[1], ['pushdowntabajaxerror', []]);
+
+    // Stays closed
+    // bump the time, to make sure we don't animate to open...
+    this.clock.tick(500);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
 });
+
 
 test("ajax data fetch, explicit error", function () {
-    ok(false, 'TODO implement me');
-});
 
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter',
+        polling: 1   // poll every second
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+    
+    this.mockMustache.expects('to_html').never();
+
+    // Hitch ajax events for checking
+    var ajaxEvents = [];
+    function collectAjaxEvent() {
+        var eventInfo = [arguments[0].type,
+            Array.prototype.slice.call(arguments, 1)];
+        log('eventInfo:', eventInfo);
+        ajaxEvents.push(eventInfo);
+    }
+    $('#popper-pushdown-mypushdown').bind({
+        'pushdowntabajaxstart': collectAjaxEvent, 
+        'pushdowntabajaxdone': collectAjaxEvent, 
+        'pushdowntabajaxerror': collectAjaxEvent
+    }); 
+
+    $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
+
+    // we have a start event triggered
+    equal(ajaxEvents.length, 1);
+    deepEqual(ajaxEvents[0], ['pushdowntabajaxstart', []]);
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            error: 'Explicit error',
+            data: {}
+        })
+    );
+
+    // we have an error event triggered
+    equal(ajaxEvents.length, 2);
+    deepEqual(ajaxEvents[1], ['pushdowntabajaxerror', []]);
+
+    // Stays closed
+    // bump the time, to make sure we don't animate to open...
+    this.clock.tick(500);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+});
 
 
 test("ajax data fetch, repeats polling", function () {
@@ -519,7 +686,67 @@ test("ajax data fetch, repeats polling", function () {
 
 
 test("ajax data fetch, server says up-to-date", function () {
-    ok(false, 'TODO implement me');
+
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter',
+        polling: 1   // poll every second
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+    
+    this.mockMustache.expects('to_html').once();
+
+    $('#the-link').simulate('click');
+
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {
+        "needsTemplate": "true",
+        'ts': ''
+    });
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {},
+            ts: 'TS1'
+        })
+    );
+
+    // bump the time, to let animation have finished
+    this.clock.tick(500);
+
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+    // Now we wait another tick, this ought to trigger the next
+    // ajax refresh from the server.
+    this.clock.tick(1000);
+    
+    // Check what parameters were passed to the request.
+    equal(this.requests.length, 2);
+    deepEqual(parseQuery(this.requests[1].url), {
+        "needsTemplate": "false",
+        'ts': 'TS1'
+    });
+
+    // Receive the response
+    // This time the server says: I send you data=null, this
+    // means: you are up to date.
+    // That to_html never gets called, means that
+    // no rendering took place.
+    this.mockMustache.expects('to_html').never();
+    this.requests[1].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            data: null,
+            ts: 'TS2'
+        })
+    );
+
 });
 
 
