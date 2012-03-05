@@ -5,6 +5,7 @@ from pyramid.settings import asbool
 from bottlecap.layout import layout_config
 
 
+@layout_config(name='anonymous', template='templates/anonymous_layout.pt')
 @layout_config(template='templates/popper_layout.pt')
 class PopperLayout(object):
 
