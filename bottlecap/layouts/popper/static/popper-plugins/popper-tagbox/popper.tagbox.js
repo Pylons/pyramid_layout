@@ -70,7 +70,8 @@
                 ' placeholder="A tag to add" />' +
                 '<button type="submit">New Tag</button>' +
                 '</fieldset>' +
-                '</form>';
+                '</form>' +
+                '<div id="tagStatus"></div>';
             return form;
         },
 
@@ -115,7 +116,7 @@
                         dataType: 'json',
                         success: function (data, textStatus, xhr) {
                             self._addTagListItem(newTag);
-                            self._ajaxSuccess(data, textStatus, xhr);
+                            self._ajaxSuccess(data, textStatus, xhr, 'add');
                         },
                         error: function (xhr, textStatus) {
                             self._ajaxError(xhr, textStatus);
@@ -164,7 +165,7 @@
                         dataType: 'json',
                         success: function (data, textStatus, xhr) {
                             self._delTagListItem(target);
-                            self._ajaxSuccess(data, textStatus, xhr);
+                            self._ajaxSuccess(data, textStatus, xhr, 'delete');
                         },
                         error: function (xhr, textStatus) {
                             self._ajaxError(xhr, textStatus);
@@ -180,12 +181,29 @@
             target.closest('li').remove();
         },
 
-        _ajaxSuccess: function (data, textStatus, xhr) {
-            log(textStatus);
+        _ajaxSuccess: function (data, textStatus, xhr, action) {
+            var msg = '';
+            switch (action) {
+                case 'add':
+                    msg = 'Tag added!';
+                    break;
+                case 'delete':
+                    msg = 'Tag removed!';
+                    break;
+            }
+            $('#tagStatus').html(msg)
+                           .addClass('notification info')
+                           .fadeIn('slow')
+                           .delay(2000)
+                           .fadeOut('slow');
         },
 
         _ajaxError: function (xhr, textStatus) {
-            log(textStatus);
+            $('#tagStatus').html(textStatus)
+                           .addClass('notification alert')
+                           .fadeIn('slow')
+                           .delay(2000)
+                           .fadeOut('slow');
         }
 
     });
