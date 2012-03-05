@@ -26,7 +26,8 @@
             name: null,
             searchTagURL: null,
             addTagURL: null,
-            delTagURL: null
+            delTagURL: null,
+            partialForm: false 
         },
 
         _create: function () {
@@ -64,14 +65,20 @@
         },
 
         _renderForm: function () {
-            var form = '<form action="#" class="addTag">' +
-                '<fieldset>' +
+            var self = this;
+            var form = '';
+            if (!self.partialForm) {
+                form += '<form action="#" class="addTag">';
+            }
+            form  += '<fieldset>' +
                 '<input id="newTag" type="text" name="tag"' +
                 ' placeholder="A tag to add" />' +
                 '<button type="submit">New Tag</button>' +
                 '</fieldset>' +
-                '</form>' +
                 '<div id="tagStatus"></div>';
+            if (!self.partialForm) {
+                '</form>';
+            }
             return form;
         },
 
@@ -84,7 +91,7 @@
             }
             li += '<a href="/pg/taguser.html?tag=' + item.tag + '&docid=' +
                 docid + '" class="tagCounter">' + item.count + '</a>' +
-                '<input type="hidden" name="box" value="' +
+                '<input type="hidden" name="tags" value="' +
                 item.tag + '"></li>';
             return li;
         },
@@ -137,7 +144,7 @@
                 '<a title="Remove Tag" href="#" class="removeTag">x</a>' +
                 '<a href="/pg/taguser.html?tag=' + tag +
                 '" class="tagCounter">1</a>' + 
-                '<input type="hidden" name="box" value="' + tag + '"></li>');
+                '<input type="hidden" name="tags" value="' + tag + '"></li>');
             return;
         },
 
