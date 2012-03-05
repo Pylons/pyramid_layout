@@ -536,3 +536,37 @@ class SampleViews(object):
                     ],
                 }
         return results
+
+
+    @view_config(name='tagbox_autocomplete.json', renderer="json", xhr=True)
+    def tagbox_autocomplete_ajax_view(self):
+        request = self.request
+        term = request.params.get('term', '')
+        availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+            ];
+        results = [tag.lower() for tag in availableTags
+            if tag.lower().startswith(term.lower())]
+        return results
+

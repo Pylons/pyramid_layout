@@ -25,6 +25,12 @@ $(function () {
         },
         initWidth = document.documentElement.clientWidth;
 
+
+    var head_data = window.head_data || {};
+    // need urls
+    var appUrl = window.head_data.app_url;
+
+
     // polyfill for the borwsers not supporting the 'placeholder' attribute
     if (!Modernizr.input.placeholder) {
         $("input, textarea").each(function () {
@@ -73,7 +79,9 @@ $(function () {
         $(this).next().text($('option[value="' +this.value + '"]', this).text());
     });
     
-    $('#tags').tagbox({});
+    $('#tags').tagbox({
+        autocompleteURL: appUrl + '/tagbox_autocomplete.json' 
+    });
 
     // Global notification dismissing
     $('.dismissNotification').click(function () {
@@ -104,7 +112,6 @@ $(function () {
 
 
         var head_data = window.head_data || {};
-
         // need urls
         var appUrl = window.head_data.app_url;
 

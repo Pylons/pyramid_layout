@@ -37,4 +37,20 @@ test("Create / destroy", function() {
 });
 
 
+test("autocomplete", function() {
+
+    $('#the-node').tagbox({
+        autocompleteURL: 'http://foo.bar/autocomplete.json'
+    });
+
+    
+
+    $('#the-node').tagbox('destroy');
+
+    ok(true);
+
+});
+
+
+
 

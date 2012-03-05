@@ -27,7 +27,8 @@
             searchTagURL: null,
             addTagURL: null,
             delTagURL: null,
-            partialForm: false 
+            partialForm: false,
+            autocompleteURL: null  // autocomplete url, is optional.
         },
 
         _create: function () {
@@ -47,13 +48,49 @@
                 $.proxy(this._addTag, this));
             $('.removeTag').live('click', 
                 $.proxy(this._delTag, this));
+
+
+            // Bind the autocomplete.
+            this.elInput = el.find('input#newTag');
+            this.elForm = el.find('form.addTag');
+                    // XXX Remark... if you use an id inside a widget,
+                    // you restrict that this widget can only appear once
+                    // in a page. Using a class instead of an id
+                    // would not introduce this (otherwise completely 
+                    // unnecessary) restriction.
+            // Do we have it? If no url, then we don't have.
+            this.hasAutocomplete = this.options.autocompleteURL ? true : false;
+            if (this.hasAutocomplete) {
+                this.elInput.autocomplete({
+                    source: this.options.autocompleteURL,
+                    minLength: 2,     // start searching from 2nd character only
+                    // and, position it under the form, not under the input
+                    // (needed as a consequence of using a markup the way we do)
+                    position: {
+                        of: this.elForm,
+                        my: 'left top',
+                        at: 'left bottom',
+                        collision: 'none fit'
+                    },
+                    // in addition to positioning, we need to set
+                    // the width of the element, otherwise it will look sloppy
+                    open: function (evt, ui) {
+                        var menu = self.elInput.data('autocomplete')
+                            .menu.activeMenu;
+                        menu.outerWidth(self.elForm.innerWidth());
+                    }
+                });
+            }
         },
 
-        destroy: function () {
+        _destroy: function () {
             this.addTagForm.unbind('submit',
                 $.proxy(this._addTag, this));
             $('.removeTag').unbind('click', 
                 $.proxy(this._delTag, this));
+            if (this.hasAutocomplete) {
+                this.elInput.autocomplete('destroy');
+            }
         },
 
         _setOption: function (key, value) {
