@@ -144,6 +144,16 @@ class SampleViews(object):
 
     ####
 
+    @view_config('login', renderer="templates/login.pt")
+    def login_view(self):
+        layout = self.request.layout_manager.layout
+        layout.section_style = "none"
+        self.request.layout_manager.use_layout('anonymous')
+        return {
+            "project": "Some Project",        
+            "show_sidebar": False,
+        }
+
     @view_config('test', renderer="templates/testpage_view.pt")
     def testpage_view(self):
         self.request.layout_manager.use_layout('alternative')

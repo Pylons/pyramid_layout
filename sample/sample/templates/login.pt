@@ -1,0 +1,5 @@
+<metal:block use-macro="main_template">
+    <metal:content fill-slot="content">
+        AND HERE COMES LOGIN!
+    </metal:content>
+</metal:block>

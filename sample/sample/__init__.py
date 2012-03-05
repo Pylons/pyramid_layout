@@ -15,6 +15,8 @@ def main(global_config, **settings):
     alternative_template = 'sample:templates/alternative_layout.pt'
     config.add_layout(CustomLayout, alternative_template,
                       'alternative')
+    anonymous_template = 'bottlecap.layouts.popper:templates/anonymous_layout.pt'
+    config.add_layout(CustomLayout, anonymous_template, 'anonymous')
     popper_template = 'bottlecap.layouts.popper:templates/popper_layout.pt'
     config.add_layout(CustomLayout, popper_template)
     config.add_static_view('static', 'sample:static')
@@ -25,4 +27,3 @@ def main(global_config, **settings):
     config.scan('sample.panels')
     config.scan('sample.views')
     return config.make_wsgi_app()
-
