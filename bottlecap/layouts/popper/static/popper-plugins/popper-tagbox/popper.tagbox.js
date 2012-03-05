@@ -77,7 +77,7 @@
                 '</fieldset>' +
                 '<div id="tagStatus"></div>';
             if (!self.partialForm) {
-                '</form>';
+                form += '</form>';
             }
             return form;
         },
@@ -191,12 +191,12 @@
         _ajaxSuccess: function (data, textStatus, xhr, action) {
             var msg = '';
             switch (action) {
-                case 'add':
-                    msg = 'Tag added!';
-                    break;
-                case 'delete':
-                    msg = 'Tag removed!';
-                    break;
+            case 'add':
+                msg = 'Tag added!';
+                break;
+            case 'delete':
+                msg = 'Tag removed!';
+                break;
             }
             $('#tagStatus').html(msg)
                            .addClass('notification info')
