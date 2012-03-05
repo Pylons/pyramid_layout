@@ -107,7 +107,7 @@
                 if (!self._validateTag(newTag)) {
                     return false;
                 }
-                if (self.options.addtagURL) {
+                if (self.options.addTagURL) {
                     $.ajax({
                         url: self.options.addTagURL,
                         data: {'val': newTag},
