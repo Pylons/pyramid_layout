@@ -1,0 +1,33 @@
+<metal:block use-macro="main_template">
+    <div id="login-form" metal:fill-slot="content">
+        ${panel('popper.global_logo')}
+        <form action="#" class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="username">Username</label>
+                    <div class="controls">
+                        <input type="text" id="username" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="pwd">Password</label>
+                    <div class="controls">
+                        <input type="text" id="pwd" />
+                        <a class="help-inline" href="#">Forgot the password</a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox inline">
+                            <input type="checkbox" id="remember" value="remember">
+                            Remember me on this computer
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</metal:block>
