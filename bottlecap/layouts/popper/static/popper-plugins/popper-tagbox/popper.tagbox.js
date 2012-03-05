@@ -77,7 +77,7 @@
                 '</fieldset>' +
                 '<div id="tagStatus"></div>';
             if (!self.partialForm) {
-                '</form>';
+                form += '</form>';
             }
             return form;
         },
