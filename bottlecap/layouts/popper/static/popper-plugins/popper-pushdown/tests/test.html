@@ -3,9 +3,6 @@
   <head>
       <title>popper plugin tests</title>
 
-      <!-- Able to run from testswarm (needed for callback) -->
-      <!-- (Must come upfront) -->
-      <script src="../../testlib/swarminject.js" type="text/javascript"></script>
       <!-- Workaround prelude to make jquery animations work with sinon.clock -->
       <!-- (Must come before jquery) -->
       <script src="../../testlib/jquery-animation-workaround.js" type="text/javascript"></script>
@@ -27,6 +24,9 @@
 
       <!-- The test suite -->
       <script src="test.js" type="text/javascript"></script>
+
+      <!-- Able to run from testswarm (needed for callback) -->
+      <script src="../../testlib/swarminject.js" type="text/javascript"></script>
 
   </head>
 
