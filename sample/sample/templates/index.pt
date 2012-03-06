@@ -162,7 +162,7 @@
                     <fieldset>
                         <legend>Fieldset legend</legend>
 
-                        <div class="control-group">
+                        <div class="control-group required">
                             <label for="onefield">Text field</label>
                             <div class="controls">
                                 <input type="text" id="onefield" required="required" placeholder="Some content" />
