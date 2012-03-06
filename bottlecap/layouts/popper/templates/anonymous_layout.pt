@@ -37,7 +37,7 @@
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
-    <body class="${'noSectionMenu' if layout.section_style == 'none' else ''}">
+    <body class="anonymous-layout">
 
     <!-- Site-wide notification -->
     ${panel('popper.site_announcement')}
