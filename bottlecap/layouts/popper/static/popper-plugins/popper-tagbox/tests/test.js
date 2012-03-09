@@ -147,6 +147,105 @@ test("Autocomplete, basics", function() {
 });
 
 
+test("Autocomplete, tab", function() {
+
+    // Specifying an autocompleteURL will enable autocomplete.
+    $('#the-node').tagbox({
+        autocompleteURL: 'http://foo.bar/autocomplete.json'
+    });
+
+    var input = $('#the-node input#newTag');
+    
+    // Start typing in the input box.
+    // This is, of course, not a complete event simulation,
+    // we just try to trigger the three main key events.
+    input
+        .val('a')   // ... also need to set this, the events
+                    // in itself won't set the val()
+        .simulate('keydown', {keyCode: 97}) // 'a'
+        .simulate('keypress', {keyCode: 97})
+        .simulate('keyup', {keyCode: 97});
+
+    // wait some - autocomplete has smart delay logic.
+    this.clock.tick(1000);
+
+    // Nothing happened, because only the 2nd char starts the search.
+    equal(this.requests.length, 0);
+    
+    // Start typing in the input box.
+    input
+        .val('ab')   // ... also need to set this, the events
+                    // in itself won't set the val()
+        .simulate('keydown', {keyCode: 98})  // 'b'
+        .simulate('keypress', {keyCode: 98})
+        .simulate('keyup', {keyCode: 98});
+
+    // wait some - autocomplete has smart delay logic.
+    this.clock.tick(1000);
+
+    // The 2nd char ... starts the search.
+    equal(this.requests.length, 1);
+    deepEqual(parseQuery(this.requests[0].url), {
+        "term": "ab"
+    });
+
+    // Oh good! Let's feed it a response.
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify(['abstinence', 'abcde'])
+    );
+
+    var menu = $('.ui-autocomplete.ui-menu');
+    equal(menu.length, 1, 'there is only one menu');
+    var menuItems = menu.find('.ui-menu-item');
+    equal(menuItems.length, 2, 'there are two menu items');
+    equal(menuItems.find('.ui-state-focus').length, 0, 'no item in focus');
+
+    // Press TAB.
+    input
+        .simulate('keydown', {keyCode: $.ui.keyCode.TAB})
+        .simulate('keypress', {keyCode: $.ui.keyCode.TAB})
+        .simulate('keyup', {keyCode: $.ui.keyCode.TAB});
+    // ok... we _probably_ don't need to bump the clock here,
+    // but we do it in order to potentially catch more failures.
+    this.clock.tick(1000);
+    equal(this.requests.length, 1);
+
+    equal(menuItems.length, 2, 'there are two menu items');
+    ok(menuItems.eq(0).find('a').is('.ui-state-focus'), 'first item in focus');
+    equal(input.val(), 'abstinence', 'input completed');
+
+    // Press TAB.
+    input
+        .simulate('keydown', {keyCode: $.ui.keyCode.TAB})
+        .simulate('keypress', {keyCode: $.ui.keyCode.TAB})
+        .simulate('keyup', {keyCode: $.ui.keyCode.TAB});
+    this.clock.tick(1000);
+    equal(this.requests.length, 1);
+
+    equal(menuItems.length, 2, 'there are two menu items');
+    ok(menuItems.eq(1).find('a').is('.ui-state-focus'), 'second item in focus');
+    equal(input.val(), 'abcde', 'input completed');
+ 
+    // Press TAB.
+    // This will cycle back
+    input
+        .simulate('keydown', {keyCode: $.ui.keyCode.TAB})
+        .simulate('keypress', {keyCode: $.ui.keyCode.TAB})
+        .simulate('keyup', {keyCode: $.ui.keyCode.TAB});
+    this.clock.tick(1000);
+    equal(this.requests.length, 1);
+
+    equal(menuItems.length, 2, 'there are two menu items');
+    equal(menuItems.find('.ui-state-focus').length, 0, 'no item in focus');
+    equal(input.val(), 'ab', 'input back to original');
+   
+    $('#the-node').tagbox('destroy');
+});
+
+
+
+
 
 
 
