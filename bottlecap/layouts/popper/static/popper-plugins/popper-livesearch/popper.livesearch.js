@@ -640,8 +640,9 @@ var renderDispatchTable = {
 $.widget('popper.livesearch', {
 
     options: {
-        //advancedSearchUrl: null,
-        //livesearchUrl: null,
+        appUrl: null,
+        livesearchMethod: null,
+        advancedSearchMethod: null,
         kind: '',
         scopePath: '', 
         scopeLabel: 'all KARL'
@@ -708,11 +709,11 @@ $.widget('popper.livesearch', {
     // --
 
     getLivesearchUrl: function(query) {
-        var url = this.options.livesearchUrl;
+        var url = this.options.appUrl + this.options.scopePath + 
+                '/' + this.options.livesearchMethod;
         var p = $.param({
             val: $.trim(query),
-            kind: this.options.kind,
-            scopePath: this.options.scopePath
+            kind: this.options.kind
         });
         if (p) {
             url += '?' + p;
@@ -721,7 +722,8 @@ $.widget('popper.livesearch', {
     },
 
     getAdvancedSearchUrl: function(query, /*optional*/ kind) {
-        var url = this.options.advancedSearchUrl;
+        var url = this.options.appUrl + this.options.scopePath + 
+                '/' + this.options.advancedSearchMethod;
         if (kind === undefined) {
             // If the kind is not defined (we come through
             // clicking search button), then we will use
