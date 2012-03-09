@@ -61,23 +61,82 @@
             // Do we have it? If no url, then we don't have.
             this.hasAutocomplete = this.options.autocompleteURL ? true : false;
             if (this.hasAutocomplete) {
-                this.elInput.autocomplete({
-                    source: this.options.autocompleteURL,
-                    minLength: 2,     // start searching from 2nd character only
-                    // and, position it under the form, not under the input
-                    // (needed as a consequence of using a markup the way we do)
-                    position: {
-                        of: this.elForm,
-                        my: 'left top',
-                        at: 'left bottom',
-                        collision: 'none fit'
-                    },
-                    // in addition to positioning, we need to set
-                    // the width of the element, otherwise it will look sloppy
-                    open: function (evt, ui) {
-                        var menu = self.elInput.data('autocomplete')
-                            .menu.activeMenu;
-                        menu.outerWidth(self.elForm.innerWidth());
+                // Modify the behaviour to match that of old KARL!
+                // We want TAB to cycle throught the options, just like DOWN.
+                // In the autocomplete code, by default TAB would
+                // do the same as what ENTER does.
+                // We need to bind this event before autocomplete, to permit
+                // us to steal the key event if needed.
+                //
+                // There is a "dirty trick" in the bag here, we need to prevent
+                // a few keypresses after the keyup, otherwise various unwanted
+                // things will happen. We do this just like ui.autocomplete does
+                // the same, originally, when handling downs.
+                this.preventNextKeypress = false;
+                this.elInput
+                    // the .tagbox is just a discrimintor here: it allows us
+                    // to unbind the same event from destroy, while leave
+                    // the same event of someone else intact.
+                    .bind('keydown.tagbox', function (evt) {
+                        if (evt.keyCode == $.ui.keyCode.TAB) {
+                            var autocomplete =
+                                self.elInput.data('autocomplete');
+                            if (autocomplete.menu.active) {
+                                autocomplete._move('next', evt);
+                                // prevent
+                                self.preventNextKeypress = true;
+                            }
+                            evt.preventDefault();
+                            // make sure we don't get into autobox's keypress.
+                            evt.stopImmediatePropagation();    
+                        }
+                    })
+                    .bind('keypress.tagbox', function (evt) {
+                        if (evt.keyCode == $.ui.keyCode.TAB) {
+                            if (self.preventNextKeypress) {
+                                // yeah...
+                                self.preventNextKeypress = false;
+                            } else {
+                                var autocomplete =
+                                    self.elInput.data('autocomplete');
+                                autocomplete._move('next', evt);
+                            }
+                            evt.preventDefault();
+                            evt.stopImmediatePropagation();
+                        }
+                    })
+                // bind the autocomplete
+                    .autocomplete({
+                        source: this.options.autocompleteURL,
+                        // start searching from 2nd character only
+                        minLength: 2,     
+                        // and, position it under the form, not under the input
+                        // (needed as a consequence of using a markup 
+                        // the way we do)
+                        position: {
+                            my: 'left top',
+                            at: 'left bottom',
+                            of: this.elForm,
+                            collision: 'none none'
+                        },
+                        // in addition to positioning, we need to set
+                        // the width of the element, otherwise it will
+                        // look sloppy
+                        open: function (evt, ui) {
+                            var menu = self.elInput.data('autocomplete')
+                                .menu.activeMenu;
+                            menu.outerWidth(self.elForm.innerWidth());
+                        }
+                    });
+                // ... And, "fix" the tab to work also on the dropdown
+                var menu = this.elInput.data('autocomplete').menu;
+                menu.activeMenu.bind('keydown', function (evt) {
+                    log('lol');
+                    if (evt.keyCode == $.ui.keyCode.TAB) {
+                        log('TAB/menu!');
+                        menu.next(evt);
+                        evt.preventDefault();
+                        evt.stopPropagation();
                     }
                 });
             }
@@ -89,7 +148,10 @@
             $('.removeTag').unbind('click', 
                 $.proxy(this._delTag, this));
             if (this.hasAutocomplete) {
-                this.elInput.autocomplete('destroy');
+                this.elInput
+                    .autocomplete('destroy')
+                    .unbind('keydown.tagbox')
+                    .unbind('keypress.tagbox');
             }
         },
 
