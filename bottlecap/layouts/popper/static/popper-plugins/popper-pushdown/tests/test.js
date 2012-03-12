@@ -747,6 +747,121 @@ test("ajax data fetch, server says up-to-date", function () {
 });
 
 
+test("ajax data fetch, trigger events render", function () {
+
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter'
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    // Hitch ajax events for checking
+    var ajaxEvents = [];
+    function collectAjaxEvent() {
+        var eventInfo = [arguments[0].type,
+            Array.prototype.slice.call(arguments, 1)];
+        ajaxEvents.push(eventInfo);
+    }
+    $('#the-link').bind({
+        'pushdowntabrender': collectAjaxEvent
+    });
+    
+    $('#the-link').simulate('click');
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
+
+    // we have a render event triggered
+    equal(ajaxEvents.length, 1);
+    deepEqual(ajaxEvents[0], ['pushdowntabrender', [{}]]);
+
+    // bump the time
+    this.clock.tick(400);
+
+    // yes, succeeded to show it
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+    $('#the-link').pushdowntab('destroy');
+});
+
+
+test("ajax data fetch, repeating, trigger events render", function () {
+
+    $('#the-link').pushdowntab({
+        name: 'mypushdown',
+        selectTopBar: '#the-top-bar',
+        findCounterLabel: '.the-counter',
+        polling: 1   // poll every second
+    });
+    ok($('#popper-pushdown-mypushdown').length > 0);
+    equal($('#popper-pushdown-mypushdown').is(':visible'), false);
+
+    // Hitch ajax events for checking
+    var ajaxEvents = [];
+    function collectAjaxEvent() {
+        var eventInfo = [arguments[0].type,
+            Array.prototype.slice.call(arguments, 1)];
+        ajaxEvents.push(eventInfo);
+    }
+    $('#the-link').bind({
+        'pushdowntabrender': collectAjaxEvent
+    });
+    
+    $('#the-link').simulate('click');
+
+    // Receive the response
+    this.requests[0].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            microtemplate: 'THIS IS A PUSHDOWN',
+            data: {}
+        })
+    );
+
+    // we have a render event triggered
+    equal(ajaxEvents.length, 1);
+    deepEqual(ajaxEvents[0], ['pushdowntabrender', [{}]]);
+
+    // bump the time
+    this.clock.tick(400);
+
+    // yes, succeeded to show it
+    equal($('#popper-pushdown-mypushdown').is(':visible'), true);
+
+    // Now we wait another tick, this ought to trigger the next
+    // ajax refresh from the server.
+    this.mockMustache.expects('to_html').once();
+    this.clock.tick(1000);
+ 
+    // Check that we have a request.
+    equal(this.requests.length, 2);
+
+    // Receive the response
+    this.requests[1].respond(200,
+        {'Content-Type': 'application/json; charset=UTF-8'},
+        JSON.stringify({
+            data: {thenewvalue: 'something'},
+            ts: 'TS2'
+        })
+    );
+
+    // we have a render event triggered
+    equal(ajaxEvents.length, 2);
+    deepEqual(ajaxEvents[1], ['pushdowntabrender', [{}]]);
+
+    $('#the-link').pushdowntab('destroy');
+});
+
+
+
 
 
 module('popper-pushdownpanel', {

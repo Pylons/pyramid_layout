@@ -58,6 +58,8 @@
             //show: function(evt) {},    // onShow event handler
             //beforeHide: function(evt) {},    // onBeforeHide event handler
             //hide: function(evt) {}    // onHide event handler
+            //
+            //render: function(evt) {}    // onRender event handler
         },
 
         getCounter: function () {
@@ -247,6 +249,8 @@
                 this.panel.html(html);
                 // Remember the time of the succesful update.
                 this.tsIso = result.ts || '';
+
+                this._trigger('render', null);
             }
 
             // Continuation. For example, if ajax is started when the user
