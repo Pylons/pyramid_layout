@@ -68,6 +68,11 @@
         text-shadow: 0 1px 0 rgba(255,255,255,.3);
         position: relative;
     }
+    h4 {
+        font-size: 1em;
+        margin-bottom: 0;
+        margin-top: .7em;
+    }
     .avatar {
         position: absolute;
         left: .73em;
@@ -94,6 +99,28 @@
         .smaller();
         color: fadeOut(@baseFontColor, 40%);
     }
+    .noBullets {
+        ul {
+            margin: 0;
+            padding: 0;
+            .horList();
+            .smaller();
+        }
+    }
+    time {
+        display: block;
+        .smaller();
+    }
+}
+#recent-activity small {
+    white-space: nowrap;
+    color: fadeOut(@white, 10%);
+}
+a.panel-item-tools {
+    color: fadeOut(@white, 10%);
+    display: inline-block;
+    margin: 0;
+    padding: 0 .2em;
 }
 .panel {
     .col(4.5);

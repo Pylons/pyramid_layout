@@ -454,7 +454,7 @@ class SampleViews(object):
             # Fetch the data
             results['data'] = {
                 'communities': [{
-                    'class': 'myCommunities',
+                    'id': 'my-communities',
                     'title': 'My Communities',
                     'items': [
                     {
@@ -480,7 +480,7 @@ class SampleViews(object):
                     }]
                 }],
                 'activity': [{
-                    'class': 'recentActivity',
+                    'id': 'recent-activity',
                     'title': 'My Recent Activity',
                     'items': [
                     {
@@ -488,25 +488,22 @@ class SampleViews(object):
                         'url': '#',
                         'type': 'Wiki Page',
                         'modificationDate': '2012-03-13',
-                        'modificationDateReadable': 'March 13, 2012'
+                        'modificationDateReadable': 'March 13, 2012',
+                        'path': '/communities/default/wiki/front_page/'
                     }, {
                         'title': 'Test Blog',
                         'url': '#',
                         'type': 'Blog Entry',
                         'modificationDate': '2012-03-12',
-                        'modificationDateReadable': 'March 12, 2012'
+                        'modificationDateReadable': 'March 12, 2012',
+                        'path': '/communities/default/blog/test_blog_entry/'
                     }, {
                         'title': 'Another Blog',
                         'url': '#',
                         'type': 'Blog Entry',
                         'modificationDate': '2012-03-10',
-                        'modificationDateReadable': 'March 10, 2012'
-                    }, {
-                        'title': 'Network News',
-                        'url': '#',
-                        'type': 'Folder',
-                        'modificationDate': '2012-03-09',
-                        'modificationDateReadable': 'March 9, 2012'
+                        'modificationDateReadable': 'March 10, 2012',
+                        'path': '/communities/tester/blog/test_blog_entry/'
                     }
                     ]
                 }],
