@@ -453,9 +453,62 @@ class SampleViews(object):
         else:
             # Fetch the data
             results['data'] = {
+                'communities': [{
+                    'class': 'myCommunities',
+                    'title': 'My Communities',
+                    'items': [
+                    {
+                        'title': 'Default Community',
+                        'tools': [
+                            {'title': 'Overview', 'url': '#'},
+                            {'title': 'Blog', 'url': '#'},
+                            {'title': 'Wiki', 'url': '#'},
+                            {'title': 'Calendar', 'url': '#'},
+                            {'title': 'Files', 'url': '#'},
+                            {'title': 'Members', 'url': '#'},
+                        ]},
+                    {
+                        'title': 'Another Community',
+                        'tools': [
+                            {'title': 'Overview', 'url': '#'},
+                            {'title': 'Blog', 'url': '#'},
+                            {'title': 'Wiki', 'url': '#'},
+                            {'title': 'Calendar', 'url': '#'},
+                            {'title': 'Files', 'url': '#'},
+                            {'title': 'Members', 'url': '#'},
+                        ]
+                    }]
+                }],
+                'activity': [{
+                    'class': 'recentActivity',
+                    'title': 'My Recent Activity',
+                    'items': [
+                    {
+                        'title': 'Front Page',
+                        'url': '#',
+                        'type': 'Wiki Page',
+                        'modificationDate': 'March 13, 2012'
+                    }, {
+                        'title': 'Test Blog',
+                        'url': '#',
+                        'type': 'Blog Entry',
+                        'modificationDate': 'March 12, 2012'
+                    }, {
+                        'title': 'Another Blog',
+                        'url': '#',
+                        'type': 'Blog Entry',
+                        'modificationDate': 'March 10, 2012'
+                    }, {
+                        'title': 'Network News',
+                        'url': '#',
+                        'type': 'Folder',
+                        'modificationDate': 'March 9, 2012'
+                    }
+                    ]
+                }],
                 'streams': [{
                     'class': 'stream1',
-                    'title': 'What do we list here?',
+                    'title': 'My Communities',
                     'items': [{
                             'author': 'Tester Testerson',
                             'author_profile_url': '#author_profile',
@@ -499,7 +552,7 @@ class SampleViews(object):
                         }],
                     }, {
                     'class': 'stream2',
-                    'title': 'Private messages???',
+                    'title': 'My Recent Activity',
                     'items': [{
                             'author': 'Tester Testerson',
                             'author_profile_url': '#author_profile',
