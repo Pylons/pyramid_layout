@@ -38,10 +38,10 @@
                     <li>
                         <a href="#">
                             <h4>{{title}}</h4>
-                            <div>
-                                <small>{{type}}</small>
-                                <span>{{modificationDate}}</span>
-                            </div>
+                            <small>
+                                {{type}}
+                                <time datetime="{{modificationDate}}">{{modificationDateReadable}}</time>
+                            </small>
                         </a>
                     </li>
                 </ul>

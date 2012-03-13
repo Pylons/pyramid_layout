@@ -487,22 +487,26 @@ class SampleViews(object):
                         'title': 'Front Page',
                         'url': '#',
                         'type': 'Wiki Page',
-                        'modificationDate': 'March 13, 2012'
+                        'modificationDate': '2012-03-13',
+                        'modificationDateReadable': 'March 13, 2012'
                     }, {
                         'title': 'Test Blog',
                         'url': '#',
                         'type': 'Blog Entry',
-                        'modificationDate': 'March 12, 2012'
+                        'modificationDate': '2012-03-12',
+                        'modificationDateReadable': 'March 12, 2012'
                     }, {
                         'title': 'Another Blog',
                         'url': '#',
                         'type': 'Blog Entry',
-                        'modificationDate': 'March 10, 2012'
+                        'modificationDate': '2012-03-10',
+                        'modificationDateReadable': 'March 10, 2012'
                     }, {
                         'title': 'Network News',
                         'url': '#',
                         'type': 'Folder',
-                        'modificationDate': 'March 9, 2012'
+                        'modificationDate': '2012-03-09',
+                        'modificationDateReadable': 'March 9, 2012'
                     }
                     ]
                 }],
