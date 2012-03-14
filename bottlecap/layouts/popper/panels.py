@@ -158,7 +158,11 @@ def extra_css(context, request):
     static_url = request.static_url
     css = []
     for spec in layout.extra_css:
-        css.append('\t\t<link rel="stylesheet" href="%s" />' % static_url(spec))
+        # We allow spec to be an absolute url, in which case
+        # we "just use it".
+        if not (spec.startswith('http://') or spec.startswith('https://')):
+            spec = static_url(spec)
+        css.append('\t\t<link rel="stylesheet" href="%s" />' % spec)
     return '\n'.join(css)
 
 
@@ -168,9 +172,54 @@ def extra_js(context, request):
     static_url = request.static_url
     js = []
     for spec in layout.extra_js:
+        # We allow spec to be an absolute url, in which case
+        # we "just use it".
+        if not (spec.startswith('http://') or spec.startswith('https://')):
+            spec = static_url(spec)
         # XXX We make it all defer. Revise and provide a parameter,
         # XXX if it makes sense!
         defer = True
-        js.append('\t\t<script src="%s" %s></script>' % (static_url(spec), 'defer' if defer else ''))
+        js.append('\t\t<script src="%s" %s></script>' % (spec, 'defer' if defer else ''))
     return '\n'.join(js)
 
+
+
+# --
+# Head resources.
+# --
+# You _probably_ want to inject your code into the
+# non-head panels above, instead of here.
+# You want to add here only 3rdparty
+# libs that initiate more loading, so they should happen
+# as early as possible. (Like, google stuff.)
+# --
+
+@panel_config(name='popper.extra_css_head')
+def extra_css_head(context, request):
+    layout = request.layout_manager.layout
+    static_url = request.static_url
+    css = []
+    for spec in layout.extra_css_head:
+        # We allow spec to be an absolute url, in which case
+        # we "just use it".
+        if not (spec.startswith('http://') or spec.startswith('https://')):
+            spec = static_url(spec)
+        css.append('\t\t<link rel="stylesheet" href="%s" />' % spec)
+    return '\n'.join(css)
+
+
+@panel_config(name='popper.extra_js_head')
+def extra_js_head(context, request):
+    layout = request.layout_manager.layout
+    static_url = request.static_url
+    js = []
+    for spec in layout.extra_js_head:
+        # We allow spec to be an absolute url, in which case
+        # we "just use it".
+        if not (spec.startswith('http://') or spec.startswith('https://')):
+            spec = static_url(spec)
+        # XXX We make it all non-defer. Revise and provide a parameter,
+        # XXX if it makes sense!
+        defer = False
+        js.append('\t\t<script src="%s" %s></script>' % (spec, 'defer' if defer else ''))
+    return '\n'.join(js)

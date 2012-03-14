@@ -35,6 +35,10 @@
         <script src="${layout.popper_static('js/respond.min.js')}"></script>
         <script src="${layout.popper_static('js/ios-orientationchange-fix.js')}"></script>
 
+        <!-- extras from layout manager -->
+        ${panel('popper.extra_css_head')}
+        ${panel('popper.extra_js_head')}
+
         <metal:headslot metal:define-slot="head_slot"/>
     </head>
     <body class="${'noSectionMenu' if layout.section_style == 'none' else ''}">

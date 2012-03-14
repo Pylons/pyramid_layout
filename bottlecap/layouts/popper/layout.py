@@ -16,6 +16,8 @@ class PopperLayout(object):
     section_style = 'full'
     extra_css = ()
     extra_js = ()
+    extra_css_head = ()
+    extra_js_head = ()
 
     def __init__(self, context, request):
         self.context = context
