@@ -34,7 +34,8 @@
 // TWITTER BOOTSTRAP BRIGING VARIABLES
 // (adjust if some bootstrap's default colors are leaking somewhere)
 @baseLineHeight: @space * 1em;
-@grayDark: @baseFontColor;
+@grayDarker:            #222;
+@grayDark:              #333;
 @gray: @baseFontColor;
 @grayLight:             #999;
 @grayLighter:           #eee;
@@ -51,6 +52,28 @@
 @zindexFixedNavbar:     1030;
 @zindexModalBackdrop:   1040;
 @zindexModal:           1050;
+
+@btnBackground:                     @white;
+@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         darken(@white, 20%);
+
+@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+@btnInverseBackground:              @gray;
+@btnInverseBackgroundHighlight:     @grayDarker;
 
 // Form states and alerts
 @warningText:             #c09853;

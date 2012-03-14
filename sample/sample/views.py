@@ -459,6 +459,7 @@ class SampleViews(object):
                     'items': [
                     {
                         'title': 'Default Community',
+                        'url': '#',
                         'tools': [
                             {'title': 'Overview', 'url': '#'},
                             {'title': 'Blog', 'url': '#'},
@@ -469,6 +470,7 @@ class SampleViews(object):
                         ]},
                     {
                         'title': 'Another Community',
+                        'url': '#',
                         'tools': [
                             {'title': 'Overview', 'url': '#'},
                             {'title': 'Blog', 'url': '#'},
