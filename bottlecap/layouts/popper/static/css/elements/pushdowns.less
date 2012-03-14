@@ -102,7 +102,7 @@
         border-top: 1px solid #C3C3C3;
         border-bottom: 1px solid #919191;
         margin: 0;
-        padding: 1em 0;
+        padding: .5em 0;
         ul li {
             border: none;
         }
@@ -136,12 +136,39 @@
         left: auto;
         right: 0;
     }
+}
+.pushDownNavigation {
+    padding: 0;
+    > li {
+        z-index: 2;
+        padding: 0;		
     }
+    > li > a {
+        display: block;
+        color: @baseFontColor;
+        position: relative;
+        background: transparent url('../img/right_arrow_icon.png') 100% 50% no-repeat;
+        background-origin: content-box;
+        line-height: 2.369em;
+    }
+    .selected a {
+    	color: #fff;
+    	font-weight: bold;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.4);		
+    }
+    .messageCounter {
+        font-size: .9em;
+        font-weight: normal;
+    }
+}
 .panel {
     .col(4.5);
 }
 .panel:first-of-type {
-    .col(3);
+    .col(2.5);
+}
+.panel:last-of-type {
+    .col(5);
 }
 .updating {
     opacity: 0;
