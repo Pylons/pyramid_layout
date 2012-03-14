@@ -151,39 +151,6 @@ h2#navigation-toggle,
 h2#search-toggle {
     display: none;
 }
-#global-nav {
-    padding: 0;
-	li {
-	    position: relative;
-	    z-index: 2;
-		border-top: 1px solid lighten(@pushDownBg, 10%);
-		border-bottom: 1px solid darken(@pushDownBg, 10%);
-	    margin: 0;
-	    padding: 0;		
-	}
-	li:nth-child(1) {
-	    border-top: none;
-	}
-	li:nth-last-child {
-	    border-bottom: none;
-	}
-    > li > a {
-	    display: block;
-	    color: @baseFontColor;
-	    position: relative;
-	    background: transparent url('../img/right_arrow_icon.png') 100% 50% no-repeat;
-	    background-origin: content-box;
-        line-height: 2.369em;
-	}
-	.selected {
-		border-top: none;
-	}
-	.selected a {
-		color: #fff;
-		font-weight: bold;
-	    text-shadow: 0 -1px 0 rgba(0,0,0,.4);		
-	}
-}
 form#search-form {
 	padding: 1em 10%;
 	margin-bottom: 0;
@@ -275,25 +242,7 @@ form#search-form select {
     border: 1px solid rgba(0,0,0,.2);
     text-shadow: none;
 }
-#sections .messageCounter {
-    float: right;
-    font-size: .9em;
-    border-color: transparent;
-}
-#sections > li > a {
-    .css3_border_radius(.5em);
-    position: relative;
-    padding: .3em 15px;
-} 
-#sections .active a {
-    .css3_border_radius(.5em 0 0 .5em);
-    &:after {
-        position: absolute;
-        right: -1em;
-        top: 0;
-        .trianglePointer(right, @linkColor, 1em);
-    }
-}
+
 /* @end */
 
 
@@ -426,6 +375,7 @@ th a.selected {
 form#send-message {
     .help-block {
         color: #ccc;
+        .smaller();
     }
     #mywords {
         border: none;

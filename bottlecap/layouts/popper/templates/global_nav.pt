@@ -8,13 +8,13 @@
     </tal:comment>
     <div data-quickpanel="pushdown" class="topNavIconWrapper">
         <h2 id="navigation-toggle" class="pushdown-toggle ir" data-toggle="pushdown">Navigation</h2>
-        <ul id="global-nav" class="pushdown">
+        <ul id="global-nav" class="pushdown pushDownList pushDownNavigation">
             <li tal:repeat="item nav_menu"
                     tal:attributes="class item.selected">
                 <a href="${item.url}">${item.title}</a>
             </li>
-            <li><a id="chatter" href="#">Chatter <span class="messageCounter">6</span></a></li>
-            <li><a id="radar" href="#">Radar <span class="messageCounter">7</span></a></li>
+            <li id="chatter-wrapper"><a id="chatter" href="#">Chatter <span class="messageCounter">6</span></a></li>
+            <li id="radar-wrapper"><a id="radar" href="#">Radar <span class="messageCounter">7</span></a></li>
             <li>
                 <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
                 <div class="dropdown-menu">

@@ -1,9 +1,8 @@
 <div id="radar-panel">
     <div class="pushdownContent clearfix">
         <div id="{{class}}" class="panel">
-            <h3>Radar</h3>
-            <ul id="sections" class="nav nav-list">
-                <li class="active"><a href="#">Home <span class="messageCounter">3</span></a></li>
+            <ul class="pushDownList pushDownNavigation">
+                <li class="selected"><a href="#">Home <span class="messageCounter">3</span></a></li>
                 <li><a href="#">Approvals</a></li>
                 <li><a href="#">Topics <span class="messageCounter">4</span></a></li>
                 <li><a href="#">Featured</a></li>
@@ -15,15 +14,21 @@
         {{#communities}}
             <div id="{{id}}" class="panel">
                 <h3>{{title}}</h3>
-                <ul class="noBullets">
+                <ul class="pushDownList">
                     {{#items}}
                     <li>
-                        <a href="#"><h4>{{title}}</h4></a>
-                        <ul>
-                            {{#tools}}
-                            <li><a class="panel-item-tools" href="{{url}}">{{title}}</a></li>
-                            {{/tools}}
-                        </ul>
+                        <a href="{{url}}">
+                            <h4 class="pushDownList-title">{{title}}</h4>
+                            <div class="pushDownList-info">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</div>
+                        </a>
+                        <div class="pushDownList-helper">
+                            <a href="" class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                {{#tools}}
+                                <li><a class="panel-item-tools" href="{{url}}">{{title}}</a></li>
+                                {{/tools}}
+                            </ul>
+                        </div>
                     </li>
                     {{/items}}
                 </ul>
@@ -33,16 +38,19 @@
         {{#activity}}
             <div id="{{id   }}" class="panel">
                 <h3>{{title}}</h3>
-                <ul class="noBullets">
+                <ul class="pushDownList">
                     {{#items}}                    
                     <li>
                         <a href="#">
-                            <h4>{{title}}</h4>
-                            <small>
-                                {{type}}, <cite>{{path}}</cite>
-                                <time datetime="{{modificationDate}}">{{modificationDateReadable}}</time>
-                            </small>
+                            <h4 class="pushDownList-title">{{title}}</h4>
+                            <div class="pushDownList-info">
+                                {{type}}<br />
+                                <cite>Located at  {{path}}</cite>
+                            </div>
                         </a>
+                        <div class="pushDownList-helper">
+                            <time datetime="{{modificationDate}}">{{modificationDateReadable}}</time>
+                        </div>
                     </li>
                     {{/items}}
                 </ul>
