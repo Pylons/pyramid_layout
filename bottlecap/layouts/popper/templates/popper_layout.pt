@@ -38,6 +38,7 @@
         <!-- extras from layout manager -->
         ${panel('popper.extra_css_head')}
         ${panel('popper.extra_js_head')}
+        ${panel('popper.extra_head')}
 
         <metal:headslot metal:define-slot="head_slot"/>
     </head>

@@ -223,3 +223,13 @@ def extra_js_head(context, request):
         defer = False
         js.append('\t\t<script src="%s" %s></script>' % (spec, 'defer' if defer else ''))
     return '\n'.join(js)
+
+
+# Can be use to insert arbitrary construct into the head slot.
+# Similar result as inserting from the view into the head_slot of the template,
+# but it is easier accessible from the layout 
+# if global script code has to be inserted here.
+@panel_config(name='popper.extra_slot_head')
+def extra_head(context, request):
+    return ''
+ 
