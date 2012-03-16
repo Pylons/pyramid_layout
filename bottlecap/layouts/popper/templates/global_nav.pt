@@ -46,7 +46,7 @@
                     <ul>
                         <li tal:repeat="item overflow_menu"
                             tal:attributes="class item.selected"
-                            id="${item.id}-wrapper}">
+                            id="${item.id}-wrapper">
                            <a href="${item.url}" id="${item.id}">${item.title}<span 
                               tal:condition="'count' in item" 
                               class="messageCounter">${item.count}</span></a>
