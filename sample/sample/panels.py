@@ -11,19 +11,37 @@ def global_nav(context, request):
             return 'selected'
         return None
     nav_menu = [
-        dict(title="Communities",
+        dict(id="communities",
+             title="Communities",
              url=request.resource_url(context, 'communities'),
              selected=is_selected('communities')
              ),
-        dict(title="People",
+        dict(id="people",
+             title="People",
              url=request.resource_url(context, 'peopleosf'),
              selected=is_selected('peopleosf')
              ),
-        dict(title="Calendar",
+        dict(id="calendar",
+             title="Calendar",
              url='#',
              selected=is_selected('calendar')
-             )]
-    return {'nav_menu': nav_menu}
+             ),
+        dict(id="chatter",
+             title="Chatter",
+             url="#",
+             selected=is_selected('chatter'),
+             count="6"),
+        dict(id="radar",
+             title="Radar",
+             url="#",
+             selected=is_selected('radar'),
+             count="7")]
+    overflow = [
+        dict(id="tagcloud",
+             title="Tags",
+             url='#',
+             selected=is_selected('tagcloud'))]
+    return {'nav_menu': nav_menu, 'overflow_menu': overflow}
 
 
 @panel_config(name='sample.content_portlet',
