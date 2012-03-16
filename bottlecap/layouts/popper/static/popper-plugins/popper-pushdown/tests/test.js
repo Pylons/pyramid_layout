@@ -775,13 +775,15 @@ test("ajax data fetch, trigger events render", function () {
         {'Content-Type': 'application/json; charset=UTF-8'},
         JSON.stringify({
             microtemplate: 'THIS IS A PUSHDOWN',
-            data: {}
+            data: {},
+            state: 'STATE'
         })
     );
 
     // we have a render event triggered
+    // and the state is passed to it as parm
     equal(ajaxEvents.length, 1);
-    deepEqual(ajaxEvents[0], ['pushdowntabrender', [{}]]);
+    deepEqual(ajaxEvents[0], ['pushdowntabrender', ['STATE']]);
 
     // bump the time
     this.clock.tick(400);

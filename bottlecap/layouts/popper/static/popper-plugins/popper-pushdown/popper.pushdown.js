@@ -250,7 +250,7 @@
                 // Remember the time of the succesful update.
                 this.tsIso = result.ts || '';
 
-                this._trigger('render', null);
+                this._trigger('render', null, result.state);
             }
 
             // Continuation. For example, if ajax is started when the user
