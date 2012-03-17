@@ -489,22 +489,22 @@ class SampleViews(object):
                         'title': 'Front Page',
                         'url': '#',
                         'type': 'Wiki Page',
-                        'modificationDate': '2012-03-13',
-                        'modificationDateReadable': 'March 13, 2012',
+                        'modified': '2012-03-13',
+                        'modified_readable': 'March 13, 2012',
                         'path': '/communities/default/wiki/front_page/'
                     }, {
                         'title': 'Test Blog',
                         'url': '#',
                         'type': 'Blog Entry',
-                        'modificationDate': '2012-03-12',
-                        'modificationDateReadable': 'March 12, 2012',
+                        'modified': '2012-03-12',
+                        'modified_readable': 'March 12, 2012',
                         'path': '/communities/default/blog/test_blog_entry/'
                     }, {
                         'title': 'Another Blog',
                         'url': '#',
                         'type': 'Blog Entry',
-                        'modificationDate': '2012-03-10',
-                        'modificationDateReadable': 'March 10, 2012',
+                        'modified': '2012-03-10',
+                        'modified_readable': 'March 10, 2012',
                         'path': '/communities/tester/blog/test_blog_entry/'
                     }
                     ]
