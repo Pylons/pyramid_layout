@@ -272,7 +272,7 @@
         _onBeforeShow: function (evt) {
             this._trigger('beforeShow', evt);
             // mark parent with class selected
-            this.element.parent('li').addClass('selected');
+            this.element.parent('li').addClass('active');
         },
 
         // handle panel event
@@ -303,7 +303,7 @@
         // handle panel event
         _onHide: function (evt) {
             // mark parent with class unselected
-            this.element.parent('li').removeClass('selected');
+            this.element.parent('li').removeClass('active');
             this._trigger('hide', evt);
         },
 

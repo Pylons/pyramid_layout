@@ -37,19 +37,19 @@
     .pushContainer();
     font-family: @fancyFont;
 }
-#radar-wrapper.selected, #radar-wrapper.selected a,
-#chatter-wrapper.selected, #chatter-wrapper.selected a {
+#radar-wrapper.active, #radar-wrapper.active a,
+#chatter-wrapper.active, #chatter-wrapper.active a {
     background: @pushDownBg url('../img/vertical_stripes.png') top left repeat !important;
     position: relative;   
     z-index: 1; 
     margin: 0;    
 }
-#radar-wrapper.selected,
-#chatter-wrapper.selected {
+#radar-wrapper.active,
+#chatter-wrapper.active {
     bottom: -0.9em;
 }
-#radar-wrapper.selected a,
-#chatter-wrapper.selected a {
+#radar-wrapper.active a,
+#chatter-wrapper.active a {
     bottom: 1.05em;
     color: #fff !important;
     text-shadow: none !important;
