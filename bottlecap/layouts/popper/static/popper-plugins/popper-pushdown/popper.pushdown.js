@@ -352,7 +352,7 @@
         },
 
         show: function (callback) {
-            var self = this, this_height;
+            var self = this;
             if (this.state != this._STATES.HIDDEN) {
                 // Ignore it if we are not showable.
                 if (callback) {
@@ -379,6 +379,9 @@
                         height: height
                     }, 350, function () {
                         self.state = self._STATES.VISIBLE;
+                        // In the end, we have to remove the height attribute
+                        // that we just set above.
+                        self.element.css('height', '');
                         if (callback) {
                             callback();
                         }
