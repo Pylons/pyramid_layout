@@ -70,6 +70,9 @@ buster.testCase('popper-pushdowntab', {
         this.xhr = sinon.useFakeXMLHttpRequest();
         var requests = this.requests = [];
         this.xhr.onCreate = function (xhr) {
+            if (! requests) {
+                return; // ???
+            }
             requests.push(xhr);
         };
         // Make sure to deplete microtemplate cache in the head data
@@ -102,6 +105,7 @@ buster.testCase('popper-pushdowntab', {
         },
 
         'Create / destroy': function () {
+            assert(true);
         },
 
         'open it': function () {
