@@ -458,7 +458,7 @@ a.tagCounter{background-color:transparent;background-position:0% 47%;background-
 .no-touch a.tagCounter{margin-left:-2.1em;position:absolute;z-index:1;}
 .no-touch a.tag:hover{z-index:4;}
 .no-touch a.tag:hover~a.tagCounter,.no-touch a.tagCounter:hover{margin-left:0em;z-index:3;}
-form.addTag{width:100%;clear:left;margin-top:0.6665em;margin-bottom:0;line-height:2.5em;}form.addTag fieldset{background:#f1eade;-webkit-border-radius:0.3em;-moz-border-radius:0.3em;border-radius:0.3em;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;border:1px solid #8f806f;position:relative;padding-top:0;margin-bottom:0;font-size:0.889em;}
+form.addTag{width:100%;clear:left;margin-bottom:0;line-height:2.5em;}form.addTag fieldset{background:#f1eade;-webkit-border-radius:0.3em;-moz-border-radius:0.3em;border-radius:0.3em;-webkit-background-clip:padding-box;-moz-background-clip:padding-box;background-clip:padding-box;border:1px solid #8f806f;position:relative;padding-top:0;margin-bottom:0;font-size:0.889em;}
 form.addTag input,form.addTag button{border:none;background:transparent;}
 form.addTag input{padding:.2em 8.230769231em .2em .25em;line-height:normal;width:10em;font-size:1em;}
 form.addTag input:focus{outline:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
