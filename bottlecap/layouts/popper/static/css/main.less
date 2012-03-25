@@ -737,6 +737,78 @@ a.next {
 @import "elements/portlets.less";
 /* @end */
 
+/* @group Blog */
+.blogComment {
+    position: relative;
+    .css3_border_radius(.5em);
+    background-color: #C8B6A1;
+    margin-top: 40px;
+    margin-bottom: 1em;
+    padding: 1em;
+    min-height: 100px;
+    height:auto !important;
+    //height: 100px;
+    font-size: 0.85em;
+    a:hover {
+        color: #8F806F;
+    }
+    .commentManagement {
+        font-family: @fancyFont;
+        text-transform: capitalize;
+        float: right;
+        position: relative;
+        display: block;
+        clear: both;
+        ul {
+            font-size: 0.95em;
+            float: none;
+            clear: both;
+            list-style: none;
+            padding: 0;
+            > li {
+                display: inline;
+                padding: 0 10px;
+                margin: 0;
+                border-left: 1px solid #8F806F;
+                > a {
+                    display: inline-block;
+                }
+            }
+            > li:first-child {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+    }
+    .portrait {
+        position: absolute;
+        top: -30px;
+        .css3_border_radius(.2em);
+        background: #8F806F;
+        padding: 2px;
+    }
+    .commentText {
+        font-family: @baseFont;
+        clear: both;
+        .quotedreplytext {
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: 2px solid #8F806F;
+        }
+    }
+    .kbyline {
+        font-family: @fancyFont;
+        font-size: 0.85em;
+        float: right;
+        position: relative;
+        display: block;
+        clear: both;
+    }
+    .blogAttachments {
+        clear: both;
+    }
+}
+/* @end */
 
 /* @group FOOTER */
 body > footer {
