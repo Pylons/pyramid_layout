@@ -18,4 +18,18 @@
             </ul>
         </li>
     </tal:block>
+    <li tal:condition="overflow_menu|False">
+        <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
+        <div class="dropdown-menu">
+            <ul>
+                <li tal:repeat="item overflow_menu"
+                    tal:attributes="class item.selected"
+                    id="${item.id}-wrapper">
+                   <a href="${item.url}" id="${item.id}">${item.title}<span 
+                      tal:condition="'count' in item" 
+                      class="messageCounter">${item.count}</span></a>
+                </li>
+            </ul>
+        </div>
+    </li>
 </ul>
