@@ -29,9 +29,10 @@
     }
     form {
         padding: 2em;
-        .css3_linear_gradient(@black, @gray);
+        //background: darken(@baseColor2, 10%);
+        #gradient > .vertical(#c5ae8b, #ab9779);
         text-align: left;
-        .css3_border_radius(1em);
+        .css3_border_radius(0.75em);
         margin-bottom: 0;
         .form-actions {
             margin-bottom: 0;
@@ -47,7 +48,10 @@
             padding: 0;
         }
     }
-    label, a {
+    label {
+        color: @black;
+    }
+    a {
         color: @white;
     }
     .control-group {
@@ -57,8 +61,8 @@
 @media only screen and (min-width: 640px) {
     .anonymous-form {
         text-align: left;
-        height: 17em;
-        padding: 0;
+        //height: 17em;
+        //padding: 0;
         .verticalCentering();
         #bcpanel-global-logo {
             padding: 0 0 0 2em;
