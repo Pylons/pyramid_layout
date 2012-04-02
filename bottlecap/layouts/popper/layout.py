@@ -23,7 +23,11 @@ class PopperLayout(object):
         self.context = context
         self.request = request
         self.app_url = request.application_url
-        self.context_url = request.resource_url(context)
+        # what if context is not traversable?
+        if getattr(context, '__name__', None) is not None:
+            self.context_url = request.resource_url(context)
+        else:
+            self.context_url = request.url
         self.portlets = []
 
     @reify
