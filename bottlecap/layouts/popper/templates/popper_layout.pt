@@ -25,7 +25,7 @@
 
         <link rel="stylesheet" href="${layout.popper_static('css/main.css')}" />
         <tal:block condition="layout.use_css_pie">
-        <!--[if IE 7]>
+        <!--[if lt IE 9]>
         <link rel="stylesheet" href="${layout.popper_static('css/ie.css')}" />
         <![endif]-->
         </tal:block>
