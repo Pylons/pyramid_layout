@@ -10,6 +10,11 @@ input,textarea,select,.uneditable-input{behavior:url(PIE.htc);}
 .btn-group .btn:last-child,.btn-group .dropdown-toggle{behavior:url(PIE.htc);}
 .btn-group .btn.large:first-child{behavior:url(PIE.htc);}
 .btn-group .btn.large:last-child,.btn-group .large.dropdown-toggle{behavior:url(PIE.htc);}
+a.tag{border-radius:5px 0 0 5px;behavior:url(PIE.htc);}a.tag:after{border-radius:5px 0 0 5px;behavior:url(PIE.htc);}
+a.tagCounter{behavior:url(PIE.htc);}
+form.addTag fieldset{behavior:url(PIE.htc);}
+form.addTag input{behavior:url(PIE.htc);}
+form.addTag button{filter:none;behavior:url(PIE.htc);}
 form#search-form fieldset{behavior:url(PIE.htc);}
 .search{behavior:url(PIE.htc);}.search .searchInputWrapper{behavior:url(PIE.htc);}
 .notification{behavior:url(PIE.htc);}
