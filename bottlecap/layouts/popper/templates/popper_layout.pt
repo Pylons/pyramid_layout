@@ -24,11 +24,9 @@
         <link rel="shortcut icon" href="${layout.popper_static('img/favicon.ico')}" type="image/x-icon"/>
 
         <link rel="stylesheet" href="${layout.popper_static('css/main.css')}" />
-        <tal:block condition="layout.use_css_pie">
         <!--[if lt IE 9]>
         <link rel="stylesheet" href="${layout.popper_static('css/ie.css')}" />
         <![endif]-->
-        </tal:block>
 
         <script src="${layout.popper_static('js/jquery-1.7.1.min.js')}"></script>
         <script src="${layout.popper_static('js/modernizr-2.0.6.min.js')}"></script>
