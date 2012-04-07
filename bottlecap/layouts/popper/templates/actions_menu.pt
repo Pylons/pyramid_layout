@@ -19,7 +19,7 @@
       </li>
     </tal:block>
     <li tal:condition="overflow_menu|False" id="actions-overflow-menu">
-        <a href="#" class="dropdown-toggle moreToggle" data-toggle="dropdown">More</a>
+        <a href="#" class="dropdown-toggle btn btn-actions" data-toggle="dropdown">More</a>
         <div class="dropdown-menu">
             <ul>
                 <li tal:repeat="item overflow_menu">

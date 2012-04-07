@@ -109,6 +109,8 @@
 // -------------------------
 .btn-primary,
 .btn-primary:hover,
+.btn-actions,
+.btn-actions:hover,
 .btn-warning,
 .btn-warning:hover,
 .btn-danger,
@@ -124,6 +126,7 @@
 }
 // Provide *some* extra contrast for those who can get it
 .btn-primary.active,
+.btn-actions.active,
 .btn-warning.active,
 .btn-danger.active,
 .btn-success.active,
@@ -200,6 +203,14 @@ input[type="submit"].btn {
 .btn-primary {
     @color: spin(@primaryButtonBackground, 20);
     border-color: @color @color darken(@color, 15%);    
+}
+.btn-actions, .btn-actions:hover, .btn-actions:active {
+    background-image: url("../img/cog_section.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    width: 20px;
 }
 .btn-warning {
     @color: @orange;
