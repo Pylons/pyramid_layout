@@ -22,7 +22,7 @@ form#search-form fieldset{behavior:url(PIE.htc);}
 .messageCounter{behavior:url(PIE.htc);}
 .open{behavior:url(PIE.htc);}
 .dropwdown-menu{behavior:url(PIE.htc);}
-.label-moderator,.label.private{position:relative;behavior:url(PIE.htc);}
+.label{position:relative;behavior:url(PIE.htc);}
 .sectionRelated,.contentRelated,.contentActions{behavior:url(PIE.htc);}
 .filter{position:relative;background-color:#ab9779;filter:none;behavior:url(PIE.htc);}
 .paginationBar{position:relative;background-color:#ab9779;filter:none;behavior:url(PIE.htc);}

@@ -32,7 +32,7 @@
     }
 }
 
-#my-communities-list {
+#my-communities-list, #blog-archive {
     font-size: 0.9em;
     a {
         color: #ffffff;
@@ -40,8 +40,14 @@
             color: darken(@linkColor, 20%);
         }
     }
-    a.btn {
-        color: #000000;
+}
+
+.portlet-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    > li:first-child {
+        border-top: 1px dotted darken(#82ADBF, 20%);
     }
 }
 
@@ -54,6 +60,9 @@
 
 .portlet-buttons {
     margin-top: 1em;
+    a.btn {
+        color: #000000;
+    }
 }
 
 @media only screen and (min-width: 640px) {
