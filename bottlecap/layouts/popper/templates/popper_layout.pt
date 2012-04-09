@@ -124,6 +124,10 @@
     <script src="${layout.popper_static('js/popper.js')}"
             type="text/javascript" defer></script>
 
+    <!-- bootstrap-modal.js -->
+    <script src="${layout.popper_static('js/bootstrap-modal.js')}"
+            type="text/javascript" defer></script>
+
     <!-- extras from layout manager -->
     ${panel('popper.extra_css')}
     ${panel('popper.extra_js')}
