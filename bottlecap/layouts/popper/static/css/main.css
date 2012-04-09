@@ -116,7 +116,7 @@ form#search-form button.searchButton{background:transparent url('../img/search_i
 .contentWrapper:after{clear:both;}
 .noSectionMenu .singleColumn{padding-top:4.209em;}
 section.main{padding:0 0.6665em 1.333em;}
-section.main header{position:relative;margin-bottom:1.333em;}section.main header h1{margin:0;padding:0;}
+section.main header{position:relative;margin-bottom:1.333em;}section.main header h1,section.main header h2,section.main header h3{margin:0;padding:0;}
 section.main header small{color:#555555;font-style:italic;}section.main header small a{border-bottom:none;}
 section.main header a{text-decoration:none;}
 .description{font-style:italic;}
