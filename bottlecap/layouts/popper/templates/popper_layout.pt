@@ -104,7 +104,7 @@
     </script>
 
     <script src="${layout.popper_static('js/jquery-ui-1.9m5.min.js')}" defer></script>
-    <link rel="stylesheet" href="${layout.js_static('resources/jquery-ui-1.9m5-smoothness.min.css')}" type="text/css" />
+    <link rel="stylesheet" href="${layout.popper_static('js/jquery-ui-1.9m5-smoothness.min.css')}" type="text/css" />
     <script src="${layout.popper_static('popper-plugins/popper-livesearch/bc-core/jquery.cookie.js')}" type="text/javascript" defer></script>
     <script src="${layout.popper_static('popper-plugins/popper-livesearch/bc-core/jquery.ajaxmanager-3.0.7.js')}" type="text/javascript" defer></script>
     <script src="${layout.popper_static('popper-plugins/popper-livesearch/bc-core/jquery.caret-1.0.2.min.js')}" type="text/javascript" defer></script>
