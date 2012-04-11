@@ -59,9 +59,6 @@ class PopperLayout(object):
         return self.request.static_url(
             'bottlecap.layouts.popper:static/%s' % fname)
 
-    def js_static(self, fname):
-        return self.request.static_url('jslibs:/%s' % fname)
-
     @apply
     def show_sidebar():
         def getter(self):

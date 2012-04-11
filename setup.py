@@ -29,7 +29,6 @@ except IOError:
 install_requires = [
     'pyramid>=1.1b3', # requires static_view with use_subpath
     'Sphinx',
-    'jslibs>=0.5',
     ]
 tests_require = install_requires + ['coverage', 'nose', 'mock',
                                     'webtest']
