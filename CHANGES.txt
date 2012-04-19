@@ -1,9 +1,12 @@
 pyramid_bottlecap changelog
 ===========================
 
-Unreleased
-----------
+0.3 (2012-04-19)
+----------------
 
+- Removed Popper layout.  
+
+- Various minor improvements.
 
 
 0.2 (2012-01-04)
