@@ -1,9 +1,9 @@
 import inspect
 
-from bottlecap.interfaces import ILayout
-from bottlecap.interfaces import ILayoutManager
-from bottlecap.interfaces import IPanel
-from bottlecap.layout import LayoutManager
+from pyramid_layout.interfaces import ILayout
+from pyramid_layout.interfaces import ILayoutManager
+from pyramid_layout.interfaces import IPanel
+from pyramid_layout.layout import LayoutManager
 
 from pyramid import renderers
 from pyramid.config import ConfigurationError
@@ -48,8 +48,8 @@ def includeme(config):
     config.add_subscriber(create_layout_manager, ContextFound)
 
     defaults = {
-        'bottlecap.site_title': 'KARL',
-        'bottlecap.site_title_link': '/'
+        'site_title': 'KARL',
+        'site_title_link': '/'
         }
     settings = {}
     for key in defaults.keys()[:]:

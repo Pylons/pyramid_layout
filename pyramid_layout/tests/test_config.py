@@ -12,7 +12,7 @@ from pyramid import testing
 class Test_add_renderer_globals(unittest.TestCase):
 
     def test_it(self):
-        from bottlecap.config import add_renderer_globals
+        from pyramid_layout.config import add_renderer_globals
         lm = mock.Mock()
         request = testing.DummyRequest()
         request.registry.settings = {'bc': {}}
@@ -30,7 +30,7 @@ class Test_add_renderer_globals(unittest.TestCase):
         self.assertEqual(event['main_template'], 'TEMPLATE')
 
     def test_request_none(self):
-        from bottlecap.config import add_renderer_globals
+        from pyramid_layout.config import add_renderer_globals
         request = None
         event = {
             'request': request,
@@ -42,9 +42,9 @@ class Test_add_renderer_globals(unittest.TestCase):
 
 class Test_create_layout_manager(unittest.TestCase):
 
-    @mock.patch('bottlecap.config.LayoutManager')
+    @mock.patch('pyramid_layout.config.LayoutManager')
     def test_it_default_factory(self, factory):
-        from bottlecap.config import create_layout_manager as fut
+        from pyramid_layout.config import create_layout_manager as fut
         event = mock.Mock()
         event.request.registry.queryUtility.return_value = None
         fut(event)
@@ -52,7 +52,7 @@ class Test_create_layout_manager(unittest.TestCase):
         self.assertEqual(event.request.layout_manager, factory.return_value)
 
     def test_it_custom_factory(self):
-        from bottlecap.config import create_layout_manager as fut
+        from pyramid_layout.config import create_layout_manager as fut
         event = mock.Mock()
         fut(event)
         factory = event.request.registry.queryUtility.return_value
@@ -63,11 +63,11 @@ class Test_create_layout_manager(unittest.TestCase):
 class Test_add_panel(unittest.TestCase):
 
     def call_fut(self, config, panel, **kw):
-        from bottlecap.config import add_panel
+        from pyramid_layout.config import add_panel
         return add_panel(config, panel, **kw)
 
     def test_func_no_renderer(self):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
@@ -89,9 +89,9 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(iface, IPanel)
         self.assertEqual(name, '')
 
-    @mock.patch('bottlecap.config.renderers')
+    @mock.patch('pyramid_layout.config.renderers')
     def test_func_w_renderer(self, renderers):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
         renderers.RendererHelper.return_value = renderer
@@ -123,9 +123,9 @@ class Test_add_panel(unittest.TestCase):
             request='REQUEST')
         self.assertEqual(name, '')
 
-    @mock.patch('bottlecap.config.renderers')
+    @mock.patch('pyramid_layout.config.renderers')
     def test_func_bypass_renderer(self, renderers):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
@@ -152,9 +152,9 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(renderer.render.call_count, 0)
         self.assertEqual(name, '')
 
-    @mock.patch('bottlecap.config.renderers')
+    @mock.patch('pyramid_layout.config.renderers')
     def test_renderer_only(self, renderers):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
         renderers.RendererHelper.return_value = renderer
@@ -187,9 +187,9 @@ class Test_add_panel(unittest.TestCase):
         with self.assertRaises(ConfigurationError):
             self.call_fut(config, None)
 
-    @mock.patch('bottlecap.config.renderers')
+    @mock.patch('pyramid_layout.config.renderers')
     def test_func_w_default_renderer(self, renderers):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
         renderers.RendererHelper.return_value = renderer
@@ -222,7 +222,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(name, '')
 
     def test_class_no_attr(self):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
@@ -248,7 +248,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(name, '')
 
     def test_class_w_attr(self):
-        from bottlecap.interfaces import IPanel
+        from pyramid_layout.interfaces import IPanel
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
@@ -277,7 +277,7 @@ class Test_add_panel(unittest.TestCase):
 class Test_add_layout(unittest.TestCase):
 
     def call_fut(self, config, *args, **kw):
-        from bottlecap.config import add_layout as fut
+        from pyramid_layout.config import add_layout as fut
         return fut(config, *args, **kw)
 
     def test_no_template(self):
@@ -287,7 +287,7 @@ class Test_add_layout(unittest.TestCase):
             self.call_fut(config)
 
     def test_it_context_is_class(self):
-        from bottlecap.interfaces import ILayout
+        from pyramid_layout.interfaces import ILayout
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         template = 'template'
@@ -312,7 +312,7 @@ class Test_add_layout(unittest.TestCase):
 
     def test_multi_layout(self):
         from pyramid.exceptions import PredicateMismatch
-        from bottlecap.interfaces import ILayout
+        from pyramid_layout.interfaces import ILayout
         class Container(object):
             pass
         config = mock.Mock()
@@ -345,7 +345,7 @@ class Test_add_layout(unittest.TestCase):
         self.assertEqual(iface, ILayout)
 
     def test_second_multi_layout(self):
-        from bottlecap.config import _MultiLayout
+        from pyramid_layout.config import _MultiLayout
         from zope.interface import implements
         from zope.interface import Interface
         class IContainer(Interface):

@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:meta="http://namespaces.zope.org/meta">
+
+  <meta:directives namespace="http://pylonshq.com/pyramid_layout">
+
+    <meta:directive
+        name="panel"
+        schema="pyramid_layout.zcml.IPanelDirective"
+        handler="pyramid_layout.zcml.panel"
+        />
+
+    <meta:directive
+        name="layout"
+        schema="pyramid_layout.zcml.ILayoutDirective"
+        handler="pyramid_layout.zcml.layout"
+        />
+
+  </meta:directives>
+
+</configure>

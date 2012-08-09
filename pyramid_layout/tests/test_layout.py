@@ -6,7 +6,7 @@ except ImportError: #pragma NO COVERAGE
     import unittest
 
 from pyramid import testing
-from bottlecap.layout import LayoutManager
+from pyramid_layout.layout import LayoutManager
 
 
 class LayoutManagerTests(unittest.TestCase):
@@ -15,10 +15,10 @@ class LayoutManagerTests(unittest.TestCase):
 
     def setUp(self):
         self.config = testing.setUp()
-        self.config.include('bottlecap')
+        self.config.include('pyramid_layout')
 
     def test_layout(self):
-        from bottlecap.layouts.popper.layout import PopperLayout
+        from pyramid_layout.layouts.popper.layout import PopperLayout
         request = testing.DummyRequest()
         lm = LayoutManager(request.context, request)
         self.assertIsInstance(lm.layout, PopperLayout)
@@ -41,13 +41,13 @@ class LayoutManagerTests(unittest.TestCase):
         request = testing.DummyRequest()
         request.layout_manager = lm = LayoutManager(request.context, request)
         self.config.add_layout(name='test',
-            template='bottlecap.layouts.popper:templates/popper_layout.pt')
+            template='pyramid_layout.layouts.popper:templates/popper_layout.pt')
         self.assertEqual(lm.layout.__layout__, '')
         lm.use_layout('test')
         self.assertEqual(lm.layout.__layout__, 'test')
 
     def test_structure(self):
-        from bottlecap.layout import Structure
+        from pyramid_layout.layout import Structure
         html = u'<h1>Hello</h1>'
         s = Structure(html)
         self.assertTrue(s.__html__(), html)

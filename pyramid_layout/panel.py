@@ -14,11 +14,11 @@ class panel_config(object):
           return 'OK'
 
     The following arguments are supported as arguments to
-    :class:`bottlecap.panel.panel_config`: ``context``, ``name``, ``renderer``,
-    ``attr``.
+    :class:`pyramid_layout.panel.panel_config`: ``context``, ``name``,
+    ``renderer``, ``attr``.
 
     The meanings of these arguments are the same as the arguments passed to
-    :meth:`bottlecap.config.add_panel`.
+    :meth:`pyramid_layout.config.add_panel`.
     """
     def __init__(self, name='', context=None, renderer=None, attr=None):
         self.name = name
@@ -33,7 +33,7 @@ class panel_config(object):
             config = context.config.with_package(info.module)
             config.add_panel(panel=ob, **settings)
 
-        info = venusian.attach(wrapped, callback, category='bottlecap')
+        info = venusian.attach(wrapped, callback, category='pyramid_layout')
 
         if info.scope == 'class':
             # if the decorator was attached to a method in a class, or
