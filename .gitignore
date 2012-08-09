@@ -8,3 +8,5 @@ lib
 .coverage
 *.sw?
 dist
+_build
+venv

@@ -32,22 +32,22 @@ install_requires = [
     ]
 tests_require = install_requires + ['coverage', 'nose', 'mock',
                                     'webtest']
+docs_require = install_requires + ['sphinx']
+
 if version < '2.7':
     tests_require.append('unittest2')
 
-setup(name='pyramid_bottlecap',
+setup(name='pyramid_layout',
       version=VERSION,
-      description=('Nice UX you can plug in as a starting point for '
-                   'your Pyramid application.'),
+      description='Pyramid add-on for facilitating UI layout',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Intended Audience :: Developers",
         "Programming Language :: Python",
-        "Framework :: Pylons",
-        "Topic :: Internet :: WWW/HTTP :: WSGI",
+        "Framework :: Pyramid",
         "License :: Repoze Public License",
         ],
-      keywords='wsgi pylons bottlecap web pyramid',
+      keywords='wsgi pylons web pyramid',
       author="Paul Everitt, Chris Rossi",
       author_email="pylons-devel@googlegroups.com",
       url="http://docs.pylonsproject.org",
@@ -57,8 +57,9 @@ setup(name='pyramid_bottlecap',
       zip_safe=False,
       install_requires=install_requires,
       tests_require=tests_require,
-      test_suite="bottlecap",
-      entry_points=""
-      ,
-      )
+      extras_require={
+          'tests': tests_require,
+          'docs': docs_require},
+      test_suite="pyramid_layout",
+      entry_points="")
 

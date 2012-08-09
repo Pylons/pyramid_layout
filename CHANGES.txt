@@ -1,5 +1,10 @@
-pyramid_bottlecap changelog
-===========================
+pyramid_layout changelog
+========================
+
+Unreleased
+----------
+
+- Changed name from pyramid_bottlecap to pyramid_layout.
 
 0.3 (2012-04-19)
 ----------------
