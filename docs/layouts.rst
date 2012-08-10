@@ -1,12 +1,15 @@
 Using Pyramid Layout
 ====================
 
-To get started with Pyramid Layout include ``pyramid_layout`` in your application's config::
+To get started with Pyramid Layout include ``pyramid_layout`` in your 
+application's config::
 
     config = Configurator(...)
     config.include('pyramid_layout')
 
-Alternately, instead of using the Configurator’s include method, you can activate Pyramid Layout by changing your application’s .ini file, use the following line::
+Alternately, instead of using the Configurator’s include method, you can 
+activate Pyramid Layout by changing your application’s .ini file, 
+use the following line::
 
     pyramid.includes = pyramid_layout
 
@@ -71,5 +74,5 @@ your view::
         request.layout_manager.use_layout('admin')
         ...
 
-Layouts can also be registered for specific context types and containments.  See
+Layouts can also be registered for specific context types and containments. See
 the api docs for more info.
