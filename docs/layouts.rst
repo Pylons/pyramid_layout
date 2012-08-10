@@ -74,5 +74,15 @@ your view::
         request.layout_manager.use_layout('admin')
         ...
 
+The decorator ``pyramid_layout.layout.layout_config`` can be used in conjuction
+with ``pyramid.config.Configurator.scan`` to register layouts declaratively::
+
+    from pyramid_layout.layout import layout_config
+
+    @layout_config(template='templates/default_layout.pt')
+    @layout_config(name='admin', template='templates/admin_layout.pt')
+    class MyLayout(object):
+        ...
+
 Layouts can also be registered for specific context types and containments. See
 the api docs for more info.
