@@ -145,6 +145,29 @@ def add_panel(config, panel=None, name="", context=None,
         renderer = renderers.RendererHelper(name=renderer,
             package=config.package, registry=config.registry)
 
+    introspectables = []
+    discriminator = ['panel', context, name, IPanel, attr]
+    discriminator = tuple(discriminator)
+    if inspect.isclass(panel) and attr:
+        panel_desc = 'method %r of %s' % (
+            attr, config.object_description(panel))
+    else:
+        panel_desc = config.object_description(panel)
+    panel_intr = config.introspectable(
+        'panels',
+        discriminator,
+        panel_desc,
+        'panel')
+    panel_intr.update(
+        dict(
+            name=name,
+            context=context,
+            attr=attr,
+            callable=panel,
+            )
+        )
+    introspectables.append(panel_intr)
+
     def register(renderer=renderer):
         if renderer is None:
             # use default renderer if one exists (reg'd in phase 1)
@@ -187,7 +210,26 @@ def add_panel(config, panel=None, name="", context=None,
         config.registry.registerAdapter(
             derived_panel, (context,), IPanel, name)
 
-    config.action(('panel', context, name), register)
+    if renderer is not None and renderer.name and '.' in renderer.name:
+        # it's a template
+        tmpl_intr = config.introspectable(
+            'templates',
+            discriminator,
+            renderer.name,
+            'template'
+            )
+        tmpl_intr.relate('panels', discriminator)
+        tmpl_intr['name'] = renderer.name
+        tmpl_intr['type'] = renderer.type
+        tmpl_intr['renderer'] = renderer
+        tmpl_intr.relate('renderer factories', renderer.type)
+        introspectables.append(tmpl_intr)
+
+    config.action(
+      ('panel', context, name),
+      register,
+      introspectables=introspectables
+      )
 
 
 class _PanelMapper(object):
@@ -230,6 +272,29 @@ def add_layout(config, layout=None, template=None, name='', context=None,
             package=config.package, registry=config.registry)
         template = helper.renderer.implementation()
 
+    introspectables = []
+    discriminator = ['layout', context, name, ILayout]
+    discriminator = tuple(discriminator)
+    if inspect.isclass(layout):
+        layout_desc = 'Layout %s' % (
+            config.object_description(layout))
+    else:
+        layout_desc = config.object_description(layout)
+    layout_intr = config.introspectable(
+        'layouts',
+        discriminator,
+        layout_desc,
+        'layout')
+    layout_intr.update(
+        dict(
+            name=name,
+            filename=template.filename,
+            context=context,
+            callable=layout,
+            )
+        )
+    introspectables.append(layout_intr)
+
     def register():
         def derived_layout(context, request):
             wrapped = layout(context, request)
@@ -257,7 +322,11 @@ def add_layout(config, layout=None, template=None, name='', context=None,
         config.registry.registerAdapter(
             reg_layout, (context,), ILayout, name=name)
 
-    config.action(('layout', context, name, containment), register)
+    config.action(
+      ('layout', context, name, containment),
+      register,
+      introspectables=introspectables
+      )
 
 
 class _MultiLayout(dict):
