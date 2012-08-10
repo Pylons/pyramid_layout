@@ -1,0 +1,72 @@
+Using Pyramid Layout
+====================
+
+To get started with Pyramid Layout include ``pyramid_layout`` in your 
+application's config::
+
+    config = Configurator(...)
+    config.include('pyramid_layout')
+
+Including ``pyramid_layout`` in your application adds two new directives to your
+configurator: ``add_layout`` and ``add_panel``.  These directives work very much
+like ``add_view`` but add registrations for layouts and panels.  Including 
+``pyramid_layout`` will also add an attribute, ``layout_manager``, to the 
+request object of each request, which is an instance of 
+``pyramid_layout.layout.LayoutManager``.  Finally, three renderer globals are
+added which will be available to all templates: ``layout``, ``main_template``,
+and ``panel``.  ``layout`` is an instance of the layout selected for the view.
+``main_template`` is a ZPT macro that provides the main layout for the view.
+``panel`` is a callable used to render panels in your templates.
+
+Using Layouts
+-------------
+
+A layout consists of a class and template.  The layout class will be 
+instantiated on a per request basis with the context and request as arguments.
+The layout class can be ommitted, in which case a default layout class will be
+used, which only assigns `context` and `request` to the layout instance.  
+Generally, though, you will provide your own layout class which can serve as a
+place to provide API that will be available to your templates.  A simple layout
+class might look like::
+
+    class MyLayout(object):
+        page_title = 'Hooray! My App!'
+
+        def __init__(self, context, request):
+            self.context = context
+            self.request = request
+            self.home_url = request.application_url
+
+        def is_user_admin(self):
+            return has_permission(request, 'manage')
+
+An instance of the layout object will be available as the renderer global, 
+``layout``, in templates, so, for example, you can put something like this in a
+template::
+
+    <title>${layout.page_title}</title>
+
+All layouts must have an associated template which is the main template for the
+layout and will be present as ``main_template`` in renderer globals.
+
+To register a layout, use the ``add_layout`` method of the configurator::
+
+    config.add_layout('myproject.layout.MyLayout', 
+                      'myproject.layout:templates/default_layout.pt')
+
+The above registered layout will be the default layout.  Layouts can also be 
+named::
+
+    config.add_layout('myproject.layout.MyLayout', 
+                      'myproject.layout:templates/admin_layout.pt',
+                      name='admin')
+
+To use a named layout, call the ``use_layout`` method of ``LayoutManager`` in 
+your view::
+
+    def myview(context, request):
+        request.layout_manager.use_layout('admin')
+        ...
+
+Layouts can also be registered for specific context types and containments.  See
+the api docs for more info.
