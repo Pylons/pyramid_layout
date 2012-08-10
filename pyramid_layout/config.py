@@ -47,16 +47,6 @@ def includeme(config):
     config.add_subscriber(add_renderer_globals, BeforeRender)
     config.add_subscriber(create_layout_manager, ContextFound)
 
-    defaults = {
-        'site_title': 'KARL',
-        'site_title_link': '/'
-        }
-    settings = {}
-    for key in defaults.keys()[:]:
-        if key in config.registry.settings:
-            defaults.pop(key)
-    config.registry.settings.update(defaults)
-
 
 def add_panel(config, panel=None, name="", context=None,
               renderer=None, attr=None):

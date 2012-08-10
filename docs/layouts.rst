@@ -7,6 +7,12 @@ application's config::
     config = Configurator(...)
     config.include('pyramid_layout')
 
+Alternately, instead of using the Configurator’s include method, you can 
+activate Pyramid Layout by changing your application’s .ini file, 
+use the following line::
+
+    pyramid.includes = pyramid_layout
+
 Including ``pyramid_layout`` in your application adds two new directives to your
 configurator: ``add_layout`` and ``add_panel``.  These directives work very much
 like ``add_view`` but add registrations for layouts and panels.  Including 
@@ -78,5 +84,5 @@ with ``pyramid.config.Configurator.scan`` to register layouts declaratively::
     class MyLayout(object):
         ...
 
-Layouts can also be registered for specific context types and containments.  See
+Layouts can also be registered for specific context types and containments. See
 the api docs for more info.
