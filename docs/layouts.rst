@@ -1,11 +1,14 @@
 Using Pyramid Layout
 ====================
 
-To get started with Pyramid Layout include ``pyramid_layout`` in your 
-application's config::
+To get started with Pyramid Layout include ``pyramid_layout`` in your application's config::
 
     config = Configurator(...)
     config.include('pyramid_layout')
+
+Alternately, instead of using the Configurator’s include method, you can activate Pyramid Layout by changing your application’s .ini file, use the following line::
+
+    pyramid.includes = pyramid_layout
 
 Including ``pyramid_layout`` in your application adds two new directives to your
 configurator: ``add_layout`` and ``add_panel``.  These directives work very much
