@@ -65,3 +65,7 @@ def headings(context, request):
         return '\n'.join([lm.render_panel(name, *args, **kw)
              for name, args, kw in layout.headings])
     return ''
+
+@panel_config(name='footer')
+def footer(context, request):
+    return '<p>&copy; Pylons Project 2012</p>'
