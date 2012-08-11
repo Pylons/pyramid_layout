@@ -86,3 +86,40 @@ with ``pyramid.config.Configurator.scan`` to register layouts declaratively::
 
 Layouts can also be registered for specific context types and containments. See
 the api docs for more info.
+
+Using Panels
+------------
+
+A panel is similar to a view but is responsible for rendering only a part of a
+pagee.  A panel is a callable which can accept arbitrary arguments (the first 
+two are always ``context`` and ``request``) and either returns an html string or
+uses a Pyramid renderer to render the html to insert in the page.  
+
+A panel can be configured using the method, ``add_panel`` of the 
+``Configurator`` instance::
+
+    config.add_panel('myproject.layout.siblings_panel', 'siblings',
+                     renderer='myproject.layout:templates/siblings.pt')
+
+The panel callable might look something like::
+
+    def siblings_panel(context, request, n_siblings=5):
+        return [sibling for sibling in context.__parent__.values()
+                if sibling is not context][:n_siblings]
+
+And could be called from a template like this::
+
+    ${panel('siblings', 8)}  <!-- Show 8 siblings -->
+
+If using ``Configurator.scan``, you can also register the panel declaratively::
+
+    from pyramid_layout.panel import panel_config
+
+    @panel_config('siblings', renderer='templates/siblings.pt')
+    def siblings_panel(context, request, n_siblings=5):
+        return [sibling for sibling in context.__parent__.values()
+                if sibling is not context][:n_siblings]
+
+Panels can be registered to match only specific context types.  See api docs for
+more info.
+
