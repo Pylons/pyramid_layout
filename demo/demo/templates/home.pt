@@ -1,0 +1,13 @@
+<metal:block use-macro="main_template">
+
+  <div metal:fill-slot="content">
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    ${panel('hero', title='Chameleon Layout!')}
+
+    <!-- Example row of columns -->
+    <div class="row">
+      ${panel('headings')}
+    </div>
+  </div>
+
+</metal:block>

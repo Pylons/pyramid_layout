@@ -1,7 +1,15 @@
 from pyramid_layout.layout import layout_config
 
 
-@layout_config(template='demo:templates/layout.mako')
+@layout_config(template='demo:templates/layouts/layout.mako')
+@layout_config(
+    name='chameleon',
+    template='demo:templates/layouts/layout.pt'
+    )
+@layout_config(
+    name='jinja2',
+    template='demo:templates/layouts/layout.jinja2'
+    )
 class AppLayout(object):
     project_title = 'Pyramid Layout App!'
 

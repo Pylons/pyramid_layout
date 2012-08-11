@@ -1,0 +1,13 @@
+{% extends "{{context['main_template'].uri}}" %}
+
+{% block content %}
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+{{panel('hero', title='Jinja2 Layout!')}}
+
+<!-- Example row of columns -->
+<div class="row">
+  {{panel('headings')}}
+</div>
+
+{% endblock %}

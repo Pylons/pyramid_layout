@@ -1,7 +1,7 @@
 <%inherit file="${context['main_template'].uri}"/>
 
 <!-- Main hero unit for a primary marketing message or call to action -->
-${panel('hero', title='Pyramid Layout!')}
+${panel('hero', title='Mako Layout!')}
 
 <!-- Example row of columns -->
 <div class="row">
