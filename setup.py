@@ -27,7 +27,7 @@ except IOError:
     README = CHANGES = ''
 
 install_requires = [
-    'pyramid>=1.1b3', # requires static_view with use_subpath
+    'pyramid>=1.3.3', # requires mako fix
     'Sphinx',
     ]
 tests_require = install_requires + ['coverage', 'nose', 'mock',
