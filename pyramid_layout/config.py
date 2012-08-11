@@ -267,11 +267,6 @@ def add_layout(config, layout=None, template=None, name='', context=None,
     if template is None:
         raise ConfigurationError('"template" is required')
 
-    if isinstance(template, basestring):
-        helper = renderers.RendererHelper(name=template,
-            package=config.package, registry=config.registry)
-        template = helper.renderer.implementation()
-
     introspectables = []
     discriminator = ['layout', context, name, ILayout]
     discriminator = tuple(discriminator)
@@ -285,17 +280,23 @@ def add_layout(config, layout=None, template=None, name='', context=None,
         discriminator,
         layout_desc,
         'layout')
-    layout_intr.update(
-        dict(
-            name=name,
-            filename=template.filename,
-            context=context,
-            callable=layout,
-            )
-        )
-    introspectables.append(layout_intr)
 
-    def register():
+    def register(template=template):
+        if isinstance(template, basestring):
+            helper = renderers.RendererHelper(name=template,
+                package=config.package, registry=config.registry)
+            template = helper.renderer.implementation()
+
+        layout_intr.update(
+            dict(
+                name=name,
+                filename=template.filename,
+                context=context,
+                callable=layout,
+                )
+            )
+        introspectables.append(layout_intr)
+
         def derived_layout(context, request):
             wrapped = layout(context, request)
             wrapped.__layout__ = name
