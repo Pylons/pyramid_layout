@@ -6,10 +6,10 @@ from pyramid_layout.layout import layout_config
     name='chameleon',
     template='demo:templates/layouts/layout.pt'
     )
-@layout_config(
-    name='jinja2',
-    template='demo:templates/layouts/layout.jinja2'
-    )
+#@layout_config(
+#    name='jinja2',
+#    template='demo:templates/layouts/layout.jinja2'
+#    )
 class AppLayout(object):
     project_title = 'Pyramid Layout App!'
 
