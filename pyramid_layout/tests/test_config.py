@@ -101,8 +101,6 @@ class Test_add_panel(unittest.TestCase):
         def panel(context, request):
             return {'body': 'TEST'}
         self.call_fut(config, panel, renderer='RENDERER')
-        renderers.RendererHelper.assert_called_once_with(name='RENDERER',
-            package=config.package, registry=config.registry)
         args, kwargs = config.action.call_args
         self.assertEqual(kwargs, {})
         discriminator, register = args
@@ -134,8 +132,6 @@ class Test_add_panel(unittest.TestCase):
         def panel(context, request):
             return 'TEST'
         self.call_fut(config, panel, renderer='RENDERER')
-        renderers.RendererHelper.assert_called_once_with(name='RENDERER',
-            package=config.package, registry=config.registry)
         args, kwargs = config.action.call_args
         self.assertEqual(kwargs, {})
         discriminator, register = args
@@ -162,8 +158,6 @@ class Test_add_panel(unittest.TestCase):
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
         self.call_fut(config, None, renderer='RENDERER')
-        renderers.RendererHelper.assert_called_once_with(name='RENDERER',
-            package=config.package, registry=config.registry)
         args, kwargs = config.action.call_args
         self.assertEqual(kwargs, {})
         discriminator, register = args

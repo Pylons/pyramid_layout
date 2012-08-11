@@ -141,10 +141,6 @@ def add_panel(config, panel=None, name="", context=None,
             raise ConfigurationError('"panel" was not specified and '
                                      'no "renderer" specified')
 
-    if isinstance(renderer, basestring):
-        renderer = renderers.RendererHelper(name=renderer,
-            package=config.package, registry=config.registry)
-
     introspectables = []
     discriminator = ['panel', context, name, IPanel, attr]
     discriminator = tuple(discriminator)
@@ -176,6 +172,10 @@ def add_panel(config, panel=None, name="", context=None,
                     name=None,
                     package=config.package,
                     registry=config.registry)
+
+        elif isinstance(renderer, basestring):
+            renderer = renderers.RendererHelper(name=renderer,
+                package=config.package, registry=config.registry)
 
         def derive_rendered(wrapped, renderer):
             if renderer is None:
@@ -210,20 +210,20 @@ def add_panel(config, panel=None, name="", context=None,
         config.registry.registerAdapter(
             derived_panel, (context,), IPanel, name)
 
-    if renderer is not None and renderer.name and '.' in renderer.name:
-        # it's a template
-        tmpl_intr = config.introspectable(
-            'templates',
-            discriminator,
-            renderer.name,
-            'template'
-            )
-        tmpl_intr.relate('panels', discriminator)
-        tmpl_intr['name'] = renderer.name
-        tmpl_intr['type'] = renderer.type
-        tmpl_intr['renderer'] = renderer
-        tmpl_intr.relate('renderer factories', renderer.type)
-        introspectables.append(tmpl_intr)
+        if renderer is not None and renderer.name and '.' in renderer.name:
+            # it's a template
+            tmpl_intr = config.introspectable(
+                'templates',
+                discriminator,
+                renderer.name,
+                'template'
+                )
+            tmpl_intr.relate('panels', discriminator)
+            tmpl_intr['name'] = renderer.name
+            tmpl_intr['type'] = renderer.type
+            tmpl_intr['renderer'] = renderer
+            tmpl_intr.relate('renderer factories', renderer.type)
+            introspectables.append(tmpl_intr)
 
     config.action(
       ('panel', context, name),
