@@ -6,13 +6,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">${layout.project_title}</a>
+      <a class="brand" href="#">${title}</a>
       <div class="nav-collapse">
+        % if nav:
         <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          % for item in nav:
+          <li class="${'active' if item['active'] else ''}">
+            <a href="${item['url']}">${item['name']}</a>
+          </li>
+          % endfor
         </ul>
+        % endif
       </div><!--/.nav-collapse -->
     </div>
   </div>

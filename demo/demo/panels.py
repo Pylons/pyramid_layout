@@ -6,7 +6,23 @@ from pyramid_layout.panel import panel_config
     renderer='demo:templates/panels/navbar.mako'
     )
 def navbar(context, request):
-    return {}
+    def nav_item(name, url):
+        active = True if request.current_route_url() == url else False
+        item = dict(
+            name=name,
+            url=url,
+            active=active
+            )
+        return item
+    nav = [
+        nav_item('Home Mako', request.route_url('home.mako')),
+        nav_item('Home Chameleon', request.route_url('home.chameleon')),
+        nav_item('Home Jinja2', request.route_url('home.jinja2'))
+        ]
+    return {
+        'title': 'Demo App',
+        'nav': nav
+        }
 
 
 @panel_config(
