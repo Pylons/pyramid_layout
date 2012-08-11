@@ -5,7 +5,5 @@ ${panel('hero', title='Pyramid Layout!')}
 
 <!-- Example row of columns -->
 <div class="row">
-  ${panel('heading-mako')}
-  ${panel('heading-chameleon')}
-  ${panel('heading-jinja2')}
+  ${panel('headings')}
 </div>

@@ -9,3 +9,7 @@ class AppLayout(object):
         self.context = context
         self.request = request
         self.home_url = request.application_url
+        self.headings = []
+
+    def add_heading(self, name, *args, **kw):
+        self.headings.append((name, args, kw))

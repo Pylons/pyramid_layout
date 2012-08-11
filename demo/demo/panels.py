@@ -39,3 +39,13 @@ def heading_chameleon(context, request):
     )
 def heading_jija2(context, request):
     return {'title': 'Heading Jinja2'}
+
+
+@panel_config(name='headings')
+def headings(context, request):
+    lm = request.layout_manager
+    layout = lm.layout
+    if layout.headings:
+        return '\n'.join([lm.render_panel(name, *args, **kw)
+             for name, args, kw in layout.headings])
+    return ''
