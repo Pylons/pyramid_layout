@@ -270,11 +270,8 @@ def add_layout(config, layout=None, template=None, name='', context=None,
     introspectables = []
     discriminator = ['layout', context, name, ILayout]
     discriminator = tuple(discriminator)
-    if inspect.isclass(layout):
-        layout_desc = 'Layout %s' % (
-            config.object_description(layout))
-    else:
-        layout_desc = config.object_description(layout)
+    layout_desc = 'Layout %s' % (
+        config.object_description(layout))
     layout_intr = config.introspectable(
         'layouts',
         discriminator,
