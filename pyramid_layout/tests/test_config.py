@@ -75,7 +75,7 @@ class Test_add_panel(unittest.TestCase):
             return 'TEST'
         self.call_fut(config, panel)
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -94,6 +94,7 @@ class Test_add_panel(unittest.TestCase):
         from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
+        renderer.name = 'test_renderer'
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
@@ -102,7 +103,7 @@ class Test_add_panel(unittest.TestCase):
             return {'body': 'TEST'}
         self.call_fut(config, panel, renderer='RENDERER')
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -125,6 +126,7 @@ class Test_add_panel(unittest.TestCase):
     def test_func_bypass_renderer(self, renderers):
         from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
+        renderer.name = 'test_renderer'
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
@@ -133,7 +135,7 @@ class Test_add_panel(unittest.TestCase):
             return 'TEST'
         self.call_fut(config, panel, renderer='RENDERER')
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -153,13 +155,14 @@ class Test_add_panel(unittest.TestCase):
         from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
+        renderer.name = 'test_renderer'
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
         self.call_fut(config, None, renderer='RENDERER')
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -186,6 +189,7 @@ class Test_add_panel(unittest.TestCase):
         from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
+        renderer.name = 'test_renderer'
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
@@ -194,7 +198,7 @@ class Test_add_panel(unittest.TestCase):
             return {'body': 'TEST'}
         self.call_fut(config, panel)
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -227,7 +231,7 @@ class Test_add_panel(unittest.TestCase):
                 return 'TEST'
         self.call_fut(config, Panel)
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -253,7 +257,7 @@ class Test_add_panel(unittest.TestCase):
                 return 'TEST'
         self.call_fut(config, Panel, attr='panel')
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('panel', None, ''))
         register()
@@ -284,12 +288,13 @@ class Test_add_layout(unittest.TestCase):
         from pyramid_layout.interfaces import ILayout
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
-        template = 'template'
+        template = mock.Mock()
+        template.filename = 'test_template.pt'
         renderer_factory = config.registry.queryUtility.return_value
         renderer_factory.return_value.implementation.return_value = template
         self.call_fut(config, template=template, context=object)
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('layout', object, '', None))
         register()
@@ -298,7 +303,7 @@ class Test_add_layout(unittest.TestCase):
         factory, context, iface = args
         layout = factory('context', 'request')
         self.assertEqual(layout.__layout__, '')
-        self.assertEqual(layout.__template__, 'template')
+        self.assertEqual(layout.__template__, template)
         self.assertEqual(layout.context, 'context')
         self.assertEqual(layout.request, 'request')
         self.assertEqual(context, (object,))
@@ -311,7 +316,8 @@ class Test_add_layout(unittest.TestCase):
             pass
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
-        template = 'template'
+        template = mock.Mock()
+        template.filename = 'test_layout.pt'
         renderer_factory = config.registry.queryUtility.return_value
         renderer_factory.return_value.implementation.return_value = template
         config.registry.adapters.lookup.return_value = None
@@ -319,7 +325,7 @@ class Test_add_layout(unittest.TestCase):
         self.call_fut(config, template=template, containment=Container,
                       name='foo')
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('layout', None, 'foo', Container))
         register()
@@ -332,7 +338,7 @@ class Test_add_layout(unittest.TestCase):
         container = Container()
         layout = factory(container, 'request')
         self.assertEqual(layout.__layout__, 'foo')
-        self.assertEqual(layout.__template__, 'template')
+        self.assertEqual(layout.__template__, template)
         self.assertEqual(layout.context, container)
         self.assertEqual(layout.request, 'request')
         self.assertEqual(context, (None,))
@@ -348,7 +354,8 @@ class Test_add_layout(unittest.TestCase):
             implements(IContainer)
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
-        template = 'template'
+        template = mock.Mock()
+        template.filename = 'test_template.pt'
         renderer_factory = config.registry.queryUtility.return_value
         renderer_factory.return_value.implementation.return_value = template
         multi = _MultiLayout()
@@ -357,13 +364,13 @@ class Test_add_layout(unittest.TestCase):
         self.call_fut(config, template=template, containment=IContainer,
                       name='foo')
         args, kwargs = config.action.call_args
-        self.assertEqual(kwargs, {})
+        self.assertIn('introspectables', kwargs)
         discriminator, register = args
         self.assertEqual(discriminator, ('layout', None, 'foo', IContainer))
         register()
         container = Container()
         layout = multi(container, 'request')
         self.assertEqual(layout.__layout__, 'foo')
-        self.assertEqual(layout.__template__, 'template')
+        self.assertEqual(layout.__template__, template)
         self.assertEqual(layout.context, container)
         self.assertEqual(layout.request, 'request')
