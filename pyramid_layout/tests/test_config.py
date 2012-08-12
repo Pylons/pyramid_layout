@@ -90,15 +90,45 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(name, '')
 
     @mock.patch('pyramid_layout.config.renderers')
-    def test_func_w_renderer(self, renderers):
+    def test_func_w_renderer_but_returns_string(self, renderers):
         from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
         renderer.render.return_value = 'TEST'
-        renderer.name = 'test_renderer'
+        renderer.name = 'test_renderer.pt'
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
+        def panel(context, request):
+            return 'TEST'
+        self.call_fut(config, panel)
+        args, kwargs = config.action.call_args
+        self.assertIn('introspectables', kwargs)
+        discriminator, register = args
+        self.assertEqual(discriminator, ('panel', None, ''))
+        register()
+        args, kwargs = config.registry.registerAdapter.call_args
+        self.assertEqual(kwargs, {})
+        derived, context, iface, name = args
+        result = derived(None, None)
+        self.assertEqual(result, u'TEST')
+        self.assertIsInstance(result, unicode)
+        self.assertEqual(context, (None,))
+        self.assertEqual(iface, IPanel)
+        self.assertEqual(name, '')
+
+    @mock.patch('pyramid_layout.config.renderers')
+    def test_func_w_renderer(self, renderers):
+        from pyramid_layout.interfaces import IPanel
+        renderer = mock.Mock()
+        renderer.render.return_value = 'TEST'
+        renderer.name = 'test_renderer.pt'
+        renderers.RendererHelper.return_value = renderer
+        config = mock.Mock()
+        config.maybe_dotted = lambda x: x
+        config.registry.queryUtility.return_value = None
+        config.introspectable.return_value = introspectable = mock.Mock()
+        introspectable.__setitem__ = mock.Mock()
         def panel(context, request):
             return {'body': 'TEST'}
         self.call_fut(config, panel, renderer='RENDERER')
@@ -126,11 +156,13 @@ class Test_add_panel(unittest.TestCase):
     def test_func_bypass_renderer(self, renderers):
         from pyramid_layout.interfaces import IPanel
         renderer = mock.Mock()
-        renderer.name = 'test_renderer'
+        renderer.name = 'test_renderer.pt'
         renderers.RendererHelper.return_value = renderer
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
+        config.introspectable.return_value = introspectable = mock.Mock()
+        introspectable.__setitem__ = mock.Mock()
         def panel(context, request):
             return 'TEST'
         self.call_fut(config, panel, renderer='RENDERER')
@@ -284,7 +316,7 @@ class Test_add_layout(unittest.TestCase):
         with self.assertRaises(ConfigurationError):
             self.call_fut(config)
 
-    def test_it_context_is_class(self):
+    def test_it(self):
         from pyramid_layout.interfaces import ILayout
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
@@ -304,6 +336,32 @@ class Test_add_layout(unittest.TestCase):
         layout = factory('context', 'request')
         self.assertEqual(layout.__layout__, '')
         self.assertEqual(layout.__template__, template)
+        self.assertEqual(layout.context, 'context')
+        self.assertEqual(layout.request, 'request')
+        self.assertEqual(context, (object,))
+        self.assertEqual(iface, ILayout)
+
+    def test_string_template(self):
+        from pyramid_layout.interfaces import ILayout
+        config = mock.Mock()
+        config.maybe_dotted = lambda x: x
+        template = 'test_template.pt'
+        renderer = mock.Mock()
+        renderer.filename = 'test_template.pt'
+        renderer_factory = config.registry.queryUtility.return_value
+        renderer_factory.return_value.implementation.return_value = renderer
+        self.call_fut(config, template=template, context=object)
+        args, kwargs = config.action.call_args
+        self.assertIn('introspectables', kwargs)
+        discriminator, register = args
+        self.assertEqual(discriminator, ('layout', object, '', None))
+        register()
+        args, kwargs = config.registry.registerAdapter.call_args
+        self.assertEqual(kwargs, {'name': ''})
+        factory, context, iface = args
+        layout = factory('context', 'request')
+        self.assertEqual(layout.__layout__, '')
+        self.assertEqual(layout.__template__, renderer)
         self.assertEqual(layout.context, 'context')
         self.assertEqual(layout.request, 'request')
         self.assertEqual(context, (object,))
