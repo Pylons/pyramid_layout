@@ -18,6 +18,13 @@ from zope.interface import providedBy
 from zope.interface.interfaces import IInterface
 
 
+try:
+    basestring = basestring  # Python 2
+except NameError:  #pragma no cover
+    basestring = str         # Python 3
+    unicode = str
+
+
 def add_renderer_globals(event):
     request = event['request']
     # if the rendering is done from a script or otherwise outside a

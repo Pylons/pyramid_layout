@@ -6,6 +6,11 @@ from pyramid.decorator import reify
 import venusian
 from zope.interface import providedBy
 
+try:
+    unicode = unicode  # Python 2
+except NameError: #pragma no cover
+    unicode = str      # Python 3
+
 
 class LayoutManager(object):
 

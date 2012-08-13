@@ -92,7 +92,7 @@ class TestStructure(unittest.TestCase):
 
     def test_it(self):
         from pyramid_layout.layout import Structure
-        html = u'<h1>Hello</h1>'
+        html = '<h1>Hello</h1>'
         s = Structure(html)
         self.assertTrue(s.__html__(), html)
 

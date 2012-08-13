@@ -1,12 +1,19 @@
 try: #pragma NO COVERAGE
     # python < 2.7
     import unittest2 as unittest
+    unittest # stfu pyflakes
 except ImportError: #pragma NO COVERAGE
     # python >= 2.7
     import unittest
 
 import mock
 from pyramid import testing
+
+try:
+    basestring = basestring  # Python 2
+except NameError: #pragma no cover
+    basestring = str         # Python 3
+    unicode = str
 
 
 class Test_add_renderer_globals(unittest.TestCase):
@@ -72,7 +79,7 @@ class Test_add_panel(unittest.TestCase):
         config.maybe_dotted = lambda x: x
         config.registry.queryUtility.return_value = None
         def panel(context, request):
-            return 'TEST'
+            return b'TEST'
         self.call_fut(config, panel)
         args, kwargs = config.action.call_args
         self.assertIn('introspectables', kwargs)
@@ -83,7 +90,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived(None, None)
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -111,7 +118,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived(None, None)
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -141,7 +148,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived('CONTEXT', 'REQUEST')
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -175,7 +182,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived('CONTEXT', 'REQUEST')
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -202,7 +209,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived('CONTEXT', 'REQUEST')
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -240,7 +247,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived('CONTEXT', 'REQUEST')
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -271,7 +278,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived(None, None)
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -297,7 +304,7 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(kwargs, {})
         derived, context, iface, name = args
         result = derived(None, None)
-        self.assertEqual(result, u'TEST')
+        self.assertEqual(result, 'TEST')
         self.assertIsInstance(result, unicode)
         self.assertEqual(context, (None,))
         self.assertEqual(iface, IPanel)
@@ -404,12 +411,13 @@ class Test_add_layout(unittest.TestCase):
 
     def test_second_multi_layout(self):
         from pyramid_layout.config import _MultiLayout
-        from zope.interface import implements
+        from zope.interface import implementer
         from zope.interface import Interface
         class IContainer(Interface):
             pass
+        @implementer(IContainer)
         class Container(object):
-            implements(IContainer)
+            pass
         config = mock.Mock()
         config.maybe_dotted = lambda x: x
         template = mock.Mock()
