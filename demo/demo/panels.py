@@ -7,7 +7,7 @@ from pyramid_layout.panel import panel_config
     )
 def navbar(context, request):
     def nav_item(name, url):
-        active = True if request.current_route_url() == url else False
+        active = request.current_route_url() == url
         item = dict(
             name=name,
             url=url,
