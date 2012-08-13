@@ -7,6 +7,7 @@ lib
 *.DS_Store
 .coverage
 *.sw?
+.tox
 dist
 _build
 venv
