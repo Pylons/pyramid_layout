@@ -53,7 +53,7 @@ def heading_chameleon(context, request):
     name='heading-jinja2',
     renderer='demo:templates/panels/heading.jinja2'
     )
-def heading_jija2(context, request):
+def heading_jinja2(context, request):
     return {'title': 'Heading Jinja2'}
 
 
