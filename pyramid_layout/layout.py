@@ -13,17 +13,31 @@ except NameError: #pragma no cover
 
 
 class LayoutManager(object):
-
+    """
+    An instance of LayoutManager will be available as the ``layout_manager``
+    attribute of the ``request`` object in views and allows the view to access
+    or change the current layout.
+    """
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def use_layout(self, name):
+        """
+        Makes a layout with the given name the current layout.  By default an
+        unnamed layout which matches the current context and containment will be
+        the current layout.  By specifying a named layout using
+        :meth:`LayoutManager.use_layout`, a named view matching the current
+        context, containment, and given name will be used.
+        """
         layout = find_layout(self.context, self.request, name)
         setattr(self, 'layout', layout)
 
     @reify
     def layout(self):
+        """
+        Property which gets the current layout.
+        """
         return find_layout(self.context, self.request)
 
     def render_panel(self, name, *args, **kw):
@@ -52,14 +66,17 @@ class Structure(unicode):
 
 
 class layout_config(object):
-    """ A function, class or method :term:`decorator` which allows a
-    developer to create layout registrations.
+    """ A class decorator which allows a developer to create layout
+    registrations.
 
     For example, this code in a module ``layout.py``::
 
       @layout_config(name='my_layout', template='mypackage:templates/layout.pt')
-      def my_layout(context, request):
-          return 'OK'
+      class MyLayout(object):
+
+          def __init__(self, context, request):
+              self.context = context
+              self.request = request
 
     The following arguments are supported as arguments to
     :class:`pyramid_layout.layout.layout_config`: ``context``, ``name``,

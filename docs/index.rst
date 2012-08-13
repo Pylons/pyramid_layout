@@ -32,6 +32,7 @@ Contents
 
     about
     layouts
+    api
 
 Indices and tables
 ==================

@@ -2,7 +2,7 @@ import venusian
 
 
 class panel_config(object):
-    """ A function, class or method :term:`decorator` which allows a
+    """ A function, class or method decorator which allows a
     developer to create panel registrations.
 
     For example, this code in a module ``panels.py``::

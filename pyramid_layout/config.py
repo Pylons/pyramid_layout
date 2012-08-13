@@ -57,14 +57,14 @@ def includeme(config):
 
 def add_panel(config, panel=None, name="", context=None,
               renderer=None, attr=None):
-    """ Add a :term:`panel configuration` to the current
+    """ Add a panel configuration to the current
     configuration state.
 
     Arguments
 
     panel
 
-      A :term:`panel callable` or a :term:`dotted Python name`
+      A panel callable or a dotted Python name
       which refers to a panel callable.  This argument is required
       unless a ``renderer`` argument also exists.  If a
       ``renderer`` argument is passed, and a ``panel`` argument is
@@ -74,7 +74,7 @@ def add_panel(config, panel=None, name="", context=None,
     attr
 
       The panel machinery defaults to using the ``__call__`` method
-      of the :term:`panel callable` (or the function itself, if the
+      of the panel callable (or the function itself, if the
       panel callable is a function) to obtain a response.  The
       ``attr`` value allows you to vary the method attribute used
       to obtain the response.  For example, if your panel was a
@@ -87,8 +87,8 @@ def add_panel(config, panel=None, name="", context=None,
     renderer
 
       This is either a single string term (e.g. ``json``) or a
-      string implying a path or :term:`asset specification`
-      (e.g. ``templates/panels.pt``) naming a :term:`renderer`
+      string implying a path or asset specification
+      (e.g. ``templates/panels.pt``) naming a renderer
       implementation.  If the ``renderer`` value does not contain
       a dot ``.``, the specified string will be used to look up a
       renderer implementation, and that renderer implementation
@@ -98,21 +98,21 @@ def add_panel(config, panel=None, name="", context=None,
       filename extension of the last element in the path will be
       used to look up the renderer implementation, which will be
       passed the full path.  The renderer implementation will be
-      used to construct a :term:`response` from the panel return
+      used to construct a response from the panel return
       value.
 
-      Note that if the panel itself returns a :term:`response` (see
-      :ref:`the_response`), the specified renderer implementation
-      is never called.
+      Note that if the panel itself returns an instance of `basestring` (or just
+      `str` in Python 3), the specified renderer implementation is never
+      called.
 
       When the renderer is a path, although a path is usually just
       a simple relative pathname (e.g. ``templates/foo.pt``,
       implying that a template named "foo.pt" is in the
       "templates" directory relative to the directory of the
-      current :term:`package` of the Configurator), a path can be
+      current package of the Configurator), a path can be
       absolute, starting with a slash on UNIX or a drive letter
       prefix on Windows.  The path can alternately be a
-      :term:`asset specification` in the form
+      asset specification in the form
       ``some.dotted.package_name:relative/path``, making it
       possible to address template assets which live in a
       separate package.
@@ -120,21 +120,21 @@ def add_panel(config, panel=None, name="", context=None,
       The ``renderer`` attribute is optional.  If it is not
       defined, the "null" renderer is assumed (no rendering is
       performed and the value is passed back to the upstream
-      :app:`Pyramid` machinery unmodified).
+      Pyramid machinery unmodified).
 
     name
 
-      The :term:`panel name`.
+      The panel name.
 
     context
 
-      An object or a :term:`dotted Python name` referring to an
-      interface or class object that the :term:`context` must be
-      an instance of, *or* the :term:`interface` that the
-      :term:`context` must provide in order for this panel to be
+      An object or a dotted Python name referring to an
+      interface or class object that the context must be
+      an instance of, *or* the interface that the
+      context must provide in order for this panel to be
       found and called.  This predicate is true when the
-      :term:`context` is an instance of the represented class or
-      if the :term:`context` provides the represented interface;
+      context is an instance of the represented class or
+      if the context provides the represented interface;
       it is otherwise false.
     """
     panel = config.maybe_dotted(panel)
@@ -261,6 +261,48 @@ class _PanelMapper(object):
 
 def add_layout(config, layout=None, template=None, name='', context=None,
                containment=None):
+    """
+    Add a layout configuration to the current configuration state.
+
+    Arguments
+
+    layout
+
+        A layout class or dotted Python name which refers to a layout class.
+        This argument is not required.  If the layout argument is not provided,
+        a default layout class is used which merely has ``context`` and
+        ``request`` as instance attributes.
+
+    template
+
+        A string implying a path or an asset specification for a template file.
+        The file referred to by this argument must have a suffix that maps to a
+        known renderer. This template will be available to other templates as
+        the renderer global ``main_template``.  This argument is required.
+
+    name
+
+        The layout name.
+
+    context
+
+        An object or a dotted Python name referring to an
+        interface or class object that the context must be
+        an instance of, *or* the interface that the
+        context must provide in order for this layout to be
+        found and used.  This predicate is true when the
+        context is an instance of the represented class or
+        if the context provides the represented interface;
+        it is otherwise false.
+
+    containment
+
+        This value should be a Python class or interface (or a
+        dotted Python name) that an object in the
+        lineage of the context must provide in order for this view
+        to be found and called.  The nodes in your object graph must be
+        "location-aware" to use this feature.
+    """
     layout = config.maybe_dotted(layout)
     context = config.maybe_dotted(context)
     containment = config.maybe_dotted(containment)
