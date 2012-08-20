@@ -14,7 +14,7 @@ use the following line::
     pyramid.includes = pyramid_layout
 
 Including ``pyramid_layout`` in your application adds two new directives to your
-:term:`pyramid:configurator`: ``add_layout`` and ``add_panel``.  These directives work very much
+:pyramid:term:`configurator`: ``add_layout`` and ``add_panel``.  These directives work very much
 like ``add_view`` but add registrations for layouts and panels.  Including 
 ``pyramid_layout`` will also add an attribute, ``layout_manager``, to the 
 request object of each request, which is an instance of 
