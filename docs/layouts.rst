@@ -7,19 +7,26 @@ application's config::
     config = Configurator(...)
     config.include('pyramid_layout')
 
-Alternately, instead of using the Configurator’s include method, you can 
+Alternately, instead of using the
+:ref:`the Configurator's <pyramid:configuration_narr>`
+include method, you can
 activate Pyramid Layout by changing your application’s .ini file, 
-use the following line::
+using the following line::
 
     pyramid.includes = pyramid_layout
 
 Including ``pyramid_layout`` in your application adds two new directives to your
-:pyramid:term:`configurator`: ``add_layout`` and ``add_panel``.  These directives work very much
+:pyramid:term:`configurator`:
+:meth:`add_layout <pyramid_layout.config.add_layout>` and
+:meth:`add_panel <pyramid_layout.config.add_panel>`.  These directives
+work very much
 like ``add_view`` but add registrations for layouts and panels.  Including 
 ``pyramid_layout`` will also add an attribute, ``layout_manager``, to the 
-request object of each request, which is an instance of 
-``pyramid_layout.layout.LayoutManager``.  Finally, three renderer globals are
-added which will be available to all templates: ``layout``, ``main_template``,
+request object of each request, which is an instance of
+:class:`pyramid_layout.layout.LayoutManager`.
+
+Finally, three renderer globals are added which will be available to
+all templates: ``layout``, ``main_template``,
 and ``panel``.  ``layout`` is an instance of the layout selected for the view.
 ``main_template`` is the template object that provides the main layout (aka,
 owrap) for the view.  ``panel``, a shortcut for
@@ -82,8 +89,11 @@ your view::
         request.layout_manager.use_layout('admin')
         ...
 
-The decorator ``pyramid_layout.layout.layout_config`` can be used in conjuction
-with ``pyramid.config.Configurator.scan`` to register layouts declaratively::
+The decorator
+:func:`pyramid_layout.layout.layout_config` can be used in conjuction
+with
+:meth:`pyramid.config.Configurator.scan <pyramid:pyramid.config.Configurator.scan>`
+to register layouts declaratively::
 
     from pyramid_layout.layout import layout_config
 
@@ -141,3 +151,38 @@ declaratively::
 Panels can be registered to match only specific context types.  See
 the api docs for more info.
 
+View Templates and Layouts in ZPT
+=================================
+
+If you are a ZPT user, connecting your view template to the layout and
+its template is pretty easy. Just make this your first line in your
+view template:
+
+.. code-block:: xml
+
+  <metal:block use-macro="main_template">
+
+That's a little different than what ZPT users are used to seeing,
+which is more like:
+
+.. code-block:: xml
+
+  <metal:block use-macro="main_template.macros['master']">
+
+In fact, the template used by the layout *doesn't need* a
+``<metal:block define-macro="main_template">`` at all. Why? Here is
+what Pyramid Layout is doing:
+
+- @layout_config takes the ZPT for the master template and lets you
+  call it as a macro
+
+- Pyramid Layout then uses Pyramid's renderer globals to make that main
+  template available, as a callable macro, under the special name
+  ``main_template``
+
+- This ``main_template`` macro is available in the global namespace of
+  your template
+
+After that, it's about what you'd expect. The main template has to
+define at least one slot. The view template has to fill at least one
+slot.
