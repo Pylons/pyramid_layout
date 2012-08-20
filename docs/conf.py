@@ -27,14 +27,11 @@ import sys, os
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.intersphinx',
-    ]
+    'sphinx.ext.intersphinx']
 
 # Looks for pyramid's objects
 intersphinx_mapping = {
-    'pyramid':
-    ('http://docs.pylonsproject.org/projects/pyramid/dev/', None)
-    }
+    'pyramid':    ('http://docs.pylonsproject.org/en/latest', None)}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
