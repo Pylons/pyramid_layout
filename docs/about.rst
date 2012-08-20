@@ -2,13 +2,20 @@
 About Layouts, Panels
 =====================
 
-If you are writing your own UX for your Pyramid project,
-Pyramid Layout provides a way to write your layout templates and logic,
-register them, and use them in your view templates. As you refactor,
-you can make re-usable pieces called panels for your layout and view
-templates.
+If you have a large project with lots of views and templates,
+you most likely have a lot of repetition. The header is the same,
+the footer is the same. A lot of CSS/JS is pulled in, etc.
 
-This section introduces the concepts of "layout" and "panel". 
+Lots of template systems have ways to share templating between
+templates. But how do you get the data into the master template? You
+can put it in the view and pass it in, but then it is hard to know what
+parts belong to the view versus the master template. Then there's
+testing, overriding, cases where you have multiple master templates.
+
+Wouldn't it be nice to have a formal concept called "Layout" that
+gained many of the benefits of Pyramid machinery like views?
+
+This section introduces the concepts of "layout" and "panel".
 
 About Layouts
 =============

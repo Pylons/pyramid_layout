@@ -45,13 +45,18 @@ class might look like::
             self.home_url = request.application_url
 
         def is_user_admin(self):
-            return has_permission(request, 'manage')
+            return has_permission(self.request, 'manage')
 
-An instance of the layout object will be available in templates as the renderer
-global, ``layout``, so, for example, you can put something like this in a
-template::
+An instance of the layout object will be available in templates as the
+renderer global, ``layout``. For example, if you are using Mako or ZPT
+for templating, you can put something like this in a template::
 
     <title>${layout.page_title}</title>
+
+For Jinja2::
+
+    <title>{{layout.page_title}}</title>
+
 
 All layouts must have an associated template which is the main template for the
 layout and will be present as ``main_template`` in renderer globals.
@@ -68,7 +73,8 @@ named::
                       'myproject.layout:templates/admin_layout.pt',
                       name='admin')
 
-To use a named layout, call the ``use_layout`` method of ``LayoutManager`` in 
+Now that you have a layout, time to use it on a particular view. To use
+a named layout, call the ``use_layout`` method of ``LayoutManager`` in
 your view::
 
     def myview(context, request):
@@ -85,8 +91,8 @@ with ``pyramid.config.Configurator.scan`` to register layouts declaratively::
     class MyLayout(object):
         ...
 
-Layouts can also be registered for specific context types and containments. See
-the api docs for more info.
+Layouts can also be registered for specific context types and
+containments. See the api docs for more info.
 
 Using Panels
 ------------
@@ -94,7 +100,14 @@ Using Panels
 A panel is similar to a view but is responsible for rendering only a part of a
 page.  A panel is a callable which can accept arbitrary arguments (the first 
 two are always ``context`` and ``request``) and either returns an html string or
-uses a Pyramid renderer to render the html to insert in the page.  
+uses a Pyramid renderer to render the html to insert in the page.
+
+.. note::
+
+    You can mix-and-match template languages in a project. Some panels
+    can be implemented in Jinja2, some in Mako, some in ZPT. All can
+    work in layouts implemented in any template language supported by
+    Pyramid Layout.
 
 A panel can be configured using the method, ``add_panel`` of the 
 ``Configurator`` instance::
@@ -102,7 +115,9 @@ A panel can be configured using the method, ``add_panel`` of the
     config.add_panel('myproject.layout.siblings_panel', 'siblings',
                      renderer='myproject.layout:templates/siblings.pt')
 
-The panel callable might look something like::
+Because panels can be called with arguments, they can be parameterized
+when used in different ways. The panel callable might look something
+like::
 
     def siblings_panel(context, request, n_siblings=5):
         return [sibling for sibling in context.__parent__.values()
@@ -112,7 +127,8 @@ And could be called from a template like this::
 
     ${panel('siblings', 8)}  <!-- Show 8 siblings -->
 
-If using ``Configurator.scan``, you can also register the panel declaratively::
+If using ``Configurator.scan``, you can also register the panel
+declaratively::
 
     from pyramid_layout.panel import panel_config
 
@@ -121,6 +137,6 @@ If using ``Configurator.scan``, you can also register the panel declaratively::
         return [sibling for sibling in context.__parent__.values()
                 if sibling is not context][:n_siblings]
 
-Panels can be registered to match only specific context types.  See api docs for
-more info.
+Panels can be registered to match only specific context types.  See
+the api docs for more info.
 
