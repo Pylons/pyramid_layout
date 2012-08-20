@@ -41,6 +41,13 @@ class LayoutManager(object):
         return find_layout(self.context, self.request)
 
     def render_panel(self, name, *args, **kw):
+        """
+        Renders the named panel, returning a `unicode` object that is the
+        rendered HTML for the panel.  The panel is looked up using the current
+        context and given name.  The panel is called passing in the current
+        context, request and any additional parameters passed into the
+        `render_panel` call.  In case a panel isn't found, `None` is returned.
+        """
         context = self.context
         request = self.request
         adapters = request.registry.adapters
