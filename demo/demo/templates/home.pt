@@ -2,7 +2,7 @@
 
   <div metal:fill-slot="content">
     <!-- Main hero unit for a primary marketing message or call to action -->
-    ${panel('hero', title='Chameleon Layout!')}
+    ${panel('hero', title='Chameleon')}
 
     <!-- Example row of columns -->
     <div class="row">
