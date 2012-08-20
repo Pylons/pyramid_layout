@@ -15,9 +15,9 @@ def navbar(context, request):
             )
         return item
     nav = [
-        nav_item('Home Mako', request.route_url('home.mako')),
-        nav_item('Home Chameleon', request.route_url('home.chameleon')),
-        nav_item('Home Jinja2', request.route_url('home.jinja2'))
+        nav_item('Mako', request.route_url('home.mako')),
+        nav_item('Chameleon', request.route_url('home.chameleon')),
+        nav_item('Jinja2', request.route_url('home.jinja2'))
         ]
     return {
         'title': 'Demo App',
