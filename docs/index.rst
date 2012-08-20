@@ -8,16 +8,23 @@ then re-using it across your site. You can then manage your global UX
 "layout" as a unit, just like models, views, static resources, and
 other parts of Pyramid.
 
-Benefits
+If you are OCD, and want the same ways to organize and override your UX
+that you get in your Python code, this "layout" approach is your
+cup of tea.
+
+Approach
 ========
 
-- Work on your global look-and-feel (aka theme, aka skin,
-  aka main template, aka o-wrap) as a distinct artifact.
+- Make one (or more) "layout" objects of template and template logic
 
-- Allow per-view, or per-project customization points using familiar
-  Pyramid idioms.
+- Do useful things with this unit of layout: registration,
+  dynamic association with a view, pluggability via Pyramid overrides,
+  testing in isolation
 
-- Use of any of the common Pyramid templating engines (Chameleon ZPT, Mako, 
+- Layouts can share lightweight units called "panels" which are objects
+  of template and code, sharing the same useful things
+
+- Use of any of the common Pyramid templating engines (Chameleon ZPT, Mako,
   Jinja2) is tested and supported with examples.
 
 Contents
@@ -28,6 +35,7 @@ Contents
 
     about
     layouts
+    demo
     api
 
 Indices and tables
