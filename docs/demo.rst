@@ -5,7 +5,7 @@ Let's see Pyramid Layout in action with the demo application provided
 in ``demo``.
 
 Installation
-============
+------------
 
 Normal Pyramid stuff:
 
@@ -23,7 +23,7 @@ Normal Pyramid stuff:
 Now let's look at some of the code.
 
 Registration
-============
+------------
 
 Pyramid Layout defines configuration directives and decorators you can
 use in your project. We need those loaded into our code. The demo does
@@ -45,7 +45,7 @@ then scan our ``demo/layouts.py``, ``demo/panels.py``, and
 ``demo/views.py`` for registrations.
 
 Layout
-======
+------
 
 Let's start with the big picture: the global look-and-feel via a layout:
 
@@ -90,7 +90,7 @@ the entire template to the macro named ``main_template``.
 How does your view know to use a layout? Let's take a look.
 
 Connecting Views to a Layout
-============================
+----------------------------
 
 Our demo app has a very simple set of views:
 
@@ -129,7 +129,7 @@ done in our ``AppLayout`` class, but in some cases, different views
 have different values for the headings.
 
 Re-Usable Snippets with Panels
-==============================
+------------------------------
 
 Our layout template has something interesting in it:
 
