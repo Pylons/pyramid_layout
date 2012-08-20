@@ -38,7 +38,7 @@ def hero(context, request, title='Hello, world!'):
     renderer='demo:templates/panels/heading.mako'
     )
 def heading_mako(context, request):
-    return {'title': 'Heading Mako'}
+    return {'title': 'Mako Heading'}
 
 
 @panel_config(
@@ -46,7 +46,7 @@ def heading_mako(context, request):
     renderer='demo:templates/panels/heading.pt'
     )
 def heading_chameleon(context, request):
-    return {'title': 'Heading Chameleon'}
+    return {'title': 'Chameleon Heading'}
 
 
 @panel_config(
@@ -54,7 +54,7 @@ def heading_chameleon(context, request):
     renderer='demo:templates/panels/heading.jinja2'
     )
 def heading_jinja2(context, request):
-    return {'title': 'Heading Jinja2'}
+    return {'title': 'Jinja2 Heading'}
 
 
 @panel_config(name='headings')
