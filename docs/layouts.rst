@@ -22,8 +22,9 @@ request object of each request, which is an instance of
 added which will be available to all templates: ``layout``, ``main_template``,
 and ``panel``.  ``layout`` is an instance of the layout selected for the view.
 ``main_template`` is the template object that provides the main layout (aka,
-owrap) for the view.  ``panel`` is a callable used to render panels in your
-templates.
+owrap) for the view.  ``panel``, a shortcut for
+:meth:`pyramid_layout.layout.LayoutManager.render_panel`,  is a callable used
+to render panels in your templates.
 
 Using Layouts
 -------------
