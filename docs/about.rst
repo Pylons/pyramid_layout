@@ -23,7 +23,7 @@ that data. Later, Pyramid's renderer globals provided an elegant
 facility for always having certain data available in all renderings.
 
 In Pyramid Layout, these ideas are brought together and given a name:
-Layout. A layout is a combination of templating and logic which wraps
+layout. A layout is a combination of templating and logic which wraps
 up a view. With Pyramid Layout, "layout" becomes a first-class citizen with
 helper config machinery and defined plug points.
 

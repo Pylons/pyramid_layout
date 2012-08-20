@@ -1,6 +1,6 @@
-=====================================================
-Pyramid Layout: Composable, Attractive UX for Pyramid
-=====================================================
+=========================================
+Pyramid Layout: Composable UX for Pyramid
+=========================================
 
 Making an attractive, efficient user-experience (UX) is hard. Pyramid Layout
 provides a layout-based approach to building your global look-and-feel
@@ -15,14 +15,10 @@ Benefits
   aka main template, aka o-wrap) as a distinct artifact.
 
 - Allow per-view, or per-project customization points using familiar
-  Pyramid idioms
+  Pyramid idioms.
 
-.. note::
-
-    Pyramid Layout is aimed at ZPT-based applications. You can write panels
-    in any templating system, as they simply have to return strings. It
-    is possible that you can do all of Pyramid Layout in another
-    Pyramid-supported templating system, but that is untested.
+- Use of any of the common Pyramid templating engines (Chameleon ZPT, Mako, 
+  Jinja2) is tested and supported with examples.
 
 Contents
 ========

@@ -111,7 +111,7 @@ def add_panel(config, panel=None, name="", context=None,
       "templates" directory relative to the directory of the
       current package of the Configurator), a path can be
       absolute, starting with a slash on UNIX or a drive letter
-      prefix on Windows.  The path can alternately be a
+      prefix on Windows.  The path can alternately be an
       asset specification in the form
       ``some.dotted.package_name:relative/path``, making it
       possible to address template assets which live in a

@@ -1,7 +1,7 @@
 Using Pyramid Layout
 ====================
 
-To get started with Pyramid Layout include ``pyramid_layout`` in your 
+To get started with Pyramid Layout, include ``pyramid_layout`` in your 
 application's config::
 
     config = Configurator(...)
@@ -21,15 +21,16 @@ request object of each request, which is an instance of
 ``pyramid_layout.layout.LayoutManager``.  Finally, three renderer globals are
 added which will be available to all templates: ``layout``, ``main_template``,
 and ``panel``.  ``layout`` is an instance of the layout selected for the view.
-``main_template`` is a ZPT macro that provides the main layout for the view.
-``panel`` is a callable used to render panels in your templates.
+``main_template`` is the template object that provides the main layout (aka,
+owrap) for the view.  ``panel`` is a callable used to render panels in your
+templates.
 
 Using Layouts
 -------------
 
 A layout consists of a class and template.  The layout class will be 
 instantiated on a per request basis with the context and request as arguments.
-The layout class can be ommitted, in which case a default layout class will be
+The layout class can be omitted, in which case a default layout class will be
 used, which only assigns `context` and `request` to the layout instance.  
 Generally, though, you will provide your own layout class which can serve as a
 place to provide API that will be available to your templates.  A simple layout
@@ -46,8 +47,8 @@ class might look like::
         def is_user_admin(self):
             return has_permission(request, 'manage')
 
-An instance of the layout object will be available as the renderer global, 
-``layout``, in templates, so, for example, you can put something like this in a
+An instance of the layout object will be available in templates as the renderer
+global, ``layout``, so, for example, you can put something like this in a
 template::
 
     <title>${layout.page_title}</title>
@@ -91,7 +92,7 @@ Using Panels
 ------------
 
 A panel is similar to a view but is responsible for rendering only a part of a
-pagee.  A panel is a callable which can accept arbitrary arguments (the first 
+page.  A panel is a callable which can accept arbitrary arguments (the first 
 two are always ``context`` and ``request``) and either returns an html string or
 uses a Pyramid renderer to render the html to insert in the page.  
 
