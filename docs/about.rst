@@ -9,13 +9,13 @@ the footer is the same. A lot of CSS/JS is pulled in, etc.
 Lots of template systems have ways to share templating between
 templates. But how do you get the data into the master template? You
 can put it in the view and pass it in, but then it is hard to know what
-parts belong to the view versus the master template. Then there's
-testing, overriding, cases where you have multiple master templates.
+parts belong to the view versus the main template. Then there's
+testing, overriding, cases where you have multiple main templates.
 
 Wouldn't it be nice to have a formal concept called "Layout" that
 gained many of the benefits of Pyramid machinery like views?
 
-This section introduces the concepts of "layout" and "panel".
+This section introduces the concepts of :term:`layout` and "panel".
 
 About Layouts
 =============
@@ -32,8 +32,8 @@ provided an elegant
 facility for always having certain data available in all renderings.
 
 In Pyramid Layout, these ideas are brought together and given a name:
-layout. A layout is a combination of templating and logic to which a
-view template can point. With Pyramid Layout, "layout" becomes a
+:term:`layout`. A layout is a combination of templating and logic to which a
+view template can point. With Pyramid Layout, :term:`layout` becomes a
 first-class citizen with helper config machinery and defined plug points.
 
 In more complex projects, different parts of the same site need different
@@ -53,12 +53,12 @@ templating with a marginal amount of overidability. Like main templates,
 though, they also have logic and data that need to be schlepped into the
 template.
 
-Pyramid Layout addresses these re-usable snippets with "panels". A panel is
-a box on the screen driven by templating and logic. You make panels,
-register them, and you can then use them in your view templates or
-layout templates.
+Pyramid Layout addresses these re-usable snippets with panels. A :term:`panel`
+is a box on the screen driven by templating and logic. You make panels,
+register them, and you can then use them in your view templates or :term:`main
+templates <main template>`.
 
-Moreover, making and using them is a very Pythonic,
-Pyramid-like process. For example, you call your panel as a normal Python
-callable and can pass it arguments.  Registration of panels, like layouts,
-is very similar to registration of views in Pyramid.
+Moreover, making and using them is a very Pythonic, Pyramid-like process. For
+example, you call your :term:`panel` as a normal Python callable and can pass
+it arguments.  Registration of panels, like :term:`layouts <layout>`, is very
+similar to registration of views in Pyramid.
