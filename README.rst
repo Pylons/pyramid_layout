@@ -9,4 +9,5 @@ application.  The concept of panels is also introduced to facilitate rendering
 of subsections of a page in a consistent way across different views in a 
 reusable way.
 
-More information is available in the ``docs`` directory.
+See the `documentation at Read the Docs
+<http://pyramid_layout.readthedocs.org/en/latest/>`_.

@@ -17,7 +17,7 @@ from sys import version
 
 from setuptools import setup, find_packages
 
-VERSION = '0.3'
+VERSION = '0.4'
 
 here = os.path.abspath(os.path.dirname(__file__))
 try:
@@ -62,4 +62,3 @@ setup(name='pyramid_layout',
           'docs': docs_require},
       test_suite="pyramid_layout",
       entry_points="")
-
