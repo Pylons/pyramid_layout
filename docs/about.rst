@@ -44,7 +44,7 @@ About Panels
 ============
 
 In your project you might have a number of layouts and certainly many
-view templates. Re-use is probably needed for little boxes on the
+view templates. Reuse is probably needed for little boxes on the
 screen. Or, if you are using someone else's layout, you might want to
 change one small part without forking the entire template.
 
