@@ -146,7 +146,7 @@ do these come from? ``@panel_config`` decorators, as shown in
 
   ${panel('navbar')}
 
-..comes from this:
+...comes from this:
 
 .. literalinclude:: ../demo/demo/panels.py
     :language: python
@@ -159,7 +159,7 @@ The ``home.mako`` view template has a more interesting panel:
 
 .. code-block:: mako
 
-  ${panel('hero', title='Mako Layout!')}
+  ${panel('hero', title='Mako')}
 
 ...which calls:
 
