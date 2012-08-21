@@ -152,16 +152,24 @@ you can also register the panel declaratively::
 :term:`Panels <panel>` can be registered to match only specific context types.
 See the :ref:`api docs <apidocs>` for more info.
 
-View Templates and Layouts in ZPT
-=================================
+Using the Main Template
+-----------------------
+
+The precise syntax for hooking into the :term:`main template` from a view 
+template varies depending on the templating language you're using.
+
+ZPT
+~~~
 
 If you are a ZPT user, connecting your view template to the :term:`layout` and
-its :term:`main template` is pretty easy. Just make this your first line in your
-view template:
+its :term:`main template` is pretty easy. Just make this the outermost element
+in your view template:
 
 .. code-block:: xml
 
   <metal:block use-macro="main_template">
+  ...
+  </metal:block>
 
 You'll note that we're taking advantage of a feature in Chameleon that allows
 us to `use a template instance as a macro
@@ -170,3 +178,33 @@ to explicitly define a macro in the :term:`main template`.
 
 After that, it's about what you'd expect. The :term:`main template` has to
 define at least one slot. The view template has to fill at least one slot.
+
+Mako
+~~~~
+
+In Mako, to use the :term:`main template` from your :term:`layout`, use this as
+the first line in your view template:
+
+.. code-block:: xml
+
+  <%inherit file="${context['main_template'].uri}"/>
+
+In your :term:`main template`, insert this line at the point where you'd like
+for the view template to be inserted:
+
+.. code-block:: xml
+
+  ${next.body()}
+
+Jinja2
+~~~~~~
+
+For Jinja2, to use the :term:`main template` for your :term:`layout`, use this
+as the first line in your view template:
+
+.. code-block:: xml
+
+  {% extends main_template %}
+
+From there, blocks defined in your :term:`main template` can be overridden by
+blocks defined in your view template, per normal usage.
