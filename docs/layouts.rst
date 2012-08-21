@@ -1,7 +1,7 @@
 Using Pyramid Layout
 ====================
 
-To get started with Pyramid Layout, include ``pyramid_layout`` in your 
+To get started with Pyramid Layout, include :mod:`pyramid_layout` in your 
 application's config::
 
     config = Configurator(...)
@@ -15,31 +15,30 @@ using the following line::
 
     pyramid.includes = pyramid_layout
 
-Including ``pyramid_layout`` in your application adds two new directives to your
-:pyramid:term:`configurator`:
-:meth:`add_layout <pyramid_layout.config.add_layout>` and
-:meth:`add_panel <pyramid_layout.config.add_panel>`.  These directives
-work very much
-like ``add_view`` but add registrations for layouts and panels.  Including 
-``pyramid_layout`` will also add an attribute, ``layout_manager``, to the 
+Including ``pyramid_layout`` in your application adds two new directives to
+your :pyramid:term:`configurator`: :meth:`add_layout
+<pyramid_layout.config.add_layout>` and :meth:`add_panel
+<pyramid_layout.config.add_panel>`.  These directives work very much like
+``add_view`` but add registrations for layouts and panels.  Including
+``pyramid_layout`` will also add an attribute, ``layout_manager``, to the
 request object of each request, which is an instance of
 :class:`pyramid_layout.layout.LayoutManager`.
 
-Finally, three renderer globals are added which will be available to
-all templates: ``layout``, ``main_template``,
-and ``panel``.  ``layout`` is an instance of the layout selected for the view.
-``main_template`` is the template object that provides the main layout (aka,
-owrap) for the view.  ``panel``, a shortcut for
+Finally, three renderer globals are added which will be available to all
+templates: ``layout``, ``main_template``, and ``panel``.  ``layout`` is an
+instance of the layout selected for the view.  ``main_template`` is the
+template object that provides the main layout (aka, owrap) for the view.
+``panel``, a shortcut for
 :meth:`pyramid_layout.layout.LayoutManager.render_panel`,  is a callable used
 to render panels in your templates.
 
 Using Layouts
 -------------
 
-A layout consists of a class and template.  The layout class will be 
+A layout consists of a class and template.  The layout class will be
 instantiated on a per request basis with the context and request as arguments.
 The layout class can be omitted, in which case a default layout class will be
-used, which only assigns `context` and `request` to the layout instance.  
+used, which only assigns `context` and `request` to the layout instance.
 Generally, though, you will provide your own layout class which can serve as a
 place to provide API that will be available to your templates.  A simple layout
 class might look like::
@@ -103,7 +102,7 @@ to register layouts declaratively::
         ...
 
 Layouts can also be registered for specific context types and
-containments. See the api docs for more info.
+containments. See the :ref:`api docs <apidocs>` for more info.
 
 Using Panels
 ------------
@@ -149,7 +148,7 @@ declaratively::
                 if sibling is not context][:n_siblings]
 
 Panels can be registered to match only specific context types.  See
-the api docs for more info.
+the :ref:`api docs <apidocs>` for more info.
 
 View Templates and Layouts in ZPT
 =================================

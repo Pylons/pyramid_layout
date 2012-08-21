@@ -2,6 +2,8 @@
 API Reference
 =============
 
+.. _apidocs:
+
 pyramid_layout.config
 ---------------------
 
