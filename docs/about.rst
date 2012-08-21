@@ -59,6 +59,6 @@ register them, and you can then use them in your view templates or
 layout templates.
 
 Moreover, making and using them is a very Pythonic,
-Pyramid-ic process. For example, you call your panel as a normal Python
+Pyramid-like process. For example, you call your panel as a normal Python
 callable and can pass it arguments.  Registration of panels, like layouts,
 is very similar to registration of views in Pyramid.
