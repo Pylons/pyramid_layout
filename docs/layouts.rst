@@ -163,27 +163,10 @@ view template:
 
   <metal:block use-macro="main_template">
 
-That's a little different than what ZPT users are used to seeing,
-which is more like:
-
-.. code-block:: xml
-
-  <metal:block use-macro="main_template.macros['master']">
-
-In fact, the template used by the layout *doesn't need* a
-``<metal:block define-macro="main_template">`` at all. Why? Here is
-what Pyramid Layout is doing:
-
-- @layout_config takes the ZPT for the :term:`main template` and lets you
-  call it as a macro
-
-- Pyramid Layout then uses Pyramid's renderer globals to make that :term:`main
-  template` available, as a callable macro, under the special name
-  ``main_template``
-
-- This ``main_template`` macro is available in the global namespace of
-  your template
+You'll note that we're taking advantage of a feature in Chameleon that allows
+us to `use a template instance as a macro
+<http://chameleon.repoze.org/docs/latest/reference.html#id46>`_ without having
+to explicitly define a macro in the :term:`main template`.
 
 After that, it's about what you'd expect. The :term:`main template` has to
-define at least one slot. The view template has to fill at least one
-slot.
+define at least one slot. The view template has to fill at least one slot.
