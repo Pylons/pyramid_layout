@@ -83,8 +83,15 @@ named::
                       'myproject.layout:templates/admin_layout.pt',
                       name='admin')
 
-Now that you have a layout, time to use it on a particular view. To use a named
-layout, call :meth:`LayoutManager.use_layout
+Now that you have a layout, time to use it on a particular view. Layouts can
+be defined declaratively, next to your renderer, in the view configuration::
+
+    @view_config(..., layout='admin')
+    def myview(context, request):
+        ...
+
+In Pyramid < 1.4, to use a named layout, call
+:meth:`LayoutManager.use_layout
 <pyramid_layout.layout.LayoutManager.use_layout>` method in your view::
 
     def myview(context, request):

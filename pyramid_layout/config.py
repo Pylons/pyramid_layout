@@ -48,11 +48,28 @@ def create_layout_manager(event):
     request.layout_manager = lm
 
 
+class LayoutPredicate(object):
+    def __init__(self, val, config):
+        self.val = val
+
+    def text(self):
+        return 'layout = %s' % self.val
+
+    phash = text
+
+    def __call__(self, context, request):
+        request.layout_manager.use_layout(self.val)
+        return True
+
+
 def includeme(config):
     config.add_directive('add_layout', add_layout)
     config.add_directive('add_panel', add_panel)
     config.add_subscriber(add_renderer_globals, BeforeRender)
     config.add_subscriber(create_layout_manager, ContextFound)
+
+    if hasattr(config, 'add_view_predicate'):
+        config.add_view_predicate('layout', LayoutPredicate)
 
 
 def add_panel(config, panel=None, name="", context=None,
