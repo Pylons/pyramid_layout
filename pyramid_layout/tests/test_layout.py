@@ -72,6 +72,22 @@ class LayoutManagerTests(unittest.TestCase):
         lookup.assert_called_once_with(
             (providedBy('context'),), IPanel, name='test')
 
+    @mock.patch('pyramid_layout.layout.find_layout')
+    def test_layout_predicate(self, find_layout):
+        from pyramid_layout.config import LayoutPredicate
+        lm = self.make_one('context', 'request')
+        find_layout.return_value = 'Test Layout'
+        pred = LayoutPredicate('test', None)
+        class Request(object):
+            pass
+        request = Request()
+        request.layout_manager = lm
+        result = pred(None, request)
+        self.assertTrue(result)
+        self.assertEqual(lm.layout, 'Test Layout')
+        self.assertEqual(pred.text(), 'layout = test')
+        find_layout.assert_called_once_with('context', 'request', 'test')
+
 
 class Test_find_layout(unittest.TestCase):
 

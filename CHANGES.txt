@@ -1,6 +1,12 @@
 pyramid_layout changelog
 ========================
 
+next release
+------------
+
+- Added a layout predicate to make the selection of the layout manager
+  declarative when using Pyramid >= 1.4.
+
 0.4 (2012-08-21)
 ----------------
 
