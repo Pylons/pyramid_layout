@@ -15,12 +15,12 @@ using the following line::
 
     pyramid.includes = pyramid_layout
 
-Including :mod:``pyramid_layout`` in your application adds two new directives
+Including :mod:`pyramid_layout` in your application adds two new directives
 to your :pyramid:term:`configurator`: :meth:`add_layout
 <pyramid_layout.config.add_layout>` and :meth:`add_panel
 <pyramid_layout.config.add_panel>`.  These directives work very much like
 :meth:`add_view <pyramid:pyramid.config.Configurator.add_view>`, but add
-registrations for layouts and panels.  Including :mod:``pyramid_layout`` will
+registrations for layouts and panels.  Including :mod:`pyramid_layout` will
 also add an attribute, ``layout_manager``, to the request object of each
 request, which is an instance of :class:`LayoutManager
 <pyramid_layout.layout.LayoutManager>`.
