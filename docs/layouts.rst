@@ -98,6 +98,26 @@ In Pyramid < 1.4, to use a named layout, call
         request.layout_manager.use_layout('admin')
         ...
 
+If you are using :pyramid:term:`traversal` you may find that in most cases it
+is unnecessary to name your layouts.  Use of the `context` argument to the
+layout configuration can allow you to use a particular layout whenever the
+:pyramid:term:`context` is of a particular type::
+
+    from ..models.wiki import WikiPage
+
+    config.add_layout('myproject.layout.MyLayout', 
+                      'myproject.layout:templates/wiki_layout.pt',
+                      context=WikiPage)
+
+Similarly, the `containment` argument allows you to use a particular layout for
+an entire branch of your :pyramid:term:`resource tree`::
+
+    from ..models.admin import AdminFolder
+
+    config.add_layout('myproject.layout.MyLayout', 
+                      'myproject.layout:templates/admin_layout.pt',
+                      containment=AdminFolder)
+
 The decorator :func:`layout_config <pyramid_layout.layout.layout_config>` can
 be used in conjuction with :meth:`Configurator.scan
 <pyramid:pyramid.config.Configurator.scan>` to register layouts declaratively::
