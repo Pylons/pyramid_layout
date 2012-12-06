@@ -31,11 +31,18 @@ def add_renderer_globals(event):
     # regular request, the request will be None, so globals can't be set
     if request is None:
         return
-    layout_manager = request.layout_manager
-    layout = layout_manager.layout
-    event['layout'] = layout
-    event['main_template'] = layout.__template__
-    event['panel'] = layout_manager.render_panel
+
+    # It is possible for add render globals to get called without a context
+    # being found.  This generally happens when there is an error finding
+    # the context and then an error handler which uses a renderer is
+    # called, such as would be the case if pyramid_debugtoolbar were
+    # being used.
+    layout_manager = getattr(request, 'layout_manager', None)
+    if layout_manager:
+        layout = layout_manager.layout
+        event['layout'] = layout
+        event['main_template'] = layout.__template__
+        event['panel'] = layout_manager.render_panel
 
 
 def create_layout_manager(event):

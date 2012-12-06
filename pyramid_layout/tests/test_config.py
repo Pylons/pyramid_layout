@@ -46,6 +46,15 @@ class Test_add_renderer_globals(unittest.TestCase):
         add_renderer_globals(event)
         self.assertEqual(len(event.keys()), 2)
 
+    def test_context_not_found(self):
+        from pyramid_layout.config import add_renderer_globals
+        request = testing.DummyRequest()
+        event = {
+            'request': request,
+        }
+        add_renderer_globals(event)
+        self.assertEqual(len(event.keys()), 1)
+
 
 class Test_create_layout_manager(unittest.TestCase):
 
