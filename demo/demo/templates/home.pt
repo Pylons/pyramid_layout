@@ -6,7 +6,14 @@
 
     <!-- Example row of columns -->
     <div class="row">
-      ${panel('headings')}
+      <p>${panel('headings')}</p>
+        <h2>User Info</h2>
+        <p>${panel('usermenu',
+            user_info={
+            'first_name': 'Jane',
+            'last_name': 'Doe',
+            'username': 'jdoe'}
+            )}</p>
     </div>
   </div>
 
