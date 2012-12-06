@@ -1,6 +1,11 @@
 pyramid_layout changelog
 ========================
 
+Unreleased
+----------
+
+- Fixed bug where class panels couldn't have args.
+
 0.5 (2012-10-23)
 ----------------
 

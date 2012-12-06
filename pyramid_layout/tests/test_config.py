@@ -284,6 +284,32 @@ class Test_add_panel(unittest.TestCase):
         self.assertEqual(iface, IPanel)
         self.assertEqual(name, '')
 
+    def test_class_w_args(self):
+        from pyramid_layout.interfaces import IPanel
+        config = mock.Mock()
+        config.maybe_dotted = lambda x: x
+        config.registry.queryUtility.return_value = None
+        class Panel(object):
+            def __init__(self, context, request):
+                pass
+            def __call__(self, foo, bar=None):
+                return ' '.join((foo, bar))
+        self.call_fut(config, Panel)
+        args, kwargs = config.action.call_args
+        self.assertIn('introspectables', kwargs)
+        discriminator, register = args
+        self.assertEqual(discriminator, ('panel', None, ''))
+        register()
+        args, kwargs = config.registry.registerAdapter.call_args
+        self.assertEqual(kwargs, {})
+        derived, context, iface, name = args
+        result = derived(None, None, 'hello', bar='sir')
+        self.assertEqual(result, 'hello sir')
+        self.assertIsInstance(result, unicode)
+        self.assertEqual(context, (None,))
+        self.assertEqual(iface, IPanel)
+        self.assertEqual(name, '')
+
     def test_class_w_attr(self):
         from pyramid_layout.interfaces import IPanel
         config = mock.Mock()
