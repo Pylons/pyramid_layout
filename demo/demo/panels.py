@@ -69,3 +69,31 @@ def headings(context, request):
 @panel_config(name='footer')
 def footer(context, request):
     return '<p>&copy; Pylons Project 2012</p>'
+
+# Example of class-based panel
+class UserPanel(object):
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    @panel_config(name='usermenu',
+                  renderer='demo:templates/panels/usermenu.pt')
+    def __call__(self, user_info=None):
+        """ Show the username of the passed in user. If None,
+        get the current user off the request.  """
+
+        if user_info is None:
+            # Presumes request.user has some info, just a demo
+            user = self.request.user
+            user_info = dict(
+                first_name=user['firstname'],
+                last_name=user['lastname'],
+                username=user['username']
+            )
+
+        label = user_info['first_name'] + ' ' + user_info['last_name']
+        href = '/profiles/' + user_info['username']
+        return dict(
+            label=label,
+            href=href
+        )

@@ -268,11 +268,11 @@ class _PanelMapper(object):
 
     def map_class(self, panel):
         attr = self.attr
-        def class_panel(context, request):
+        def class_panel(context, request, *args, **kw):
             inst = panel(context, request)
             if attr is None:
-                return inst()
-            return getattr(inst, attr)()
+                return inst(*args ,**kw)
+            return getattr(inst, attr)(*args, **kw)
         return class_panel
 
 
