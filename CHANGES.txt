@@ -1,6 +1,15 @@
 pyramid_layout changelog
 ========================
 
+Unreleased
+----------
+
+- Added error handling for the case where a BeforeRender event is not preceded
+  by a ContextFound event.  This can happen in the case where an error occurs
+  before a context is found and then a renderer is called by an error handler,
+  as would be the case using pyramid_debugtoolbar.  In this case there will be
+  no layout_manager, since the layout manager depends on the context.
+
 0.5 (2012-10-23)
 ----------------
 
