@@ -28,14 +28,18 @@ except NameError:  #pragma no cover
 def add_renderer_globals(event):
     request = event['request']
     # if the rendering is done from a script or otherwise outside a
-    # regular request, the request will be None, so globals can't be set
-    if request is None:
-        return
-    layout_manager = request.layout_manager
-    layout = layout_manager.layout
-    event['layout'] = layout
-    event['main_template'] = layout.__template__
-    event['panel'] = layout_manager.render_panel
+    # regular request, the request will be None, so globals can't be set.
+    # also, the layout manager may not have been created due to runtime
+    # errors, but this event may still be fired -- this is caught to allow
+    # the original runtime error to surface in tracebacks.
+    try:
+      layout_manager = request.layout_manager
+      layout = layout_manager.layout
+      event['layout'] = layout
+      event['main_template'] = layout.__template__
+      event['panel'] = layout_manager.render_panel
+    except AttributeError:
+      pass
 
 
 def create_layout_manager(event):
