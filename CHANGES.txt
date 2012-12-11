@@ -12,6 +12,9 @@ Unreleased
   as would be the case using pyramid_debugtoolbar.  In this case there will be
   no layout_manager, since the layout manager depends on the context.
 
+- Removed Sphinx as an installation dependency.  It is still required by the 
+  'docs' extra.
+
 0.5 (2012-10-23)
 ----------------
 
