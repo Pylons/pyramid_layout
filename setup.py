@@ -28,7 +28,6 @@ except IOError:
 
 install_requires = [
     'pyramid>=1.3.3', # requires mako fix
-    'Sphinx',
     ]
 tests_require = install_requires + ['coverage', 'nose', 'mock',
                                     'webtest']
