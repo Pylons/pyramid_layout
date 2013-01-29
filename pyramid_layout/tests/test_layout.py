@@ -103,6 +103,12 @@ class Test_find_layout(unittest.TestCase):
         lookup.assert_called_once_with(
             (providedBy('context'),), ILayout, name='test')
 
+    def test_layout_none(self):
+        from pyramid_layout.interfaces import ILayout
+        from pyramid_layout.layout import find_layout
+        request = testing.DummyRequest()
+        self.assertEqual(find_layout('context', request, 'test'), None)
+
 
 class TestStructure(unittest.TestCase):
 
