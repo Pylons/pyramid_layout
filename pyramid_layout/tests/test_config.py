@@ -55,6 +55,19 @@ class Test_add_renderer_globals(unittest.TestCase):
         add_renderer_globals(event)
         self.assertEqual(len(event.keys()), 1)
 
+    def test_layout_none(self):
+        from pyramid_layout.config import add_renderer_globals
+        lm = mock.Mock()
+        request = testing.DummyRequest()
+        request.layout_manager = lm
+        lm.layout = None
+        event = {
+                'request': request,
+                'context': request.context
+                }
+        add_renderer_globals(event)
+        self.assertEqual(event.get('layout'), None)
+
 
 class Test_create_layout_manager(unittest.TestCase):
 

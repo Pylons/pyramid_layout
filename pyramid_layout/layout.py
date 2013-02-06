@@ -61,7 +61,8 @@ class LayoutManager(object):
 def find_layout(context, request, name=''):
     adapters = request.registry.adapters
     layout = adapters.lookup((providedBy(context),), ILayout, name=name)
-    return layout(context, request)
+    if layout is not None:
+        return layout(context, request)
 
 
 class Structure(unicode):
