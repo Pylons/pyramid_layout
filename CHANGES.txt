@@ -1,6 +1,13 @@
 pyramid_layout changelog
 ========================
 
+0.8 (not released yet)
+----------------------
+
+- Switched from `Configurator.with_context` method, which was removed from
+  Pyramid in 1.3 release, to `pyramid_zcml.with_context`.  This change
+  introduces new dependency - pyramid_zcml.
+
 0.7 (2012-02-06)
 ----------------
 
@@ -17,7 +24,7 @@ pyramid_layout changelog
   as would be the case using pyramid_debugtoolbar.  In this case there will be
   no layout_manager, since the layout manager depends on the context.
 
-- Removed Sphinx as an installation dependency.  It is still required by the 
+- Removed Sphinx as an installation dependency.  It is still required by the
   'docs' extra.
 
 0.5 (2012-10-23)
@@ -36,7 +43,7 @@ pyramid_layout changelog
 0.3 (2012-04-19)
 ----------------
 
-- Removed Popper layout.  
+- Removed Popper layout.
 
 - Various minor improvements.
 
