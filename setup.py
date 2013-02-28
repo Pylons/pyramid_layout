@@ -28,6 +28,7 @@ except IOError:
 
 install_requires = [
     'pyramid>=1.3.3', # requires mako fix
+    'pyramid_zcml>=0.9.2', # requires `with_context()`
     ]
 tests_require = install_requires + ['coverage', 'nose', 'mock',
                                     'webtest']
