@@ -1,4 +1,4 @@
-from pyramid.config import Configurator
+from pyramid_zcml import with_context
 
 from zope.configuration.fields import GlobalObject
 from zope.interface import Interface
@@ -37,7 +37,7 @@ class IPanelDirective(Interface):
 
 def panel(config_context, context=None, panel=None, name="", attr=None,
           renderer=None):
-    config = Configurator.with_context(config_context)
+    config = with_context(config_context)
     config.add_panel(
         context=context, panel=panel, name=name,
         attr=attr, renderer=renderer)
@@ -73,7 +73,7 @@ class ILayoutDirective(Interface):
 
 def layout(config_context, context=None, layout=None, name="", containment=None,
            template=None):
-    config = Configurator.with_context(config_context)
+    config = with_context(config_context)
     config.add_layout(
         context=context, layout=layout, name=name, containment=containment,
         template=template)
