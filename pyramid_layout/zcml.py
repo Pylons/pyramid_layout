@@ -4,34 +4,36 @@ from zope.configuration.fields import GlobalObject
 from zope.interface import Interface
 from zope.schema import TextLine
 
+from pyramid_layout.compat import u
+
 
 class IPanelDirective(Interface):
     context = GlobalObject(
-        title=u"The interface or class this panel is for.",
+        title=u("The interface or class this panel is for."),
         required=False
         )
 
     panel = GlobalObject(
-        title=u"",
-        description=u"The panel function",
+        title=u(""),
+        description=u("The panel function"),
         required=False,
         )
 
     name = TextLine(
-        title=u"The name of the panel",
-        description=u'',
+        title=u("The name of the panel"),
+        description=u(''),
         required=False,
         )
 
     attr = TextLine(
-        title=u'The callable attribute of the panel object'
-              u'(default is __call__)',
-        description=u'',
+        title=u('The callable attribute of the panel object'
+                '(default is __call__)'),
+        description=u(''),
         required=False)
 
     renderer = TextLine(
-        title=u'The renderer asssociated with the panel',
-        description=u'',
+        title=u('The renderer asssociated with the panel'),
+        description=u(''),
         required=False)
 
 
@@ -45,29 +47,29 @@ def panel(config_context, context=None, panel=None, name="", attr=None,
 
 class ILayoutDirective(Interface):
     context = GlobalObject(
-        title=u"The interface or class this layout is for.",
+        title=u("The interface or class this layout is for."),
         required=False
         )
 
     layout = GlobalObject(
-        title=u"",
-        description=u"The layout class",
+        title=u(""),
+        description=u("The layout class"),
         required=False,
         )
 
     name = TextLine(
-        title=u"The name of the layout",
-        description=u'',
+        title=u("The name of the layout"),
+        description=u(''),
         required=False,
         )
 
     template = TextLine(
-        title=u'The renderer asssociated with the layout',
-        description=u'',
+        title=u('The renderer asssociated with the layout'),
+        description=u(''),
         required=True)
 
     containment = GlobalObject(
-        title = u'Dotted name of a containment class or interface',
+        title = u('Dotted name of a containment class or interface'),
         required=False)
 
 
