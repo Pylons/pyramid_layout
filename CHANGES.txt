@@ -11,6 +11,9 @@ pyramid_layout changelog
   Pyramid in 1.3 release, to `pyramid_zcml.with_context`.  This change
   introduces new dependency - pyramid_zcml.
 
+- Fixed Python 3.1 and 3.2 support in `zcml` module by removing unicode
+  literals.
+
 0.7 (2012-02-06)
 ----------------
 
