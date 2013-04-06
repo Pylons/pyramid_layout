@@ -67,6 +67,7 @@ class Test_add_renderer_globals(unittest.TestCase):
                 }
         add_renderer_globals(event)
         self.assertEqual(event.get('layout'), None)
+        self.assertIn('panel', event)
 
 
 class Test_create_layout_manager(unittest.TestCase):

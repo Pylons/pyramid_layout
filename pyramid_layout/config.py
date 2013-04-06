@@ -39,11 +39,11 @@ def add_renderer_globals(event):
     # being used.
     layout_manager = getattr(request, 'layout_manager', None)
     if layout_manager:
+        event['panel'] = layout_manager.render_panel
         layout = layout_manager.layout
         if layout is not None:
             event['layout'] = layout
             event['main_template'] = layout.__template__
-            event['panel'] = layout_manager.render_panel
 
 
 def create_layout_manager(event):
