@@ -40,7 +40,7 @@ class LayoutManager(object):
         """
         return find_layout(self.context, self.request)
 
-    def render_panel(self, name, *args, **kw):
+    def render_panel(self, name=u'', *args, **kw):
         """
         Renders the named panel, returning a `unicode` object that is the
         rendered HTML for the panel.  The panel is looked up using the current
