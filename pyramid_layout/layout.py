@@ -44,11 +44,16 @@ class LayoutManager(object):
         """
         Renders the named panel, returning a `unicode` object that is the
         rendered HTML for the panel.  The panel is looked up using the current
-        context and given name.  The panel is called passing in the current
+        context (or the context given as keyword argument, to override the
+        context in which the panel is called) and an optional given name
+        (which defaults to an empty string).
+        The panel is called passing in the current
         context, request and any additional parameters passed into the
         `render_panel` call.  In case a panel isn't found, `None` is returned.
         """
         context = kw.get('context', None) or self.context
+        if kw.get('context', None):
+            del kw['context']
         request = self.request
         adapters = request.registry.adapters
         panel = adapters.lookup((providedBy(context),), IPanel, name=name)
