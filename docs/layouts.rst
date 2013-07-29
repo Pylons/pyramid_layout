@@ -176,7 +176,52 @@ you can also register the panel declaratively::
         return [sibling for sibling in context.__parent__.values()
                 if sibling is not context][:n_siblings]
 
-:term:`Panels <panel>` can be registered to match only specific context types.
+Like :term:`layouts <layout>`, :term:`panels <panel>` can also be registered
+for a context type::
+
+    from pyramid_layout.panel import panel_config
+
+    @panel_config(name='see-also'
+                  context='myproject.models.Document', 
+                  renderer='templates/see-also.pt')
+    def see_also(context, request):
+        return {'title': context.title,
+                'url': request.resource_url(context)}
+
+The context to use to look up a panel defaults to the :pyramid:term:`context`
+found during :pyramid:term:`traversal`.  A different context may be provided by
+passing a `context` keyword argument to panel call.  In this hypothetical
+template, each `related_content` item can potentially be a different type and
+wind up invoking a different panel::
+
+    <h2>Related Content</h2>
+    <ul>
+      <li tal:repeat="item releated_content">
+        ${panel('see-also', context=item)}
+      </li>
+    </ul>
+
+When registering panels by context, the `name` part of the registration becomes
+optional.  In the example above, we could make the `see-also` panels the 
+default panels for any registered contexts by simply omitting `name`::
+
+    from pyramid_layout.panel import panel_config
+
+    @panel_config(context='myproject.models.Document', 
+                  renderer='templates/see-also.pt')
+    def see_also(context, request):
+        return {'title': context.title,
+                'url': request.resource_url(context)}
+
+Also in the template::
+
+    <h2>Related Content</h2>
+    <ul>
+      <li tal:repeat="item releated_content">
+        ${panel(context=item)}
+      </li>
+    </ul>
+
 See the :ref:`api docs <apidocs>` for more info.
 
 Using the Main Template
