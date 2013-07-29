@@ -7,3 +7,7 @@ ${panel('hero', title='Mako')}
 <div class="row">
   ${panel('headings')}
 </div>
+
+<div class="row">
+  ${panel('contextual_panels')}
+</div>

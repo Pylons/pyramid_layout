@@ -1,0 +1,4 @@
+<div class="span4">
+  <h2>I am Little Cat ${context.name}</h2>
+  <p>My amazing talent is ${context.talent}.</p>
+</div>
