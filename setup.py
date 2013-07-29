@@ -28,9 +28,11 @@ except IOError:
 
 install_requires = [
     'pyramid>=1.3.3', # requires mako fix
-    'pyramid_zcml>=0.9.2', # requires `with_context()`
     ]
-tests_require = install_requires + ['coverage', 'nose', 'mock',
+zcml_requires = install_requires + [
+    'pyramid_zcml>=0.9.2', # requires `with_context()`
+]
+tests_require = zcml_requires + ['coverage', 'nose', 'mock',
                                     'webtest']
 docs_require = install_requires + ['sphinx']
 
@@ -64,6 +66,7 @@ setup(name='pyramid_layout',
       install_requires=install_requires,
       tests_require=tests_require,
       extras_require={
+          'zcml': zcml_requires,
           'tests': tests_require,
           'docs': docs_require},
       test_suite="pyramid_layout",
