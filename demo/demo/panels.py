@@ -1,5 +1,7 @@
 from pyramid_layout.panel import panel_config
 
+from .layouts import Thing1, Thing2, LittleCat
+
 
 @panel_config(
     name='navbar',
@@ -97,3 +99,22 @@ class UserPanel(object):
             label=label,
             href=href
         )
+
+@panel_config(name='contextual_panels')
+def contextual_panels(context, request):
+    lm = request.layout_manager
+    layout = lm.layout
+    return '\n'.join([lm.render_panel(context=portlet)
+                      for portlet in layout.portlets])
+
+
+@panel_config(context=Thing1, renderer="demo:templates/panels/thing.pt")
+@panel_config(context=Thing2, renderer="demo:templates/panels/thing.pt")
+def thing1_and_thing2(context, request):
+    return {}
+
+
+@panel_config(context=LittleCat, renderer="demo:templates/panels/littlecat.pt")
+def littlecat(context, request):
+    return {}
+
