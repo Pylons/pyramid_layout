@@ -149,7 +149,7 @@ def add_panel(config, panel=None, name="", context=None,
 
     name
 
-      The panel name.
+      The optional panel name, which defaults to an empty string.
 
     context
 
