@@ -1,0 +1,4 @@
+<div class="span4">
+  <h2>${context.title}</h2>
+  <p>${context.content}</p>
+</div>
