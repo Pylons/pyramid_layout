@@ -1,8 +1,8 @@
 pyramid_layout changelog
 ========================
 
-0.8 (not released yet)
-----------------------
+0.8 (2013-08-31)
+----------------
 
 - Added configure.zcml file to top-level package for easier inclusion in client
   ZCML configurations.
@@ -11,10 +11,13 @@ pyramid_layout changelog
   Pyramid in 1.3 release, to `pyramid_zcml.with_context`.  This change
   introduces new dependency - pyramid_zcml.
 
-- It is now possible to use panels without a layout.
-
 - Fixed Python 3.1 and 3.2 support in `zcml` module by removing unicode
   literals.
+
+- It is now possible to use panels without a layout.
+
+- It is now possible to provide a context other than the current request's 
+  context to a panel.
 
 0.7 (2012-02-06)
 ----------------
