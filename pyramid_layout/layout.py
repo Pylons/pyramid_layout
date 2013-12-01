@@ -52,7 +52,7 @@ class LayoutManager(object):
         `render_panel` call.  In case a panel isn't found, `None` is returned.
         """
         context = kw.get('context', None)
-        if context:
+        if context is not None:
             del kw['context']
         else:
             context = self.context
