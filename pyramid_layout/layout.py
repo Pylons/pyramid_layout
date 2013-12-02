@@ -51,8 +51,8 @@ class LayoutManager(object):
         context, request and any additional parameters passed into the
         `render_panel` call.  In case a panel isn't found, `None` is returned.
         """
-        context = kw.get('context', None)
-        if context is not None:
+        if 'context' in kw:
+            context = kw.get('context')
             del kw['context']
         else:
             context = self.context
