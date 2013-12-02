@@ -77,13 +77,17 @@ class Test_panel_config(unittest.TestCase):
             return 'panel str %s' % context
         def panel_str_noname(context, request):
             return 'panel str noname %s' % context
+        def panel_bool(context, request):
+            return 'panel bool %s' % context
 
         add_panel(config, panel_int, name='howdy', context=int)
 
         add_panel(config, panel_str, name='howdy', context=str)
 
         add_panel(config, panel_str_noname)
-        
+
+        add_panel(config, panel_bool, context=bool)
+
         config.commit()
 
         self.assertEqual(LayoutManager(1, request).render_panel('howdy'), 'panel int 1')
@@ -91,4 +95,6 @@ class Test_panel_config(unittest.TestCase):
         self.assertEqual(LayoutManager('2', request).render_panel('howdy'), 'panel str 2')
         self.assertEqual(LayoutManager('2', request).render_panel('howdy', context=2), 'panel int 2')
         self.assertEqual(LayoutManager('2', request).render_panel(), 'panel str noname 2')
+        self.assertEqual(LayoutManager(True, request).render_panel(), 'panel bool True')
+        self.assertEqual(LayoutManager(False, request).render_panel(), 'panel bool False')
 
