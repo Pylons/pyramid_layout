@@ -356,7 +356,13 @@ def add_layout(config, layout=None, template=None, name='', context=None,
         if isinstance(template, basestring):
             helper = renderers.RendererHelper(name=template,
                 package=config.package, registry=config.registry)
-            template = helper.renderer.implementation()
+            try:
+                template = helper.renderer.implementation()
+            except AttributeError:
+                # New versions of pyramid-mako and pyramid-chaneleon
+                # don't have a .implementation() method anymore, but
+                # instead a .template attribute.
+                template = helper.renderer.template
 
         layout_intr.update(
             dict(
