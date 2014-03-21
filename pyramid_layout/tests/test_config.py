@@ -405,7 +405,7 @@ class Test_add_layout(unittest.TestCase):
         renderer = mock.Mock()
         renderer.filename = 'test_template.pt'
         renderer_factory = config.registry.queryUtility.return_value
-        renderer_factory.return_value.implementation.return_value = renderer
+        renderer_factory.return_value = renderer
         self.call_fut(config, template=template, context=object)
         args, kwargs = config.action.call_args
         self.assertIn('introspectables', kwargs)
@@ -417,7 +417,7 @@ class Test_add_layout(unittest.TestCase):
         factory, context, iface = args
         layout = factory('context', 'request')
         self.assertEqual(layout.__layout__, '')
-        self.assertEqual(layout.__template__, renderer)
+        self.assertEqual(layout.__template__.renderer, renderer)
         self.assertEqual(layout.context, 'context')
         self.assertEqual(layout.request, 'request')
         self.assertEqual(context, (object,))

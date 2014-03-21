@@ -42,8 +42,11 @@ def add_renderer_globals(event):
         event['panel'] = layout_manager.render_panel
         layout = layout_manager.layout
         if layout is not None:
+            template = layout.__template__
+            template = getattr(template, 'renderer', template)
+            template = getattr(template, 'template', template)
             event['layout'] = layout
-            event['main_template'] = layout.__template__
+            event['main_template'] = template
 
 
 def create_layout_manager(event):
@@ -354,14 +357,13 @@ def add_layout(config, layout=None, template=None, name='', context=None,
 
     def register(template=template):
         if isinstance(template, basestring):
-            helper = renderers.RendererHelper(name=template,
+            template = renderers.RendererHelper(name=template,
                 package=config.package, registry=config.registry)
-            template = helper.renderer.implementation()
 
         layout_intr.update(
             dict(
                 name=name,
-                filename=template.filename,
+                filename=template.name,
                 context=context,
                 callable=layout,
                 )
@@ -372,6 +374,7 @@ def add_layout(config, layout=None, template=None, name='', context=None,
             wrapped = layout(context, request)
             wrapped.__layout__ = name
             wrapped.__template__ = template
+            wrapped.__config_package__ = config.package
             return wrapped
 
         r_context = context

@@ -27,7 +27,7 @@ except IOError:
     README = CHANGES = ''
 
 install_requires = [
-    'pyramid>=1.3.3', # requires mako fix
+    'pyramid>=1.5',  # Internal refactoring of renderers
     ]
 zcml_requires = install_requires + [
     'pyramid_zcml>=0.9.2', # requires `with_context()`

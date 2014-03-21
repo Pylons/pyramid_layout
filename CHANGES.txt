@@ -1,6 +1,12 @@
 pyramid_layout changelog
 ========================
 
+Unreleased
+----------
+
+- Fixed compatability issues with Pyramid 1.5.  This version and later will 
+  require Pyramid 1.5 or later.
+
 0.8 (2013-08-31)
 ----------------
 
