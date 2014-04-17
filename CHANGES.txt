@@ -1,11 +1,13 @@
 pyramid_layout changelog
 ========================
 
-Unreleased
-----------
+0.9 (2014-04-17)
+----------------
 
 - Fixed compatability issues with Pyramid 1.5.  This version and later will 
   require Pyramid 1.5 or later.
+
+- Fixed issue where panel context could not be a boolean. 
 
 0.8 (2013-08-31)
 ----------------
