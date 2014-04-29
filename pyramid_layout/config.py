@@ -43,8 +43,15 @@ def add_renderer_globals(event):
         layout = layout_manager.layout
         if layout is not None:
             template = layout.__template__
-            template = getattr(template, 'renderer', template)
-            template = getattr(template, 'template', template)
+            if hasattr(template, 'renderer'):
+                renderer = template.renderer
+                if hasattr(renderer, 'template'):
+                    template = renderer.template
+                elif hasattr(renderer, 'template_loader'):
+                    template = renderer.template_loader()
+                else:
+                    raise TypeError(u"Can not glean the template from {0}"
+                                    .format(renderer))
             event['layout'] = layout
             event['main_template'] = template
 
