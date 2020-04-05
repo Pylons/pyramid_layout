@@ -119,7 +119,7 @@ an entire branch of your :pyramid:term:`resource tree`::
                       containment=AdminFolder)
 
 The decorator :func:`layout_config <pyramid_layout.layout.layout_config>` can
-be used in conjuction with :meth:`Configurator.scan
+be used in conjunction with :meth:`Configurator.scan
 <pyramid:pyramid.config.Configurator.scan>` to register layouts declaratively::
 
     from pyramid_layout.layout import layout_config
