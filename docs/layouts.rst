@@ -177,7 +177,9 @@ you can also register the panel declaratively::
                 if sibling is not context][:n_siblings]
 
 Like :term:`layouts <layout>`, :term:`panels <panel>` can also be registered
-for a context type::
+for a context type:
+
+.. code:: python
 
     from pyramid_layout.panel import panel_config
 
