@@ -33,7 +33,7 @@ class panel_config(object):
             config = context.config.with_package(info.module)
             config.add_panel(panel=ob, **settings)
 
-        info = venusian.attach(wrapped, callback, category='pyramid_layout')
+        info = venusian.attach(wrapped, callback, category='pyramid')
 
         if info.scope == 'class':
             # if the decorator was attached to a method in a class, or

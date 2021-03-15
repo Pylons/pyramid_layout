@@ -109,7 +109,7 @@ class layout_config(object):
             config = context.config.with_package(info.module)
             config.add_layout(layout=ob, **settings)
 
-        info = venusian.attach(wrapped, callback, category='pyramid_layout')
+        info = venusian.attach(wrapped, callback, category='pyramid')
 
         settings['_info'] = info.codeinfo # fbo "action_method"
         return wrapped
