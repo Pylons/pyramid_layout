@@ -11,3 +11,4 @@ lib
 dist
 _build
 venv
+.python-version

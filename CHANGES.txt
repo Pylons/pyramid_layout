@@ -1,6 +1,14 @@
 pyramid_layout changelog
 ========================
 
+Unreleased
+----------
+
+ - Fixed testing for Python 2.7
+ - Added Python compatibility for 3.6, 3.7, 3.8 and 3.9
+ - Removed compatibility for Python 2.6, 3.2 and 3.3. This version and later
+   will require 2.7 or 3.6+
+
 1.0 (2014-08-29)
 ----------------
 
@@ -9,10 +17,10 @@ pyramid_layout changelog
 0.9 (2014-04-17)
 ----------------
 
-- Fixed compatability issues with Pyramid 1.5.  This version and later will 
+- Fixed compatability issues with Pyramid 1.5.  This version and later will
   require Pyramid 1.5 or later.
 
-- Fixed issue where panel context could not be a boolean. 
+- Fixed issue where panel context could not be a boolean.
 
 0.8 (2013-08-31)
 ----------------
@@ -29,7 +37,7 @@ pyramid_layout changelog
 
 - It is now possible to use panels without a layout.
 
-- It is now possible to provide a context other than the current request's 
+- It is now possible to provide a context other than the current request's
   context to a panel.
 
 0.7 (2012-02-06)
