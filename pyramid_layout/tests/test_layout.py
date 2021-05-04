@@ -1,8 +1,8 @@
-try: #pragma NO COVERAGE
+try:
     # python < 2.7
     import unittest2 as unittest
-    unittest # stfu pyflakes
-except ImportError: #pragma NO COVERAGE
+    unittest # pragma: no cover
+except ImportError:
     # python >= 2.7
     import unittest
 

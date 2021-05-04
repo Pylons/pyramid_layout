@@ -1,17 +1,10 @@
-try: #pragma NO COVERAGE
-    # python < 2.7
-    import unittest2 as unittest
-    unittest # stfu pyflakes
-except ImportError: #pragma NO COVERAGE
-    # python >= 2.7
-    import unittest
-
+import unittest
 import mock
 from pyramid import testing
 
 try:
     basestring = basestring  # Python 2
-except NameError: #pragma no cover
+except NameError:
     basestring = str         # Python 3
     unicode = str
 
