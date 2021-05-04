@@ -28,16 +28,17 @@ except IOError:
 
 install_requires = [
     'pyramid>=1.5',  # Internal refactoring of renderers
-    ]
-zcml_requires = install_requires + [
-    'pyramid_zcml>=0.9.2', # requires `with_context()`
 ]
-tests_require = zcml_requires + ['coverage', 'nose', 'mock',
-                                    'webtest']
+zcml_requires = install_requires + [
+    'pyramid_zcml>=0.9.2',  # requires `with_context()`
+]
+tests_require = zcml_requires + [
+    'coverage',
+    'pytest',
+    'mock',
+    'webtest'
+]
 docs_require = install_requires + ['sphinx']
-
-if version < '2.7':
-    tests_require.append('unittest2')
 
 setup(name='pyramid_layout',
       version=VERSION,

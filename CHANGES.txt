@@ -5,7 +5,9 @@ Unreleased
 ----------
 
  - Fixed testing for Python 2.7
+
  - Added Python compatibility for 3.6, 3.7, 3.8 and 3.9
+
  - Removed compatibility for Python 2.6, 3.2 and 3.3. This version and later
    will require 2.7 or 3.6+
 

@@ -12,3 +12,5 @@ dist
 _build
 venv
 .python-version
+coverage.xml
+.coverage.py*
