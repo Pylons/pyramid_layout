@@ -1,11 +1,10 @@
 name: Build and test
 
 on:
-    # Only on pushes to master or one of the release branches we build on push
+    # Only on pushes to master
     push:
         branches:
             - master
-            - "[0-9].[0-9]+-branch"
         tags:
     # Build pull requests
     pull_request:
