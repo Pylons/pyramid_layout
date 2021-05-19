@@ -1,0 +1,10 @@
+[run]
+source =
+    pyramid_layout
+
+[report]
+show_missing = True
+precision = 2
+fail_under = 98.91
+skip_covered = True
+

@@ -8,7 +8,7 @@ from zope.interface import providedBy
 
 try:
     unicode = unicode  # Python 2
-except NameError: #pragma no cover
+except NameError:
     unicode = str      # Python 3
 
 

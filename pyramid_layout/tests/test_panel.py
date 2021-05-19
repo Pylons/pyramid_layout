@@ -1,7 +1,7 @@
-try: #pragma NO COVERAGE
+try:
     # python < 2.7
     import unittest2 as unittest
-except ImportError: #pragma NO COVERAGE
+except ImportError:
     # python >= 2.7
     import unittest
 

@@ -20,7 +20,7 @@ from zope.interface.interfaces import IInterface
 
 try:
     basestring = basestring  # Python 2
-except NameError:  #pragma no cover
+except NameError:
     basestring = str         # Python 3
     unicode = str
 
