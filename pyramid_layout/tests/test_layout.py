@@ -128,7 +128,7 @@ class Test_layout_config(unittest.TestCase):
         self.assertEqual(decorator('wrapped'), 'wrapped')
         info = venusian.attach.return_value
         args, kwargs = venusian.attach.call_args
-        self.assertEqual(kwargs, {'category': 'pyramid_layout'})
+        self.assertEqual(kwargs, {'category': 'pyramid'})
         wrapped, callback = args
         self.assertEqual(wrapped, 'wrapped')
         context = mock.Mock()

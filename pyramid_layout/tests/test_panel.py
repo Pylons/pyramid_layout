@@ -22,7 +22,7 @@ class Test_panel_config(unittest.TestCase):
             decorator = fut(name='howdy')
             self.assertEqual(decorator(panel), panel)
             args, kw = venusian.attach.call_args
-            self.assertEqual(kw, {'category': 'pyramid_layout'})
+            self.assertEqual(kw, {'category': 'pyramid'})
             venusian_wrapped, callback = args
             self.assertEqual(venusian_wrapped, panel)
             config_context = mock.Mock()
@@ -48,7 +48,7 @@ class Test_panel_config(unittest.TestCase):
             decorator = fut()
             self.assertEqual(decorator(panel), panel)
             args, kw = venusian.attach.call_args
-            self.assertEqual(kw, {'category': 'pyramid_layout'})
+            self.assertEqual(kw, {'category': 'pyramid'})
             venusian_wrapped, callback = args
             self.assertEqual(venusian_wrapped, panel)
             config_context = mock.Mock()
