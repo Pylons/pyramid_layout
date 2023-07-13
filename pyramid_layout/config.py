@@ -66,6 +66,16 @@ def create_layout_manager(event):
     request.layout_manager = lm
 
 
+def create_layout_manager_from_request(request):
+    context = request.context
+    lm_factory = request.registry.queryUtility(ILayoutManager)
+    if not lm_factory:
+        lm_factory = LayoutManager
+    lm = lm_factory(context, request)
+    request.layout_manager = lm
+
+
+
 class LayoutPredicate(object):
     def __init__(self, val, config):
         self.val = val
@@ -76,7 +86,12 @@ class LayoutPredicate(object):
     phash = text
 
     def __call__(self, context, request):
-        request.layout_manager.use_layout(self.val)
+        try:
+            request.layout_manager.use_layout(self.val)
+        except AttributeError:
+            # Whoopsie, what happened here? Let's try to recover
+            request.layout_manager = create_layout_manager_from_request(request)
+            request.layout_manager.use_layout(self.val)
         return True
 
 
